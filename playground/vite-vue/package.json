@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@baicie/ui-vue": "workspace:^",
+    "@ikunorg/vue": "workspace:^",
     "vue": "^3.3.8"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/ui-core",
+  "name": "@ikunorg/core",
   "version": "0.0.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",

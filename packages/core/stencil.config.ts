@@ -45,7 +45,7 @@ export const config: Config = {
       dir:stencilWWWPath
     },
     vueOutputTarget({
-      componentCorePackage: '@baicie/ui-core',
+      componentCorePackage: '@ikunorg/core',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,

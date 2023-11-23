@@ -1,0 +1,1 @@
+ncu -uws --root update all deps

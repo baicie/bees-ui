@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/ui-vue",
+  "name": "@ikunorg/vue",
   "version": "0.0.2",
   "description": "",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@baicie/ui-core": "workspace:^",
+    "@ikunorg/core": "workspace:^",
     "vue": "^3.3.8"
   },
   "main": "./dist/index.js",

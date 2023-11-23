@@ -1,5 +1,5 @@
 import { Plugin } from 'vue';
-import { applyPolyfills, defineCustomElements } from '@baicie/ui-core/loader';
+import { applyPolyfills, defineCustomElements } from '@ikunorg/core/loader';
 
 export const ComponentLibrary: Plugin = {
   async install() {
