@@ -1,0 +1,36 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "cz": "bcz",
+    "update-version": "tsx scripts/update-version.ts",
+    "build": "pnpm build-core && pnpm build-vue",
+    "build-core": "pnpm run -C packages/core build",
+    "build-vue": "pnpm run -C packages/vue build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@baicie/commitizen": "^0.1.0",
+    "@baicie/ui-core": "workspace:^",
+    "@baicie/ui-vue": "workspace:^",
+    "@pnpm/find-workspace-packages": "^6.0.9",
+    "@stencil/core": "^4.7.2",
+    "@stencil/sass": "^3.0.7",
+    "@stencil/vue-output-target": "^0.8.7",
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.9.4",
+    "chalk": "^5.3.0",
+    "consola": "^3.2.3",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "puppeteer": "^21.5.2",
+    "tsup": "^8.0.1",
+    "tsx": "^4.2.1",
+    "typescript": "^5.3.2"
+  }
+}
