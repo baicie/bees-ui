@@ -307,7 +307,7 @@ const Header: React.FC = () => {
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
-    <More key="more" {...sharedProps} />,
+
     <SwitchBtn
       key="lang"
       onClick={onLangChange}
@@ -330,7 +330,6 @@ const Header: React.FC = () => {
     />,
     <a
       key="github"
-      href="https://github.com/ant-design/ant-design"
       target="_blank"
       rel="noreferrer"
     >
@@ -347,9 +346,9 @@ const Header: React.FC = () => {
   const colProps = isHome
     ? [{ flex: 'none' }, { flex: 'auto' }]
     : [
-        { xxl: 4, xl: 5, lg: 6, md: 6, sm: 24, xs: 24 },
-        { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
-      ];
+      { xxl: 4, xl: 5, lg: 6, md: 6, sm: 24, xs: 24 },
+      { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
+    ];
 
   return (
     <header className={headerClassName}>
