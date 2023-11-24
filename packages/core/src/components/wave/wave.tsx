@@ -1,11 +1,13 @@
 import { Component, Host, Prop, h } from '@stencil/core';
 
 @Component({
-  tag: 'ikun-button',
-  styleUrl: 'button.scss',
+  tag: 'ikun-wave',
   shadow: true,
 })
-export class BButton {
+export class IWave {
+  constructor() {
+
+  }
   /**
    * 是否禁用
    * If `true`, the user cannot interact with the button.

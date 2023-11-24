@@ -28,6 +28,8 @@
     "generate": "stencil generate"
   },
   "dependencies": {
+    "@emotion/hash": "^0.9.1",
+    "@emotion/unitless": "^0.8.1",
     "@stencil/core": "^4.7.2"
   },
   "devDependencies": {

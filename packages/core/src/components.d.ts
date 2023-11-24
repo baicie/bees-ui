@@ -6,7 +6,13 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface BaicieButton {
+    interface IkunButton {
+        /**
+          * 是否禁用 If `true`, the user cannot interact with the button.
+         */
+        "disabled": boolean;
+    }
+    interface IkunWave {
         /**
           * 是否禁用 If `true`, the user cannot interact with the button.
          */
@@ -28,11 +34,17 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLBaicieButtonElement extends Components.BaicieButton, HTMLStencilElement {
+    interface HTMLIkunButtonElement extends Components.IkunButton, HTMLStencilElement {
     }
-    var HTMLBaicieButtonElement: {
-        prototype: HTMLBaicieButtonElement;
-        new (): HTMLBaicieButtonElement;
+    var HTMLIkunButtonElement: {
+        prototype: HTMLIkunButtonElement;
+        new (): HTMLIkunButtonElement;
+    };
+    interface HTMLIkunWaveElement extends Components.IkunWave, HTMLStencilElement {
+    }
+    var HTMLIkunWaveElement: {
+        prototype: HTMLIkunWaveElement;
+        new (): HTMLIkunWaveElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -41,12 +53,19 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "baicie-button": HTMLBaicieButtonElement;
+        "ikun-button": HTMLIkunButtonElement;
+        "ikun-wave": HTMLIkunWaveElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface BaicieButton {
+    interface IkunButton {
+        /**
+          * 是否禁用 If `true`, the user cannot interact with the button.
+         */
+        "disabled"?: boolean;
+    }
+    interface IkunWave {
         /**
           * 是否禁用 If `true`, the user cannot interact with the button.
          */
@@ -67,7 +86,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "baicie-button": BaicieButton;
+        "ikun-button": IkunButton;
+        "ikun-wave": IkunWave;
         "my-component": MyComponent;
     }
 }
@@ -75,7 +95,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "baicie-button": LocalJSX.BaicieButton & JSXBase.HTMLAttributes<HTMLBaicieButtonElement>;
+            "ikun-button": LocalJSX.IkunButton & JSXBase.HTMLAttributes<HTMLIkunButtonElement>;
+            "ikun-wave": LocalJSX.IkunWave & JSXBase.HTMLAttributes<HTMLIkunWaveElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

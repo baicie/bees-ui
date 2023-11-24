@@ -6,7 +6,7 @@ import {vueOutputTarget} from '@stencil/vue-output-target';
 export const config: Config = {
   autoprefixCss: true,
   sourceMap: false,
-  namespace: 'baccie',
+  namespace: 'ikun',
   cacheDir:stencilCachePath,
   plugins: [
     sass(),
