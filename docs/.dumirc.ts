@@ -20,7 +20,7 @@ export default defineConfig({
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
     docDirs: [{ type: 'doc', dir: '_docs' }],
-    // atomDirs: [{ type: 'component', dir: 'components' }],
+    atomDirs: [{ type: 'component', dir: '../packages/core/src/components' }],
     codeBlockMode: 'passive',
   },
   locales: [
