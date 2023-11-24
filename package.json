@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "private": "true",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "cz": "bcz",
     "update-version": "tsx scripts/update-version.ts",
     "build": "pnpm build-core && pnpm build-vue",
     "build-core": "pnpm run -C packages/core build",
-    "build-vue": "pnpm run -C packages/vue build"
+    "build-vue": "pnpm run -C packages/vue build",
+    "start": "cross-env PORT=8001 dumi dev",
+    "prepare": "is-ci || husky install && dumi setup"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +34,7 @@
     "tsup": "^8.0.1",
     "tsx": "^4.3.0",
     "turbo": "^1.10.16",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.2",
+    "vanilla-tilt": "^1.8.1"
   }
 }
