@@ -13,10 +13,10 @@ export const config: Config = {
   ],
   buildEs5: 'prod',
   outputTargets: [
-    {
-      type: 'docs-vscode',
-      file: 'dist/html.html-data.json',
-    },
+    // {
+    //   type: 'docs-vscode',
+    //   file: 'dist/html.html-data.json',
+    // },
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -31,14 +31,14 @@ export const config: Config = {
       // }],
       includeGlobalScripts: false
     },
-    {
-      type: 'docs-readme',
-      dir: stencilDocsPath
-      // file: '../docs/core.json'
-    },
-    {
-      type: 'dist-hydrate-script'
-    },
+    // {
+    //   type: 'docs-readme',
+    //   dir: stencilDocsPath
+    //   // file: '../docs/core.json'
+    // },
+    // {
+    //   type: 'dist-hydrate-script'
+    // },
     {
       type: 'www',
       serviceWorker: null, // disable service workers
