@@ -12,7 +12,7 @@ cd packages/core
 pnpm publish --access public --no-git-checks
 cd -
 
-cd packages/docs
+cd packages/react
 pnpm publish --access public --no-git-checks
 cd -
 
