@@ -3,10 +3,9 @@ import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import chalk from 'chalk';
 import consola from 'consola';
 import process from 'node:process';
-import { pkgsPath } from './paths';
+import { rootPath } from './paths';
 
-// export const projectRoot = path.resolve(fileURLToPath(import.meta.url), '..', '..')
-const getWorkspacePackages = () => findWorkspacePackages(pkgsPath);
+const getWorkspacePackages = () => findWorkspacePackages(rootPath);
 
 function errorAndExit(err: Error): never {
   consola.error(err);
@@ -14,7 +13,7 @@ function errorAndExit(err: Error): never {
 }
 
 async function main() {
-  const version = process.env.TAG_VERSION?.replace('v', '');
+  const version = process.env.TAG_VERSION?.replace('v', '') ?? '0.0.0';
   const gitHead = process.env.GIT_HEAD;
   if (!version) {
     errorAndExit(new Error('No version'));

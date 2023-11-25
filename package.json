@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
     "start": "turbo run start",
     "prepare": "is-ci || husky install",
     "clean": "turbo run clean && pnpm run clean-root",
-    "clean-root": "rimraf node_modules .turbo .stencil"
+    "clean-root": "rimraf node_modules .turbo .stencil",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
     "antd": "^5.11.3",
     "chalk": "^5.3.0",
     "consola": "^3.2.3",
+    "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.54.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
