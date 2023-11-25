@@ -7,7 +7,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@ikunorg/core": "workspace:^",
     "vue": "^3.3.8"
@@ -18,8 +18,5 @@
   "files": [
     "dist/",
     "css/"
-  ],
-  "devDependencies": {
-    "typescript": "^5.3.2"
-  }
+  ]
 }

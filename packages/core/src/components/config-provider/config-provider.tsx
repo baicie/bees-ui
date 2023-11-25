@@ -12,6 +12,7 @@ export class ConfigProvider {
   render() {
     return (
       <Host>
+        ConfigProvider2
         <slot></slot>
       </Host>
     );

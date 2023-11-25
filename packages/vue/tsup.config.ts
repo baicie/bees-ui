@@ -7,4 +7,5 @@ export default defineConfig({
   clean: true,
   external: ['vue', '@ikunorg/core'],
   format: ['cjs', 'esm'],
+  // dts: true,
 });

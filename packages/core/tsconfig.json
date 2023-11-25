@@ -11,8 +11,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "skipLibCheck":true
   },
   "include": ["src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","**/*.md","**/demo/**"]
 }
