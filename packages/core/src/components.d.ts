@@ -27,6 +27,7 @@ export namespace Components {
         "locale": Locale1;
     }
     interface IkunWave {
+        "disabled": boolean;
     }
     interface MyComponent {
         /**
@@ -98,6 +99,7 @@ declare namespace LocalJSX {
         "locale"?: Locale1;
     }
     interface IkunWave {
+        "disabled"?: boolean;
     }
     interface MyComponent {
         /**

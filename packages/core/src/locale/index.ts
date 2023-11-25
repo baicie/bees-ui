@@ -1,4 +1,4 @@
-type LocaleType = ['zh-cn', 'en-US'][number];
+type LocaleType = ['zh-CN', 'en-US'][number];
 
 export interface Locale {
   locale: LocaleType;

@@ -29,7 +29,9 @@ export const IkunLocaleProvider = /*@__PURE__*/ defineContainer<JSX.IkunLocalePr
 ]);
 
 
-export const IkunWave = /*@__PURE__*/ defineContainer<JSX.IkunWave>('ikun-wave', defineIkunWave);
+export const IkunWave = /*@__PURE__*/ defineContainer<JSX.IkunWave>('ikun-wave', defineIkunWave, [
+  'disabled'
+]);
 
 
 export const MyComponent = /*@__PURE__*/ defineContainer<JSX.MyComponent>('my-component', defineMyComponent, [

@@ -4,5 +4,5 @@
 - [ ] vue demo
 - [x] stencil store
 - [x] clear script
-- [ ] lint script
+- [x] lint script
 - [ ] test script

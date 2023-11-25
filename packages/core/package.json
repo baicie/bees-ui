@@ -25,7 +25,8 @@
     "test": "stencil test --spec --e2e",
     "test-watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "clean": "pnpm rimraf .turbo node_modules dist components hydrate loader"
+    "clean": "pnpm rimraf .turbo node_modules dist components hydrate loader",
+    "lint": "eslint --cache --max-warnings 0  \"src/**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
     "@emotion/hash": "^0.9.1",

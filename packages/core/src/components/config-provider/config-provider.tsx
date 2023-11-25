@@ -1,6 +1,8 @@
+import type { Locale } from '@ikunorg/core/src/locale';
 import { Component, Prop, h } from '@stencil/core';
-import { SizeType, ThemeConfig, useConfigContext } from './context';
-import { Locale } from '@ikunorg/core/src/locale';
+
+import type { SizeType, ThemeConfig } from './context';
+import { useConfigContext } from './context';
 
 @Component({
   tag: 'ikun-config-provider',
