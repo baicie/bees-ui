@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "pnpm tsup",
-    "dev": "pnpm tsup --watch"
+    "start": "pnpm tsup --watch"
   },
   "keywords": [],
   "author": "",

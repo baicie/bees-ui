@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "start": "pnpm tsup --watch"
   },
   "keywords": [],
   "author": "",
