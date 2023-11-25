@@ -20,6 +20,9 @@ importers:
       '@ikunorg/vue':
         specifier: workspace:^
         version: link:packages/vue
+      '@ionic/prettier-config':
+        specifier: ^4.0.0
+        version: 4.0.0(prettier@3.1.0)
       '@pnpm/find-workspace-packages':
         specifier: ^6.0.9
         version: 6.0.9(@pnpm/logger@5.0.0)
@@ -77,6 +80,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      recommended:
+        specifier: link:@ionic/eslint-config/recommended
+        version: link:@ionic/eslint-config/recommended
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -230,6 +236,9 @@ importers:
       '@stencil/core':
         specifier: ^4.7.2
         version: 4.7.2
+      '@stencil/store':
+        specifier: ^2.0.11
+        version: 2.0.11(@stencil/core@4.7.2)
     devDependencies:
       '@types/jest':
         specifier: ^29.5.10
@@ -3212,6 +3221,14 @@ packages:
     engines: {node: '>=14.18.0'}
     dev: true
 
+  /@ionic/prettier-config@4.0.0(prettier@3.1.0):
+    resolution: {integrity: sha512-0DqL6CggVdgeJAWOLPUT73rF1VD5p0tVlCpC5GXz5vTIUBxNwsJ5085Q7wXjKiE5Odx3aOHGTcuRWCawFsLFag==}
+    peerDependencies:
+      prettier: ^2.4.0 || ^3.0.0
+    dependencies:
+      prettier: 3.1.0
+    dev: true
+
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
     engines: {node: '>=12'}
@@ -4356,6 +4373,15 @@ packages:
     dependencies:
       '@stencil/core': 4.7.2
     dev: true
+
+  /@stencil/store@2.0.11(@stencil/core@4.7.2):
+    resolution: {integrity: sha512-iU803qQl8DXR1S6X4xJz6VVNgPnbhktbfLxAGe+Kx0PLJ92lBuiLKpYtPkrZNWwPOOJd3z3uSDz9UGajU4krHg==}
+    engines: {node: '>=12.0.0', npm: '>=6.0.0'}
+    peerDependencies:
+      '@stencil/core': '>=2.0.0 || >=3.0.0 || >= 4.0.0-beta.0 || >= 4.0.0'
+    dependencies:
+      '@stencil/core': 4.7.2
+    dev: false
 
   /@stencil/vue-output-target@0.8.7(@stencil/core@4.7.2):
     resolution: {integrity: sha512-hgOzbKKgLdCFrhLpmaw/qQrPSXl6hZ09K+j3p/iWh3esq6sxnwuW1PJKLniwkT4Z/JlDIk6stGPGQYi+WE5I2Q==}

@@ -2,7 +2,7 @@
 - [ ] button 
 - [ ] cssinjs
 - [ ] vue demo
-- [ ] stencil store
+- [x] stencil store
 - [x] clear script
 - [ ] lint script
 - [ ] test script

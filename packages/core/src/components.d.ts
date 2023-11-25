@@ -6,23 +6,27 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SizeType, ThemeConfig } from "./components/config-provider/context";
+import { Locale } from "@ikunorg/core/src/locale";
+import { Locale as Locale1 } from "./locale";
 export { SizeType, ThemeConfig } from "./components/config-provider/context";
+export { Locale } from "@ikunorg/core/src/locale";
+export { Locale as Locale1 } from "./locale";
 export namespace Components {
-    interface ConfigProvider {
-        "componentSize": SizeType;
-        "theme": ThemeConfig;
-    }
     interface IkunButton {
         /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
+          * If `true`, the user cannot interact with the button.
          */
         "disabled": boolean;
     }
+    interface IkunConfigProvider {
+        "componentSize": SizeType;
+        "locale": Locale;
+        "theme": ThemeConfig;
+    }
+    interface IkunLocaleProvider {
+        "locale": Locale1;
+    }
     interface IkunWave {
-        /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
-         */
-        "disabled": boolean;
     }
     interface MyComponent {
         /**
@@ -40,17 +44,23 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLConfigProviderElement extends Components.ConfigProvider, HTMLStencilElement {
-    }
-    var HTMLConfigProviderElement: {
-        prototype: HTMLConfigProviderElement;
-        new (): HTMLConfigProviderElement;
-    };
     interface HTMLIkunButtonElement extends Components.IkunButton, HTMLStencilElement {
     }
     var HTMLIkunButtonElement: {
         prototype: HTMLIkunButtonElement;
         new (): HTMLIkunButtonElement;
+    };
+    interface HTMLIkunConfigProviderElement extends Components.IkunConfigProvider, HTMLStencilElement {
+    }
+    var HTMLIkunConfigProviderElement: {
+        prototype: HTMLIkunConfigProviderElement;
+        new (): HTMLIkunConfigProviderElement;
+    };
+    interface HTMLIkunLocaleProviderElement extends Components.IkunLocaleProvider, HTMLStencilElement {
+    }
+    var HTMLIkunLocaleProviderElement: {
+        prototype: HTMLIkunLocaleProviderElement;
+        new (): HTMLIkunLocaleProviderElement;
     };
     interface HTMLIkunWaveElement extends Components.IkunWave, HTMLStencilElement {
     }
@@ -65,28 +75,29 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "config-provider": HTMLConfigProviderElement;
         "ikun-button": HTMLIkunButtonElement;
+        "ikun-config-provider": HTMLIkunConfigProviderElement;
+        "ikun-locale-provider": HTMLIkunLocaleProviderElement;
         "ikun-wave": HTMLIkunWaveElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface ConfigProvider {
-        "componentSize"?: SizeType;
-        "theme"?: ThemeConfig;
-    }
     interface IkunButton {
         /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
+          * If `true`, the user cannot interact with the button.
          */
         "disabled"?: boolean;
     }
+    interface IkunConfigProvider {
+        "componentSize"?: SizeType;
+        "locale"?: Locale;
+        "theme"?: ThemeConfig;
+    }
+    interface IkunLocaleProvider {
+        "locale"?: Locale1;
+    }
     interface IkunWave {
-        /**
-          * 是否禁用 If `true`, the user cannot interact with the button.
-         */
-        "disabled"?: boolean;
     }
     interface MyComponent {
         /**
@@ -103,8 +114,9 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "config-provider": ConfigProvider;
         "ikun-button": IkunButton;
+        "ikun-config-provider": IkunConfigProvider;
+        "ikun-locale-provider": IkunLocaleProvider;
         "ikun-wave": IkunWave;
         "my-component": MyComponent;
     }
@@ -113,8 +125,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "config-provider": LocalJSX.ConfigProvider & JSXBase.HTMLAttributes<HTMLConfigProviderElement>;
             "ikun-button": LocalJSX.IkunButton & JSXBase.HTMLAttributes<HTMLIkunButtonElement>;
+            "ikun-config-provider": LocalJSX.IkunConfigProvider & JSXBase.HTMLAttributes<HTMLIkunConfigProviderElement>;
+            "ikun-locale-provider": LocalJSX.IkunLocaleProvider & JSXBase.HTMLAttributes<HTMLIkunLocaleProviderElement>;
             "ikun-wave": LocalJSX.IkunWave & JSXBase.HTMLAttributes<HTMLIkunWaveElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

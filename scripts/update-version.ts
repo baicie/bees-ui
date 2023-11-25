@@ -7,7 +7,7 @@ import { rootPath } from './paths';
 
 const getWorkspacePackages = () => findWorkspacePackages(rootPath);
 
-function errorAndExit(err: Error): never {
+function errorAndExit(err: Error): void {
   consola.error(err);
   process.exit(1);
 }

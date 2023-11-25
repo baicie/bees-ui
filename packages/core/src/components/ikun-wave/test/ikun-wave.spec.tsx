@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { IkunConfigProvider } from '../config-provider';
+import { IkunWave } from '../ikun-wave';
 
-describe('config-provider', () => {
+describe('ikun-wave', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [IkunConfigProvider],
-      html: `<config-provider></config-provider>`,
+      components: [IkunWave],
+      html: `<ikun-wave></ikun-wave>`,
     });
     expect(page.root).toEqualHtml(`
-      <config-provider>
+      <ikun-wave>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </config-provider>
+      </ikun-wave>
     `);
   });
 });

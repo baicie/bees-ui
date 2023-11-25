@@ -1,4 +1,5 @@
 {
+  "extends": ["../../tsconfig.json"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
@@ -12,8 +13,8 @@
     "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "skipLibCheck":true
+    "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules","**/*.md","**/demo/**"]
+  "exclude": ["node_modules", "**/*.md", "**/demo/**"]
 }
