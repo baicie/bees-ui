@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "build": "pnpm tsup",
-    "start": "pnpm tsup --watch"
+    "start": "pnpm tsup --watch",
+    "clean": "pnpm rimraf .turbo node_modules dist"
   },
   "keywords": [],
   "author": "",

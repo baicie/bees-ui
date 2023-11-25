@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=8001 dumi dev"
+    "start": "cross-env PORT=8001 dumi dev",
+    "clean": "rimraf node_modules .turbo"
   },
   "keywords": [],
   "author": "",

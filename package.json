@@ -6,12 +6,11 @@
   "scripts": {
     "cz": "bcz",
     "update-version": "tsx scripts/update-version.ts",
-    "build": "pnpm build-core && pnpm build-vue",
-    "build-core": "pnpm run -C packages/core build",
-    "build-vue": "pnpm run -C packages/vue build",
+    "build": "turbo run lint test build",
     "start": "turbo run start",
     "prepare": "is-ci || husky install",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean && pnpm run clean-root",
+    "clean-root": "rimraf node_modules .turbo .stencil"
   },
   "keywords": [],
   "author": "",
