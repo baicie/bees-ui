@@ -1,16 +1,18 @@
 {
-  "name": "@ikunorg/vue",
+  "name": "@ikunorg/react",
   "version": "0.0.2",
   "description": "",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@ikunorg/core": "workspace:^",
-    "vue": "^3.3.8"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

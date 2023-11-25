@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 import { stencilCachePath ,stencilDocsPath,stencilWWWPath} from '../../scripts/paths';
 import { sass } from '@stencil/sass';
 import {vueOutputTarget} from '@stencil/vue-output-target';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   autoprefixCss: true,
@@ -42,7 +43,7 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
-      dir:stencilWWWPath
+      dir:stencilWWWPath,
     },
     vueOutputTarget({
       componentCorePackage: '@ikunorg/core',
@@ -50,6 +51,13 @@ export const config: Config = {
       includePolyfills: false,
       includeDefineCustomElements: false,
       proxiesFile: '../vue/src/components.ts',
+    }),
+    reactOutputTarget({
+      componentCorePackage: '@ikunorg/core',
+      includeImportCustomElements: true,
+      includePolyfills: false,
+      includeDefineCustomElements: false,
+      proxiesFile: '../react/src/components.ts',
     })
   ],
   testing: {

@@ -5,7 +5,7 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ['vue', '@ikunorg/core'],
+  external: ['react', '@ikunorg/core'],
   format: ['cjs', 'esm'],
   // dts: true,
 });
