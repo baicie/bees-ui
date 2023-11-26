@@ -23,7 +23,7 @@
     "@qixian.cs/github-contributors-list": "^1.1.0",
     "@stackblitz/sdk": "^1.9.0",
     "@types/react": "^18.2.38",
-    "antd": "^5.11.3",
+    "antd": "^5.11.4",
     "antd-style": "^3.5.2",
     "antd-token-previewer": "^2.0.5",
     "classnames": "^2.3.2",

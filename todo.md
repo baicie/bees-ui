@@ -6,3 +6,5 @@
 - [x] clear script
 - [x] lint script
 - [ ] test script
+
+ncu -uws --root update all deps

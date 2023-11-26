@@ -16,14 +16,14 @@ export class IkunWave {
   @Watch('disabled')
   disabledChanged() {
     this.clear();
-    // this.init();
+    this.init();
   }
 
   private clear = () => {
     this.el.removeEventListener('click', this.onClick, true);
   };
 
-  componentWillLoad() {
+  private init = () => {
     this.onClick = (e: MouseEvent) => {
       if (
         (e.target as HTMLElement).tagName === 'INPUT' ||
@@ -37,6 +37,12 @@ export class IkunWave {
         return;
       }
     };
+
+    this.el.addEventListener('click', this.onClick, true);
+  };
+
+  componentWillLoad() {
+    this.init();
   }
 
   disconnectedCallback() {
