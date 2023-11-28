@@ -10,6 +10,27 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/baccie/baccie.esm.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.cjs.js"
+      }
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./components/*": {
+      "import": "./components/*",
+      "require": "./components/*",
+      "types": "./dist/types/components.d.ts"
+    }
+  },
   "files": [
     "components/",
     "dist/",

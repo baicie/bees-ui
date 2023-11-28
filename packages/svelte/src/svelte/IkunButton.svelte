@@ -25,11 +25,10 @@ const onEvent = (e) => {
 };
 </script>
 
-<ikun-button 
+<ikun-button
   disabled={disabled}
-  
+
   bind:this={__ref}
 >
   <slot></slot>
 </ikun-button>
-  
