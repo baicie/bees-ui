@@ -8,16 +8,6 @@ pnpm update-version
 
 pnpm build
 
-cd packages/core
-pnpm publish --access public --no-git-checks
-cd -
-
-cd packages/react
-pnpm publish --access public --no-git-checks
-cd -
-
-cd packages/vue
-pnpm publish --access public --no-git-checks
-cd -
+pnpm publish-script
 
 echo "✅ Publish completed"

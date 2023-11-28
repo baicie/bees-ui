@@ -27,5 +27,8 @@
   "devDependencies": {
     "estree-walker": "^3.0.3",
     "svelte": "^4.2.7"
+  },
+  "config": {
+    "publish": true
   }
 }

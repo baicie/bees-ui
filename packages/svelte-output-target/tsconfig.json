@@ -17,5 +17,5 @@
     "jsx": "preserve"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/resources"]
+  "exclude": ["node_modules", "src/resources"],
 }

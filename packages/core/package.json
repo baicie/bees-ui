@@ -59,5 +59,8 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.5.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "publish": true
+  }
 }
