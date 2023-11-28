@@ -52,6 +52,7 @@
     "@stencil/store": "^2.0.11"
   },
   "devDependencies": {
+    "@ikunorg/svelte-output-target": "workspace:^",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.0",
     "jest": "^29.7.0",
