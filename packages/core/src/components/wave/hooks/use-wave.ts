@@ -2,13 +2,15 @@ export default function useWave(el, disabled: boolean) {
   function showWave() {
     if (!el || disabled) return;
 
-    show;
+    // show;
   }
 
   return showWave;
 }
 
-function showWaveEffect(node: HTMLElement, className: string) {
+export function showWaveEffect(node: HTMLElement, className: string) {
+  console.log(className);
+
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
   holder.style.left = `0px`;

@@ -1,0 +1,31 @@
+{
+  "name": "@ikunorg/svelte-output-target",
+  "version": "0.0.0",
+  "description": "Svelte output target for @stencil/core components.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm tsup",
+    "start": "pnpm tsup --watch",
+    "clean": "pnpm rimraf .turbo node_modules dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okamiconcept/stencil-ds-output-targets.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@stencil/core": "^4.0.0"
+  },
+  "devDependencies": {
+    "estree-walker": "^3.0.3",
+    "svelte": "^4.2.7"
+  }
+}

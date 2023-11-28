@@ -21,6 +21,7 @@
     "@baicie/commitizen": "^0.1.0",
     "@ikunorg/core": "workspace:^",
     "@ikunorg/react": "workspace:^",
+    "@ikunorg/svelte-output-target": "workspace:^",
     "@ikunorg/vue": "workspace:^",
     "@ionic/prettier-config": "^4.0.0",
     "@pnpm/find-workspace-packages": "^6.0.9",

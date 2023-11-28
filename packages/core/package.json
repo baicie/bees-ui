@@ -1,7 +1,7 @@
 {
   "name": "@ikunorg/core",
   "version": "0.0.0",
-  "description": "Stencil Component Starter",
+  "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -10,10 +10,6 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/baccie/baccie.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
-  },
   "files": [
     "components/",
     "dist/",
