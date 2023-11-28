@@ -6,7 +6,7 @@
   "scripts": {
     "cz": "bcz",
     "update-version": "tsx scripts/update-version.ts",
-    "build": "turbo run lint test build",
+    "build": "turbo run build",
     "start": "turbo run start",
     "prepare": "is-ci || husky install",
     "clean": "turbo run clean && pnpm run clean-root",

@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   external: ["svelte", "@ikunorg/core"],
   format: ["cjs", "esm"],
-  // dts: true,
+  dts: true,
 });

@@ -12,7 +12,8 @@ export class BButton {
   @Prop() disabled: boolean;
   render() {
     return (
-      <Host >
+      <Host>
+        ikun
         <slot></slot>
       </Host>
     );
