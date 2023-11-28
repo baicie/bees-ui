@@ -7,5 +7,5 @@ export default defineConfig({
   clean: true,
   external: ['react', '@ikunorg/core'],
   format: ['cjs', 'esm'],
-  // dts: true,
+  dts: true,
 });

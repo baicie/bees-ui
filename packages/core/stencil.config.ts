@@ -1,8 +1,8 @@
 import { Config } from '@stencil/core';
 import { stencilCachePath, stencilWWWPath } from '../../scripts/paths';
 import { sass } from '@stencil/sass';
-import { vueOutputTarget } from '@stencil/vue-output-target';
-import { reactOutputTarget } from '@stencil/react-output-target';
+import { vueOutputTarget } from '@ikunorg/vue-output-target';
+import { reactOutputTarget } from '@ikunorg/react-output-target';
 import { svelteOutputTarget } from '@ikunorg/svelte-output-target';
 
 export const config: Config = {

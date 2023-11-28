@@ -3,7 +3,7 @@
 /* auto-generated vue proxies */
 import { defineContainer } from './vue-component-lib/utils';
 
-import type { JSX } from '@ikunorg/core/components';
+import type { JSX } from '@ikunorg/core';
 
 import { defineCustomElement as defineIkunButton } from '@ikunorg/core/components/ikun-button.js';
 import { defineCustomElement as defineIkunConfigProvider } from '@ikunorg/core/components/ikun-config-provider.js';

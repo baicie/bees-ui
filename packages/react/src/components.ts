@@ -3,7 +3,7 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@ikunorg/core/components';
+import type { JSX } from '@ikunorg/core';
 
 import { defineCustomElement as defineIkunButton } from '@ikunorg/core/components/ikun-button.js';
 import { defineCustomElement as defineIkunConfigProvider } from '@ikunorg/core/components/ikun-config-provider.js';

@@ -1,7 +1,7 @@
 {
-  "name": "@ikunorg/svelte-output-target",
+  "name": "@ikunorg/vue-output-target",
   "version": "0.0.0",
-  "description": "Svelte output target for @stencil/core components.",
+  "description": "Vue output target for @stencil/core components.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -19,10 +19,6 @@
   "license": "MIT",
   "peerDependencies": {
     "@stencil/core": "^4.8.0"
-  },
-  "devDependencies": {
-    "estree-walker": "^3.0.3",
-    "svelte": "^4.2.7"
   },
   "config": {
     "publish": true

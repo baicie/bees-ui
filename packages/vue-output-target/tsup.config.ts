@@ -5,7 +5,7 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ["svelte", "@ikunorg/core"],
+  external: ["@ikunorg/core"],
   format: ["cjs", "esm"],
   dts: true,
 });

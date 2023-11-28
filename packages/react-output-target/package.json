@@ -1,7 +1,7 @@
 {
-  "name": "@ikunorg/svelte-output-target",
+  "name": "@ikunorg/react-output-target",
   "version": "0.0.0",
-  "description": "Svelte output target for @stencil/core components.",
+  "description": "React output target for @stencil/core components.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -21,8 +21,11 @@
     "@stencil/core": "^4.8.0"
   },
   "devDependencies": {
-    "estree-walker": "^3.0.3",
-    "svelte": "^4.2.7"
+    "@types/react": "^16.7.0",
+    "@types/react-dom": "^16.7.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-testing-library": "^7.0.0"
   },
   "config": {
     "publish": true

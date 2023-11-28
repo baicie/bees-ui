@@ -10,31 +10,11 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/baccie/baccie.esm.js",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.cjs.js"
-      }
-    },
-    "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs.js"
-    },
-    "./components/*": {
-      "import": "./components/*",
-      "require": "./components/*",
-      "types": "./dist/types/components.d.ts"
-    }
-  },
   "files": [
     "components/",
     "dist/",
-    "loader/"
+    "loader/",
+    "hydrate"
   ],
   "scripts": {
     "build": "stencil build",
@@ -52,7 +32,9 @@
     "@stencil/store": "^2.0.11"
   },
   "devDependencies": {
+    "@ikunorg/react-output-target": "workspace:^",
     "@ikunorg/svelte-output-target": "workspace:^",
+    "@ikunorg/vue-output-target": "workspace:^",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.0",
     "jest": "^29.7.0",
