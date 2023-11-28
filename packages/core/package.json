@@ -1,7 +1,7 @@
 {
   "name": "@ikunorg/core",
-  "version": "0.0.2",
-  "description": "Stencil Component Starter",
+  "version": "0.0.0",
+  "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -10,9 +10,26 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/baccie/baccie.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.cjs.js"
+      }
+    },
+    "./loader": {
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./components/*": {
+      "import": "./components/*",
+      "require": "./components/*",
+      "types": "./dist/types/components.d.ts"
+    }
   },
   "files": [
     "components/",
@@ -25,16 +42,18 @@
     "test": "stencil test --spec --e2e",
     "test-watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "clean": "pnpm rimraf .turbo node_modules dist components hydrate loader"
+    "clean": "pnpm rimraf .turbo node_modules dist components hydrate loader",
+    "lint": "eslint --cache --max-warnings 0  \"src/**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
     "@emotion/hash": "^0.9.1",
     "@emotion/unitless": "^0.8.1",
-    "@stencil/core": "^4.7.2"
+    "@stencil/core": "^4.7.2",
+    "@stencil/store": "^2.0.11"
   },
   "devDependencies": {
     "@types/jest": "^29.5.10",
-    "@types/node": "^20.9.4",
+    "@types/node": "^20.10.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.5.2"

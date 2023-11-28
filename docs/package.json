@@ -1,10 +1,11 @@
 {
   "name": "docs",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env PORT=8001 dumi dev"
+    "start": "cross-env PORT=8001 dumi dev",
+    "clean": "rimraf node_modules .turbo"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,7 @@
     "@qixian.cs/github-contributors-list": "^1.1.0",
     "@stackblitz/sdk": "^1.9.0",
     "@types/react": "^18.2.38",
-    "antd": "^5.11.3",
+    "antd": "^5.11.4",
     "antd-style": "^3.5.2",
     "antd-token-previewer": "^2.0.5",
     "classnames": "^2.3.2",

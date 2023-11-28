@@ -1,0 +1,6 @@
+src/components.d.ts
+**/test/**/*.spec.ts
+**/test/**/*.spec.tsx
+**/test/**/e2e.ts
+.eslintrc.js
+eslint.config.js

@@ -1,10 +1,11 @@
 {
   "name": "@ikunorg/react",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "",
   "scripts": {
     "build": "pnpm tsup",
-    "start": "pnpm tsup --watch"
+    "start": "pnpm tsup --watch",
+    "clean": "pnpm rimraf .turbo node_modules dist"
   },
   "keywords": [],
   "author": "",

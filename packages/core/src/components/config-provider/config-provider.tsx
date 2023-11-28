@@ -1,21 +1,31 @@
-import { Component, Host, Prop, h } from '@stencil/core';
-import { SizeType, ThemeConfig } from './context';
+import type { Locale } from '@ikunorg/core/src/locale';
+import { Component, Prop, h } from '@stencil/core';
+
+import type { SizeType, ThemeConfig } from './context';
+import { useConfigContext } from './context';
 
 @Component({
-  tag: 'config-provider',
+  tag: 'ikun-config-provider',
+  shadow: true,
 })
-export class ConfigProvider {
-  @Prop({}) componentSize: SizeType
+export class IkunConfigProvider {
+  @Prop({}) componentSize: SizeType;
 
-  @Prop() theme: ThemeConfig
+  @Prop() theme: ThemeConfig;
+
+  @Prop() locale: Locale;
+
+  componentWillLoad() {
+    useConfigContext.set('componentSize', this.componentSize);
+    useConfigContext.set('theme', this.theme);
+    useConfigContext.set('locale', this.locale);
+  }
 
   render() {
     return (
-      <Host>
-        ConfigProvider2
+      <ikun-locale-provider locale={this.locale}>
         <slot></slot>
-      </Host>
+      </ikun-locale-provider>
     );
   }
-
 }

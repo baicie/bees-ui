@@ -4,9 +4,6 @@
     "build": {
       "dependsOn": [
         "^build"
-      ],
-      "outputs": [
-        "dist/**"
       ]
     },
     "clean": {
@@ -14,6 +11,8 @@
     },
     "start": {
       "cache": true
-    }
+    },
+    "test": {},
+    "lint": {}
   }
 }
