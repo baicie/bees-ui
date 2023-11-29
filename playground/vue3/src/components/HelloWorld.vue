@@ -11,7 +11,7 @@ const count = ref(0);
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <IkunButton type="button" @click="count++">count is {{ count }}</IkunButton>
+    <IkunButton :disabled="true" @click="count++">count is {{ count }}</IkunButton>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

@@ -10,15 +10,18 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@ikun-ui/preset": "^0.0.13",
+    "@ikunorg/svelte": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^3.0.0",
     "@tsconfig/svelte": "^5.0.2",
     "svelte": "^4.2.3",
     "svelte-check": "^3.6.0",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
+    "unocss": "^0.57.7",
     "vite": "^5.0.0"
   },
   "dependencies": {
-    "@ikunorg/svelte": "workspace:^"
+    "@ikun-ui/core": "^0.0.13"
   }
 }

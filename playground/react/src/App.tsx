@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import {IkunButton} from '@ikunorg/react';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,9 +19,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <IkunButton  disabled onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </IkunButton>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

@@ -4,6 +4,7 @@ import { sass } from '@stencil/sass';
 import { vueOutputTarget } from '@ikunorg/vue-output-target';
 import { reactOutputTarget } from '@ikunorg/react-output-target';
 import { svelteOutputTarget } from '@ikunorg/svelte-output-target';
+import dynamic from '@rollup/plugin-dynamic-import-vars';
 
 export const config: Config = {
   autoprefixCss: true,
@@ -66,4 +67,8 @@ export const config: Config = {
   env: {
     version: require('./package.json').version,
   },
+  preamble: '@vite-ignore',
+  rollupPlugins:{
+    before:[ dynamic()]
+  }
 };
