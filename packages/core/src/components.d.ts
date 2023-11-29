@@ -13,10 +13,14 @@ export { Locale } from "@ikunorg/core/src/locale";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
     interface IkunButton {
+        "danger": boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
         "disabled": boolean;
+        "handleFous": () => Promise<void>;
+        "size": 'large' | 'middle' | 'small';
+        "type": 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
     }
     interface IkunConfigProvider {
         "componentSize": SizeType;
@@ -44,8 +48,24 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface IkunButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIkunButtonElement;
+}
 declare global {
+    interface HTMLIkunButtonElementEventMap {
+        "ikunFocus": void;
+        "ikunClick": void;
+    }
     interface HTMLIkunButtonElement extends Components.IkunButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIkunButtonElementEventMap>(type: K, listener: (this: HTMLIkunButtonElement, ev: IkunButtonCustomEvent<HTMLIkunButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIkunButtonElementEventMap>(type: K, listener: (this: HTMLIkunButtonElement, ev: IkunButtonCustomEvent<HTMLIkunButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIkunButtonElement: {
         prototype: HTMLIkunButtonElement;
@@ -85,10 +105,15 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IkunButton {
+        "danger"?: boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
         "disabled"?: boolean;
+        "onIkunClick"?: (event: IkunButtonCustomEvent<void>) => void;
+        "onIkunFocus"?: (event: IkunButtonCustomEvent<void>) => void;
+        "size"?: 'large' | 'middle' | 'small';
+        "type"?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
     }
     interface IkunConfigProvider {
         "componentSize"?: SizeType;

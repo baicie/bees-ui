@@ -13,7 +13,12 @@ import { defineCustomElement as defineMyComponent } from '@ikunorg/core/componen
 
 
 export const IkunButton = /*@__PURE__*/ defineContainer<JSX.IkunButton>('ikun-button', defineIkunButton, [
-  'disabled'
+  'disabled',
+  'type',
+  'size',
+  'danger',
+  'ikunFocus',
+  'ikunClick'
 ]);
 
 

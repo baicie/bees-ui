@@ -8,10 +8,24 @@ interface IkunButtonProps {
   
   /** If `true`, the user cannot interact with the button. */
   disabled?: Components.IkunButton["disabled"]
+  
+  /**  */
+  type?: Components.IkunButton["type"]
+  
+  /**  */
+  size?: Components.IkunButton["size"]
+  
+  /**  */
+  danger?: Components.IkunButton["danger"]
 }
 
 interface IkunButtonEvents {
   
+  /**  */
+  ikunFocus: Parameters<JSX.IkunButton["onIkunFocus"]>[0]
+  
+  /**  */
+  ikunClick: Parameters<JSX.IkunButton["onIkunClick"]>[0]
 }
 
 interface IkunButtonSlots {
@@ -29,6 +43,8 @@ import {
 	get_slot_changes,
 	init,
 	insert,
+	listen,
+	run_all,
 	safe_not_equal,
 	set_custom_element_data,
 	transition_in,
@@ -42,14 +58,19 @@ import { createEventDispatcher, onMount } from 'svelte';
 function create_fragment(ctx) {
 	let ikun_button;
 	let current;
-	const default_slot_template = /*#slots*/ ctx[4].default;
-	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+	let mounted;
+	let dispose;
+	const default_slot_template = /*#slots*/ ctx[9].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[8], null);
 
 	return {
 		c() {
 			ikun_button = element("ikun-button");
 			if (default_slot) default_slot.c();
 			set_custom_element_data(ikun_button, "disabled", /*disabled*/ ctx[0]);
+			set_custom_element_data(ikun_button, "type", /*type*/ ctx[1]);
+			set_custom_element_data(ikun_button, "size", /*size*/ ctx[2]);
+			set_custom_element_data(ikun_button, "danger", /*danger*/ ctx[3]);
 		},
 		m(target, anchor) {
 			insert(target, ikun_button, anchor);
@@ -58,20 +79,29 @@ function create_fragment(ctx) {
 				default_slot.m(ikun_button, null);
 			}
 
-			/*ikun_button_binding*/ ctx[5](ikun_button);
+			/*ikun_button_binding*/ ctx[10](ikun_button);
 			current = true;
+
+			if (!mounted) {
+				dispose = [
+					listen(ikun_button, "ikunFocus", /*onEvent*/ ctx[5]),
+					listen(ikun_button, "ikunClick", /*onEvent*/ ctx[5])
+				];
+
+				mounted = true;
+			}
 		},
 		p(ctx, [dirty]) {
 			if (default_slot) {
-				if (default_slot.p && (!current || dirty & /*$$scope*/ 8)) {
+				if (default_slot.p && (!current || dirty & /*$$scope*/ 256)) {
 					update_slot_base(
 						default_slot,
 						default_slot_template,
 						ctx,
-						/*$$scope*/ ctx[3],
+						/*$$scope*/ ctx[8],
 						!current
-						? get_all_dirty_from_scope(/*$$scope*/ ctx[3])
-						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null),
+						? get_all_dirty_from_scope(/*$$scope*/ ctx[8])
+						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[8], dirty, null),
 						null
 					);
 				}
@@ -79,6 +109,18 @@ function create_fragment(ctx) {
 
 			if (!current || dirty & /*disabled*/ 1) {
 				set_custom_element_data(ikun_button, "disabled", /*disabled*/ ctx[0]);
+			}
+
+			if (!current || dirty & /*type*/ 2) {
+				set_custom_element_data(ikun_button, "type", /*type*/ ctx[1]);
+			}
+
+			if (!current || dirty & /*size*/ 4) {
+				set_custom_element_data(ikun_button, "size", /*size*/ ctx[2]);
+			}
+
+			if (!current || dirty & /*danger*/ 8) {
+				set_custom_element_data(ikun_button, "danger", /*danger*/ ctx[3]);
 			}
 		},
 		i(local) {
@@ -96,7 +138,9 @@ function create_fragment(ctx) {
 			}
 
 			if (default_slot) default_slot.d(detaching);
-			/*ikun_button_binding*/ ctx[5](null);
+			/*ikun_button_binding*/ ctx[10](null);
+			mounted = false;
+			run_all(dispose);
 		}
 	};
 }
@@ -107,6 +151,10 @@ function instance($$self, $$props, $$invalidate) {
 	let __mounted = false;
 	const dispatch = createEventDispatcher();
 	let { disabled = undefined } = $$props;
+	let { type = undefined } = $$props;
+	let { size = undefined } = $$props;
+	let { danger = undefined } = $$props;
+	const handleFous = (...args) => __ref.handleFous(...args);
 	const getWebComponent = () => __ref;
 
 	onMount(() => {
@@ -114,7 +162,7 @@ function instance($$self, $$props, $$invalidate) {
 	});
 
 	const setProp = (prop, value) => {
-		if (__ref) $$invalidate(1, __ref[prop] = value, __ref);
+		if (__ref) $$invalidate(4, __ref[prop] = value, __ref);
 	};
 
 	const onEvent = e => {
@@ -125,16 +173,31 @@ function instance($$self, $$props, $$invalidate) {
 	function ikun_button_binding($$value) {
 		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
 			__ref = $$value;
-			$$invalidate(1, __ref);
+			$$invalidate(4, __ref);
 		});
 	}
 
 	$$self.$$set = $$props => {
 		if ('disabled' in $$props) $$invalidate(0, disabled = $$props.disabled);
-		if ('$$scope' in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+		if ('type' in $$props) $$invalidate(1, type = $$props.type);
+		if ('size' in $$props) $$invalidate(2, size = $$props.size);
+		if ('danger' in $$props) $$invalidate(3, danger = $$props.danger);
+		if ('$$scope' in $$props) $$invalidate(8, $$scope = $$props.$$scope);
 	};
 
-	return [disabled, __ref, getWebComponent, $$scope, slots, ikun_button_binding];
+	return [
+		disabled,
+		type,
+		size,
+		danger,
+		__ref,
+		onEvent,
+		handleFous,
+		getWebComponent,
+		$$scope,
+		slots,
+		ikun_button_binding
+	];
 }
 
 class IkunButton extends SvelteComponent {
@@ -152,11 +215,25 @@ class IkunButton extends SvelteComponent {
 
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { disabled: 0, getWebComponent: 2 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			disabled: 0,
+			type: 1,
+			size: 2,
+			danger: 3,
+			handleFous: 6,
+			getWebComponent: 7
+		});
+	}
+
+	
+  /**  */
+ get handleFous(): Components.IkunButton["handleFous"] {
+		return this.$$.ctx[6];
 	}
 
 	get getWebComponent(): HTMLIkunButtonElement | undefined {
-		return this.$$.ctx[2];
+		return this.$$.ctx[7];
 	}
 }
 

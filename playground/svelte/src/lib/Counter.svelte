@@ -10,5 +10,7 @@
 </script>
 
 <div>
+  <IkunButton on:ikunClick={increment}>count is {count}</IkunButton>
+  <KButton on:click={increment}>count is {count}</KButton>
   <Button on:click={increment}>count is {count}</Button>
 </div>
