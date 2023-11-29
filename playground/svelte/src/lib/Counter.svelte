@@ -1,6 +1,7 @@
 <script lang="ts">
   import { IkunButton } from "@ikunorg/svelte";
   import {KButton} from '@ikun-ui/core';
+  import { Button } from "carbon-components-svelte";
 
   let count: number = 0
   const increment = () => {
@@ -9,5 +10,5 @@
 </script>
 
 <div>
-  <IkunButton on:click={increment}>count is {count}</IkunButton>
+  <Button on:click={increment}>count is {count}</Button>
 </div>

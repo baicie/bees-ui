@@ -11,8 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ikunorg/core": "workspace:^",
-    "svelte": "^4.2.7"
+    "@ikunorg/core": "workspace:^"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,5 +22,8 @@
   ],
   "config": {
     "publish": true
+  },
+  "devDependencies": {
+    "svelte": "^4.2.7"
   }
 }

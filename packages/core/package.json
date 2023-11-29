@@ -28,7 +28,7 @@
   "dependencies": {
     "@emotion/hash": "^0.9.1",
     "@emotion/unitless": "^0.8.1",
-    "@stencil/core": "^4.7.2",
+    "@stencil/core": "^4.8.0",
     "@stencil/store": "^2.0.11"
   },
   "devDependencies": {
