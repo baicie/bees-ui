@@ -20,6 +20,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.1.1",
     "@baicie/commitizen": "^0.1.0",
+    "@baicie/vite-svelte-test": "^1.1.0",
     "@ikunorg/core": "workspace:^",
     "@ikunorg/react": "workspace:^",
     "@ikunorg/svelte-output-target": "workspace:^",
@@ -50,6 +51,7 @@
     "tsx": "^4.6.0",
     "turbo": "^1.10.16",
     "typescript": "^5.3.2",
-    "vanilla-tilt": "^1.8.1"
+    "vanilla-tilt": "^1.8.1",
+    "vite_svelte_comps": "^0.0.3"
   }
 }

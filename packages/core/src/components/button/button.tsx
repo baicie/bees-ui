@@ -41,7 +41,7 @@ export class BButton {
   }
 
   private handleClick = (ev: Event) => {
-    if (this.disabled) {
+    if (!this.disabled) {
       ev.preventDefault();
       ev.stopImmediatePropagation();
       this.ikunClick.emit();
