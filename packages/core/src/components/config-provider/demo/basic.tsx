@@ -1,5 +1,5 @@
 import React from 'react';
-import { IkunConfigProvider } from '@ikunorg/react';
+import { IkunConfigProvider } from '@bees-ui/react';
 
 const App: React.FC = () => {
   const [top, setTop] = React.useState<number>(100);

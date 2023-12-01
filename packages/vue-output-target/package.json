@@ -1,5 +1,5 @@
 {
-  "name": "@ikunorg/vue-output-target",
+  "name": "@bees-ui/vue-output-target",
   "version": "0.0.0",
   "description": "Vue output target for @stencil/core components.",
   "main": "dist/index.js",

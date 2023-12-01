@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import { Components, JSX } from '@ikunorg/core';
+import { Components, JSX } from '@bees-ui/core';
 
 
 interface IkunButtonProps {

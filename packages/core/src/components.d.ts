@@ -6,10 +6,10 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { SizeType, ThemeConfig } from "./components/config-provider/context";
-import { Locale } from "@ikunorg/core/src/locale";
+import { Locale } from "@bees-ui/core/src/locale";
 import { Locale as Locale1 } from "./locale";
 export { SizeType, ThemeConfig } from "./components/config-provider/context";
-export { Locale } from "@ikunorg/core/src/locale";
+export { Locale } from "@bees-ui/core/src/locale";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
     interface IkunButton {

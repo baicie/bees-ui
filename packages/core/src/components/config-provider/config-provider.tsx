@@ -1,4 +1,4 @@
-import type { Locale } from '@ikunorg/core/src/locale';
+import type { Locale } from '@bees-ui/core/src/locale';
 import { Component, Prop, h } from '@stencil/core';
 
 import type { SizeType, ThemeConfig } from './context';

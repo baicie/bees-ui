@@ -1,5 +1,5 @@
 {
-  "name": "@ikunorg/svelte",
+  "name": "@bees-ui/svelte",
   "version": "0.0.0",
   "description": "",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ikunorg/core": "workspace:^"
+    "@bees-ui/core": "workspace:^"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

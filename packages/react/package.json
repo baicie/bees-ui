@@ -1,5 +1,5 @@
 {
-  "name": "@ikunorg/react",
+  "name": "@bees-ui/react",
   "version": "0.0.0",
   "description": "",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ikunorg/core": "workspace:^",
+    "@bees-ui/core": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

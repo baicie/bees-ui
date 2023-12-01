@@ -3,13 +3,13 @@
 /* auto-generated vue proxies */
 import { defineContainer } from './vue-component-lib/utils';
 
-import type { JSX } from '@ikunorg/core';
+import type { JSX } from '@bees-ui/core';
 
-import { defineCustomElement as defineIkunButton } from '@ikunorg/core/components/ikun-button.js';
-import { defineCustomElement as defineIkunConfigProvider } from '@ikunorg/core/components/ikun-config-provider.js';
-import { defineCustomElement as defineIkunLocaleProvider } from '@ikunorg/core/components/ikun-locale-provider.js';
-import { defineCustomElement as defineIkunWave } from '@ikunorg/core/components/ikun-wave.js';
-import { defineCustomElement as defineMyComponent } from '@ikunorg/core/components/my-component.js';
+import { defineCustomElement as defineIkunButton } from '@bees-ui/core/components/ikun-button.js';
+import { defineCustomElement as defineIkunConfigProvider } from '@bees-ui/core/components/ikun-config-provider.js';
+import { defineCustomElement as defineIkunLocaleProvider } from '@bees-ui/core/components/ikun-locale-provider.js';
+import { defineCustomElement as defineIkunWave } from '@bees-ui/core/components/ikun-wave.js';
+import { defineCustomElement as defineMyComponent } from '@bees-ui/core/components/my-component.js';
 
 
 export const IkunButton = /*@__PURE__*/ defineContainer<JSX.IkunButton>('ikun-button', defineIkunButton, [

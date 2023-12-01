@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
 // @ts-nocheck
-import '@ikunorg/core/loader';
+import '@bees-ui/core/loader';
 
 import IkunButton from './components/IkunButton';
 import IkunConfigProvider from './components/IkunConfigProvider';

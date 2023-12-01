@@ -1,4 +1,4 @@
-import { Locale } from '@ikunorg/core/src/locale';
+import { Locale } from '@bees-ui/core/src/locale';
 import { AliasToken, OverrideToken } from '../theme/interface';
 import { createStore } from '@stencil/store';
 

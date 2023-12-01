@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { IkunButton } from "@ikunorg/vue";
-import '@baicie/vite-svelte-test/dist/es/index';
-import 'vite_svelte_comps/dist/custom-counter.es';
+import { IkunButton } from "@bees-ui/vue";
+import "@baicie/vite-svelte-test/dist/es/index";
+import "vite_svelte_comps/dist/custom-counter.es";
 defineProps<{ msg: string }>();
 
 const count = ref(0);
@@ -12,9 +12,11 @@ const count = ref(0);
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <my-custom-counter url="demo"/>
+    <my-custom-counter url="demo" />
     <my-element demo="vue3">my-element</my-element>
-    <IkunButton :disabled="true" @click="count++">count is {{ count }}</IkunButton>
+    <IkunButton :disabled="true" @click="count++"
+      >count is {{ count }}</IkunButton
+    >
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR

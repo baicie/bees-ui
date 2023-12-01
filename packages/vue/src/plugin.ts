@@ -1,5 +1,5 @@
-import { Plugin } from 'vue';
-import { applyPolyfills, defineCustomElements } from '@ikunorg/core/loader';
+import { Plugin } from "vue";
+import { applyPolyfills, defineCustomElements } from "@bees-ui/core/loader";
 
 export const ComponentLibrary: Plugin = {
   async install() {

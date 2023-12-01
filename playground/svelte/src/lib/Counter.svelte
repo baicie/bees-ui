@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { IkunButton } from "@ikunorg/svelte";
+  import { IkunButton } from "@bees-ui/svelte";
   import {KButton} from '@ikun-ui/core';
   import { Button } from "carbon-components-svelte";
   import '@baicie/vite-svelte-test/dist/es/index';

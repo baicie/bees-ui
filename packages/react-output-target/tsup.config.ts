@@ -5,7 +5,7 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: [ "@ikunorg/core"],
+  external: ["@bees-ui/core"],
   format: ["cjs", "esm"],
   dts: true,
 });

@@ -17,16 +17,16 @@ importers:
       '@baicie/vite-svelte-test':
         specifier: ^1.1.0
         version: 1.1.0
-      '@ikunorg/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:packages/core
-      '@ikunorg/react':
+      '@bees-ui/react':
         specifier: workspace:^
         version: link:packages/react
-      '@ikunorg/svelte-output-target':
+      '@bees-ui/svelte-output-target':
         specifier: workspace:^
         version: link:packages/svelte-output-target
-      '@ikunorg/vue':
+      '@bees-ui/vue':
         specifier: workspace:^
         version: link:packages/vue
       '@ionic/prettier-config':
@@ -252,13 +252,13 @@ importers:
         specifier: ^2.0.11
         version: 2.0.11(@stencil/core@4.8.0)
     devDependencies:
-      '@ikunorg/react-output-target':
+      '@bees-ui/react-output-target':
         specifier: workspace:^
         version: link:../react-output-target
-      '@ikunorg/svelte-output-target':
+      '@bees-ui/svelte-output-target':
         specifier: workspace:^
         version: link:../svelte-output-target
-      '@ikunorg/vue-output-target':
+      '@bees-ui/vue-output-target':
         specifier: workspace:^
         version: link:../vue-output-target
       '@types/jest':
@@ -279,7 +279,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@ikunorg/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:../core
       react:
@@ -313,7 +313,7 @@ importers:
 
   packages/svelte:
     dependencies:
-      '@ikunorg/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:../core
     devDependencies:
@@ -336,7 +336,7 @@ importers:
 
   packages/vue:
     dependencies:
-      '@ikunorg/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:../core
       vue:
@@ -351,7 +351,7 @@ importers:
 
   playground/react:
     dependencies:
-      '@ikunorg/react':
+      '@bees-ui/react':
         specifier: workspace:^
         version: link:../../packages/react
       react:
@@ -398,12 +398,12 @@ importers:
         specifier: ^0.0.13
         version: 0.0.13(@popperjs/core@2.11.8)(ansi-colors@4.1.3)(baiwusanyu-utils@1.0.16)(moment@2.29.4)(svelte@4.2.7)(unocss@0.57.7)
     devDependencies:
+      '@bees-ui/svelte':
+        specifier: workspace:^
+        version: link:../../packages/svelte
       '@ikun-ui/preset':
         specifier: ^0.0.13
         version: 0.0.13
-      '@ikunorg/svelte':
-        specifier: workspace:^
-        version: link:../../packages/svelte
       '@sveltejs/vite-plugin-svelte':
         specifier: ^3.0.1
         version: 3.0.1(svelte@4.2.7)(vite@5.0.3)
@@ -434,7 +434,7 @@ importers:
 
   playground/vue3:
     dependencies:
-      '@ikunorg/vue':
+      '@bees-ui/vue':
         specifier: workspace:^
         version: link:../../packages/vue
       vue:

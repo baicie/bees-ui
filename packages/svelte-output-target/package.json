@@ -1,5 +1,5 @@
 {
-  "name": "@ikunorg/svelte-output-target",
+  "name": "@bees-ui/svelte-output-target",
   "version": "0.0.0",
   "description": "Svelte output target for @stencil/core components.",
   "main": "dist/index.js",

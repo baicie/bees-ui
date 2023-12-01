@@ -1,15 +1,15 @@
 import { Config } from '@stencil/core';
 import { stencilCachePath, stencilWWWPath } from '../../scripts/paths';
 import { sass } from '@stencil/sass';
-import { vueOutputTarget } from '@ikunorg/vue-output-target';
-import { reactOutputTarget } from '@ikunorg/react-output-target';
-import { svelteOutputTarget } from '@ikunorg/svelte-output-target';
+import { vueOutputTarget } from '@bees-ui/vue-output-target';
+import { reactOutputTarget } from '@bees-ui/react-output-target';
+import { svelteOutputTarget } from '@bees-ui/svelte-output-target';
 import dynamic from '@rollup/plugin-dynamic-import-vars';
 
 export const config: Config = {
   autoprefixCss: true,
   sourceMap: false,
-  namespace: 'ikun',
+  namespace: 'Bees',
   cacheDir: stencilCachePath,
   plugins: [sass()],
   buildEs5: 'prod',
@@ -37,21 +37,21 @@ export const config: Config = {
       dir: stencilWWWPath,
     },
     vueOutputTarget({
-      componentCorePackage: '@ikunorg/core',
+      componentCorePackage: '@bees-ui/core',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
       proxiesFile: '../vue/src/components.ts',
     }),
     reactOutputTarget({
-      componentCorePackage: '@ikunorg/core',
+      componentCorePackage: '@bees-ui/core',
       includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
       proxiesFile: '../react/src/components.ts',
     }),
     svelteOutputTarget({
-      componentCorePackage: '@ikunorg/core',
+      componentCorePackage: '@bees-ui/core',
       // includeImportCustomElements: true,
       includePolyfills: false,
       includeDefineCustomElements: false,
@@ -68,7 +68,7 @@ export const config: Config = {
     version: require('./package.json').version,
   },
   preamble: '@vite-ignore',
-  rollupPlugins:{
-    before:[ dynamic()]
-  }
+  rollupPlugins: {
+    before: [dynamic()],
+  },
 };

@@ -1,5 +1,5 @@
 {
-  "name": "@ikunorg/react-output-target",
+  "name": "@bees-ui/react-output-target",
   "version": "0.0.0",
   "description": "React output target for @stencil/core components.",
   "main": "dist/index.js",

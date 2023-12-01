@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@ikun-ui/preset": "^0.0.13",
-    "@ikunorg/svelte": "workspace:^",
+    "@bees-ui/svelte": "workspace:^",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "@tsconfig/svelte": "^5.0.2",
     "carbon-components-svelte": "^0.82.4",

@@ -3,13 +3,13 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import type { JSX } from '@ikunorg/core';
+import type { JSX } from '@bees-ui/core';
 
-import { defineCustomElement as defineIkunButton } from '@ikunorg/core/components/ikun-button.js';
-import { defineCustomElement as defineIkunConfigProvider } from '@ikunorg/core/components/ikun-config-provider.js';
-import { defineCustomElement as defineIkunLocaleProvider } from '@ikunorg/core/components/ikun-locale-provider.js';
-import { defineCustomElement as defineIkunWave } from '@ikunorg/core/components/ikun-wave.js';
-import { defineCustomElement as defineMyComponent } from '@ikunorg/core/components/my-component.js';
+import { defineCustomElement as defineIkunButton } from '@bees-ui/core/components/ikun-button.js';
+import { defineCustomElement as defineIkunConfigProvider } from '@bees-ui/core/components/ikun-config-provider.js';
+import { defineCustomElement as defineIkunLocaleProvider } from '@bees-ui/core/components/ikun-locale-provider.js';
+import { defineCustomElement as defineIkunWave } from '@bees-ui/core/components/ikun-wave.js';
+import { defineCustomElement as defineMyComponent } from '@bees-ui/core/components/my-component.js';
 
 export const IkunButton = /*@__PURE__*/createReactComponent<JSX.IkunButton, HTMLIkunButtonElement>('ikun-button', undefined, undefined, defineIkunButton);
 export const IkunConfigProvider = /*@__PURE__*/createReactComponent<JSX.IkunConfigProvider, HTMLIkunConfigProviderElement>('ikun-config-provider', undefined, undefined, defineIkunConfigProvider);
