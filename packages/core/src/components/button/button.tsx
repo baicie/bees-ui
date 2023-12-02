@@ -1,34 +1,31 @@
-import { Component, EventEmitter, Host, Prop, h ,Event, State, Watch, Method, Listen} from '@stencil/core';
+import { Component, EventEmitter, Host, Prop, h, Event, State, Watch, Method, ComponentInterface } from '@stencil/core';
 import warning from '../../utils/warning';
 
 @Component({
-  tag: 'ikun-button',
+  tag: 'bees-button',
   styleUrl: 'button.scss',
   shadow: true,
 })
-export class BButton {
+export class Button implements ComponentInterface {
+  private buttonRef: HTMLButtonElement | undefined;
   /**
    * If `true`, the user cannot interact with the button.
    */
   @Prop() disabled: boolean;
 
-  @Prop() type: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost' = 'default';
+  @Prop({ mutable: true, reflect: true }) type: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost' =
+    'default';
 
-  @Prop() size: 'large' | 'middle' | 'small' = 'middle';
+  @Prop({ reflect: true }) size: 'large' | 'middle' | 'small' = 'middle';
 
   @Prop() danger: boolean;
 
   @State() text: string;
+  @State() innerLoading: boolean;
 
   @Event() ikunFocus!: EventEmitter<void>;
 
   @Event() ikunClick!: EventEmitter<void>;
-
-  @Listen('click')
-  handleClick2() {
-    warning(true, 'handleClick2');
-  }
-
 
   @Watch('text')
   textChanged(text: string) {
@@ -46,15 +43,24 @@ export class BButton {
       ev.stopImmediatePropagation();
       this.ikunClick.emit();
       this.text = 'textChanged';
+      console.log('buttonRef', this.buttonRef);
     }
-  }
+  };
+
+  buttonProps = {
+    onClick: this.handleClick,
+  };
+
+  buttonNode = (
+    <button {...this.buttonProps} ref={(buttonRef) => (this.buttonRef = buttonRef)}>
+      <slot></slot>
+    </button>
+  );
 
   render() {
     return (
-      <Host
-        onClick={this.handleClick}
-      >
-        <slot></slot>
+      <Host>
+        <bees-wave disabled={this.innerLoading}>{this.buttonNode}</bees-wave>
       </Host>
     );
   }

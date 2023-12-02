@@ -6,9 +6,11 @@ import { reactOutputTarget } from '@bees-ui/react-output-target';
 import { svelteOutputTarget } from '@bees-ui/svelte-output-target';
 import dynamic from '@rollup/plugin-dynamic-import-vars';
 
+const isDev = process.argv.includes('--dev');
+
 export const config: Config = {
   autoprefixCss: true,
-  sourceMap: false,
+  sourceMap: isDev,
   namespace: 'Bees',
   cacheDir: stencilCachePath,
   plugins: [sass()],
@@ -69,6 +71,6 @@ export const config: Config = {
   },
   preamble: '@vite-ignore',
   rollupPlugins: {
-    before: [dynamic()],
+    before: [isDev ? undefined : dynamic()],
   },
 };

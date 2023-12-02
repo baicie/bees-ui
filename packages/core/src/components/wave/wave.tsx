@@ -1,17 +1,24 @@
-import { Component, Host, h, Element, State, Prop, Watch } from '@stencil/core';
+import { Component, Host, h, Element, Prop, Watch } from '@stencil/core';
 
 import isVisible from '../../utils/isVisible';
+import useWave from './use-wave';
 
 @Component({
-  tag: 'ikun-wave',
+  tag: 'bees-wave',
   shadow: true,
 })
-export class IkunWave {
+export class Wave {
   @Element() el!: HTMLElement;
 
-  @Prop() disabled: boolean;
+  @Prop() disabled: boolean = false;
 
-  @State() onClick: (e: MouseEvent) => void;
+  private onClick: (e: MouseEvent) => void;
+
+  // private effectEls: HTMLElement[] = [];
+
+  private showWave = useWave(this.el, 'btn-demo', {
+    disabled: this.disabled,
+  });
 
   @Watch('disabled')
   disabledChanged() {
@@ -25,6 +32,8 @@ export class IkunWave {
 
   private init = () => {
     this.onClick = (e: MouseEvent) => {
+      console.log('onClick', e.target);
+
       if (
         (e.target as HTMLElement).tagName === 'INPUT' ||
         !isVisible(e.target as HTMLElement) ||
@@ -36,12 +45,15 @@ export class IkunWave {
       ) {
         return;
       }
+      this.showWave();
     };
 
     this.el.addEventListener('click', this.onClick, true);
   };
 
   componentWillLoad() {
+    console.log('componentWillLoad', this.el);
+
     this.init();
   }
 

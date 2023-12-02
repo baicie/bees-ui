@@ -1,15 +1,7 @@
-export default function useWave(el, disabled: boolean) {
-  function showWave() {
-    if (!el || disabled) return;
-
-    // show;
-  }
-
-  return showWave;
-}
+import { WaveEffect } from './wave-effect';
 
 export function showWaveEffect(node: HTMLElement, className: string) {
-  console.log(className);
+  console.log('showWaveEffect');
 
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
@@ -17,7 +9,9 @@ export function showWaveEffect(node: HTMLElement, className: string) {
   holder.style.top = `0px`;
   node?.insertBefore(holder, node?.firstChild);
 
-  // return
+  const wave = document.createElement('bees-wave-effect') as unknown as WaveEffect;
+  wave.target = node;
+  wave.myClassName = className;
 
-  // render(<WaveEffect target={node} className={className} />, holder);
+  holder.appendChild(wave as unknown as Node);
 }
