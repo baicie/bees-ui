@@ -22,17 +22,17 @@ export namespace Components {
         "size": 'large' | 'middle' | 'small';
         "type": 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
     }
+    interface BeesConfigProvider {
+        "componentSize": SizeType;
+        "locale": Locale;
+        "theme": ThemeConfig;
+    }
     interface BeesWave {
         "disabled": boolean;
     }
     interface BeesWaveEffect {
         "myClassName": string;
         "target": HTMLElement;
-    }
-    interface IkunConfigProvider {
-        "componentSize": SizeType;
-        "locale": Locale;
-        "theme": ThemeConfig;
     }
     interface IkunLocaleProvider {
         "locale": Locale1;
@@ -61,6 +61,12 @@ declare global {
         prototype: HTMLBeesButtonElement;
         new (): HTMLBeesButtonElement;
     };
+    interface HTMLBeesConfigProviderElement extends Components.BeesConfigProvider, HTMLStencilElement {
+    }
+    var HTMLBeesConfigProviderElement: {
+        prototype: HTMLBeesConfigProviderElement;
+        new (): HTMLBeesConfigProviderElement;
+    };
     interface HTMLBeesWaveElement extends Components.BeesWave, HTMLStencilElement {
     }
     var HTMLBeesWaveElement: {
@@ -73,12 +79,6 @@ declare global {
         prototype: HTMLBeesWaveEffectElement;
         new (): HTMLBeesWaveEffectElement;
     };
-    interface HTMLIkunConfigProviderElement extends Components.IkunConfigProvider, HTMLStencilElement {
-    }
-    var HTMLIkunConfigProviderElement: {
-        prototype: HTMLIkunConfigProviderElement;
-        new (): HTMLIkunConfigProviderElement;
-    };
     interface HTMLIkunLocaleProviderElement extends Components.IkunLocaleProvider, HTMLStencilElement {
     }
     var HTMLIkunLocaleProviderElement: {
@@ -87,23 +87,28 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "bees-button": HTMLBeesButtonElement;
+        "bees-config-provider": HTMLBeesConfigProviderElement;
         "bees-wave": HTMLBeesWaveElement;
         "bees-wave-effect": HTMLBeesWaveEffectElement;
-        "ikun-config-provider": HTMLIkunConfigProviderElement;
         "ikun-locale-provider": HTMLIkunLocaleProviderElement;
     }
 }
 declare namespace LocalJSX {
     interface BeesButton {
-        "danger"?: boolean;
+        "danger": boolean;
         /**
           * If `true`, the user cannot interact with the button.
          */
-        "disabled"?: boolean;
+        "disabled": boolean;
         "onIkunClick"?: (event: BeesButtonCustomEvent<void>) => void;
         "onIkunFocus"?: (event: BeesButtonCustomEvent<void>) => void;
         "size"?: 'large' | 'middle' | 'small';
         "type"?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
+    }
+    interface BeesConfigProvider {
+        "componentSize"?: SizeType;
+        "locale"?: Locale;
+        "theme"?: ThemeConfig;
     }
     interface BeesWave {
         "disabled"?: boolean;
@@ -112,19 +117,14 @@ declare namespace LocalJSX {
         "myClassName"?: string;
         "target"?: HTMLElement;
     }
-    interface IkunConfigProvider {
-        "componentSize"?: SizeType;
-        "locale"?: Locale;
-        "theme"?: ThemeConfig;
-    }
     interface IkunLocaleProvider {
         "locale"?: Locale1;
     }
     interface IntrinsicElements {
         "bees-button": BeesButton;
+        "bees-config-provider": BeesConfigProvider;
         "bees-wave": BeesWave;
         "bees-wave-effect": BeesWaveEffect;
-        "ikun-config-provider": IkunConfigProvider;
         "ikun-locale-provider": IkunLocaleProvider;
     }
 }
@@ -133,9 +133,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bees-button": LocalJSX.BeesButton & JSXBase.HTMLAttributes<HTMLBeesButtonElement>;
+            "bees-config-provider": LocalJSX.BeesConfigProvider & JSXBase.HTMLAttributes<HTMLBeesConfigProviderElement>;
             "bees-wave": LocalJSX.BeesWave & JSXBase.HTMLAttributes<HTMLBeesWaveElement>;
             "bees-wave-effect": LocalJSX.BeesWaveEffect & JSXBase.HTMLAttributes<HTMLBeesWaveEffectElement>;
-            "ikun-config-provider": LocalJSX.IkunConfigProvider & JSXBase.HTMLAttributes<HTMLIkunConfigProviderElement>;
             "ikun-locale-provider": LocalJSX.IkunLocaleProvider & JSXBase.HTMLAttributes<HTMLIkunLocaleProviderElement>;
         }
     }

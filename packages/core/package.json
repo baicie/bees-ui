@@ -26,10 +26,13 @@
     "lint": "eslint --cache --max-warnings 0  \"src/**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
+    "@ant-design/colors": "^7.0.0",
+    "@ctrl/tinycolor": "^4.0.2",
     "@emotion/hash": "^0.9.1",
     "@emotion/unitless": "^0.8.1",
     "@stencil/core": "^4.8.0",
-    "@stencil/store": "^2.0.11"
+    "@stencil/store": "^2.0.11",
+    "@vue/reactivity": "^3.3.9"
   },
   "devDependencies": {
     "@bees-ui/react-output-target": "workspace:^",

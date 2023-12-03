@@ -11,7 +11,6 @@ export default function useWave(
     if (wave?.disabled || !node) {
       return;
     }
-    console.log('showWave');
 
     showWaveEffect(node, className);
   }

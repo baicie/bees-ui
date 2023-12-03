@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, State, Prop } from '@stencil/core';
+import { Component, h, Element, State, Prop } from '@stencil/core';
 import wrapperRaf from '../../utils/raf';
 
 @Component({
@@ -39,7 +39,6 @@ export class WaveEffect {
     this.clear();
     this.timeouteId = setTimeout(() => {
       this.removeDom();
-      console.log('removeDom');
     }, 5000);
 
     if (this.target) {
@@ -61,10 +60,6 @@ export class WaveEffect {
   }
 
   render() {
-    return (
-      <Host>
-        <div class={this.myClassName}></div>
-      </Host>
-    );
+    return <div class={this.myClassName}></div>;
   }
 }

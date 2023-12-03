@@ -1,27 +1,28 @@
-import { Component, EventEmitter, Host, Prop, h, Event, State, Watch, Method, ComponentInterface } from '@stencil/core';
+import { Component, EventEmitter, Prop, h, Event, State, Watch, Method, ComponentInterface } from '@stencil/core';
 import warning from '../../utils/warning';
+import useConfigInject from '@components/config-provider/hooks/use-config-inject';
 
 @Component({
   tag: 'bees-button',
-  styleUrl: 'button.scss',
   shadow: true,
 })
 export class Button implements ComponentInterface {
   private buttonRef: HTMLButtonElement | undefined;
+  private config = useConfigInject('btn', this);
+  private style = useStyle(this.config.prefixCls);
   /**
    * If `true`, the user cannot interact with the button.
    */
-  @Prop() disabled: boolean;
+  @Prop() disabled!: boolean;
 
   @Prop({ mutable: true, reflect: true }) type: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost' =
     'default';
 
   @Prop({ reflect: true }) size: 'large' | 'middle' | 'small' = 'middle';
 
-  @Prop() danger: boolean;
+  @Prop() danger!: boolean;
 
-  @State() text: string;
-  @State() innerLoading: boolean;
+  @State() innerLoading!: boolean;
 
   @Event() ikunFocus!: EventEmitter<void>;
 
@@ -42,26 +43,19 @@ export class Button implements ComponentInterface {
       ev.preventDefault();
       ev.stopImmediatePropagation();
       this.ikunClick.emit();
-      this.text = 'textChanged';
-      console.log('buttonRef', this.buttonRef);
     }
   };
 
-  buttonProps = {
-    onClick: this.handleClick,
-  };
-
-  buttonNode = (
-    <button {...this.buttonProps} ref={(buttonRef) => (this.buttonRef = buttonRef)}>
-      <slot></slot>
-    </button>
-  );
-
   render() {
-    return (
-      <Host>
-        <bees-wave disabled={this.innerLoading}>{this.buttonNode}</bees-wave>
-      </Host>
+    const buttonProps = {
+      onClick: this.handleClick,
+    };
+
+    const buttonNode = (
+      <button {...buttonProps} ref={(buttonRef) => (this.buttonRef = buttonRef)}>
+        <slot></slot>
+      </button>
     );
+    return <bees-wave disabled={this.innerLoading}>{buttonNode}</bees-wave>;
   }
 }

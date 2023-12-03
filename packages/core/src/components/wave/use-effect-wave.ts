@@ -1,8 +1,6 @@
 import { WaveEffect } from './wave-effect';
 
 export function showWaveEffect(node: HTMLElement, className: string) {
-  console.log('showWaveEffect');
-
   const holder = document.createElement('div');
   holder.style.position = 'absolute';
   holder.style.left = `0px`;

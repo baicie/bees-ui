@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop, Watch } from '@stencil/core';
+import { Component, h, Element, Prop, Watch } from '@stencil/core';
 
 import isVisible from '../../utils/isVisible';
 import useWave from './use-wave';
@@ -32,8 +32,6 @@ export class Wave {
 
   private init = () => {
     this.onClick = (e: MouseEvent) => {
-      console.log('onClick', e.target);
-
       if (
         (e.target as HTMLElement).tagName === 'INPUT' ||
         !isVisible(e.target as HTMLElement) ||
@@ -52,8 +50,6 @@ export class Wave {
   };
 
   componentWillLoad() {
-    console.log('componentWillLoad', this.el);
-
     this.init();
   }
 
@@ -62,10 +58,6 @@ export class Wave {
   }
 
   render() {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+    return <slot></slot>;
   }
 }
