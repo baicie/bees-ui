@@ -2,7 +2,7 @@ import hash from '@emotion/hash';
 
 import { Theme } from './theme';
 import canUseDom from '@utils/can-use-dom';
-import { updateCSS, removeCSS } from '@utils/dynamic-css';
+import { updateCSS, removeCSS } from '@utils/dynamicCss';
 
 // Create a cache here to avoid always loop generate
 const flattenTokenCache = new WeakMap<any, string>();

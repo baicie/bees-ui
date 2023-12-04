@@ -1,49 +1,47 @@
-import { Component, EventEmitter, Prop, h, Event, State, Watch, Method, ComponentInterface, Host } from '@stencil/core';
 import useConfigInject from '@components/config-provider/hooks/use-config-inject';
-import useStyle from './style';
-import warning from '@utils/warning';
-import classNames from 'classnames';
+import { Component, ComponentInterface, Host, Prop, h, EventEmitter, Event } from '@stencil/core';
 import { computed } from '@vue/reactivity';
+import classNames from 'classnames';
+import useStyle from './style';
+import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from './button-helpers';
+import { SizeType } from '@components/config-provider/context';
+import { MouseEventHandler } from '@utils/EventInterface';
 @Component({
   tag: 'bees-button',
   shadow: true,
 })
 export class Button implements ComponentInterface {
-  /**
-   * If `true`, the user cannot interact with the button.
-   */
-  @Prop() disabled!: boolean;
+  @Prop({ reflect: true, mutable: true }) type: ButtonType;
 
-  @Prop({ mutable: true, reflect: true }) type: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost' =
-    'default';
+  @Prop({ reflect: true }) size: SizeType = 'default';
 
-  @Prop({ reflect: true }) size: 'large' | 'middle' | 'small' = 'middle';
+  @Prop({ reflect: true }) loading: Loading;
 
-  @Prop() danger!: boolean;
+  @Prop({ reflect: true }) disabled: boolean;
 
-  @State() innerLoading!: boolean;
+  @Prop({ reflect: true }) ghost: boolean;
 
-  @Event() ikunFocus!: EventEmitter<void>;
+  @Prop({ reflect: true }) block: boolean;
 
-  @Event() ikunClick!: EventEmitter<void>;
+  @Prop({ reflect: true }) danger: boolean;
 
-  @Watch('text')
-  textChanged(text: string) {
-    warning(true, text);
-  }
+  @Prop({ reflect: true }) shape: ButtonShape;
 
-  @Method()
-  async handleFous() {
-    this.ikunFocus.emit();
-  }
+  @Prop({ reflect: true }) prefixCls: string;
 
-  private handleClick = (ev: Event) => {
-    if (!this.disabled) {
-      ev.preventDefault();
-      ev.stopImmediatePropagation();
-      this.ikunClick.emit();
-    }
-  };
+  @Prop({ reflect: true }) htmlType: ButtonHTMLType;
+
+  @Prop({ reflect: true }) icon: string;
+
+  @Prop({ reflect: true }) target: string;
+
+  @Prop({ reflect: true }) href: string;
+
+  @Prop({}) beeTitle: string;
+
+  @Event({}) beeClick: EventEmitter<MouseEventHandler>;
+
+  @Event({}) beeMousedown: EventEmitter<MouseEventHandler>;
 
   render() {
     const { prefixCls, direction } = useConfigInject('btn', this);
@@ -51,27 +49,22 @@ export class Button implements ComponentInterface {
     const { danger, type } = this;
 
     const classes = computed(() =>
-      classNames(prefixCls, hashId.value, {
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-dangerous`]: !!danger,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
+      classNames(prefixCls.value, hashId.value, {
+        [`${prefixCls.value}-${type}`]: type,
+        [`${prefixCls.value}-dangerous`]: !!danger,
+        [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
       }),
     );
 
     const buttonProps = {
       class: classes.value,
-      onClick: this.handleClick,
     };
 
     let buttonNode = (
-      <button>
-        <slot></slot>
-      </button>
-    );
-
-    buttonNode = (
       <Host {...buttonProps}>
-        <bees-wave>{buttonNode}</bees-wave>
+        <bees-wave>
+          <slot></slot>
+        </bees-wave>
       </Host>
     );
 

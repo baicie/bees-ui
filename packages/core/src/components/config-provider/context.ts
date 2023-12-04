@@ -3,8 +3,9 @@ import { AliasToken, OverrideToken } from '@theme/interface';
 import { createStore } from '@stencil/store';
 import { DEFAULT_DIRECTION, ICONPREFIX, PREFIX } from '@utils/constant';
 import { inject, provide } from '@utils/store';
+import { ComputedRef, computed } from '@vue/reactivity';
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+export type SizeType = 'small' | 'middle' | 'large' | 'default' | undefined;
 
 export interface ThemeConfig {
   token?: Partial<AliasToken>;
@@ -31,9 +32,9 @@ export const configProviderKey = Symbol('configContext');
 
 export interface ConfigProviderInnerProps {
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
-  iconPrefixCls: string;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  direction?: 'ltr' | 'rtl';
+  iconPrefixCls: ComputedRef<string>;
+  getPopupContainer?: ComputedRef<(triggerNode: HTMLElement) => HTMLElement>;
+  direction?: ComputedRef<'ltr' | 'rtl'>;
 }
 
 export const defaultConfigProvider: ConfigProviderInnerProps = {
@@ -41,9 +42,9 @@ export const defaultConfigProvider: ConfigProviderInnerProps = {
     if (customizePrefixCls) return customizePrefixCls;
     return suffixCls ? `${PREFIX}-${suffixCls}` : PREFIX;
   },
-  iconPrefixCls: ICONPREFIX,
-  getPopupContainer: () => document.body,
-  direction: DEFAULT_DIRECTION,
+  iconPrefixCls: computed(() => ICONPREFIX),
+  getPopupContainer: computed(() => () => document.body),
+  direction: computed(() => DEFAULT_DIRECTION),
 };
 
 export const useConfigContextInject = () => {

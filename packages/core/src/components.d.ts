@@ -5,25 +5,37 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { SizeType, ThemeConfig } from "./components/config-provider/context";
+import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/button-helpers";
+import { SizeType } from "./components/config-provider/context";
+import { MouseEventHandler } from "./utils/EventInterface";
+import { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 import { Locale } from "@bees-ui/core/src/locale";
 import { Locale as Locale1 } from "./locale";
-export { SizeType, ThemeConfig } from "./components/config-provider/context";
+export { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/button-helpers";
+export { SizeType } from "./components/config-provider/context";
+export { MouseEventHandler } from "./utils/EventInterface";
+export { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 export { Locale } from "@bees-ui/core/src/locale";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
     interface BeesButton {
+        "beeTitle": string;
+        "block": boolean;
         "danger": boolean;
-        /**
-          * If `true`, the user cannot interact with the button.
-         */
         "disabled": boolean;
-        "handleFous": () => Promise<void>;
-        "size": 'large' | 'middle' | 'small';
-        "type": 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
+        "ghost": boolean;
+        "href": string;
+        "htmlType": ButtonHTMLType;
+        "icon": string;
+        "loading": Loading;
+        "prefixCls": string;
+        "shape": ButtonShape;
+        "size": SizeType;
+        "target": string;
+        "type": ButtonType;
     }
     interface BeesConfigProvider {
-        "componentSize": SizeType;
+        "componentSize": SizeType1;
         "locale": Locale;
         "theme": ThemeConfig;
     }
@@ -44,8 +56,8 @@ export interface BeesButtonCustomEvent<T> extends CustomEvent<T> {
 }
 declare global {
     interface HTMLBeesButtonElementEventMap {
-        "ikunFocus": void;
-        "ikunClick": void;
+        "beeClick": MouseEventHandler;
+        "beeMousedown": MouseEventHandler;
     }
     interface HTMLBeesButtonElement extends Components.BeesButton, HTMLStencilElement {
         addEventListener<K extends keyof HTMLBeesButtonElementEventMap>(type: K, listener: (this: HTMLBeesButtonElement, ev: BeesButtonCustomEvent<HTMLBeesButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -95,18 +107,25 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BeesButton {
-        "danger": boolean;
-        /**
-          * If `true`, the user cannot interact with the button.
-         */
-        "disabled": boolean;
-        "onIkunClick"?: (event: BeesButtonCustomEvent<void>) => void;
-        "onIkunFocus"?: (event: BeesButtonCustomEvent<void>) => void;
-        "size"?: 'large' | 'middle' | 'small';
-        "type"?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
+        "beeTitle"?: string;
+        "block"?: boolean;
+        "danger"?: boolean;
+        "disabled"?: boolean;
+        "ghost"?: boolean;
+        "href"?: string;
+        "htmlType"?: ButtonHTMLType;
+        "icon"?: string;
+        "loading"?: Loading;
+        "onBeeClick"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
+        "onBeeMousedown"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
+        "prefixCls"?: string;
+        "shape"?: ButtonShape;
+        "size"?: SizeType;
+        "target"?: string;
+        "type"?: ButtonType;
     }
     interface BeesConfigProvider {
-        "componentSize"?: SizeType;
+        "componentSize"?: SizeType1;
         "locale"?: Locale;
         "theme"?: ThemeConfig;
     }

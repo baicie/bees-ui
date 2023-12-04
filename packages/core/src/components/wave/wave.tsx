@@ -1,7 +1,10 @@
 import { Component, h, Element, Prop, Watch } from '@stencil/core';
-
+import useStyle from './style';
 import isVisible from '../../utils/isVisible';
 import useWave from './use-wave';
+import useConfigInject from '@components/config-provider/hooks/use-config-inject';
+import { computed } from '@vue/reactivity';
+import classNames from 'classnames';
 
 @Component({
   tag: 'bees-wave',
@@ -14,11 +17,15 @@ export class Wave {
 
   private onClick: (e: MouseEvent) => void;
 
-  // private effectEls: HTMLElement[] = [];
+  private config = useConfigInject('wave', this);
 
-  private showWave = useWave(this.el, 'btn-demo', {
-    disabled: this.disabled,
-  });
+  private style = useStyle(this.config.prefixCls);
+
+  private showWave = useWave(
+    this.el,
+    computed(() => classNames(this.config.prefixCls.value, this.style[1])),
+    this.config.wave,
+  );
 
   @Watch('disabled')
   disabledChanged() {

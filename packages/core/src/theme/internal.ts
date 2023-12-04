@@ -59,10 +59,7 @@ export const useDesignTokenInject = () => {
 };
 
 export function useToken(): [ComputedRef<Theme<SeedToken, MapToken>>, ComputedRef<GlobalToken>, ComputedRef<string>] {
-  const designTokenContext = inject<DesignTokenContext>(
-    DesignTokenContextKey,
-    globalDesignTokenApi || (defaultConfig as any),
-  );
+  const designTokenContext = inject<DesignTokenContext>(DesignTokenContextKey, globalDesignTokenApi || defaultConfig);
 
   const salt = computed(() => `${version}-${designTokenContext.hashed || ''}`);
 

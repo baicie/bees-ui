@@ -15,7 +15,7 @@ import { Theme } from '@cssinjs/theme';
 import { supportLayer } from '@cssinjs/util';
 import unitless from '@emotion/unitless';
 import canUseDom from '@utils/can-use-dom';
-import { removeCSS, updateCSS } from '@utils/dynamic-css';
+import { removeCSS, updateCSS } from '@utils/dynamicCss';
 import { StencilVode } from '@utils/type';
 import { computed, Ref } from '@vue/reactivity';
 import { compile, serialize, stringify } from 'stylis';
@@ -75,7 +75,6 @@ function injectSelectorHash(key: string, hashId: string, hashPriority?: HashPrio
 
   const hashClassName = `.${hashId}`;
   const hashSelector = hashPriority === 'low' ? `:where(${hashClassName})` : hashClassName;
-  console.log('hashSelector', hashSelector);
 
   // 注入 hashId
   const keys = key.split(',').map((k) => {
