@@ -4,7 +4,6 @@ import warning from '../../utils/warning';
 
 @Component({
   tag: 'ikun-locale-provider',
-  shadow: true,
 })
 export class IkunLocaleProvider {
   @Prop() locale: Locale | undefined;

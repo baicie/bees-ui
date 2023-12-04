@@ -8,7 +8,6 @@ import classNames from 'classnames';
 
 @Component({
   tag: 'bees-wave',
-  shadow: true,
 })
 export class Wave {
   @Element() el!: HTMLElement;

@@ -1,5 +1,5 @@
 import useConfigInject from '@components/config-provider/hooks/use-config-inject';
-import { Component, ComponentInterface, Host, Prop, h, EventEmitter, Event } from '@stencil/core';
+import { Component, ComponentInterface, Prop, h, EventEmitter, Event } from '@stencil/core';
 import { computed } from '@vue/reactivity';
 import classNames from 'classnames';
 import useStyle from './style';
@@ -8,7 +8,6 @@ import { SizeType } from '@components/config-provider/context';
 import { MouseEventHandler } from '@utils/EventInterface';
 @Component({
   tag: 'bees-button',
-  shadow: true,
 })
 export class Button implements ComponentInterface {
   @Prop({ reflect: true, mutable: true }) type!: ButtonType;
@@ -61,11 +60,11 @@ export class Button implements ComponentInterface {
     };
 
     let buttonNode = (
-      <Host {...buttonProps}>
+      <button {...buttonProps}>
         <bees-wave>
           <slot></slot>
         </bees-wave>
-      </Host>
+      </button>
     );
 
     return wrapSSR(buttonNode);

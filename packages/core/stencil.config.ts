@@ -5,7 +5,7 @@ import { reactOutputTarget } from '@bees-ui/react-output-target';
 import { svelteOutputTarget } from '@bees-ui/svelte-output-target';
 import dynamic from '@rollup/plugin-dynamic-import-vars';
 
-const isDev = process.argv.includes('--dev');
+const isDev = process.argv.includes('--mm');
 
 export const config: Config = {
   autoprefixCss: true,

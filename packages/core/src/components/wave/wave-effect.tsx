@@ -3,7 +3,6 @@ import wrapperRaf from '../../utils/raf';
 
 @Component({
   tag: 'bees-wave-effect',
-  shadow: true,
 })
 export class WaveEffect {
   private resizeObserver: ResizeObserver | undefined;
@@ -39,7 +38,7 @@ export class WaveEffect {
     this.clear();
     this.timeouteId = setTimeout(() => {
       this.removeDom();
-    }, 5000);
+    }, 50000);
 
     if (this.target) {
       this.rafId = wrapperRaf(() => {
