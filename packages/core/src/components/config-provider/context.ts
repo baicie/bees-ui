@@ -2,6 +2,7 @@ import { Locale } from '@bees-ui/core/src/locale';
 import { AliasToken, OverrideToken } from '@theme/interface';
 import { createStore } from '@stencil/store';
 import { DEFAULT_DIRECTION, ICONPREFIX, PREFIX } from '@utils/constant';
+import { inject, provide } from '@utils/store';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -43,4 +44,12 @@ export const defaultConfigProvider: ConfigProviderInnerProps = {
   iconPrefixCls: ICONPREFIX,
   getPopupContainer: () => document.body,
   direction: DEFAULT_DIRECTION,
+};
+
+export const useConfigContextInject = () => {
+  return inject(configProviderKey, defaultConfigProvider);
+};
+
+export const useConfigContextProvider = (props: ConfigProviderInnerProps) => {
+  return provide(configProviderKey, props);
 };

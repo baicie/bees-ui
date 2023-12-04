@@ -16,7 +16,7 @@ export default (name: string, props: Record<string, any>) => {
   const rootPrefixCls = configProvider.getPrefixCls();
 
   const size = props.size ?? sizeContext.value;
-  const disabled = props.disabled ?? disabledContext.value;
+  const disabled = props.disabled ?? disabledContext?.value;
 
   return {
     prefixCls,

@@ -1,7 +1,6 @@
 declare const CSSINJS_STATISTIC: any;
 
-const enableStatistic =
-  process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined';
+const enableStatistic = process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined';
 let recording = true;
 
 /**
@@ -18,10 +17,10 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
 
   const ret = {} as T;
 
-  objs.forEach(obj => {
+  objs.forEach((obj) => {
     const keys = Object.keys(obj);
 
-    keys.forEach(key => {
+    keys.forEach((key) => {
       Object.defineProperty(ret, key, {
         configurable: true,
         enumerable: true,
@@ -35,10 +34,7 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
 }
 
 /** @private Internal Usage. Not use in your production. */
-export const statistic: Record<
-  string,
-  { global: string[]; component: Record<string, string | number> }
-> = {};
+export const statistic: Record<string, { global: string[]; component: Record<string, string | number> }> = {};
 
 /** @private Internal Usage. Not use in your production. */
 // eslint-disable-next-line camelcase
@@ -51,8 +47,7 @@ function noop() {}
 export default function statisticToken<T extends object>(token: T) {
   let tokenKeys: Set<string> | undefined;
   let proxy = token;
-  let flush: (componentName: string, componentToken: Record<string, string | number>) => void =
-    noop;
+  let flush: (componentName: string, componentToken: Record<string, string | number>) => void = noop;
 
   if (enableStatistic) {
     tokenKeys = new Set<string>();

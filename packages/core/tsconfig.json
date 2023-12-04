@@ -1,27 +1,21 @@
 {
   "extends": ["../../tsconfig.json"],
   "compilerOptions": {
-    "strict": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": true,
+    "lib": ["DOM", "ESNext"],
+    "strictNullChecks": false,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "assumeChangesOnlyAffectDirectDependencies": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "lib": ["dom", "dom.iterable", "es2017", "es2020", "es2021"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": ".tmp",
-    "pretty": true,
-    "removeComments": false,
-    "target": "es2017",
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "target": "es6",
+    "module": "esnext",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "stripInternal": true,
     "baseUrl": ".",
 
     "paths": {
@@ -29,7 +23,8 @@
       "@components/*": ["src/components/*"],
       "@global/*": ["src/global/*"],
       "@cssinjs/*": ["src/cssinjs/*"],
-      "@theme/*": ["src/theme/*"]
+      "@theme/*": ["src/theme/*"],
+      "@style/*": ["src/style/*"]
     }
   },
   "include": ["src"],

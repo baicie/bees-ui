@@ -56,9 +56,9 @@ importers:
       '@types/node':
         specifier: ^20.10.1
         version: 20.10.1
-      '@types/react':
-        specifier: ^18.2.39
-        version: 18.2.39
+      '@types/stylis':
+        specifier: ^4.2.4
+        version: 4.2.4
       antd:
         specifier: ^5.11.5
         version: 5.11.5(react-dom@18.2.0)(react@18.2.0)
@@ -89,9 +89,6 @@ importers:
       puppeteer:
         specifier: ^21.5.2
         version: 21.5.2(typescript@5.3.2)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -260,6 +257,12 @@ importers:
       '@vue/reactivity':
         specifier: ^3.3.9
         version: 3.3.9
+      csstype:
+        specifier: ^3.1.2
+        version: 3.1.2
+      stylis:
+        specifier: ^4.3.0
+        version: 4.3.0
     devDependencies:
       '@bees-ui/react-output-target':
         specifier: workspace:^
@@ -6307,6 +6310,10 @@ packages:
 
   /@types/stack-utils@2.0.3:
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
+    dev: true
+
+  /@types/stylis@4.2.4:
+    resolution: {integrity: sha512-36ZrGJ8fgtBr6nwNnuJ9jXIj+bn/pF6UoqmrQT7+Y99+tFFeHHsoR54+194dHdyhPjgbeoNz3Qru0oRt0l6ASQ==}
     dev: true
 
   /@types/unist@2.0.10:
@@ -20116,7 +20123,6 @@ packages:
 
   /stylis@4.3.0:
     resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
-    dev: true
 
   /sucrase@3.34.0:
     resolution: {integrity: sha512-70/LQEZ07TEcxiU2dz51FKaE6hCTWC6vr7FOk3Gr0U60C3shtAN+H+BFr9XlYe5xqf3RA8nrc+VIwzCfnxuXJw==}

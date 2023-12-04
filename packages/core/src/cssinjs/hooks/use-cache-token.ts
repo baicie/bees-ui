@@ -1,11 +1,15 @@
-import StyleContext, { StyleContextProps, useStyleContext } from '@cssinjs/style-context';
+import StyleContext, { ATTR_TOKEN, CSS_IN_JS_INSTANCE, useStyleContext } from '@cssinjs/style-context';
 import Theme from '@cssinjs/theme/theme';
-import { flattenToken, memoResult } from '@cssinjs/util';
-import { ObservableMap } from '@stencil/store';
+import { flattenToken, token2key } from '@cssinjs/util';
+import hash from '@emotion/hash';
 import { Ref, computed, ref } from '@vue/reactivity';
 import useGlobalCache from './use-global-cache';
 
 const EMPTY_OVERRIDE = {};
+
+// Generate different prefix to make user selector break in production env.
+// This helps developer not to do style override directly on the hash id.
+const hashPrefix = process.env.NODE_ENV !== 'production' ? 'css-dev-only-do-not-override' : 'css';
 
 export interface Option<DerivativeToken, DesignToken> {
   /**
@@ -51,6 +55,66 @@ export interface Option<DerivativeToken, DesignToken> {
   };
 }
 
+const tokenKeys = new Map<string, number>();
+function recordCleanToken(tokenKey: string) {
+  tokenKeys.set(tokenKey, (tokenKeys.get(tokenKey) || 0) + 1);
+}
+
+function removeStyleTags(key: string, instanceId: string) {
+  if (typeof document !== 'undefined') {
+    const styles = document.querySelectorAll(`style[${ATTR_TOKEN}="${key}"]`);
+
+    styles.forEach((style) => {
+      if ((style as any)[CSS_IN_JS_INSTANCE] === instanceId) {
+        style.parentNode?.removeChild(style);
+      }
+    });
+  }
+}
+
+const TOKEN_THRESHOLD = 0;
+
+function cleanTokenStyle(tokenKey: string, instanceId: string) {
+  tokenKeys.set(tokenKey, (tokenKeys.get(tokenKey) || 0) - 1);
+
+  const tokenKeyList = Array.from(tokenKeys.keys());
+  const cleanableKeyList = tokenKeyList.filter((key) => {
+    const count = tokenKeys.get(key) || 0;
+
+    return count <= 0;
+  });
+
+  // Should keep tokens under threshold for not to insert style too often
+  if (tokenKeyList.length - cleanableKeyList.length > TOKEN_THRESHOLD) {
+    cleanableKeyList.forEach((key) => {
+      removeStyleTags(key, instanceId);
+      tokenKeys.delete(key);
+    });
+  }
+}
+
+export const getComputedToken = <DerivativeToken = object, DesignToken = DerivativeToken>(
+  originToken: DesignToken,
+  overrideToken: object,
+  theme: Theme<any, any>,
+  format?: (token: DesignToken) => DerivativeToken,
+) => {
+  const derivativeToken = theme.getDerivativeToken(originToken);
+
+  // Merge with override
+  let mergedDerivativeToken = {
+    ...derivativeToken,
+    ...overrideToken,
+  };
+
+  // Format if needed
+  if (format) {
+    mergedDerivativeToken = format(mergedDerivativeToken);
+  }
+
+  return mergedDerivativeToken;
+};
+
 export default function useCacheToken<DerivativeToken = object, DesignToken = DerivativeToken>(
   theme: Ref<Theme<any, any>>,
   tokens: Ref<Partial<DesignToken>[]>,
@@ -84,7 +148,7 @@ export default function useCacheToken<DerivativeToken = object, DesignToken = De
     },
     (cache) => {
       // Remove token will remove all related style
-      cleanTokenStyle(cache[0]._tokenKey, style.value?.cache.instanceId);
+      cleanTokenStyle(cache[0]._tokenKey, style?.cache.instanceId);
     },
   );
 

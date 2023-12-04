@@ -1,28 +1,39 @@
-import StyleContext, { useStyleContext } from '@cssinjs/style-context';
+import StyleContext, { useStyleContext } from '../style-context';
+import type { KeyType } from '../cache';
 import useHMR from './use-HMR';
-import useEffectCleanupRegister from './use-effect-cleanup-register';
+import { shallowRef, effect, ShallowRef, Ref } from '@vue/reactivity';
 
-export default function useGlobalCache<CacheType>(
+export default function useClientCache<CacheType>(
   prefix: string,
-  keyPath: KeyType[],
+  keyPath: Ref<KeyType[]>,
   cacheFn: () => CacheType,
   onCacheRemove?: (cache: CacheType, fromHMR: boolean) => void,
-  // Add additional effect trigger by `useInsertionEffect`
-  onCacheEffect?: (cachedValue: CacheType) => void,
-): CacheType {
-  const { cache: globalCache } = useStyleContext(StyleContext);
-  const fullPath = [prefix, ...keyPath];
-  const deps = fullPath.join('_');
-
-  const register = useEffectCleanupRegister([deps]);
-
+): ShallowRef<CacheType | undefined> {
+  const styleContext = useStyleContext(StyleContext);
+  const fullPathStr = shallowRef('');
+  const res = shallowRef<CacheType>();
+  effect(() => {
+    fullPathStr.value = [prefix, ...keyPath.value].join('%');
+  });
   const HMRUpdate = useHMR();
+  const clearCache = (pathStr: string) => {
+    styleContext.cache.update(pathStr, (prevCache) => {
+      const [times = 0, cache] = prevCache || [];
+      const nextCount = times - 1;
+      if (nextCount === 0) {
+        onCacheRemove?.(cache, false);
+        return null;
+      }
 
-  type UpdaterArgs = [times: number, cache: CacheType];
+      return [times - 1, cache];
+    });
+  };
 
-  const buildCache = (updater?: (data: UpdaterArgs) => UpdaterArgs) => {
-    globalCache.update(fullPath, (prevCache) => {
-      const [times = 0, cache] = prevCache || [undefined, undefined];
+  effect(() => {
+    if (fullPathStr) clearCache(fullPathStr.value);
+    // Create cache
+    styleContext.cache.update(fullPathStr.value, (prevCache) => {
+      const [times = 0, cache] = prevCache || [];
 
       // HMR should always ignore cache since developer may change it
       let tmpCache = cache;
@@ -30,68 +41,12 @@ export default function useGlobalCache<CacheType>(
         onCacheRemove?.(tmpCache, HMRUpdate);
         tmpCache = null;
       }
-
       const mergedCache = tmpCache || cacheFn();
 
-      const data: UpdaterArgs = [times, mergedCache];
-
-      // Call updater if need additional logic
-      return updater ? updater(data) : data;
+      return [times + 1, mergedCache];
     });
-  };
+    res.value = styleContext.cache.get(fullPathStr.value)![1];
+  });
 
-  let cacheEntity = globalCache.get(fullPath);
-
-  // HMR clean the cache but not trigger `useMemo` again
-  // Let's fallback of this
-  // ref https://github.com/ant-design/cssinjs/issues/127
-  if (process.env.NODE_ENV !== 'production' && !cacheEntity) {
-    buildCache();
-    cacheEntity = globalCache.get(fullPath);
-  }
-
-  const cacheContent = cacheEntity![1];
-
-  // Remove if no need anymore
-  useCompatibleInsertionEffect(
-    () => {
-      onCacheEffect?.(cacheContent);
-    },
-    (polyfill) => {
-      // It's bad to call build again in effect.
-      // But we have to do this since StrictMode will call effect twice
-      // which will clear cache on the first time.
-      buildCache(([times, cache]) => {
-        if (polyfill && times === 0) {
-          onCacheEffect?.(cacheContent);
-        }
-        return [times + 1, cache];
-      });
-
-      return () => {
-        globalCache.update(fullPath, (prevCache) => {
-          const [times = 0, cache] = prevCache || [];
-          const nextCount = times - 1;
-
-          if (nextCount === 0) {
-            // Always remove styles in useEffect callback
-            register(() => {
-              // With polyfill, registered callback will always be called synchronously
-              // But without polyfill, it will be called in effect clean up,
-              // And by that time this cache is cleaned up.
-              if (polyfill || !globalCache.get(fullPath)) {
-                onCacheRemove?.(cache, false);
-              }
-            });
-            return null;
-          }
-
-          return [times - 1, cache];
-        });
-      };
-    },
-    [deps],
-  );
-
-  return cacheContent;
+  return res;
 }

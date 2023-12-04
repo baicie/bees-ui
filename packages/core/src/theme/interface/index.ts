@@ -1,5 +1,5 @@
-import { AliasToken } from './alias';
-import { ComponentTokenMap } from './components';
+import type { ComponentTokenMap } from './components';
+import type { AliasToken } from './alias';
 
 export type OverrideToken = {
   [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]> & Partial<AliasToken>;
@@ -8,10 +8,9 @@ export type OverrideToken = {
 /** Final token which contains the components level override */
 export type GlobalToken = AliasToken & ComponentTokenMap;
 
-export type { AliasToken } from './alias';
+export { PresetColors } from './presetColors';
 export type { PresetColorType, ColorPalettes, PresetColorKey } from './presetColors';
 export type { SeedToken } from './seeds';
-
 export type {
   MapToken,
   ColorMapToken,
@@ -22,3 +21,5 @@ export type {
   FontMapToken,
   StyleMapToken,
 } from './maps';
+export type { AliasToken } from './alias';
+export type { ComponentTokenMap } from './components';

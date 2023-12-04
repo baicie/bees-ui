@@ -1,6 +1,7 @@
 import { ObservableMap, createStore } from '@stencil/store';
 import CacheEntity from './cache';
 import { Linter } from './linters';
+import type { Transformer } from './transformers/interface';
 
 export const ATTR_TOKEN = 'data-token-hash';
 export const ATTR_MARK = 'data-css-hash';
