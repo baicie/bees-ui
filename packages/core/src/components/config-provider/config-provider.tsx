@@ -11,9 +11,9 @@ import { useConfigContext } from './context';
 export class IkunConfigProvider {
   @Prop({}) componentSize: SizeType;
 
-  @Prop() theme: ThemeConfig;
+  @Prop() theme!: ThemeConfig;
 
-  @Prop() locale: Locale;
+  @Prop() locale!: Locale;
 
   componentWillLoad() {
     useConfigContext.set('componentSize', this.componentSize);

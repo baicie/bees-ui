@@ -11,37 +11,37 @@ import { MouseEventHandler } from '@utils/EventInterface';
   shadow: true,
 })
 export class Button implements ComponentInterface {
-  @Prop({ reflect: true, mutable: true }) type: ButtonType;
+  @Prop({ reflect: true, mutable: true }) type!: ButtonType;
 
   @Prop({ reflect: true }) size: SizeType = 'default';
 
-  @Prop({ reflect: true }) loading: Loading;
+  @Prop({ reflect: true }) loading!: Loading;
 
-  @Prop({ reflect: true }) disabled: boolean;
+  @Prop({ reflect: true }) disabled!: boolean;
 
-  @Prop({ reflect: true }) ghost: boolean;
+  @Prop({ reflect: true }) ghost!: boolean;
 
-  @Prop({ reflect: true }) block: boolean;
+  @Prop({ reflect: true }) block!: boolean;
 
-  @Prop({ reflect: true }) danger: boolean;
+  @Prop({ reflect: true }) danger!: boolean;
 
-  @Prop({ reflect: true }) shape: ButtonShape;
+  @Prop({ reflect: true }) shape!: ButtonShape;
 
-  @Prop({ reflect: true }) prefixCls: string;
+  @Prop({ reflect: true }) prefixCls!: string;
 
-  @Prop({ reflect: true }) htmlType: ButtonHTMLType;
+  @Prop({ reflect: true }) htmlType!: ButtonHTMLType;
 
-  @Prop({ reflect: true }) icon: string;
+  @Prop({ reflect: true }) icon!: string;
 
-  @Prop({ reflect: true }) target: string;
+  @Prop({ reflect: true }) target!: string;
 
-  @Prop({ reflect: true }) href: string;
+  @Prop({ reflect: true }) href!: string;
 
-  @Prop({}) beeTitle: string;
+  @Prop({}) beeTitle!: string;
 
-  @Event({}) beeClick: EventEmitter<MouseEventHandler>;
+  @Event({}) beeClick!: EventEmitter<MouseEventHandler>;
 
-  @Event({}) beeMousedown: EventEmitter<MouseEventHandler>;
+  @Event({}) beeMousedown!: EventEmitter<MouseEventHandler>;
 
   render() {
     const { prefixCls, direction } = useConfigInject('btn', this);

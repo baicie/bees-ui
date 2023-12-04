@@ -6,16 +6,16 @@ import wrapperRaf from '../../utils/raf';
   shadow: true,
 })
 export class WaveEffect {
-  private resizeObserver: ResizeObserver;
-  private rafId: number;
+  private resizeObserver: ResizeObserver | undefined;
+  private rafId: number = 0;
   private timeouteId: any;
 
   @Element() el!: HTMLElement;
 
-  @Prop() target: HTMLElement;
-  @Prop() myClassName: string;
+  @Prop() target: HTMLElement | undefined;
+  @Prop() myClassName: string | undefined;
 
-  @State() enabled: boolean;
+  @State() enabled: boolean | undefined;
 
   private syncPos = () => {};
 

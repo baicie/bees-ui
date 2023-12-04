@@ -1,6 +1,5 @@
 import { Config } from '@stencil/core';
 import { stencilCachePath, stencilWWWPath } from '../../scripts/paths';
-import { sass } from '@stencil/sass';
 import { vueOutputTarget } from '@bees-ui/vue-output-target';
 import { reactOutputTarget } from '@bees-ui/react-output-target';
 import { svelteOutputTarget } from '@bees-ui/svelte-output-target';
@@ -13,7 +12,6 @@ export const config: Config = {
   sourceMap: isDev,
   namespace: 'Bees',
   cacheDir: stencilCachePath,
-  plugins: [sass()],
   buildEs5: 'prod',
   outputTargets: [
     {
