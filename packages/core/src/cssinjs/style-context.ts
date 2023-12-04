@@ -15,7 +15,7 @@ export function createCache() {
   // Tricky SSR: Move all inline style to the head.
   // PS: We do not recommend tricky mode.
   if (typeof document !== 'undefined' && document.head && document.body) {
-    const styles = document.body.querySelectorAll(`style[${ATTR_MARK}]`) || [];
+    const styles: Iterable<any> | ArrayLike<any> = document.body.querySelectorAll(`style[${ATTR_MARK}]`) || [];
     const { firstChild } = document.head;
 
     Array.from(styles).forEach((style) => {

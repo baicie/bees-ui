@@ -18,8 +18,8 @@
     "svelte-check": "^3.6.2",
     "tslib": "^2.6.2",
     "typescript": "^5.3.2",
-    "unocss": "^0.57.7",
-    "vite": "^5.0.4"
+    "unocss": "^0.58.0",
+    "vite": "^5.0.5"
   },
   "dependencies": {
     "@bees-ui/core": "workspace:^"
