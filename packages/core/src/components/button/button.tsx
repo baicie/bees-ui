@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Prop, h, Event, State, Watch, Method, ComponentInterface } from '@stencil/core';
+import { Component, EventEmitter, Prop, h, Event, State, Watch, Method, ComponentInterface, Host } from '@stencil/core';
 import useConfigInject from '@components/config-provider/hooks/use-config-inject';
 import useStyle from './style';
 import warning from '@utils/warning';
+import classNames from 'classnames';
 import { computed } from '@vue/reactivity';
-import { CssClassMap } from '@utils/type';
 @Component({
   tag: 'bees-button',
   shadow: true,
@@ -48,29 +48,15 @@ export class Button implements ComponentInterface {
   render() {
     const { prefixCls, direction } = useConfigInject('btn', this);
     const [wrapSSR, hashId] = useStyle(prefixCls);
+    const { danger, type } = this;
 
-    const classes = computed<CssClassMap>(() => {
-      const { danger } = this;
-      const pre = prefixCls.value;
-
-      // const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-      // const sizeFullname = compactSize.value || groupSizeContext?.size || size.value;
-      // const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
-
-      return {
-        [hashId.value]: true,
-        [`${pre}`]: true,
-        // [`${pre}-${shape}`]: shape !== 'default' && shape,
-        // [`${pre}-${type}`]: type,
-        // [`${pre}-${sizeCls}`]: sizeCls,
-        // [`${pre}-loading`]: innerLoading.value,
-        // [`${pre}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
-        // [`${pre}-two-chinese-chars`]: hasTwoCNChar.value && autoInsertSpace.value,
-        // [`${pre}-block`]: block,
-        [`${pre}-dangerous`]: !!danger,
-        [`${pre}-rtl`]: direction.value === 'rtl',
-      };
-    });
+    const classes = computed(() =>
+      classNames(prefixCls, hashId.value, {
+        [`${prefixCls}-${type}`]: type,
+        [`${prefixCls}-dangerous`]: !!danger,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      }),
+    );
 
     const buttonProps = {
       class: classes.value,
@@ -78,12 +64,16 @@ export class Button implements ComponentInterface {
     };
 
     let buttonNode = (
-      <button {...buttonProps}>
+      <button>
         <slot></slot>
       </button>
     );
 
-    buttonNode = <bees-wave>{buttonNode}</bees-wave>;
+    buttonNode = (
+      <Host {...buttonProps}>
+        <bees-wave>{buttonNode}</bees-wave>
+      </Host>
+    );
 
     return wrapSSR(buttonNode);
   }
