@@ -12,19 +12,11 @@ import classNames from 'classnames';
 export class Wave {
   @Element() el!: HTMLElement;
 
-  @Prop() disabled: boolean = false;
+  @Prop({ mutable: true, reflect: true }) disabled: boolean = false;
 
   private onClick: (e: MouseEvent) => void;
 
-  private config = useConfigInject('wave', this);
-
-  private style = useStyle(this.config.prefixCls);
-
-  private showWave = useWave(
-    this.el,
-    computed(() => classNames(this.config.prefixCls.value, this.style[1])),
-    this.config.wave,
-  );
+  private showWave: () => void;
 
   @Watch('disabled')
   disabledChanged() {
@@ -49,7 +41,7 @@ export class Wave {
       ) {
         return;
       }
-      this.showWave();
+      this.showWave?.();
     };
 
     this.el.addEventListener('click', this.onClick, true);
@@ -64,6 +56,15 @@ export class Wave {
   }
 
   render() {
-    return <slot></slot>;
+    const { prefixCls, wave } = useConfigInject('wave', this);
+    const [, hashId] = useStyle(prefixCls);
+
+    this.showWave = useWave(
+      this.el,
+      computed(() => classNames(prefixCls.value, hashId.value)),
+      wave,
+    );
+
+    return <slot />;
   }
 }

@@ -9,7 +9,7 @@ const isDev = process.argv.includes('--mm');
 
 export const config: Config = {
   autoprefixCss: true,
-  sourceMap: isDev,
+  sourceMap: true,
   namespace: 'Bees',
   cacheDir: stencilCachePath,
   buildEs5: 'prod',

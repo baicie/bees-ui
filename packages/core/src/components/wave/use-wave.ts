@@ -10,7 +10,6 @@ export default function useWave(
     if ((wave && wave.value && wave?.value?.disabled) || !node) {
       return;
     }
-
     showWaveEffect(node, className.value);
   }
 

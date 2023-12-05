@@ -46,7 +46,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useConfigContextInject();
     const rootPrefixCls = computed(() => getPrefixCls());
-    console.log('rootPrefixCls', rootPrefixCls.value);
 
     const sharedInfo = computed(() => {
       return {
@@ -71,8 +70,6 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         path: [component, prefixCls.value, iconPrefixCls.value],
       };
     });
-
-    console.log('componentInfo', componentInfo.value);
 
     return [
       useStyleRegister(componentInfo, () => {

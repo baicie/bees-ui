@@ -1,4 +1,4 @@
-import { Component, h, Element, State, Prop } from '@stencil/core';
+import { Component, h, Element, State, Prop, Host } from '@stencil/core';
 import wrapperRaf from '../../utils/raf';
 
 @Component({
@@ -59,6 +59,10 @@ export class WaveEffect {
   }
 
   render() {
-    return <div class={this.myClassName}></div>;
+    return (
+      <Host class={this.myClassName}>
+        <slot></slot>
+      </Host>
+    );
   }
 }
