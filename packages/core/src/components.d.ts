@@ -41,15 +41,15 @@ export namespace Components {
     }
     interface BeesLayout {
     }
+    interface BeesLocaleProvider {
+        "locale": Locale1 | undefined;
+    }
     interface BeesWave {
         "disabled": boolean;
     }
     interface BeesWaveEffect {
         "myClassName": string | undefined;
         "target": HTMLElement | undefined;
-    }
-    interface IkunLocaleProvider {
-        "locale": Locale1 | undefined;
     }
 }
 export interface BeesButtonCustomEvent<T> extends CustomEvent<T> {
@@ -87,6 +87,12 @@ declare global {
         prototype: HTMLBeesLayoutElement;
         new (): HTMLBeesLayoutElement;
     };
+    interface HTMLBeesLocaleProviderElement extends Components.BeesLocaleProvider, HTMLStencilElement {
+    }
+    var HTMLBeesLocaleProviderElement: {
+        prototype: HTMLBeesLocaleProviderElement;
+        new (): HTMLBeesLocaleProviderElement;
+    };
     interface HTMLBeesWaveElement extends Components.BeesWave, HTMLStencilElement {
     }
     var HTMLBeesWaveElement: {
@@ -99,39 +105,33 @@ declare global {
         prototype: HTMLBeesWaveEffectElement;
         new (): HTMLBeesWaveEffectElement;
     };
-    interface HTMLIkunLocaleProviderElement extends Components.IkunLocaleProvider, HTMLStencilElement {
-    }
-    var HTMLIkunLocaleProviderElement: {
-        prototype: HTMLIkunLocaleProviderElement;
-        new (): HTMLIkunLocaleProviderElement;
-    };
     interface HTMLElementTagNameMap {
         "bees-button": HTMLBeesButtonElement;
         "bees-config-provider": HTMLBeesConfigProviderElement;
         "bees-layout": HTMLBeesLayoutElement;
+        "bees-locale-provider": HTMLBeesLocaleProviderElement;
         "bees-wave": HTMLBeesWaveElement;
         "bees-wave-effect": HTMLBeesWaveEffectElement;
-        "ikun-locale-provider": HTMLIkunLocaleProviderElement;
     }
 }
 declare namespace LocalJSX {
     interface BeesButton {
-        "beeTitle": string;
-        "block": boolean;
-        "danger": boolean;
-        "disabled": boolean;
-        "ghost": boolean;
-        "href": string;
-        "htmlType": ButtonHTMLType;
-        "icon": string;
-        "loading": Loading;
+        "beeTitle"?: string;
+        "block"?: boolean;
+        "danger"?: boolean;
+        "disabled"?: boolean;
+        "ghost"?: boolean;
+        "href"?: string;
+        "htmlType"?: ButtonHTMLType;
+        "icon"?: string;
+        "loading"?: Loading;
         "onBeeClick"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
         "onBeeMousedown"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
-        "prefixCls": string;
-        "shape": ButtonShape;
+        "prefixCls"?: string;
+        "shape"?: ButtonShape;
         "size"?: SizeType;
-        "target": string;
-        "type": ButtonType;
+        "target"?: string;
+        "type"?: ButtonType;
     }
     interface BeesConfigProvider {
         "componentSize"?: SizeType1;
@@ -140,6 +140,9 @@ declare namespace LocalJSX {
     }
     interface BeesLayout {
     }
+    interface BeesLocaleProvider {
+        "locale"?: Locale1 | undefined;
+    }
     interface BeesWave {
         "disabled"?: boolean;
     }
@@ -147,16 +150,13 @@ declare namespace LocalJSX {
         "myClassName"?: string | undefined;
         "target"?: HTMLElement | undefined;
     }
-    interface IkunLocaleProvider {
-        "locale"?: Locale1 | undefined;
-    }
     interface IntrinsicElements {
         "bees-button": BeesButton;
         "bees-config-provider": BeesConfigProvider;
         "bees-layout": BeesLayout;
+        "bees-locale-provider": BeesLocaleProvider;
         "bees-wave": BeesWave;
         "bees-wave-effect": BeesWaveEffect;
-        "ikun-locale-provider": IkunLocaleProvider;
     }
 }
 export { LocalJSX as JSX };
@@ -166,9 +166,9 @@ declare module "@stencil/core" {
             "bees-button": LocalJSX.BeesButton & JSXBase.HTMLAttributes<HTMLBeesButtonElement>;
             "bees-config-provider": LocalJSX.BeesConfigProvider & JSXBase.HTMLAttributes<HTMLBeesConfigProviderElement>;
             "bees-layout": LocalJSX.BeesLayout & JSXBase.HTMLAttributes<HTMLBeesLayoutElement>;
+            "bees-locale-provider": LocalJSX.BeesLocaleProvider & JSXBase.HTMLAttributes<HTMLBeesLocaleProviderElement>;
             "bees-wave": LocalJSX.BeesWave & JSXBase.HTMLAttributes<HTMLBeesWaveElement>;
             "bees-wave-effect": LocalJSX.BeesWaveEffect & JSXBase.HTMLAttributes<HTMLBeesWaveEffectElement>;
-            "ikun-locale-provider": LocalJSX.IkunLocaleProvider & JSXBase.HTMLAttributes<HTMLIkunLocaleProviderElement>;
         }
     }
 }

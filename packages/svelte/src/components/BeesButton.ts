@@ -230,20 +230,20 @@ function instance($$self, $$props, $$invalidate) {
 	let __ref;
 	let __mounted = false;
 	const dispatch = createEventDispatcher();
-	let { type } = $$props;
+	let { type = undefined } = $$props;
 	let { size = undefined } = $$props;
-	let { loading } = $$props;
-	let { disabled } = $$props;
-	let { ghost } = $$props;
-	let { block } = $$props;
-	let { danger } = $$props;
-	let { shape } = $$props;
-	let { prefixCls } = $$props;
-	let { htmlType } = $$props;
-	let { icon } = $$props;
-	let { target } = $$props;
-	let { href } = $$props;
-	let { beeTitle } = $$props;
+	let { loading = undefined } = $$props;
+	let { disabled = undefined } = $$props;
+	let { ghost = undefined } = $$props;
+	let { block = undefined } = $$props;
+	let { danger = undefined } = $$props;
+	let { shape = undefined } = $$props;
+	let { prefixCls = undefined } = $$props;
+	let { htmlType = undefined } = $$props;
+	let { icon = undefined } = $$props;
+	let { target = undefined } = $$props;
+	let { href = undefined } = $$props;
+	let { beeTitle = undefined } = $$props;
 	const getWebComponent = () => __ref;
 
 	onMount(() => {

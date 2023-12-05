@@ -7,7 +7,7 @@ import { useConfigContext } from './context';
 @Component({
   tag: 'bees-config-provider',
 })
-export class IkunConfigProvider {
+export class ConfigProvider {
   @Prop({}) componentSize: SizeType;
 
   @Prop() theme!: ThemeConfig;

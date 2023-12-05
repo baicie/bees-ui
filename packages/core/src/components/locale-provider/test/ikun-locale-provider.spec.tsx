@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { IkunLocaleProvider } from '../ikun-locale-provider';
+import { LocaleProvider } from '../ikun-locale-provider';
 
 describe('ikun-locale-provider', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [IkunLocaleProvider],
+      components: [LocaleProvider],
       html: `<ikun-locale-provider></ikun-locale-provider>`,
     });
     expect(page.root).toEqualHtml(`

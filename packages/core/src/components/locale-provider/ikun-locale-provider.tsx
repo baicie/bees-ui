@@ -3,9 +3,9 @@ import { Locale } from '../../locale';
 import warning from '../../utils/warning';
 
 @Component({
-  tag: 'ikun-locale-provider',
+  tag: 'bees-locale-provider',
 })
-export class IkunLocaleProvider {
+export class LocaleProvider {
   @Prop() locale: Locale | undefined;
 
   @State() state: Locale | undefined;

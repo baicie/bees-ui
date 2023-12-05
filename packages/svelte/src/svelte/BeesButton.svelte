@@ -7,20 +7,20 @@ let __mounted = false;
 
 const dispatch = createEventDispatcher();
 
-export let type;
+export let type = undefined;
 export let size = undefined;
-export let loading;
-export let disabled;
-export let ghost;
-export let block;
-export let danger;
-export let shape;
-export let prefixCls;
-export let htmlType;
-export let icon;
-export let target;
-export let href;
-export let beeTitle;
+export let loading = undefined;
+export let disabled = undefined;
+export let ghost = undefined;
+export let block = undefined;
+export let danger = undefined;
+export let shape = undefined;
+export let prefixCls = undefined;
+export let htmlType = undefined;
+export let icon = undefined;
+export let target = undefined;
+export let href = undefined;
+export let beeTitle = undefined;
 
 
 

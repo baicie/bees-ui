@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { IkunConfigProvider } from '../config-provider';
+import { ConfigProvider } from '../config-provider';
 
 describe('config-provider', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [IkunConfigProvider],
+      components: [ConfigProvider],
       html: `<config-provider></config-provider>`,
     });
     expect(page.root).toEqualHtml(`
