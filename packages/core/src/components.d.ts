@@ -5,77 +5,99 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { SizeType, ThemeConfig } from "./components/config-provider/context";
+import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/button-helpers";
+import { SizeType } from "./components/config-provider/context";
+import { MouseEventHandler } from "./utils/EventInterface";
+import { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 import { Locale } from "@bees-ui/core/src/locale";
 import { Locale as Locale1 } from "./locale";
-export { SizeType, ThemeConfig } from "./components/config-provider/context";
+export { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/button-helpers";
+export { SizeType } from "./components/config-provider/context";
+export { MouseEventHandler } from "./utils/EventInterface";
+export { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 export { Locale } from "@bees-ui/core/src/locale";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
-    interface IkunButton {
+    interface BeesButton {
+        "beeTitle": string;
+        "block": boolean;
         "danger": boolean;
-        /**
-          * If `true`, the user cannot interact with the button.
-         */
         "disabled": boolean;
-        "handleFous": () => Promise<void>;
-        "size": 'large' | 'middle' | 'small';
-        "type": 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
+        "ghost": boolean;
+        "href": string;
+        "htmlType": ButtonHTMLType;
+        "icon": string;
+        "loading": Loading;
+        "prefixCls": string;
+        "shape": ButtonShape;
+        "size": SizeType;
+        "target": string;
+        "type": ButtonType;
     }
-    interface IkunConfigProvider {
-        "componentSize": SizeType;
+    interface BeesConfigProvider {
+        "componentSize": SizeType1;
         "locale": Locale;
         "theme": ThemeConfig;
     }
-    interface IkunLocaleProvider {
-        "locale": Locale1;
+    interface BeesLayout {
     }
-    interface IkunWave {
+    interface BeesWave {
         "disabled": boolean;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface BeesWaveEffect {
+        "myClassName": string | undefined;
+        "target": HTMLElement | undefined;
+    }
+    interface IkunLocaleProvider {
+        "locale": Locale1 | undefined;
     }
 }
-export interface IkunButtonCustomEvent<T> extends CustomEvent<T> {
+export interface BeesButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLIkunButtonElement;
+    target: HTMLBeesButtonElement;
 }
 declare global {
-    interface HTMLIkunButtonElementEventMap {
-        "ikunFocus": void;
-        "ikunClick": void;
+    interface HTMLBeesButtonElementEventMap {
+        "beeClick": MouseEventHandler;
+        "beeMousedown": MouseEventHandler;
     }
-    interface HTMLIkunButtonElement extends Components.IkunButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLIkunButtonElementEventMap>(type: K, listener: (this: HTMLIkunButtonElement, ev: IkunButtonCustomEvent<HTMLIkunButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLBeesButtonElement extends Components.BeesButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBeesButtonElementEventMap>(type: K, listener: (this: HTMLBeesButtonElement, ev: BeesButtonCustomEvent<HTMLBeesButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLIkunButtonElementEventMap>(type: K, listener: (this: HTMLIkunButtonElement, ev: IkunButtonCustomEvent<HTMLIkunButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBeesButtonElementEventMap>(type: K, listener: (this: HTMLBeesButtonElement, ev: BeesButtonCustomEvent<HTMLBeesButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLIkunButtonElement: {
-        prototype: HTMLIkunButtonElement;
-        new (): HTMLIkunButtonElement;
+    var HTMLBeesButtonElement: {
+        prototype: HTMLBeesButtonElement;
+        new (): HTMLBeesButtonElement;
     };
-    interface HTMLIkunConfigProviderElement extends Components.IkunConfigProvider, HTMLStencilElement {
+    interface HTMLBeesConfigProviderElement extends Components.BeesConfigProvider, HTMLStencilElement {
     }
-    var HTMLIkunConfigProviderElement: {
-        prototype: HTMLIkunConfigProviderElement;
-        new (): HTMLIkunConfigProviderElement;
+    var HTMLBeesConfigProviderElement: {
+        prototype: HTMLBeesConfigProviderElement;
+        new (): HTMLBeesConfigProviderElement;
+    };
+    interface HTMLBeesLayoutElement extends Components.BeesLayout, HTMLStencilElement {
+    }
+    var HTMLBeesLayoutElement: {
+        prototype: HTMLBeesLayoutElement;
+        new (): HTMLBeesLayoutElement;
+    };
+    interface HTMLBeesWaveElement extends Components.BeesWave, HTMLStencilElement {
+    }
+    var HTMLBeesWaveElement: {
+        prototype: HTMLBeesWaveElement;
+        new (): HTMLBeesWaveElement;
+    };
+    interface HTMLBeesWaveEffectElement extends Components.BeesWaveEffect, HTMLStencilElement {
+    }
+    var HTMLBeesWaveEffectElement: {
+        prototype: HTMLBeesWaveEffectElement;
+        new (): HTMLBeesWaveEffectElement;
     };
     interface HTMLIkunLocaleProviderElement extends Components.IkunLocaleProvider, HTMLStencilElement {
     }
@@ -83,80 +105,70 @@ declare global {
         prototype: HTMLIkunLocaleProviderElement;
         new (): HTMLIkunLocaleProviderElement;
     };
-    interface HTMLIkunWaveElement extends Components.IkunWave, HTMLStencilElement {
-    }
-    var HTMLIkunWaveElement: {
-        prototype: HTMLIkunWaveElement;
-        new (): HTMLIkunWaveElement;
-    };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
-        "ikun-button": HTMLIkunButtonElement;
-        "ikun-config-provider": HTMLIkunConfigProviderElement;
+        "bees-button": HTMLBeesButtonElement;
+        "bees-config-provider": HTMLBeesConfigProviderElement;
+        "bees-layout": HTMLBeesLayoutElement;
+        "bees-wave": HTMLBeesWaveElement;
+        "bees-wave-effect": HTMLBeesWaveEffectElement;
         "ikun-locale-provider": HTMLIkunLocaleProviderElement;
-        "ikun-wave": HTMLIkunWaveElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface IkunButton {
-        "danger"?: boolean;
-        /**
-          * If `true`, the user cannot interact with the button.
-         */
-        "disabled"?: boolean;
-        "onIkunClick"?: (event: IkunButtonCustomEvent<void>) => void;
-        "onIkunFocus"?: (event: IkunButtonCustomEvent<void>) => void;
-        "size"?: 'large' | 'middle' | 'small';
-        "type"?: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost';
+    interface BeesButton {
+        "beeTitle": string;
+        "block": boolean;
+        "danger": boolean;
+        "disabled": boolean;
+        "ghost": boolean;
+        "href": string;
+        "htmlType": ButtonHTMLType;
+        "icon": string;
+        "loading": Loading;
+        "onBeeClick"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
+        "onBeeMousedown"?: (event: BeesButtonCustomEvent<MouseEventHandler>) => void;
+        "prefixCls": string;
+        "shape": ButtonShape;
+        "size"?: SizeType;
+        "target": string;
+        "type": ButtonType;
     }
-    interface IkunConfigProvider {
-        "componentSize"?: SizeType;
-        "locale"?: Locale;
-        "theme"?: ThemeConfig;
+    interface BeesConfigProvider {
+        "componentSize"?: SizeType1;
+        "locale": Locale;
+        "theme": ThemeConfig;
+    }
+    interface BeesLayout {
+    }
+    interface BeesWave {
+        "disabled"?: boolean;
+    }
+    interface BeesWaveEffect {
+        "myClassName"?: string | undefined;
+        "target"?: HTMLElement | undefined;
     }
     interface IkunLocaleProvider {
-        "locale"?: Locale1;
-    }
-    interface IkunWave {
-        "disabled"?: boolean;
-    }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "locale"?: Locale1 | undefined;
     }
     interface IntrinsicElements {
-        "ikun-button": IkunButton;
-        "ikun-config-provider": IkunConfigProvider;
+        "bees-button": BeesButton;
+        "bees-config-provider": BeesConfigProvider;
+        "bees-layout": BeesLayout;
+        "bees-wave": BeesWave;
+        "bees-wave-effect": BeesWaveEffect;
         "ikun-locale-provider": IkunLocaleProvider;
-        "ikun-wave": IkunWave;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ikun-button": LocalJSX.IkunButton & JSXBase.HTMLAttributes<HTMLIkunButtonElement>;
-            "ikun-config-provider": LocalJSX.IkunConfigProvider & JSXBase.HTMLAttributes<HTMLIkunConfigProviderElement>;
+            "bees-button": LocalJSX.BeesButton & JSXBase.HTMLAttributes<HTMLBeesButtonElement>;
+            "bees-config-provider": LocalJSX.BeesConfigProvider & JSXBase.HTMLAttributes<HTMLBeesConfigProviderElement>;
+            "bees-layout": LocalJSX.BeesLayout & JSXBase.HTMLAttributes<HTMLBeesLayoutElement>;
+            "bees-wave": LocalJSX.BeesWave & JSXBase.HTMLAttributes<HTMLBeesWaveElement>;
+            "bees-wave-effect": LocalJSX.BeesWaveEffect & JSXBase.HTMLAttributes<HTMLBeesWaveEffectElement>;
             "ikun-locale-provider": LocalJSX.IkunLocaleProvider & JSXBase.HTMLAttributes<HTMLIkunLocaleProviderElement>;
-            "ikun-wave": LocalJSX.IkunWave & JSXBase.HTMLAttributes<HTMLIkunWaveElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

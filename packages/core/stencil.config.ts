@@ -1,17 +1,17 @@
 import { Config } from '@stencil/core';
 import { stencilCachePath, stencilWWWPath } from '../../scripts/paths';
-import { sass } from '@stencil/sass';
 import { vueOutputTarget } from '@bees-ui/vue-output-target';
 import { reactOutputTarget } from '@bees-ui/react-output-target';
 import { svelteOutputTarget } from '@bees-ui/svelte-output-target';
 import dynamic from '@rollup/plugin-dynamic-import-vars';
 
+const isDev = process.argv.includes('--mm');
+
 export const config: Config = {
   autoprefixCss: true,
-  sourceMap: false,
+  sourceMap: true,
   namespace: 'Bees',
   cacheDir: stencilCachePath,
-  plugins: [sass()],
   buildEs5: 'prod',
   outputTargets: [
     {
@@ -69,6 +69,6 @@ export const config: Config = {
   },
   preamble: '@vite-ignore',
   rollupPlugins: {
-    before: [dynamic()],
+    before: [isDev ? undefined : dynamic()],
   },
 };

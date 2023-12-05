@@ -5,15 +5,14 @@ import type { SizeType, ThemeConfig } from './context';
 import { useConfigContext } from './context';
 
 @Component({
-  tag: 'ikun-config-provider',
-  shadow: true,
+  tag: 'bees-config-provider',
 })
 export class IkunConfigProvider {
   @Prop({}) componentSize: SizeType;
 
-  @Prop() theme: ThemeConfig;
+  @Prop() theme!: ThemeConfig;
 
-  @Prop() locale: Locale;
+  @Prop() locale!: Locale;
 
   componentWillLoad() {
     useConfigContext.set('componentSize', this.componentSize);

@@ -1,61 +1,72 @@
-import { Component, EventEmitter, Host, Prop, h ,Event, State, Watch, Method, Listen} from '@stencil/core';
-import warning from '../../utils/warning';
-
+import useConfigInject from '@components/config-provider/hooks/use-config-inject';
+import { Component, ComponentInterface, Prop, h, EventEmitter, Event } from '@stencil/core';
+import { computed } from '@vue/reactivity';
+import classNames from 'classnames';
+import useStyle from './style';
+import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from './button-helpers';
+import { SizeType } from '@components/config-provider/context';
+import { MouseEventHandler } from '@utils/EventInterface';
 @Component({
-  tag: 'ikun-button',
-  styleUrl: 'button.scss',
-  shadow: true,
+  tag: 'bees-button',
 })
-export class BButton {
-  /**
-   * If `true`, the user cannot interact with the button.
-   */
-  @Prop() disabled: boolean;
+export class Button implements ComponentInterface {
+  @Prop({ reflect: true, mutable: true }) type!: ButtonType;
 
-  @Prop() type: 'primary' | 'default' | 'dashed' | 'link' | 'text' | 'ghost' = 'default';
+  @Prop({ reflect: true }) size: SizeType = 'default';
 
-  @Prop() size: 'large' | 'middle' | 'small' = 'middle';
+  @Prop({ reflect: true }) loading!: Loading;
 
-  @Prop() danger: boolean;
+  @Prop({ reflect: true }) disabled!: boolean;
 
-  @State() text: string;
+  @Prop({ reflect: true }) ghost!: boolean;
 
-  @Event() ikunFocus!: EventEmitter<void>;
+  @Prop({ reflect: true }) block!: boolean;
 
-  @Event() ikunClick!: EventEmitter<void>;
+  @Prop({ reflect: true }) danger!: boolean;
 
-  @Listen('click')
-  handleClick2() {
-    warning(true, 'handleClick2');
-  }
+  @Prop({ reflect: true }) shape!: ButtonShape;
 
+  @Prop({ reflect: true }) prefixCls!: string;
 
-  @Watch('text')
-  textChanged(text: string) {
-    warning(true, text);
-  }
+  @Prop({ reflect: true }) htmlType!: ButtonHTMLType;
 
-  @Method()
-  async handleFous() {
-    this.ikunFocus.emit();
-  }
+  @Prop({ reflect: true }) icon!: string;
 
-  private handleClick = (ev: Event) => {
-    if (!this.disabled) {
-      ev.preventDefault();
-      ev.stopImmediatePropagation();
-      this.ikunClick.emit();
-      this.text = 'textChanged';
-    }
-  }
+  @Prop({ reflect: true }) target!: string;
+
+  @Prop({ reflect: true }) href!: string;
+
+  @Prop({}) beeTitle!: string;
+
+  @Event({}) beeClick!: EventEmitter<MouseEventHandler>;
+
+  @Event({}) beeMousedown!: EventEmitter<MouseEventHandler>;
 
   render() {
-    return (
-      <Host
-        onClick={this.handleClick}
-      >
-        <slot></slot>
-      </Host>
+    const { prefixCls, direction } = useConfigInject('btn', this);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+    const { danger, type } = this;
+
+    const classes = computed(() =>
+      classNames(prefixCls.value, hashId.value, {
+        [`${prefixCls.value}-${type}`]: type,
+        [`${prefixCls.value}-dangerous`]: !!danger,
+        [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
+      }),
     );
+
+    const buttonProps = {
+      class: classes.value,
+    };
+
+    let buttonNode = (
+      <button {...buttonProps}>
+        <bees-wave>
+          <slot></slot>
+        </bees-wave>
+      </button>
+    );
+
+    return wrapSSR(buttonNode);
   }
 }

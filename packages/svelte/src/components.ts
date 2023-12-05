@@ -3,13 +3,15 @@
 // @ts-nocheck
 import '@bees-ui/core/loader';
 
-import IkunButton from './components/IkunButton';
-import IkunConfigProvider from './components/IkunConfigProvider';
+import BeesButton from './components/BeesButton';
+import BeesConfigProvider from './components/BeesConfigProvider';
+import BeesLayout from './components/BeesLayout';
+import BeesWave from './components/BeesWave';
+import BeesWaveEffect from './components/BeesWaveEffect';
 import IkunLocaleProvider from './components/IkunLocaleProvider';
-import IkunWave from './components/IkunWave';
-import MyComponent from './components/MyComponent';
-export { IkunButton };
-export { IkunConfigProvider };
+export { BeesButton };
+export { BeesConfigProvider };
+export { BeesLayout };
+export { BeesWave };
+export { BeesWaveEffect };
 export { IkunLocaleProvider };
-export { IkunWave };
-export { MyComponent };

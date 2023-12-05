@@ -4,16 +4,15 @@ import warning from '../../utils/warning';
 
 @Component({
   tag: 'ikun-locale-provider',
-  shadow: true,
 })
 export class IkunLocaleProvider {
-  @Prop() locale: Locale;
+  @Prop() locale: Locale | undefined;
 
-  @State() state: Locale;
+  @State() state: Locale | undefined;
 
   @Watch('locale')
   localeChanged(locale: Locale) {
-    Object.assign(this.state, locale);
+    Object.assign({}, this.state, locale);
     warning(true, 'localeChanged');
   }
 

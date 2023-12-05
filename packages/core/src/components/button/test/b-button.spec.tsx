@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { BButton } from '../button';
+import { Button } from '../button';
 
 describe('baicie-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [BButton],
+      components: [Button],
       html: `<baicie-button></baicie-button>`,
     });
     expect(page.root).toEqualHtml(`
