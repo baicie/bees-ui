@@ -1,13 +1,13 @@
 import useConfigInject from '@components/config-provider/hooks/use-config-inject';
 import { Component, ComponentInterface, Prop, h, EventEmitter, Event } from '@stencil/core';
-import { computed } from '@vue/reactivity';
+import { computed, shallowRef } from '@vue/reactivity';
 import classNames from 'classnames';
 import useStyle from './style';
-import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from './buttonHelpers';
+import { ButtonHTMLType, ButtonShape, ButtonType, GroupSizeContext, Loading } from './buttonHelpers';
 import { SizeType } from '@components/config-provider/context';
 import { MouseEventHandler } from '@utils/EventInterface';
 import { useCompactItemContext } from '@components/space/Compact';
-import { GroupSizeContext } from './button-group';
+
 @Component({
   tag: 'bees-button',
 })
@@ -44,11 +44,23 @@ export class Button implements ComponentInterface {
 
   @Event({}) beeMousedown: EventEmitter<MouseEventHandler>;
 
+  private isUnBorderedButtonType(type: ButtonType | undefined) {
+    return type === 'text' || type === 'link';
+  }
+
   render() {
-    const { prefixCls, direction, size } = useConfigInject('btn', this);
+    const { prefixCls, autoInsertSpaceInButton, direction, size } = useConfigInject('btn', this);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const [wrapSSR, hashId] = useStyle(prefixCls);
     const groupSizeContext = GroupSizeContext.useInject();
+
+    const innerLoading = shallowRef<Loading>(false);
+    const hasTwoCNChar = shallowRef(false);
+    const autoInsertSpace = computed(() => autoInsertSpaceInButton.value !== false);
+    // update innerLoading
+    // const loadingOrDelay = computed(() =>
+    //   typeof this.loading === 'object' && this.loading.delay ? this.loading.delay || true : !!this.loading,
+    // );
 
     const classes = computed(() => {
       const { type, shape = 'default', ghost, block, danger } = this;
@@ -65,7 +77,7 @@ export class Button implements ComponentInterface {
         [`${pre}-${type}`]: type,
         [`${pre}-${sizeCls}`]: sizeCls,
         [`${pre}-loading`]: innerLoading.value,
-        [`${pre}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+        [`${pre}-background-ghost`]: ghost && !this.isUnBorderedButtonType(type),
         [`${pre}-two-chinese-chars`]: hasTwoCNChar.value && autoInsertSpace.value,
         [`${pre}-block`]: block,
         [`${pre}-dangerous`]: !!danger,
