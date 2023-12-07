@@ -10,12 +10,14 @@ import { SizeType } from "./components/config-provider/context";
 import { MouseEventHandler } from "./utils/EventInterface";
 import { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 import { Locale } from "@bees-ui/core/src/locale";
+import { CSSProperties } from "csstype";
 import { Locale as Locale1 } from "./locale";
 export { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/buttonHelpers";
 export { SizeType } from "./components/config-provider/context";
 export { MouseEventHandler } from "./utils/EventInterface";
 export { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
 export { Locale } from "@bees-ui/core/src/locale";
+export { CSSProperties } from "csstype";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
     interface BeesButton {
@@ -42,6 +44,37 @@ export namespace Components {
         "theme": ThemeConfig;
     }
     interface BeesLayout {
+        "beTagName": string;
+        "hasSider": boolean;
+        "prefixCls": string;
+    }
+    interface BeesLayoutContent {
+        "beTagName": string;
+        "hasSider": boolean;
+        "prefixCls": string;
+    }
+    interface BeesLayoutFooter {
+        "beTagName": string;
+        "hasSider": boolean;
+        "prefixCls": string;
+    }
+    interface BeesLayoutHeader {
+        "beTagName": string;
+        "hasSider": boolean;
+        "prefixCls": string;
+    }
+    interface BeesLayoutSider {
+        "breakpoint": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+        "collapsed": boolean;
+        "collapsedWidth": number | string;
+        "collapsible": boolean;
+        "defaultCollapsed": boolean;
+        "prefixCls": string;
+        "reverseArrow": boolean;
+        "theme": 'light' | 'dark';
+        "trigger": any;
+        "width": number | string;
+        "zeroWidthTriggerStyle": CSSProperties;
     }
     interface BeesLocaleProvider {
         "locale": Locale1 | undefined;
@@ -59,6 +92,10 @@ export namespace Components {
 export interface BeesButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLBeesButtonElement;
+}
+export interface BeesLayoutSiderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBeesLayoutSiderElement;
 }
 declare global {
     interface HTMLBeesButtonElementEventMap {
@@ -97,6 +134,42 @@ declare global {
         prototype: HTMLBeesLayoutElement;
         new (): HTMLBeesLayoutElement;
     };
+    interface HTMLBeesLayoutContentElement extends Components.BeesLayoutContent, HTMLStencilElement {
+    }
+    var HTMLBeesLayoutContentElement: {
+        prototype: HTMLBeesLayoutContentElement;
+        new (): HTMLBeesLayoutContentElement;
+    };
+    interface HTMLBeesLayoutFooterElement extends Components.BeesLayoutFooter, HTMLStencilElement {
+    }
+    var HTMLBeesLayoutFooterElement: {
+        prototype: HTMLBeesLayoutFooterElement;
+        new (): HTMLBeesLayoutFooterElement;
+    };
+    interface HTMLBeesLayoutHeaderElement extends Components.BeesLayoutHeader, HTMLStencilElement {
+    }
+    var HTMLBeesLayoutHeaderElement: {
+        prototype: HTMLBeesLayoutHeaderElement;
+        new (): HTMLBeesLayoutHeaderElement;
+    };
+    interface HTMLBeesLayoutSiderElementEventMap {
+        "beesBreakpoint": { broken: boolean };
+        "beesCollapse": { collapsed: boolean; type: 'clickTrigger' | 'responsive' };
+    }
+    interface HTMLBeesLayoutSiderElement extends Components.BeesLayoutSider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBeesLayoutSiderElementEventMap>(type: K, listener: (this: HTMLBeesLayoutSiderElement, ev: BeesLayoutSiderCustomEvent<HTMLBeesLayoutSiderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBeesLayoutSiderElementEventMap>(type: K, listener: (this: HTMLBeesLayoutSiderElement, ev: BeesLayoutSiderCustomEvent<HTMLBeesLayoutSiderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBeesLayoutSiderElement: {
+        prototype: HTMLBeesLayoutSiderElement;
+        new (): HTMLBeesLayoutSiderElement;
+    };
     interface HTMLBeesLocaleProviderElement extends Components.BeesLocaleProvider, HTMLStencilElement {
     }
     var HTMLBeesLocaleProviderElement: {
@@ -126,6 +199,10 @@ declare global {
         "bees-button-group": HTMLBeesButtonGroupElement;
         "bees-config-provider": HTMLBeesConfigProviderElement;
         "bees-layout": HTMLBeesLayoutElement;
+        "bees-layout-content": HTMLBeesLayoutContentElement;
+        "bees-layout-footer": HTMLBeesLayoutFooterElement;
+        "bees-layout-header": HTMLBeesLayoutHeaderElement;
+        "bees-layout-sider": HTMLBeesLayoutSiderElement;
         "bees-locale-provider": HTMLBeesLocaleProviderElement;
         "bees-space": HTMLBeesSpaceElement;
         "bees-wave": HTMLBeesWaveElement;
@@ -159,6 +236,39 @@ declare namespace LocalJSX {
         "theme": ThemeConfig;
     }
     interface BeesLayout {
+        "beTagName"?: string;
+        "hasSider"?: boolean;
+        "prefixCls"?: string;
+    }
+    interface BeesLayoutContent {
+        "beTagName"?: string;
+        "hasSider"?: boolean;
+        "prefixCls"?: string;
+    }
+    interface BeesLayoutFooter {
+        "beTagName"?: string;
+        "hasSider"?: boolean;
+        "prefixCls"?: string;
+    }
+    interface BeesLayoutHeader {
+        "beTagName"?: string;
+        "hasSider"?: boolean;
+        "prefixCls"?: string;
+    }
+    interface BeesLayoutSider {
+        "breakpoint"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+        "collapsed"?: boolean;
+        "collapsedWidth"?: number | string;
+        "collapsible"?: boolean;
+        "defaultCollapsed"?: boolean;
+        "onBeesBreakpoint"?: (event: BeesLayoutSiderCustomEvent<{ broken: boolean }>) => void;
+        "onBeesCollapse"?: (event: BeesLayoutSiderCustomEvent<{ collapsed: boolean; type: 'clickTrigger' | 'responsive' }>) => void;
+        "prefixCls"?: string;
+        "reverseArrow"?: boolean;
+        "theme"?: 'light' | 'dark';
+        "trigger"?: any;
+        "width"?: number | string;
+        "zeroWidthTriggerStyle"?: CSSProperties;
     }
     interface BeesLocaleProvider {
         "locale"?: Locale1 | undefined;
@@ -177,6 +287,10 @@ declare namespace LocalJSX {
         "bees-button-group": BeesButtonGroup;
         "bees-config-provider": BeesConfigProvider;
         "bees-layout": BeesLayout;
+        "bees-layout-content": BeesLayoutContent;
+        "bees-layout-footer": BeesLayoutFooter;
+        "bees-layout-header": BeesLayoutHeader;
+        "bees-layout-sider": BeesLayoutSider;
         "bees-locale-provider": BeesLocaleProvider;
         "bees-space": BeesSpace;
         "bees-wave": BeesWave;
@@ -191,6 +305,10 @@ declare module "@stencil/core" {
             "bees-button-group": LocalJSX.BeesButtonGroup & JSXBase.HTMLAttributes<HTMLBeesButtonGroupElement>;
             "bees-config-provider": LocalJSX.BeesConfigProvider & JSXBase.HTMLAttributes<HTMLBeesConfigProviderElement>;
             "bees-layout": LocalJSX.BeesLayout & JSXBase.HTMLAttributes<HTMLBeesLayoutElement>;
+            "bees-layout-content": LocalJSX.BeesLayoutContent & JSXBase.HTMLAttributes<HTMLBeesLayoutContentElement>;
+            "bees-layout-footer": LocalJSX.BeesLayoutFooter & JSXBase.HTMLAttributes<HTMLBeesLayoutFooterElement>;
+            "bees-layout-header": LocalJSX.BeesLayoutHeader & JSXBase.HTMLAttributes<HTMLBeesLayoutHeaderElement>;
+            "bees-layout-sider": LocalJSX.BeesLayoutSider & JSXBase.HTMLAttributes<HTMLBeesLayoutSiderElement>;
             "bees-locale-provider": LocalJSX.BeesLocaleProvider & JSXBase.HTMLAttributes<HTMLBeesLocaleProviderElement>;
             "bees-space": LocalJSX.BeesSpace & JSXBase.HTMLAttributes<HTMLBeesSpaceElement>;
             "bees-wave": LocalJSX.BeesWave & JSXBase.HTMLAttributes<HTMLBeesWaveElement>;
