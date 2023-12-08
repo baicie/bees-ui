@@ -12,6 +12,7 @@ import { SizeType as SizeType1, ThemeConfig } from "./components/config-provider
 import { Locale } from "@bees-ui/core/src/locale";
 import { CSSProperties } from "csstype";
 import { Locale as Locale1 } from "./locale";
+import { SpinSize } from "./components/spin/Spin";
 export { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/buttonHelpers";
 export { SizeType } from "./components/config-provider/context";
 export { MouseEventHandler } from "./utils/EventInterface";
@@ -19,6 +20,7 @@ export { SizeType as SizeType1, ThemeConfig } from "./components/config-provider
 export { Locale } from "@bees-ui/core/src/locale";
 export { CSSProperties } from "csstype";
 export { Locale as Locale1 } from "./locale";
+export { SpinSize } from "./components/spin/Spin";
 export namespace Components {
     interface BeesButton {
         "beeTitle": string;
@@ -42,6 +44,8 @@ export namespace Components {
         "componentSize": SizeType1;
         "locale": Locale;
         "theme": ThemeConfig;
+    }
+    interface BeesExperiment {
     }
     interface BeesLayout {
         "beTagName": string;
@@ -80,6 +84,15 @@ export namespace Components {
         "locale": Locale1 | undefined;
     }
     interface BeesSpace {
+    }
+    interface BeesSpin {
+        "delay": number;
+        "indicator": any;
+        "prefixCls": string;
+        "size": SpinSize;
+        "spinning": boolean;
+        "tip": any;
+        "wrapperClassName": string;
     }
     interface BeesWave {
         "disabled": boolean;
@@ -127,6 +140,12 @@ declare global {
     var HTMLBeesConfigProviderElement: {
         prototype: HTMLBeesConfigProviderElement;
         new (): HTMLBeesConfigProviderElement;
+    };
+    interface HTMLBeesExperimentElement extends Components.BeesExperiment, HTMLStencilElement {
+    }
+    var HTMLBeesExperimentElement: {
+        prototype: HTMLBeesExperimentElement;
+        new (): HTMLBeesExperimentElement;
     };
     interface HTMLBeesLayoutElement extends Components.BeesLayout, HTMLStencilElement {
     }
@@ -182,6 +201,12 @@ declare global {
         prototype: HTMLBeesSpaceElement;
         new (): HTMLBeesSpaceElement;
     };
+    interface HTMLBeesSpinElement extends Components.BeesSpin, HTMLStencilElement {
+    }
+    var HTMLBeesSpinElement: {
+        prototype: HTMLBeesSpinElement;
+        new (): HTMLBeesSpinElement;
+    };
     interface HTMLBeesWaveElement extends Components.BeesWave, HTMLStencilElement {
     }
     var HTMLBeesWaveElement: {
@@ -198,6 +223,7 @@ declare global {
         "bees-button": HTMLBeesButtonElement;
         "bees-button-group": HTMLBeesButtonGroupElement;
         "bees-config-provider": HTMLBeesConfigProviderElement;
+        "bees-experiment": HTMLBeesExperimentElement;
         "bees-layout": HTMLBeesLayoutElement;
         "bees-layout-content": HTMLBeesLayoutContentElement;
         "bees-layout-footer": HTMLBeesLayoutFooterElement;
@@ -205,6 +231,7 @@ declare global {
         "bees-layout-sider": HTMLBeesLayoutSiderElement;
         "bees-locale-provider": HTMLBeesLocaleProviderElement;
         "bees-space": HTMLBeesSpaceElement;
+        "bees-spin": HTMLBeesSpinElement;
         "bees-wave": HTMLBeesWaveElement;
         "bees-wave-effect": HTMLBeesWaveEffectElement;
     }
@@ -234,6 +261,8 @@ declare namespace LocalJSX {
         "componentSize"?: SizeType1;
         "locale": Locale;
         "theme": ThemeConfig;
+    }
+    interface BeesExperiment {
     }
     interface BeesLayout {
         "beTagName"?: string;
@@ -275,6 +304,15 @@ declare namespace LocalJSX {
     }
     interface BeesSpace {
     }
+    interface BeesSpin {
+        "delay"?: number;
+        "indicator"?: any;
+        "prefixCls"?: string;
+        "size"?: SpinSize;
+        "spinning"?: boolean;
+        "tip"?: any;
+        "wrapperClassName"?: string;
+    }
     interface BeesWave {
         "disabled"?: boolean;
     }
@@ -286,6 +324,7 @@ declare namespace LocalJSX {
         "bees-button": BeesButton;
         "bees-button-group": BeesButtonGroup;
         "bees-config-provider": BeesConfigProvider;
+        "bees-experiment": BeesExperiment;
         "bees-layout": BeesLayout;
         "bees-layout-content": BeesLayoutContent;
         "bees-layout-footer": BeesLayoutFooter;
@@ -293,6 +332,7 @@ declare namespace LocalJSX {
         "bees-layout-sider": BeesLayoutSider;
         "bees-locale-provider": BeesLocaleProvider;
         "bees-space": BeesSpace;
+        "bees-spin": BeesSpin;
         "bees-wave": BeesWave;
         "bees-wave-effect": BeesWaveEffect;
     }
@@ -304,6 +344,7 @@ declare module "@stencil/core" {
             "bees-button": LocalJSX.BeesButton & JSXBase.HTMLAttributes<HTMLBeesButtonElement>;
             "bees-button-group": LocalJSX.BeesButtonGroup & JSXBase.HTMLAttributes<HTMLBeesButtonGroupElement>;
             "bees-config-provider": LocalJSX.BeesConfigProvider & JSXBase.HTMLAttributes<HTMLBeesConfigProviderElement>;
+            "bees-experiment": LocalJSX.BeesExperiment & JSXBase.HTMLAttributes<HTMLBeesExperimentElement>;
             "bees-layout": LocalJSX.BeesLayout & JSXBase.HTMLAttributes<HTMLBeesLayoutElement>;
             "bees-layout-content": LocalJSX.BeesLayoutContent & JSXBase.HTMLAttributes<HTMLBeesLayoutContentElement>;
             "bees-layout-footer": LocalJSX.BeesLayoutFooter & JSXBase.HTMLAttributes<HTMLBeesLayoutFooterElement>;
@@ -311,6 +352,7 @@ declare module "@stencil/core" {
             "bees-layout-sider": LocalJSX.BeesLayoutSider & JSXBase.HTMLAttributes<HTMLBeesLayoutSiderElement>;
             "bees-locale-provider": LocalJSX.BeesLocaleProvider & JSXBase.HTMLAttributes<HTMLBeesLocaleProviderElement>;
             "bees-space": LocalJSX.BeesSpace & JSXBase.HTMLAttributes<HTMLBeesSpaceElement>;
+            "bees-spin": LocalJSX.BeesSpin & JSXBase.HTMLAttributes<HTMLBeesSpinElement>;
             "bees-wave": LocalJSX.BeesWave & JSXBase.HTMLAttributes<HTMLBeesWaveElement>;
             "bees-wave-effect": LocalJSX.BeesWaveEffect & JSXBase.HTMLAttributes<HTMLBeesWaveEffectElement>;
         }
