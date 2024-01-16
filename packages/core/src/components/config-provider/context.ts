@@ -5,7 +5,6 @@ import { DEFAULT_DIRECTION, ICONPREFIX, PREFIX } from '@utils/constant';
 import { inject, provide } from '@utils/store';
 import { ComputedRef, computed } from '@vue/reactivity';
 
-export type DirectionType = 'ltr' | 'rtl' | undefined;
 export type SizeType = 'small' | 'middle' | 'large' | 'default' | undefined;
 
 export interface ThemeConfig {

@@ -15,7 +15,6 @@ export default (name: string, props: Record<string, any>) => {
   const direction = computed(() => props.direction ?? configProvider.direction?.value);
   const iconPrefixCls = computed(() => props.iconPrefixCls ?? configProvider.iconPrefixCls.value);
   const rootPrefixCls = computed(() => configProvider.getPrefixCls());
-  const autoInsertSpaceInButton = computed(() => configProvider.autoInsertSpaceInButton?.value);
 
   const size = computed(() => (props.size as SizeType) || sizeContext.value);
   const disabled = computed<boolean>(() => props.disabled ?? disabledContext.value);
@@ -29,8 +28,6 @@ export default (name: string, props: Record<string, any>) => {
     direction,
     iconPrefixCls,
     rootPrefixCls,
-
-    autoInsertSpaceInButton,
 
     size,
     disabled,
