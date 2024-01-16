@@ -33,6 +33,7 @@
     "@stencil/sass": "^3.0.7",
     "@stencil/vue-output-target": "^0.8.7",
     "@types/jest": "^29.5.10",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.41",
     "@types/stylis": "^4.2.4",
