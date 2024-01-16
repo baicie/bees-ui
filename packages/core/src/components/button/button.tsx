@@ -1,13 +1,11 @@
 import useConfigInject from '@components/config-provider/hooks/use-config-inject';
 import { Component, ComponentInterface, Prop, h, EventEmitter, Event } from '@stencil/core';
-import { computed, shallowRef } from '@vue/reactivity';
+import { computed } from '@vue/reactivity';
 import classNames from 'classnames';
 import useStyle from './style';
-import { ButtonHTMLType, ButtonShape, ButtonType, GroupSizeContext, Loading } from './buttonHelpers';
+import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from './button-helpers';
 import { SizeType } from '@components/config-provider/context';
 import { MouseEventHandler } from '@utils/EventInterface';
-import { useCompactItemContext } from '@components/space/Compact';
-
 @Component({
   tag: 'bees-button',
 })
@@ -44,46 +42,18 @@ export class Button implements ComponentInterface {
 
   @Event({}) beeMousedown: EventEmitter<MouseEventHandler>;
 
-  private isUnBorderedButtonType(type: ButtonType | undefined) {
-    return type === 'text' || type === 'link';
-  }
-
   render() {
-    const { prefixCls, autoInsertSpaceInButton, direction, size } = useConfigInject('btn', this);
-    const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+    const { prefixCls, direction } = useConfigInject('btn', this);
     const [wrapSSR, hashId] = useStyle(prefixCls);
-    const groupSizeContext = GroupSizeContext.useInject();
+    const { danger, type } = this;
 
-    const innerLoading = shallowRef<Loading>(false);
-    const hasTwoCNChar = shallowRef(false);
-    const autoInsertSpace = computed(() => autoInsertSpaceInButton.value !== false);
-    // update innerLoading
-    // const loadingOrDelay = computed(() =>
-    //   typeof this.loading === 'object' && this.loading.delay ? this.loading.delay || true : !!this.loading,
-    // );
-
-    const classes = computed(() => {
-      const { type, shape = 'default', ghost, block, danger } = this;
-      const pre = prefixCls.value;
-
-      const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-      const sizeFullname = compactSize.value || groupSizeContext?.size || size.value;
-      const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
-
-      return classNames(compactItemClassnames.value, {
-        [hashId.value]: true,
-        [`${pre}`]: true,
-        [`${pre}-${shape}`]: shape !== 'default' && shape,
-        [`${pre}-${type}`]: type,
-        [`${pre}-${sizeCls}`]: sizeCls,
-        [`${pre}-loading`]: innerLoading.value,
-        [`${pre}-background-ghost`]: ghost && !this.isUnBorderedButtonType(type),
-        [`${pre}-two-chinese-chars`]: hasTwoCNChar.value && autoInsertSpace.value,
-        [`${pre}-block`]: block,
-        [`${pre}-dangerous`]: !!danger,
-        [`${pre}-rtl`]: direction.value === 'rtl',
-      });
-    });
+    const classes = computed(() =>
+      classNames(prefixCls.value, hashId.value, {
+        [`${prefixCls.value}-${type}`]: type,
+        [`${prefixCls.value}-dangerous`]: !!danger,
+        [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
+      }),
+    );
 
     const buttonProps = {
       class: classes.value,

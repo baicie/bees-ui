@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@bees-ui/core": "workspace:^",
     "@bees-ui/vue": "workspace:^",
     "vue": "^3.3.10"
   },
