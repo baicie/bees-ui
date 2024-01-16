@@ -12,6 +12,9 @@
       "cache": true
     },
     "test": {},
-    "lint": {}
+    "lint": {},
+    "stub":{
+      "cache": true
+    }
   }
 }
