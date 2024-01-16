@@ -21,10 +21,6 @@
     "@antfu/eslint-config": "^2.2.2",
     "@baicie/commitizen": "^0.1.0",
     "@baicie/vite-svelte-test": "^1.1.0",
-    "@bees-ui/core": "workspace:^",
-    "@bees-ui/react": "workspace:^",
-    "@bees-ui/svelte-output-target": "workspace:^",
-    "@bees-ui/vue": "workspace:^",
     "@ionic/prettier-config": "^4.0.0",
     "@pnpm/find-workspace-packages": "^6.0.9",
     "@rollup/plugin-dynamic-import-vars": "^2.1.2",
@@ -52,6 +48,8 @@
     "turbo": "^1.10.16",
     "typescript": "^5.3.2",
     "vanilla-tilt": "^1.8.1",
+    "vite": "^5.0.11",
+    "vite-plugin-solid": "^2.8.0",
     "vite_svelte_comps": "^0.0.3"
   }
 }
