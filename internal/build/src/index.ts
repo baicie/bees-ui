@@ -1,27 +1,21 @@
 import cac from 'cac';
-import { build, watch } from './build';
-import { dts } from './dts';
+import { build } from './build';
+
 const cli = cac('bee');
+
 cli.command('[root]', 'Build the project')
   .action(() => {
     console.log('hello bee...')
   })
 
 cli.command('build', 'build mode')
-  .option('-w, --watch', 'Production mode')
   .option('-c, --config', 'Production mode')
   .option('-i, --input', 'input path')
-  .option('-m, --minify', 'output path')
-  .option('-f, --full', 'output path')
-  .option('-s, --sourcemap', 'output path')
-  .action(async (args) => {
+  .action(async (ars) => {
     const root = process.cwd();
-    if (args.watch)
-      await watch(root, args);
-    else
-      await build(root, args)
-    await dts(root, args);
+    await build(root, ars);
   })
 
 cli.help();
+
 cli.parse();
