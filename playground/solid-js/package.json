@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@bees-ui/button": "workspace:^",
+    "@baicie/button": "workspace:^",
     "solid-js": "^1.8.7"
   },
   "devDependencies": {

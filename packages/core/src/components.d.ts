@@ -9,13 +9,13 @@ import { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/b
 import { SizeType } from "./components/config-provider/context";
 import { MouseEventHandler } from "./utils/EventInterface";
 import { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
-import { Locale } from "@bees-ui/core/src/locale";
+import { Locale } from "@baicie/core/src/locale";
 import { Locale as Locale1 } from "./locale";
 export { ButtonHTMLType, ButtonShape, ButtonType, Loading } from "./components/button/button-helpers";
 export { SizeType } from "./components/config-provider/context";
 export { MouseEventHandler } from "./utils/EventInterface";
 export { SizeType as SizeType1, ThemeConfig } from "./components/config-provider/context";
-export { Locale } from "@bees-ui/core/src/locale";
+export { Locale } from "@baicie/core/src/locale";
 export { Locale as Locale1 } from "./locale";
 export namespace Components {
     interface BeesButton {
@@ -73,37 +73,37 @@ declare global {
     }
     var HTMLBeesButtonElement: {
         prototype: HTMLBeesButtonElement;
-        new (): HTMLBeesButtonElement;
+        new(): HTMLBeesButtonElement;
     };
     interface HTMLBeesConfigProviderElement extends Components.BeesConfigProvider, HTMLStencilElement {
     }
     var HTMLBeesConfigProviderElement: {
         prototype: HTMLBeesConfigProviderElement;
-        new (): HTMLBeesConfigProviderElement;
+        new(): HTMLBeesConfigProviderElement;
     };
     interface HTMLBeesLayoutElement extends Components.BeesLayout, HTMLStencilElement {
     }
     var HTMLBeesLayoutElement: {
         prototype: HTMLBeesLayoutElement;
-        new (): HTMLBeesLayoutElement;
+        new(): HTMLBeesLayoutElement;
     };
     interface HTMLBeesLocaleProviderElement extends Components.BeesLocaleProvider, HTMLStencilElement {
     }
     var HTMLBeesLocaleProviderElement: {
         prototype: HTMLBeesLocaleProviderElement;
-        new (): HTMLBeesLocaleProviderElement;
+        new(): HTMLBeesLocaleProviderElement;
     };
     interface HTMLBeesWaveElement extends Components.BeesWave, HTMLStencilElement {
     }
     var HTMLBeesWaveElement: {
         prototype: HTMLBeesWaveElement;
-        new (): HTMLBeesWaveElement;
+        new(): HTMLBeesWaveElement;
     };
     interface HTMLBeesWaveEffectElement extends Components.BeesWaveEffect, HTMLStencilElement {
     }
     var HTMLBeesWaveEffectElement: {
         prototype: HTMLBeesWaveEffectElement;
-        new (): HTMLBeesWaveEffectElement;
+        new(): HTMLBeesWaveEffectElement;
     };
     interface HTMLElementTagNameMap {
         "bees-button": HTMLBeesButtonElement;

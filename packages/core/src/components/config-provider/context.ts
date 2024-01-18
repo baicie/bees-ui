@@ -1,4 +1,4 @@
-import { Locale } from '@bees-ui/core/src/locale';
+import { Locale } from '@baicie/core/src/locale';
 import { AliasToken, OverrideToken } from '@theme/interface';
 import { createStore } from '@stencil/store';
 import { DEFAULT_DIRECTION, ICONPREFIX, PREFIX } from '@utils/constant';

@@ -26,7 +26,7 @@ function isGoodBadImg(imgMeta: any): boolean {
   return imgMeta.isGood || imgMeta.isBad;
 }
 
-function isCompareImg(imgMeta: any): boolean {
+function MITompareImg(imgMeta: any): boolean {
   return isGoodBadImg(imgMeta) || imgMeta.inline;
 }
 const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
@@ -61,7 +61,7 @@ const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   });
 
   const comparable =
-    (imgs.length === 2 && imgsMeta.every(isCompareImg)) ||
+    (imgs.length === 2 && imgsMeta.every(MITompareImg)) ||
     (imgs.length >= 2 && imgsMeta.every(isGoodBadImg));
 
   const style: React.CSSProperties = comparable

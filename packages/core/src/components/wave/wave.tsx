@@ -51,7 +51,7 @@ export class Wave {
     this.init();
   }
 
-  disconnectedCallback() {
+  dMITonnectedCallback() {
     this.clear();
   }
 

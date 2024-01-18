@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/button",
+  "name": "@baicie/config-provider",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -17,15 +17,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm bee build --minify",
-    "dev": "pnpm bee build --watch --full"
+    "build": "pnpm bee build",
+    "dev": "pnpm run build --watch"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baicie/config-provider": "workspace:^",
-    "@baicie/util": "workspace:^",
     "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
   }

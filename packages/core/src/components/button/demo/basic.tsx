@@ -1,5 +1,5 @@
 import React from 'react';
-import { BeesButton } from '@bees-ui/react';
+import { BeesButton } from '@baicie/react';
 
 const App: React.FC = () => {
   const [top, setTop] = React.useState<number>(100);

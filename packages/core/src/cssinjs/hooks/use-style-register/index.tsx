@@ -23,7 +23,7 @@ import type Cache from '../../cache';
 import Keyframes from '../../key-frames';
 import useGlobalCache from '../use-global-cache';
 import { ATTR_CACHE_MAP, existPath, getStyleAndHash, serialize as serializeCacheMap } from './cache-map-util';
-const isClientSide = canUseDom();
+const MITlientSide = canUseDom();
 
 const SKIP_CHECK = '_skip_check_';
 const MULTI_VALUE = '_multi_value_';
@@ -33,13 +33,13 @@ export type CSSProperties = Omit<CSS.PropertiesFallback<number | string>, 'anima
 
 export type CSSPropertiesWithMultiValues = {
   [K in keyof CSSProperties]:
-    | CSSProperties[K]
-    | Extract<CSSProperties[K], string>[]
-    | {
-        [SKIP_CHECK]: boolean;
-        [MULTI_VALUE]?: boolean;
-        value: CSSProperties[K] | Extract<CSSProperties[K], string>[];
-      };
+  | CSSProperties[K]
+  | Extract<CSSProperties[K], string>[]
+  | {
+    [SKIP_CHECK]: boolean;
+    [MULTI_VALUE]?: boolean;
+    value: CSSProperties[K] | Extract<CSSProperties[K], string>[];
+  };
 };
 
 export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject };
@@ -52,7 +52,7 @@ export type CSSInterpolation = InterpolationPrimitive | ArrayCSSInterpolation | 
 
 export type CSSOthersObject = Record<string, CSSInterpolation>;
 
-export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSSOthersObject {}
+export interface CSSObject extends CSSPropertiesWithMultiValues, CSSPseudos, CSSOthersObject { }
 
 // ============================================================================
 // ==                                 Parser                                 ==
@@ -63,7 +63,7 @@ export function normalizeStyle(styleStr: string): string {
   return serialized.replace(/\{%%%\:[^;];}/g, ';');
 }
 
-function isCompoundCSSProperty(value: CSSObject[string]) {
+function MITompoundCSSProperty(value: CSSObject[string]) {
   return typeof value === 'object' && value && (SKIP_CHECK in value || MULTI_VALUE in value);
 }
 
@@ -124,11 +124,11 @@ export const parseStyle = (
     parentSelectors: [],
   },
 ): [
-  parsedStr: string,
-  // Style content which should be unique on all of the style (e.g. Keyframes).
-  // Firefox will flick with same animation name when exist multiple same keyframes.
-  effectStyle: Record<string, string>,
-] => {
+    parsedStr: string,
+    // Style content which should be unique on all of the style (e.g. Keyframes).
+    // Firefox will flick with same animation name when exist multiple same keyframes.
+    effectStyle: Record<string, string>,
+  ] => {
   const { hashId, layer, path, hashPriority, transformers = [], linters = [] } = config;
   let styleStr = '';
   let effectStyle: Record<string, string> = {};
@@ -179,7 +179,7 @@ export const parseStyle = (
           typeof value === 'object' &&
           value &&
           (key !== 'animationName' || !(value as Keyframes)._keyframe) &&
-          !isCompoundCSSProperty(value)
+          !MITompoundCSSProperty(value)
         ) {
           let subInjectHash = false;
 
@@ -313,7 +313,7 @@ export default function useStyleRegister(
   const fullPath = computed(() => [tokenKey.value, ...info.value.path]);
 
   // Check if need insert style
-  let isMergedClientSide = isClientSide;
+  let isMergedClientSide = MITlientSide;
   if (process.env.NODE_ENV !== 'production' && styleContext.mock !== undefined) {
     isMergedClientSide = styleContext.mock === 'client';
   }
@@ -401,7 +401,7 @@ export default function useStyleRegister(
     },
     // Remove cache if no need
     ([, , styleId], fromHMR) => {
-      if ((fromHMR || styleContext.autoClear) && isClientSide) {
+      if ((fromHMR || styleContext.autoClear) && MITlientSide) {
         removeCSS(styleId, { mark: ATTR_MARK });
       }
     },

@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/register",
+  "name": "@baicie/register",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -9,5 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

@@ -1,8 +1,9 @@
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import path from 'node:path';
 import { ModuleFormat } from "rollup";
+import fs from 'node:fs';
 
-export const DEFAULT = 'src/index.ts'
+export const DEFAULT = ['src/index.ts', 'src/index.tsx']
 
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
@@ -58,4 +59,16 @@ export function resolveBuildConfig(root: string) {
   return Object.entries(
     buildConfig
   )
+}
+
+export function resolveInput(root: string, input: string | string[]) {
+  const inputPath = Array.isArray(input) ? input : [input]
+  let resultPath = ''
+  inputPath.forEach((_path) => {
+    const _temp = path.resolve(root, _path)
+    if (fs.existsSync(_temp)) {
+      resultPath = _temp
+    }
+  })
+  return resultPath
 }

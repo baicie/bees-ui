@@ -1,9 +1,8 @@
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import path from 'node:path';
-import { InputPluginOption, OutputOptions, RollupBuild, rollup } from 'rollup';
+import { InputPluginOption, OutputOptions, RollupBuild, WatcherOptions, rollup } from 'rollup';
 import solidPlugin from 'vite-plugin-solid';
-import { DEFAULT, generateExternal, resolveBuildConfig, target } from './ustils';
+import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 import esbuild from 'rollup-plugin-esbuild';
 export interface Options {
   /**
@@ -14,14 +13,25 @@ export interface Options {
   dts?: boolean;
   dtsDir?: string;
   tsconfig?: string;
+  watch?: boolean;
+  minify?: boolean;
+  full?: boolean;
 }
 
 export async function build(root: string, options: Options = {}) {
   const {
     input = DEFAULT,
     sourceMap = false,
+    watch = false,
+    minify = false,
+    full = false,
   } = options;
-  const inputPath = path.resolve(root, input)
+  const inputPath = resolveInput(root, input)
+  const watchOptions: WatcherOptions = {
+    clearScreen: true,
+    exclude: 'node_modules/**',
+    include: 'src/**',
+  }
   const plugins = [
     nodeResolve({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
     commonjs(),
@@ -29,7 +39,7 @@ export async function build(root: string, options: Options = {}) {
     esbuild({
       sourceMap,
       target,
-      minify: true,
+      minify,
     }),
   ] as unknown as InputPluginOption[];
 
@@ -37,7 +47,8 @@ export async function build(root: string, options: Options = {}) {
     input: inputPath,
     plugins,
     treeshake: true,
-    external: await generateExternal(root),
+    external: full ? [] : await generateExternal(root),
+    watch: watch ? watchOptions : false,
   })
 
   await writeBundles(bundle, resolveBuildConfig(root).map(([module, config]): OutputOptions => {

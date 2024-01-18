@@ -58,7 +58,7 @@ Add `script` and `link` tags in your browser and use the global variable `antd`.
 
 We provide `antd.js` and `antd.min.js` `reset.css` under [dist](https://unpkg.com/browse/antd@5.0.0/dist/) folder in antd's npm package. You can also download these files directly from [![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd), [![](https://data.jsdelivr.com/v1/package/npm/antd/badge)](https://www.jsdelivr.com/package/npm/antd) or [unpkg](https://unpkg.com/antd/dist).
 
-> **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
+> **We strongly dMITourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates. Antd is intended to be used in conjunction with a build tool, such as [webpack](https://webpack.github.io/), which will make it easy to import only the parts of antd that you are using.
 
 > Note: You should import `react`、`react-dom`、`dayjs` before using `antd.js`.
 
@@ -131,6 +131,6 @@ If you'd like to help us improve antd, just create a [Pull Request](https://gith
 
 ## Need Help?
 
-For questions on how to use antd, please post questions to [GitHub Discussions](https://github.com/ant-design/ant-design/discussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
+For questions on how to use antd, please post questions to [GitHub DMITussions](https://github.com/ant-design/ant-design/dMITussions) using the `Q&A` tag or [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) using the `antd` tag.
 
 As always, we encourage experienced users to help those who are not familiar with `antd`!

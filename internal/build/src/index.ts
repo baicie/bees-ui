@@ -8,8 +8,11 @@ cli.command('[root]', 'Build the project')
   })
 
 cli.command('build', 'build mode')
+  .option('-w, --watch', 'Production mode')
   .option('-c, --config', 'Production mode')
   .option('-i, --input', 'input path')
+  .option('-m, --minify', 'output path')
+  .option('-f, --full', 'output path')
   .action(async (ars) => {
     const root = process.cwd();
     await build(root, ars);

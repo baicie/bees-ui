@@ -1,16 +1,17 @@
 import { Options } from "./build";
 import { build } from 'tsup';
 import path from 'node:path';
-import { DEFAULT, target } from "./ustils";
+import { DEFAULT, resolveInput, target, } from "./ustils";
 
 export async function dts(root: string, options: Options = {}) {
   const {
     input = DEFAULT,
     sourceMap = true,
-    tsconfig = path.resolve(root, 'tsconfig.json')
+    watch = false,
+    tsconfig = path.resolve(root, '..', '..', 'tsconfig.json')
   } = options;
   const outputPath = path.resolve(root, 'dist/types');
-  const inputPath = path.resolve(root, input);
+  const inputPath = resolveInput(root, input)
 
   await build({
     entry: [inputPath],
@@ -19,5 +20,7 @@ export async function dts(root: string, options: Options = {}) {
     },
     outDir: outputPath,
     tsconfig: tsconfig,
+    target,
+    watch
   });
 }

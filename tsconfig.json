@@ -20,6 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@baicie/*": ["packages/*"],
+    }
   },
   "include": ["packages"]
 }

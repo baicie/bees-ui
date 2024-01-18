@@ -16,12 +16,12 @@ export class WaveEffect {
 
   @State() enabled: boolean | undefined;
 
-  private syncPos = () => {};
+  private syncPos = () => { };
 
   private clear = () => {
     clearTimeout(this.timeouteId);
     wrapperRaf.cancel(this.rafId);
-    this.resizeObserver?.disconnect();
+    this.resizeObserver?.dMITonnect();
   };
 
   private removeDom = () => {
@@ -54,7 +54,7 @@ export class WaveEffect {
     }
   }
 
-  disconnectedCallback() {
+  dMITonnectedCallback() {
     this.clear();
   }
 

@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@bees-ui/button": "workspace:^",
+    "@baicie/button": "workspace:^",
     "vue": "^3.3.11"
   },
   "devDependencies": {

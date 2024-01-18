@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import '@bees-ui/button'
+import '@baicie/button'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +19,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <solid-button></solid-button>
+        <solid-button type="primay"></solid-button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

@@ -14,7 +14,8 @@
     "clean-root": "rimraf node_modules .turbo .stencil",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "stub": "turbo run stub",
-    "postinstall": "pnpm run stub"
+    "postinstall": "pnpm run stub",
+    "base": "turbo run base"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +24,7 @@
     "@antfu/eslint-config": "^2.6.3",
     "@baicie/commitizen": "^0.1.0",
     "@baicie/vite-svelte-test": "^1.1.0",
-    "@bees-ui/build": "workspace:^",
+    "@baicie/build": "workspace:^",
     "@ionic/prettier-config": "^4.0.0",
     "@pnpm/find-workspace-packages": "^6.0.9",
     "@rollup/plugin-dynamic-import-vars": "^2.1.2",
