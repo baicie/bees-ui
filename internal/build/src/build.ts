@@ -1,15 +1,8 @@
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-<<<<<<< HEAD
 import { InputPluginOption, OutputOptions, RollupBuild, RollupOptions, WatcherOptions, rollup, watch as rollupWatch } from 'rollup';
 import solidPlugin from 'vite-plugin-solid';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
-=======
-import path from 'node:path';
-import { InputPluginOption, OutputOptions, RollupBuild, rollup } from 'rollup';
-import solidPlugin from 'vite-plugin-solid';
-import { DEFAULT, generateExternal, resolveBuildConfig, target } from './ustils';
->>>>>>> 58279a3 (feat: button build)
 import esbuild from 'rollup-plugin-esbuild';
 export interface Options {
   /**

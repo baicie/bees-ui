@@ -3,10 +3,14 @@ import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import '@baicie/button'
 =======
 import '@bees-ui/button'
 >>>>>>> 58279a3 (feat: button build)
+=======
+import '@baicie/button'
+>>>>>>> 1c7ff74 (feat: button start)
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>

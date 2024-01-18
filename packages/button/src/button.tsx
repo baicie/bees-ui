@@ -29,6 +29,7 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
+<<<<<<< HEAD
   children?: JSXElement;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
@@ -281,4 +282,18 @@ export const button = (props: ButtonProps,) => {
   }
 
   return wrapCSSVar(buttonNode);
+=======
+  children?: React.ReactNode;
+  [key: `data-${string}`]: string;
+  classNames?: { icon: string };
+  styles?: { icon: React.CSSProperties };
+}
+
+
+export const button = (props: BaseButtonProps,) => {
+  console.log('props', props);
+  return (
+    <button>Click me</button>
+  )
+>>>>>>> 1c7ff74 (feat: button start)
 }

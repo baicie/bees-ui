@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/element",
+  "name": "@baicie/element",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "component-register": "^0.8.3"
   }

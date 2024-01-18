@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/core",
+  "name": "@baicie/core",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

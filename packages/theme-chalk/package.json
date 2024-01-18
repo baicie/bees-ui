@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/theme-chalk",
+  "name": "@baicie/theme-chalk",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
