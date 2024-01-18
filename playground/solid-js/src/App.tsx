@@ -2,6 +2,10 @@ import { createSignal } from 'solid-js'
 import solidLogo from './assets/solid.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+<<<<<<< HEAD
+=======
+import { button as MyButton } from '@bees-ui/button';
+>>>>>>> 58279a3 (feat: button build)
 
 function App() {
   const [count, setCount] = createSignal(0)
@@ -18,7 +22,11 @@ function App() {
       </div>
       <h1>Vite + Solid</h1>
       <div class="card">
+<<<<<<< HEAD
         <solid-button type='primary'>solid</solid-button>
+=======
+        <MyButton></MyButton>
+>>>>>>> 58279a3 (feat: button build)
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

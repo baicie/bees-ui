@@ -1,28 +1,21 @@
 {
-  "name": "solid-js",
+  "name": "vue3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@baicie/button": "workspace:^",
-=======
     "@bees-ui/button": "workspace:^",
->>>>>>> 58279a3 (feat: button build)
-    "solid-js": "^1.8.7"
+    "vue": "^3.3.11"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
-    "vite-plugin-solid": "^2.8.0"
+    "vue-tsc": "^1.8.25"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 58279a3 (feat: button build)

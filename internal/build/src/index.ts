@@ -1,8 +1,7 @@
 import cac from 'cac';
 import { build } from './build';
-
+import { dts } from './dts';
 const cli = cac('bee');
-
 cli.command('[root]', 'Build the project')
   .action(() => {
     console.log('hello bee...')
@@ -17,5 +16,4 @@ cli.command('build', 'build mode')
   })
 
 cli.help();
-
 cli.parse();

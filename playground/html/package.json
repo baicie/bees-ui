@@ -13,6 +13,12 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@baicie/button": "workspace:^"
   }
 }
+=======
+    "@bees-ui/button": "workspace:^"
+  }
+}
+>>>>>>> 58279a3 (feat: button build)
