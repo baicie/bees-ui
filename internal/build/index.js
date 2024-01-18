@@ -1,5 +1,5 @@
 try {
-  require('./dist/index')
+  require('./dist/index.cjs')
   console.log('success');
 } catch (error) {
   console.log(error);

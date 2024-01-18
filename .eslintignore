@@ -4,3 +4,5 @@ src/components.d.ts
 **/test/**/e2e.ts
 .eslintrc.js
 eslint.config.js
+webpack.config.js
+**/dist/**

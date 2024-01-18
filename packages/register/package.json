@@ -1,0 +1,13 @@
+{
+  "name": "@bees-ui/register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "pnpm tsup --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
