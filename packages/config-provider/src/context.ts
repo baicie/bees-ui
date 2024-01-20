@@ -194,7 +194,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   if (customizePrefixCls) {
     return customizePrefixCls;
   }
-  return suffixCls ? `baicie-${suffixCls}` : 'baicie';
+  return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.
