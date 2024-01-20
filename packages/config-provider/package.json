@@ -18,7 +18,8 @@
   ],
   "scripts": {
     "build": "pnpm bee build",
-    "dev": "pnpm run build --watch"
+    "dev": "pnpm bee build --watch",
+    "base": "pnpm bee build --watch"
   },
   "keywords": [],
   "author": "",

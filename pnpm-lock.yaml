@@ -32,9 +32,6 @@ importers:
       '@stencil/core':
         specifier: ^4.10.0
         version: 4.10.0
-      '@stencil/react-output-target':
-        specifier: ^0.5.3
-        version: 0.5.3(@stencil/core@4.10.0)
       '@stencil/sass':
         specifier: ^3.0.8
         version: 3.0.8(@stencil/core@4.10.0)
@@ -47,9 +44,6 @@ importers:
       '@types/node':
         specifier: ^20.11.5
         version: 20.11.5
-      '@types/react':
-        specifier: ^18.2.48
-        version: 18.2.48
       '@types/stylis':
         specifier: ^4.2.5
         version: 4.2.5
@@ -278,6 +272,9 @@ importers:
       '@baicie/util':
         specifier: workspace:^
         version: link:../util
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       solid-element:
         specifier: ^1.8.0
         version: 1.8.0(solid-js@1.8.11)
@@ -351,7 +348,11 @@ importers:
         specifier: ^0.8.3
         version: 0.8.3
 
-  packages/register: {}
+  packages/register:
+    dependencies:
+      component-register:
+        specifier: ^0.8.3
+        version: 0.8.3
 
   packages/theme-chalk: {}
 
@@ -4861,14 +4862,6 @@ packages:
     resolution: {integrity: sha512-7lDTPY1IxXN2/C+wQPHt3e/dYgY4YgelA8MxOsU3ZftXtpzWad/QNWhSAtKisJMrSjQh41jMDOgD0yLBwV6E7w==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
-
-  /@stencil/react-output-target@0.5.3(@stencil/core@4.10.0):
-    resolution: {integrity: sha512-68jwRp35CjAcwhTJ9yFD/3n+jrHOqvEH2jreVuPVvZK+4tkhPlYlwz0d1E1RlF3jyifUSfdkWUGgXIEy8Fo3yw==}
-    peerDependencies:
-      '@stencil/core': '>=2.0.0 || >=3 || >= 4.0.0-beta.0 || >= 4.0.0'
-    dependencies:
-      '@stencil/core': 4.10.0
-    dev: true
 
   /@stencil/sass@3.0.8(@stencil/core@4.10.0):
     resolution: {integrity: sha512-QJUG4Dr/b3wSizViwQXorrk1PJzxOsKkq5hSqtUHc3NNG3iomC4DQFYGeu15yNfoCDBtt4qkyHSCynsekQ8F6A==}
