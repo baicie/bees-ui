@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/config-provider",
+  "name": "@baicie/style",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -17,14 +17,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm bee build",
-    "dev": "pnpm bee build --watch"
+    "build": "pnpm bee build --minify",
+    "dev": "pnpm bee build --watch --full"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
   }
 }

@@ -16,7 +16,7 @@ import type { ButtonProps } from '@baicie/button';
 // import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
-import { createContext } from 'solid-js';
+import { JSX, createContext } from 'solid-js';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -63,7 +63,7 @@ export interface ThemeConfig {
 
 export interface ComponentStyleConfig {
   className?: string;
-  style?: React.CSSProperties;
+  style?: JSX.CSSProperties;
 }
 
 export interface ModalConfig extends ComponentStyleConfig {
