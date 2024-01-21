@@ -1,4 +1,4 @@
-import { CSSObject } from '@cssinjs/index';
+import { CSSObject } from '@baicie/cssinjs';
 
 export const roundedArrow = (
   width: number,
@@ -59,8 +59,7 @@ export const roundedArrow = (
       clipPath: {
         _multi_value_: true,
         value: [
-          `polygon(${polygonOffset}px 100%, 50% ${polygonOffset}px, ${
-            2 * unitWidth - polygonOffset
+          `polygon(${polygonOffset}px 100%, 50% ${polygonOffset}px, ${2 * unitWidth - polygonOffset
           }px 100%, ${polygonOffset}px 100%)`,
           `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 0 ${bx} ${by} L ${cx} ${cy} A ${innerRadius} ${innerRadius} 0 0 1 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 0 ${fx} ${fy} Z')`,
         ],

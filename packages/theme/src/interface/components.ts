@@ -1,8 +1,8 @@
-import type { ComponentToken as ButtonComponentToken } from '@components/button/style';
-import type { ComponentToken as WaveToken } from '@components/wave/style';
+// import type { ComponentToken as ButtonComponentToken } from '@baicie/button';
+// import type { ComponentToken as WaveToken } from '@components/wave/style';
 
 export interface ComponentTokenMap {
-  Button?: ButtonComponentToken;
+  Button?: {};
   ConfigProvider?: {};
-  Wave?: WaveToken;
+  // Wave?: WaveToken;
 }

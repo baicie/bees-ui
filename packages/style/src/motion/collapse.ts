@@ -1,5 +1,5 @@
-import { TokenWithCommonCls } from '@theme/util/gen-component-style-hooks';
-import type { AliasToken, GenerateStyle } from '../../theme/src/internal';
+import { TokenWithCommonCls } from '@baicie/theme';
+import type { AliasToken, GenerateStyle } from '@baicie/theme';
 
 const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => ({
   [token.componentCls]: {

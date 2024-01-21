@@ -1,6 +1,5 @@
-import { CSSObject, CSSInterpolation } from '@cssinjs/index';
-import { DerivativeToken, FullToken } from '@theme/internal';
-import { OverrideComponent } from '@theme/util/gen-component-style-hooks';
+import { CSSObject, CSSInterpolation } from '@baicie/cssinjs';
+import { DerivativeToken, FullToken, OverrideComponent } from '@baicie/theme';
 
 interface CompactItemOptions {
   focus?: boolean;
@@ -36,10 +35,10 @@ function compactItemBorder(token: DerivativeToken, parentCls: string, options: C
 
       ...(focusElCls
         ? {
-            [`&${focusElCls}`]: {
-              zIndex: 2,
-            },
-          }
+          [`&${focusElCls}`]: {
+            zIndex: 2,
+          },
+        }
         : {}),
 
       [`&[disabled] ${childCombinator}`]: {

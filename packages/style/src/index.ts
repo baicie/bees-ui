@@ -1,10 +1,12 @@
 /* eslint-disable import/prefer-default-export */
 
-import { CSSObject } from '@cssinjs/index';
-import type { DerivativeToken } from '../theme/src/internal';
+import { CSSObject } from '@baicie/cssinjs';
+import type { DerivativeToken } from '../../theme/src/internal';
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
 export { genPresetColor } from './presetColor';
+export { genCompactItemStyle } from './compact-item';
+export { genCompactItemVerticalStyle } from './compact-item-vertical';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',

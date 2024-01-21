@@ -1,4 +1,4 @@
-import { CSSObject, Keyframes } from '@cssinjs/index';
+import { CSSObject, Keyframes } from '@baicie/cssinjs';
 
 const initMotionCommon = (duration: string): CSSObject => ({
   animationDuration: duration,

@@ -1,4 +1,4 @@
-import { ObservableMap, createStore } from '@stencil/store';
+import { createStore } from 'solid-js/store';
 import CacheEntity from './cache';
 import { Linter } from './linters';
 import type { Transformer } from './transformers/interface';
@@ -79,8 +79,9 @@ const StyleContext = createStore<StyleContextProps>({
   defaultCache: true,
 });
 
-export function useStyleContext(context: ObservableMap<StyleContextProps>) {
-  return context.state;
+export function useStyleContext() {
+  const [get] = StyleContext
+  return get
 }
 
 export default StyleContext;

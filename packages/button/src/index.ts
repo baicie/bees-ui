@@ -2,6 +2,7 @@ import { button } from './button';
 import { customElement } from 'solid-element';
 import type { ButtonType } from './buttonHelpers';
 import type { ButtonProps } from './button';
+import type { ComponentToken } from './style'
 
 customElement('solid-button', {
   loading: false,
@@ -28,5 +29,6 @@ export {
 
 export type {
   ButtonType,
-  ButtonProps
+  ButtonProps,
+  ComponentToken
 }

@@ -1,9 +1,9 @@
-import StyleContext, { ATTR_TOKEN, CSS_IN_JS_INSTANCE, useStyleContext } from '@cssinjs/style-context';
-import Theme from '@cssinjs/theme/theme';
-import { flattenToken, token2key } from '@cssinjs/util';
+import StyleContext, { ATTR_TOKEN, CSS_IN_JS_INSTANCE, useStyleContext } from '../style-context';
+import Theme from '../theme/theme';
+import { flattenToken, token2key } from '../util';
 import hash from '@emotion/hash';
-import { Ref, computed, ref } from '@vue/reactivity';
 import useGlobalCache from './use-global-cache';
+import { Accessor, createMemo } from 'solid-js';
 
 const EMPTY_OVERRIDE = {};
 
@@ -116,25 +116,25 @@ export const getComputedToken = <DerivativeToken = object, DesignToken = Derivat
 };
 
 export default function useCacheToken<DerivativeToken = object, DesignToken = DerivativeToken>(
-  theme: Ref<Theme<any, any>>,
-  tokens: Ref<Partial<DesignToken>[]>,
-  option: Ref<Option<DerivativeToken, DesignToken>> = ref({}),
+  theme: Accessor<Theme<any, any>>,
+  tokens: Accessor<Partial<DesignToken>[]>,
+  option: Accessor<Option<DerivativeToken, DesignToken>>,
 ) {
-  const style = useStyleContext(StyleContext);
+  const style = useStyleContext();
 
   // Basic - We do basic cache here
-  const mergedToken = computed(() => Object.assign({}, ...tokens.value));
-  const tokenStr = computed(() => flattenToken(mergedToken.value));
-  const overrideTokenStr = computed(() => flattenToken(option.value.override || EMPTY_OVERRIDE));
+  const mergedToken = createMemo(() => Object.assign({}, ...tokens()));
+  const tokenStr = createMemo(() => flattenToken(mergedToken()));
+  const overrideTokenStr = createMemo(() => flattenToken(option().override || EMPTY_OVERRIDE));
 
   const cachedToken = useGlobalCache<[DerivativeToken & { _tokenKey: string }, string]>(
     'token',
-    computed(() => [option.value.salt || '', theme.value.id, tokenStr.value, overrideTokenStr.value]),
+    createMemo(() => [option().salt || '', theme().id, tokenStr(), overrideTokenStr()]),
     () => {
-      const { salt = '', override = EMPTY_OVERRIDE, formatToken, getComputedToken: compute } = option.value;
+      const { salt = '', override = EMPTY_OVERRIDE, formatToken, getComputedToken: compute } = option();
       const mergedDerivativeToken = compute
-        ? compute(mergedToken.value, override, theme.value)
-        : getComputedToken(mergedToken.value, override, theme.value, formatToken);
+        ? compute(mergedToken(), override, theme())
+        : getComputedToken(mergedToken(), override, theme(), formatToken);
 
       // Optimize for `useStyleRegister` performance
       const tokenKey = token2key(mergedDerivativeToken, salt);

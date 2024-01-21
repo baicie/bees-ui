@@ -1,4 +1,4 @@
-import canUseDom from './can-use-dom';
+import { canUseDom } from './can-use-dom';
 import contains from './contains';
 
 const APPEND_ORDER = 'data-vc-order';

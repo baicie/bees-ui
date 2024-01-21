@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/button",
+  "name": "@baicie/version",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -18,15 +18,13 @@
   ],
   "scripts": {
     "build": "pnpm bee build --minify",
-    "dev": "pnpm bee build --watch --full --sourcemap"
+    "dev": "pnpm bee build --watch --full"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@baicie/config-provider": "workspace:^",
-    "@baicie/style": "workspace:^",
-    "@baicie/theme": "workspace:^",
     "@baicie/util": "workspace:^",
     "classnames": "^2.5.1",
     "solid-element": "^1.8.0",

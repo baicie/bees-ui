@@ -1,4 +1,4 @@
-import { ColorMapToken, SeedToken } from '@theme/interface';
+import { ColorMapToken, SeedToken } from '../../interface';
 import { GenerateColorMap, GenerateNeutralColorMap } from '../color-map';
 import { TinyColor } from '@ctrl/tinycolor';
 

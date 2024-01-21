@@ -1,5 +1,5 @@
-import { CSSObject } from '@cssinjs/index';
-import { DerivativeToken } from '@theme/internal';
+import { CSSObject } from '@baicie/cssinjs';
+import { DerivativeToken } from '@baicie/theme';
 
 // eslint-disable-next-line import/prefer-default-export
 export const operationUnit = (token: DerivativeToken): CSSObject => ({

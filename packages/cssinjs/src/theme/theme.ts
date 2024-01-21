@@ -1,4 +1,4 @@
-import warning from '@utils/warning';
+import { warning } from '@baicie/util';
 import { DerivativeFunc, TokenType } from './interface';
 
 let uuid = 0;

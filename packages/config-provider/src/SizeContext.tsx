@@ -1,17 +1,17 @@
-import { JSXElement } from "solid-js";
+import { Component, JSXElement, createContext, useContext } from "solid-js";
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
-// const SizeContext = createStore<SizeType>(undefined);
+const SizeContext = createContext<SizeType>(undefined);
 
 export interface SizeContextProps {
   size?: SizeType;
   children?: JSXElement;
 }
 
-// export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => {
-//   const originSize = React.useContext<SizeType>(SizeContext);
-//   return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
-// };
+export const SizeContextProvider: Component<SizeContextProps> = ({ children, size }) => {
+  const originSize = useContext<SizeType>(SizeContext);
+  return <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>;
+};
 
-// export default SizeContext;
+export default SizeContext;

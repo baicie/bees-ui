@@ -1,5 +1,5 @@
 import cac from 'cac';
-import { build } from './build';
+import { build, watch } from './build';
 import { dts } from './dts';
 const cli = cac('bee');
 cli.command('[root]', 'Build the project')
@@ -13,10 +13,14 @@ cli.command('build', 'build mode')
   .option('-i, --input', 'input path')
   .option('-m, --minify', 'output path')
   .option('-f, --full', 'output path')
-  .action(async (ars) => {
+  .option('-s, --sourcemap', 'output path')
+  .action(async (args) => {
     const root = process.cwd();
-    await build(root, ars);
-    await dts(root, ars);
+    if (args.watch)
+      await watch(root, args);
+    else
+      await build(root, args)
+    await dts(root, args);
   })
 
 cli.help();

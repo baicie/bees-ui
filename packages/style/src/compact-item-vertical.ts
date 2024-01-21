@@ -1,6 +1,5 @@
-import { CSSObject, CSSInterpolation } from '@cssinjs/index';
-import { DerivativeToken, FullToken } from '@theme/internal';
-import { OverrideComponent } from '@theme/util/gen-component-style-hooks';
+import { CSSObject, CSSInterpolation } from '@baicie/cssinjs';
+import { DerivativeToken, FullToken, OverrideComponent } from '@baicie/theme';
 
 function compactItemVerticalBorder(token: DerivativeToken, parentCls: string): CSSObject {
   return {

@@ -1,4 +1,4 @@
-import { warning } from '@utils/warning';
+import { warning } from '@baicie/util';
 import type { LinterInfo } from './interface';
 
 export function lintWarning(message: string, info: LinterInfo) {
@@ -6,8 +6,7 @@ export function lintWarning(message: string, info: LinterInfo) {
 
   warning(
     false,
-    `[Bees CSS-in-JS] ${path ? `Error in '${path}': ` : ''}${message}${
-      parentSelectors.length ? ` Selector info: ${parentSelectors.join(' -> ')}` : ''
+    `[Bees CSS-in-JS] ${path ? `Error in '${path}': ` : ''}${message}${parentSelectors.length ? ` Selector info: ${parentSelectors.join(' -> ')}` : ''
     }`,
   );
 }

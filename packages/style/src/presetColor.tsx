@@ -1,6 +1,5 @@
-import { CSSObject } from '@cssinjs/index';
-import { PresetColorKey, AliasToken, PresetColors } from '@theme/internal';
-import { TokenWithCommonCls } from '@theme/util/gen-component-style-hooks';
+import { CSSObject } from '@baicie/cssinjs';
+import { PresetColorKey, AliasToken, PresetColors, TokenWithCommonCls } from '@baicie/theme';
 
 interface CalcColor {
   /** token[`${colorKey}-1`] */

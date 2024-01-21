@@ -2,7 +2,7 @@ import hash from '@emotion/hash';
 import type * as CSS from 'csstype';
 // @ts-ignore
 import type { Transformer } from '@cssinjs/index';
-import { contentQuotesLinter, hashedAnimationLinter, Linter } from '@cssinjs/linters';
+import { contentQuotesLinter, hashedAnimationLinter, Linter } from '../../linters';
 import StyleContext, {
   ATTR_CACHE_PATH,
   ATTR_MARK,
@@ -10,20 +10,20 @@ import StyleContext, {
   CSS_IN_JS_INSTANCE,
   HashPriority,
   useStyleContext,
-} from '@cssinjs/style-context';
-import { Theme } from '@cssinjs/theme';
-import { supportLayer } from '@cssinjs/util';
+} from '../..//style-context';
+import { Theme } from '../../theme';
+import { supportLayer } from '../../util';
 import unitless from '@emotion/unitless';
-import canUseDom from '@utils/can-use-dom';
-import { removeCSS, updateCSS } from '@utils/dynamicCss';
-import { StencilVode } from '@utils/type';
-import { computed, Ref } from '@vue/reactivity';
+import { canUseDom } from '@baicie/util';
+import { removeCSS, updateCSS } from '@baicie/util';
 import { compile, serialize, stringify } from 'stylis';
 import type Cache from '../../cache';
 import Keyframes from '../../key-frames';
 import useGlobalCache from '../use-global-cache';
 import { ATTR_CACHE_MAP, existPath, getStyleAndHash, serialize as serializeCacheMap } from './cache-map-util';
-const MITlientSide = canUseDom();
+import { Accessor, createMemo, JSXElement } from 'solid-js';
+
+const isClientSide = canUseDom();
 
 const SKIP_CHECK = '_skip_check_';
 const MULTI_VALUE = '_multi_value_';
@@ -34,17 +34,17 @@ export type CSSProperties = Omit<CSS.PropertiesFallback<number | string>, 'anima
 export type CSSPropertiesWithMultiValues = {
   [K in keyof CSSProperties]:
   | CSSProperties[K]
-  | Extract<CSSProperties[K], string>[]
+  | readonly Extract<CSSProperties[K], string>[]
   | {
-    [SKIP_CHECK]: boolean;
+    [SKIP_CHECK]?: boolean;
     [MULTI_VALUE]?: boolean;
-    value: CSSProperties[K] | Extract<CSSProperties[K], string>[];
+    value: CSSProperties[K] | CSSProperties[K][];
   };
 };
 
 export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject };
 
-type ArrayCSSInterpolation = CSSInterpolation[];
+type ArrayCSSInterpolation = readonly CSSInterpolation[];
 
 export type InterpolationPrimitive = null | undefined | boolean | number | string | CSSObject;
 
@@ -289,7 +289,7 @@ function uniqueHash(path: (string | number)[], styleStr: string) {
  * Register a style to the global style sheet.
  */
 export default function useStyleRegister(
-  info: Ref<{
+  info: Accessor<{
     theme: Theme<any, any>;
     token: any;
     path: string[];
@@ -306,14 +306,14 @@ export default function useStyleRegister(
   }>,
   styleFn: () => CSSInterpolation,
 ) {
-  const styleContext = useStyleContext(StyleContext);
+  const styleContext = useStyleContext();
 
-  const tokenKey = computed(() => info.value.token._tokenKey as string);
+  const tokenKey = createMemo(() => info().token._tokenKey as string);
 
-  const fullPath = computed(() => [tokenKey.value, ...info.value.path]);
+  const fullPath = createMemo(() => [tokenKey(), ...info().path]);
 
   // Check if need insert style
-  let isMergedClientSide = MITlientSide;
+  let isMergedClientSide = isClientSide;
   if (process.env.NODE_ENV !== 'production' && styleContext.mock !== undefined) {
     isMergedClientSide = styleContext.mock === 'client';
   }
@@ -333,13 +333,13 @@ export default function useStyleRegister(
     fullPath,
     // Create cache if needed
     () => {
-      const { path, hashId, layer, nonce, clientOnly, order = 0 } = info.value;
-      const cachePath = fullPath.value.join('|');
+      const { path, hashId, layer, nonce, clientOnly, order = 0 } = info();
+      const cachePath = fullPath().join('|');
       // Get style from SSR inline style directly
       if (existPath(cachePath)) {
         const [inlineCacheStyleStr, styleHash] = getStyleAndHash(cachePath);
         if (inlineCacheStyleStr) {
-          return [inlineCacheStyleStr, tokenKey.value, styleHash, {}, clientOnly, order];
+          return [inlineCacheStyleStr, tokenKey(), styleHash, {}, clientOnly, order];
         }
       }
       const styleObj = styleFn();
@@ -354,7 +354,7 @@ export default function useStyleRegister(
         linters,
       });
       const styleStr = normalizeStyle(parsedStyle);
-      const styleId = uniqueHash(fullPath.value, styleStr);
+      const styleId = uniqueHash(fullPath(), styleStr);
 
       if (isMergedClientSide) {
         const mergedCSSConfig: Parameters<typeof updateCSS>[2] = {
@@ -375,11 +375,11 @@ export default function useStyleRegister(
         (style as any)[CSS_IN_JS_INSTANCE] = cache.instanceId;
 
         // Used for `useCacheToken` to remove on batch when token removed
-        style?.setAttribute(ATTR_TOKEN, tokenKey.value);
+        style?.setAttribute(ATTR_TOKEN, tokenKey());
 
         // Dev usage to find which cache path made this easily
         if (process.env.NODE_ENV !== 'production') {
-          style?.setAttribute(ATTR_CACHE_PATH, fullPath.value.join('|'));
+          style?.setAttribute(ATTR_CACHE_PATH, fullPath().join('|'));
         }
 
         // Inject client side effect style
@@ -397,17 +397,17 @@ export default function useStyleRegister(
         });
       }
 
-      return [styleStr, tokenKey.value, styleId, effectStyle, clientOnly, order];
+      return [styleStr, tokenKey(), styleId, effectStyle, clientOnly, order];
     },
     // Remove cache if no need
     ([, , styleId], fromHMR) => {
-      if ((fromHMR || styleContext.autoClear) && MITlientSide) {
+      if ((fromHMR || styleContext.autoClear) && isClientSide) {
         removeCSS(styleId, { mark: ATTR_MARK });
       }
     },
   );
 
-  return (node: StencilVode) => {
+  return (node: JSXElement) => {
     return node;
   };
 }

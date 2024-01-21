@@ -1,11 +1,9 @@
-import { GlobalToken } from '@theme/interface';
-import { ComponentTokenMap } from '@theme/interface/components';
-import { UseComponentStyleResult, useToken, mergeToken, statisticToken } from '@theme/internal';
-import { computed } from '@vue/reactivity';
-import { Ref } from '@vue/reactivity';
-import { CSSInterpolation, useStyleRegister } from '@cssinjs/index';
-import { useConfigContextInject } from '@components/config-provider/context';
-import { genCommonStyle, genLinkStyle } from '@style/index';
+import { GlobalToken, ComponentTokenMap } from '../interface';
+import { UseComponentStyleResult, useToken, mergeToken, statisticToken } from '../internal';
+import { CSSInterpolation, useStyleRegister } from '@baicie/cssinjs';
+import { ConfigContext } from '@baicie/config-provider';
+import { genCommonStyle, genLinkStyle } from '../../../style/src';
+import { createMemo, useContext } from 'solid-js';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -41,64 +39,64 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ) {
-  return (_prefixCls?: Ref<string>): UseComponentStyleResult => {
-    const prefixCls = computed(() => _prefixCls?.value);
+  return (_prefixCls?: string): UseComponentStyleResult => {
+    const prefixCls = createMemo(() => _prefixCls);
     const [theme, token, hashId] = useToken();
-    const { getPrefixCls, iconPrefixCls } = useConfigContextInject();
-    const rootPrefixCls = computed(() => getPrefixCls());
+    const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+    const rootPrefixCls = createMemo(() => getPrefixCls());
 
-    const sharedInfo = computed(() => {
+    const sharedInfo = createMemo(() => {
       return {
-        theme: theme.value,
-        token: token.value,
-        hashId: hashId.value,
-        path: ['Shared', rootPrefixCls.value],
+        theme: theme(),
+        token: token(),
+        hashId: hashId(),
+        path: ['Shared', rootPrefixCls()],
       };
     });
     // Generate style for all a tags in antd component.
     useStyleRegister(sharedInfo, () => [
       {
         // Link
-        '&': genLinkStyle(token.value),
+        '&': genLinkStyle(token()),
       },
     ]);
-    const componentInfo = computed(() => {
+    const componentInfo = createMemo(() => {
       return {
-        theme: theme.value,
-        token: token.value,
-        hashId: hashId.value,
-        path: [component, prefixCls.value, iconPrefixCls.value],
+        theme: theme(),
+        token: token(),
+        hashId: hashId(),
+        path: [component, prefixCls(), iconPrefixCls],
       };
     });
 
     return [
       useStyleRegister(componentInfo, () => {
-        const { token: proxyToken, flush } = statisticToken(token.value);
+        const { token: proxyToken, flush } = statisticToken(token());
 
         const defaultComponentToken =
           typeof getDefaultToken === 'function' ? (getDefaultToken as any)(proxyToken) : getDefaultToken;
-        const mergedComponentToken = { ...defaultComponentToken, ...token.value[component] };
+        const mergedComponentToken = { ...defaultComponentToken, ...token()[component] };
 
-        const componentCls = `.${prefixCls.value}`;
+        const componentCls = `.${prefixCls()}`;
         const mergedToken = mergeToken<TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>>(
           proxyToken,
           {
             componentCls,
-            prefixCls: prefixCls.value,
-            iconCls: `.${iconPrefixCls.value}`,
-            antCls: `.${rootPrefixCls.value}`,
+            prefixCls: prefixCls(),
+            iconCls: `.${iconPrefixCls}`,
+            antCls: `.${rootPrefixCls()}`,
           },
           mergedComponentToken,
         );
         const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
-          hashId: hashId.value,
-          prefixCls: prefixCls.value,
-          rootPrefixCls: rootPrefixCls.value,
-          iconPrefixCls: iconPrefixCls.value,
-          overrideComponentToken: token.value[component],
+          hashId: hashId(),
+          prefixCls: prefixCls(),
+          rootPrefixCls: rootPrefixCls(),
+          iconPrefixCls: iconPrefixCls,
+          overrideComponentToken: token()[component],
         });
         flush(component, mergedComponentToken);
-        return [genCommonStyle(token.value, prefixCls.value), styleInterpolation];
+        return [genCommonStyle(token(), prefixCls()), styleInterpolation];
       }),
       hashId,
     ];

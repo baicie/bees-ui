@@ -1,5 +1,5 @@
 import { generate } from '@ant-design/colors';
-import { ColorPalettes, MapToken, PresetColorType, SeedToken } from '@theme/interface';
+import { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/gen-color-map-token';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';

@@ -1,4 +1,4 @@
-import type { PresetColorType, SeedToken } from '@theme/interface';
+import type { PresetColorType, SeedToken } from '../interface';
 
 export const defaultPresetColors: PresetColorType = {
   blue: '#1677ff',

@@ -1,19 +1,19 @@
 import StyleContext, { useStyleContext } from '../style-context';
 import type { KeyType } from '../cache';
 import useHMR from './use-HMR';
-import { shallowRef, effect, ShallowRef, Ref } from '@vue/reactivity';
+import { Accessor, createEffect, createSignal } from 'solid-js';
 
 export default function useClientCache<CacheType>(
   prefix: string,
-  keyPath: Ref<KeyType[]>,
+  keyPath: Accessor<KeyType[]>,
   cacheFn: () => CacheType,
   onCacheRemove?: (cache: CacheType, fromHMR: boolean) => void,
-): ShallowRef<CacheType | undefined> {
-  const styleContext = useStyleContext(StyleContext);
-  const fullPathStr = shallowRef('');
-  const res = shallowRef<CacheType>();
-  effect(() => {
-    fullPathStr.value = [prefix, ...keyPath.value].join('%');
+): Accessor<CacheType | undefined> {
+  const styleContext = useStyleContext();
+  const [fullPathStr, setFullPathStr] = createSignal('');
+  const [res, setRes] = createSignal<CacheType>();
+  createEffect(() => {
+    setFullPathStr([prefix, ...keyPath()].join('%'))
   });
   const HMRUpdate = useHMR();
   const clearCache = (pathStr: string) => {
@@ -29,10 +29,10 @@ export default function useClientCache<CacheType>(
     });
   };
 
-  effect(() => {
-    if (fullPathStr) clearCache(fullPathStr.value);
+  createEffect(() => {
+    if (fullPathStr) clearCache(fullPathStr());
     // Create cache
-    styleContext.cache.update(fullPathStr.value, (prevCache) => {
+    styleContext.cache.update(fullPathStr(), (prevCache) => {
       const [times = 0, cache] = prevCache || [];
 
       // HMR should always ignore cache since developer may change it
@@ -45,7 +45,7 @@ export default function useClientCache<CacheType>(
 
       return [times + 1, mergedCache];
     });
-    res.value = styleContext.cache.get(fullPathStr.value)![1];
+    setRes(styleContext.cache.get(fullPathStr())![1])
   });
 
   return res;

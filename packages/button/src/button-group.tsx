@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 
-import { devUseWarning } from '../_util/warning';
+import { warning } from '@baicie/util';
 import { ConfigContext } from '@baicie/config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
-import { useToken } from '../theme/internal';
+import type { SizeType } from '@baicie/config-provider';
+import { useToken } from '@baicie/theme';
 import { JSX } from 'solid-js/jsx-runtime';
 import { JSXElement, Component, createContext, useContext } from 'solid-js';
 
@@ -40,9 +40,9 @@ const ButtonGroup: Component<ButtonGroupProps> = (props) => {
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Button.Group');
+    // const warning = devUseWarning('Button.Group');
 
-    warning(!size || ['large', 'small', 'middle'].includes(size), 'usage', 'Invalid prop `size`.');
+    warning(!size || ['large', 'small', 'middle'].includes(size), 'Invalid prop `size`.');
   }
 
   const classes = classNames(
@@ -57,7 +57,7 @@ const ButtonGroup: Component<ButtonGroupProps> = (props) => {
 
   return (
     <GroupSizeContext.Provider value={size}>
-      <div {...others} className={classes} />
+      <div {...others} class={classes} />
     </GroupSizeContext.Provider>
   );
 };

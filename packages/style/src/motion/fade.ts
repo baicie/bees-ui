@@ -1,6 +1,5 @@
-import { Keyframes, CSSInterpolation } from '@cssinjs/index';
-import { AliasToken } from '@theme/internal';
-import { TokenWithCommonCls } from '@theme/util/gen-component-style-hooks';
+import { Keyframes, CSSInterpolation } from '@baicie/cssinjs';
+import { AliasToken, TokenWithCommonCls } from '@baicie/theme';
 import { initMotion } from './motion';
 
 export const fadeIn = new Keyframes('antFadeIn', {

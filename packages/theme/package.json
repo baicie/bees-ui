@@ -24,6 +24,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@ant-design/colors": "^7.0.2",
+    "@baicie/config-provider": "workspace:^",
+    "@baicie/cssinjs": "workspace:^",
+    "@baicie/version": "workspace:^",
+    "@ctrl/tinycolor": "^4.0.2",
     "solid-js": "^1.8.11"
   }
 }

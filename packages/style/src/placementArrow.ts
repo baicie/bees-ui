@@ -1,6 +1,5 @@
-import { CSSInterpolation } from '@cssinjs/index';
-import { AliasToken } from '@theme/internal';
-import { TokenWithCommonCls } from '@theme/util/gen-component-style-hooks';
+import { CSSInterpolation } from '@baicie/cssinjs';
+import type { TokenWithCommonCls, AliasToken } from '@baicie/theme';
 import { roundedArrow } from './roundedArrow';
 
 function connectArrowCls(classList: string[], showArrowCls = '') {
