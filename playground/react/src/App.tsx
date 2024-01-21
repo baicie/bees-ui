@@ -19,7 +19,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <solid-button type="primay"></solid-button>
+        <solid-button type="primay">solid</solid-button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

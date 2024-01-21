@@ -313,7 +313,7 @@ export default function useStyleRegister(
   const fullPath = createMemo(() => [tokenKey(), ...info().path]);
 
   // Check if need insert style
-  let isMergedClientSide = MITlientSide;
+  let isMergedClientSide = isClientSide;
   if (process.env.NODE_ENV !== 'production' && styleContext.mock !== undefined) {
     isMergedClientSide = styleContext.mock === 'client';
   }
@@ -401,7 +401,7 @@ export default function useStyleRegister(
     },
     // Remove cache if no need
     ([, , styleId], fromHMR) => {
-      if ((fromHMR || styleContext.autoClear) && MITlientSide) {
+      if ((fromHMR || styleContext.autoClear) && isClientSide) {
         removeCSS(styleId, { mark: ATTR_MARK });
       }
     },

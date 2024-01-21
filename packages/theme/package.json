@@ -25,13 +25,19 @@
   "license": "MIT",
   "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebe2878 (feat: button show)
     "@ant-design/colors": "^7.0.2",
     "@baicie/config-provider": "workspace:^",
     "@baicie/cssinjs": "workspace:^",
     "@baicie/version": "workspace:^",
     "@ctrl/tinycolor": "^4.0.2",
+<<<<<<< HEAD
 =======
 >>>>>>> d2b3de8 (refactor: files)
+=======
+>>>>>>> ebe2878 (feat: button show)
     "solid-js": "^1.8.11"
   }
 }

@@ -420,6 +420,12 @@ importers:
       '@baicie/config-provider':
         specifier: workspace:^
         version: link:../config-provider
+      '@baicie/style':
+        specifier: workspace:^
+        version: link:../style
+      '@baicie/theme':
+        specifier: workspace:^
+        version: link:../theme
       '@baicie/util':
         specifier: workspace:^
         version: link:../util
@@ -443,6 +449,7 @@ importers:
         version: 1.8.11
 >>>>>>> 1c7ff74 (feat: button start)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   packages/core:
 >>>>>>> 2c97110 (feat: build)
@@ -642,14 +649,26 @@ importers:
 =======
   packages/core-new: {}
 
+=======
+>>>>>>> ebe2878 (feat: button show)
   packages/cssinjs:
     dependencies:
+      '@baicie/util':
+        specifier: workspace:^
+        version: link:../util
       '@emotion/hash':
         specifier: ^0.9.1
         version: 0.9.1
+      '@emotion/unitless':
+        specifier: ^0.8.1
+        version: 0.8.1
+      csstype:
+        specifier: ^3.1.3
+        version: 3.1.3
       solid-js:
         specifier: ^1.8.11
         version: 1.8.11
+<<<<<<< HEAD
 >>>>>>> d2b3de8 (refactor: files)
 
   packages/element:
@@ -657,6 +676,11 @@ importers:
       component-register:
         specifier: ^0.8.3
         version: 0.8.3
+=======
+      stylis:
+        specifier: ^4.3.1
+        version: 4.3.1
+>>>>>>> ebe2878 (feat: button show)
 
   packages/locale:
     dependencies:
@@ -666,12 +690,30 @@ importers:
 
   packages/style:
     dependencies:
+      '@baicie/theme':
+        specifier: workspace:^
+        version: link:../theme
       solid-js:
         specifier: ^1.8.11
         version: 1.8.11
 
   packages/theme:
     dependencies:
+      '@ant-design/colors':
+        specifier: ^7.0.2
+        version: 7.0.2
+      '@baicie/config-provider':
+        specifier: workspace:^
+        version: link:../config-provider
+      '@baicie/cssinjs':
+        specifier: workspace:^
+        version: link:../cssinjs
+      '@baicie/version':
+        specifier: workspace:^
+        version: link:../version
+      '@ctrl/tinycolor':
+        specifier: ^4.0.2
+        version: 4.0.3
       solid-js:
         specifier: ^1.8.11
         version: 1.8.11
@@ -709,7 +751,28 @@ importers:
         specifier: ^1.8.11
         version: 1.8.11
 
+<<<<<<< HEAD
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+  packages/version:
+    dependencies:
+      '@baicie/config-provider':
+        specifier: workspace:^
+        version: link:../config-provider
+      '@baicie/util':
+        specifier: workspace:^
+        version: link:../util
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
+      solid-element:
+        specifier: ^1.8.0
+        version: 1.8.0(solid-js@1.8.11)
+      solid-js:
+        specifier: ^1.8.11
+        version: 1.8.11
+
+>>>>>>> ebe2878 (feat: button show)
   playground/html:
     dependencies:
       '@baicie/button':
@@ -882,7 +945,6 @@ packages:
     resolution: {integrity: sha512-7KJkhTiPiLHSu+LmMJnehfJ6242OCxSlR3xHVBecYxnMW8MS/878NXct1GqYARyL59fyeFdKRxXTfvR9SnDgJg==}
     dependencies:
       '@ctrl/tinycolor': 3.6.1
-    dev: true
 
   /@ant-design/compatible@5.1.2(antd@5.13.1)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-PcNV6hCrlx1JnKBjC148BjJNM3XLVSEER422SOk/HRVD8rm8ZovItlZrQOoO3WH5L4jqwj5gxQap2cqSnmQaTg==}
@@ -3393,12 +3455,10 @@ packages:
   /@ctrl/tinycolor@3.6.1:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
-    dev: true
 
   /@ctrl/tinycolor@4.0.3:
     resolution: {integrity: sha512-e9nEVehVJwkymQpkGhdSNzLT2Lr9UTTby+JePq4Z2SxBbOQjY7pLgSouAaXvfaGQVSAaY0U4eJdwfSDmCbItcw==}
     engines: {node: '>=14'}
-    dev: true
 
   /@emotion/babel-plugin@11.11.0:
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -3529,7 +3589,6 @@ packages:
 
   /@emotion/unitless@0.8.1:
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
-    dev: true
 
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.2.0):
     resolution: {integrity: sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==}
@@ -24579,7 +24638,6 @@ packages:
 
   /stylis@4.3.1:
     resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
-    dev: true
 
   /sucrase@3.35.0:
     resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
