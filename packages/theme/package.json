@@ -24,11 +24,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "@ant-design/colors": "^7.0.2",
     "@baicie/config-provider": "workspace:^",
     "@baicie/cssinjs": "workspace:^",
     "@baicie/version": "workspace:^",
     "@ctrl/tinycolor": "^4.0.2",
+=======
+>>>>>>> d2b3de8 (refactor: files)
     "solid-js": "^1.8.11"
   }
 }
