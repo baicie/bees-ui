@@ -1,0 +1,25 @@
+{
+  "name": "@baicie/build",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "bee": "./index.js"
+  },
+  "scripts": {
+    "build": "pnpm tsup",
+    "stub": "unbuild --stub"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "cac": "^6.7.14",
+    "rollup": "^4.9.5",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "tsx": "^4.7.0",
+    "vite-plugin-solid": "^2.8.0"
+  }
+}

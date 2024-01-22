@@ -1,12 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { IkunButton } from "@bees-ui/react";
-import "@baicie/vite-svelte-test/dist/es/index";
-import "vite_svelte_comps/dist/custom-counter.es";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import '@baicie/button'
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -20,11 +19,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <my-custom-counter url="react" />
-        <my-element>my-element</my-element>
-        <IkunButton disabled onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </IkunButton>
+        <solid-button type="primay">solid</solid-button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -33,7 +28,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -132,10 +132,10 @@ export default App;
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
 
-通过 GitHub Discussions 提问时，建议使用 `Q&A` 标签。
+通过 GitHub DMITussions 提问时，建议使用 `Q&A` 标签。
 
 通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [GitHub Discussions](https://github.com/ant-design/ant-design/discussions)
+1. [GitHub DMITussions](https://github.com/ant-design/ant-design/dMITussions)
 2. [<img alt="Stack Overflow" src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg?v=2bb144720a66" width="140" />](http://stackoverflow.com/questions/tagged/antd) (English)
 3. [<img alt="Segment Fault" src="https://gw.alipayobjects.com/zos/rmsportal/hfYFfCvHTQTUKntlJbMF.svg" width="100" />](https://segmentfault.com/t/antd)（中文）

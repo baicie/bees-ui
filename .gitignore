@@ -49,3 +49,5 @@ packages/core/loader/
 
 # turbo
 .turbo
+
+.rollup.cache

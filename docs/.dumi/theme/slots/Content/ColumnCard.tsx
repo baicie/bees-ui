@@ -100,7 +100,7 @@ const locales = {
     zhiHu: 'A UI design system',
     yuQue: 'Ant Design official column',
     junjin: 'Ant Design Open Source Column',
-    buttonText: 'Go to discuss',
+    buttonText: 'Go to dMITuss',
   },
 };
 

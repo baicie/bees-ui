@@ -74,10 +74,10 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
       title: locale.value,
       key: 'value',
       render: (_, record) => {
-        const isColor =
+        const MITolor =
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
-        if (isColor) {
+        if (MITolor) {
           return <ColorChunk value={record.value}>{record.value}</ColorChunk>;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
