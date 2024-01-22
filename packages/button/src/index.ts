@@ -4,24 +4,23 @@ import type { ButtonType } from './buttonHelpers';
 import type { ButtonProps } from './button';
 import type { ComponentToken } from './style'
 
-customElement('solid-button', {
-  loading: false,
-  prefixCls: undefined,
-  type: 'default',
-  danger: undefined,
-  shape: 'default',
-  size: undefined,
-  styles: undefined,
-  disabled: undefined,
-  className: undefined,
-  rootClassName: undefined,
-  children: undefined,
-  icon: undefined,
-  ghost: false,
-  block: false,
-  htmlType: 'button',
-  classNames: undefined,
-}, button);
+// customElement('solid-button', {
+//   loading: false,
+//   prefixCls: undefined,
+//   type: 'default',
+//   danger: undefined,
+//   shape: 'default',
+//   size: undefined,
+//   styles: undefined,
+//   disabled: undefined,
+//   className: undefined,
+//   rootClassName: undefined,
+//   icon: undefined,
+//   ghost: false,
+//   block: false,
+//   htmlType: 'button',
+//   classNames: undefined,
+// }, button);
 
 export {
   button
@@ -32,3 +31,5 @@ export type {
   ButtonProps,
   ComponentToken
 }
+
+export * from './registe'
