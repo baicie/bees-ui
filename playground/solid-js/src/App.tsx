@@ -4,12 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { button as MyButton } from '@bees-ui/button';
 >>>>>>> 58279a3 (feat: button build)
 =======
 import '@baicie/button';
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+>>>>>>> 53c3d2d (feat: fangqi)
 
 function App() {
   const [count, setCount] = createSignal(0)
@@ -28,6 +31,7 @@ function App() {
       <div class="card">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <solid-button type='primary'>solid</solid-button>
 =======
         <MyButton></MyButton>
@@ -35,6 +39,9 @@ function App() {
 =======
         {/* <solid-button type='primary'></solid-button> */}
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+        <solid-button type='primary'>solid</solid-button>
+>>>>>>> 53c3d2d (feat: fangqi)
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

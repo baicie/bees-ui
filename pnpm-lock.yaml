@@ -420,6 +420,12 @@ importers:
       '@baicie/config-provider':
         specifier: workspace:^
         version: link:../config-provider
+      '@baicie/cssinjs':
+        specifier: workspace:^
+        version: link:../cssinjs
+      '@baicie/register':
+        specifier: workspace:^
+        version: link:../register
       '@baicie/style':
         specifier: workspace:^
         version: link:../style
