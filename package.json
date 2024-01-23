@@ -9,6 +9,7 @@
     "publish-script": "tsx scripts/publish-script.ts",
     "build": "turbo run build",
     "start": "turbo run start",
+    "dev": "turbo run dev",
     "prepare": "is-ci || husky install",
     "clean": "turbo run clean && pnpm run clean-root",
     "clean-root": "rimraf node_modules .turbo .stencil",

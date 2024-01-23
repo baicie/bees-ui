@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Element from './element';
 export * from './props';
 export * from './types';

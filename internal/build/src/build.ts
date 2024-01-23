@@ -32,7 +32,6 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
   }
   const plugins = [
     nodeResolve({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
-    commonjs(),
     solidPlugin(),
     esbuild({
       sourceMap: sourcemap,
