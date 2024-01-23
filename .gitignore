@@ -51,3 +51,4 @@ packages/core/loader/
 .turbo
 
 .rollup.cache
+.svelte-kit

@@ -1,0 +1,17 @@
+{
+  "name": "@baicie/register",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import '@baicie/button';
+// import '@baicie/button';
+import { Button } from 'ant-design-vue';
 </script>
 
 <template>
-  <svelte-buton type="parmary">svelte-buton-button</svelte-buton>
+  <Button type="primary">Button1</Button>
+  <Button type="dashed">Button2</Button>
+  <!-- <svelte-buton type="parmary">svelte-buton-button</svelte-buton> -->
 </template>
 
 <style scoped>
