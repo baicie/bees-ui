@@ -1,6 +1,5 @@
 import cac from 'cac';
 import { build, watch } from './build';
-import { dts } from './dts';
 const cli = cac('bee');
 cli.command('[root]', 'Build the project')
   .action(() => {
@@ -20,7 +19,6 @@ cli.command('build', 'build mode')
       await watch(root, args);
     else
       await build(root, args)
-    await dts(root, args);
   })
 
 cli.help();

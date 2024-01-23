@@ -2,6 +2,7 @@
   "name": "@baicie/button",
   "version": "0.0.0",
   "description": "",
+  "type": "module",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
@@ -23,15 +24,5 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@baicie/config-provider": "workspace:^",
-    "@baicie/cssinjs": "workspace:^",
-    "@baicie/register": "workspace:^",
-    "@baicie/style": "workspace:^",
-    "@baicie/theme": "workspace:^",
-    "@baicie/util": "workspace:^",
-    "classnames": "^2.5.1",
-    "solid-element": "^1.8.0",
-    "solid-js": "^1.8.11"
-  }
+  "dependencies": {}
 }

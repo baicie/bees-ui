@@ -3,7 +3,7 @@ import '@baicie/button';
 </script>
 
 <template>
-  <solid-button type="parmary">solid-button</solid-button>
+  <svelte-buton type="parmary">svelte-buton-button</svelte-buton>
 </template>
 
 <style scoped>

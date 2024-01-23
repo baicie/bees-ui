@@ -1,9 +1,12 @@
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import { InputPluginOption, OutputOptions, RollupBuild, RollupOptions, WatcherOptions, rollup, watch as rollupWatch } from 'rollup';
-import solidPlugin from 'vite-plugin-solid';
-import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 import esbuild from 'rollup-plugin-esbuild';
+import svelte from 'rollup-plugin-svelte';
+import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
+import { dts } from 'rollup-plugin-dts';
+import path from 'node:path';
+
 export interface Options {
   /**
    * @description
@@ -18,7 +21,7 @@ export interface Options {
   full?: boolean;
 }
 
-async function resolveConfig(root: string, options: Options = {}): Promise<RollupOptions> {
+export async function resolveConfig(root: string, options: Options = {}): Promise<RollupOptions> {
   const {
     input = DEFAULT,
     sourcemap = false,
@@ -27,13 +30,26 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     full = false,
   } = options;
   const inputPath = resolveInput(root, input)
+  const tsconfigPath = path.resolve(root, '..', '..', 'tsconfig.json')
   const watchOptions: WatcherOptions = {
     clearScreen: true,
   }
   const plugins = [
-    nodeResolve({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
+    svelte({
+      compilerOptions: {
+        customElement: true,
+        generate: 'dom'
+      }
+    }),
+    nodeResolve({
+      browser: true,
+      exportConditions: ['svelte'],
+      extensions: ['.mjs', '.js', '.json', '.ts', 'tsx', '.svelte'],
+    }),
+    // dts({
+    //   tsconfig: tsconfigPath
+    // }),
     commonjs(),
-    solidPlugin(),
     esbuild({
       sourceMap: sourcemap,
       target,

@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -12,8 +13,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
 
     /* Linting */
     "strict": true,
@@ -27,5 +26,5 @@
       "@baicie/*": ["packages/*"],
     }
   },
-  "include": ["packages"]
+  "include": ["packages/**/*.ts", "packages/**/*.d.ts", "packages/**/*.svelte"],
 }

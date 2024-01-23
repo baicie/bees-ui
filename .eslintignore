@@ -1,8 +1,17 @@
-src/components.d.ts
-**/test/**/*.spec.ts
-**/test/**/*.spec.tsx
-**/test/**/e2e.ts
-.eslintrc.js
-eslint.config.js
-webpack.config.js
-**/dist/**
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+**/dist
+rollup.config.js
+play/**/*
+e2e/**/*
+
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock

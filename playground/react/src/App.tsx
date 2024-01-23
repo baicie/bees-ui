@@ -3,7 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import '@baicie/button'
+import reactifyWc from 'reactify-wc';
 
+const VaadinButton = reactifyWc("svelte-buton");
 function App() {
   const [count, setCount] = useState(0)
 
@@ -19,7 +21,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <solid-button type="primay">solid</solid-button>
+        <VaadinButton>1111</VaadinButton>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
