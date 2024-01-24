@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "pnpm tsup",
-    "stub": "unbuild --stub"
+    "stub": "pnpm unbuild --stub"
   },
   "keywords": [],
   "author": "",

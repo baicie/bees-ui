@@ -4,7 +4,7 @@
 // import type { WarningContextProps } from '../_util/warning';
 // import type { ShowWaveEffect } from '../_util/wave/interface';
 // import type { BadgeProps } from '../badge';
-import type { ButtonProps } from '@baicie/button';
+// import type { ButtonProps } from '@baicie/button';
 // import type { DrawerProps } from '../drawer';
 // import type { FlexProps } from '../flex/interface';
 // import type { RequiredMark } from '../form/Form';
@@ -77,8 +77,8 @@ export interface BadgeConfig extends ComponentStyleConfig {
 }
 
 export interface ButtonConfig extends ComponentStyleConfig {
-  classNames?: ButtonProps['classNames'];
-  styles?: ButtonProps['styles'];
+  // classNames?: ButtonProps['classNames'];
+  // styles?: ButtonProps['styles'];
 }
 
 export interface DrawerConfig extends ComponentStyleConfig {

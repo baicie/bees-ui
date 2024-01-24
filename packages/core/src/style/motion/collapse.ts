@@ -1,5 +1,21 @@
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:packages/style/motion/collapse.ts
+>>>>>>> ebe2878 (feat: button show)
+<<<<<<<< HEAD:packages/style/src/motion/collapse.ts
 import { TokenWithCommonCls } from '@baicie/theme';
 import type { AliasToken, GenerateStyle } from '@baicie/theme';
+========
+import { TokenWithCommonCls } from '@theme/util/gen-component-style-hooks';
+import type { AliasToken, GenerateStyle } from '../../theme/src/internal';
+>>>>>>>> d2b3de8 (refactor: files):packages/style/motion/collapse.ts
+<<<<<<< HEAD
+=======
+========
+import { TokenWithCommonCls } from '@baicie/theme';
+import type { AliasToken, GenerateStyle } from '@baicie/theme';
+>>>>>>>> ebe2878 (feat: button show):packages/style/src/motion/collapse.ts
+>>>>>>> ebe2878 (feat: button show)
 
 const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => ({
   [token.componentCls]: {

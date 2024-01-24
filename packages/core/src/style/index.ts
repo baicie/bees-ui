@@ -1,7 +1,23 @@
 /* eslint-disable import/prefer-default-export */
 
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:packages/style/index.ts
+>>>>>>> ebe2878 (feat: button show)
+<<<<<<<< HEAD:packages/style/src/index.ts
 import { CSSObject } from '@baicie/cssinjs';
 import type { DerivativeToken } from '../../theme/src/internal';
+========
+import { CSSObject } from '@cssinjs/index';
+import type { DerivativeToken } from '../theme/src/internal';
+>>>>>>>> d2b3de8 (refactor: files):packages/style/index.ts
+<<<<<<< HEAD
+=======
+========
+import { CSSObject } from '@baicie/cssinjs';
+import type { DerivativeToken } from '../../theme/src/internal';
+>>>>>>>> ebe2878 (feat: button show):packages/style/src/index.ts
+>>>>>>> ebe2878 (feat: button show)
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
 export { genPresetColor } from './presetColor';

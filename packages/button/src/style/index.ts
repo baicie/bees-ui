@@ -3,6 +3,12 @@ import type { FullToken, GenerateStyle } from '@baicie/theme';
 import { genComponentStyleHook, mergeToken } from '@baicie/theme';
 import genGroupStyle from './group';
 import { genFocusStyle, genCompactItemStyle, } from '@baicie/style';
+<<<<<<< HEAD
+
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken { }
+=======
+>>>>>>> ebe2878 (feat: button show)
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken { }

@@ -13,6 +13,18 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
+<<<<<<< HEAD
+<<<<<<< HEAD
     "@baicie/button": "workspace:^"
   }
 }
+=======
+    "@bees-ui/button": "workspace:^"
+  }
+}
+>>>>>>> 58279a3 (feat: button build)
+=======
+    "@baicie/button": "workspace:^"
+  }
+}
+>>>>>>> 1c7ff74 (feat: button start)
