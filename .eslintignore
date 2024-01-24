@@ -1,8 +1,19 @@
-src/components.d.ts
-**/test/**/*.spec.ts
-**/test/**/*.spec.tsx
-**/test/**/e2e.ts
-.eslintrc.js
-eslint.config.js
-webpack.config.js
-**/dist/**
+!.*.js
+~*
+typings
+es/**/*
+lib/**/*
+locale
+server
+.dumi/tmp
+.dumi/tmp-production
+!.dumi/
+node_modules
+.eslintcache
+_site
+dist
+coverage
+**/*.d.ts
+# Scripts
+scripts/previewEditor/**/*
+jest-stare
