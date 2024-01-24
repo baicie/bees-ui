@@ -29,8 +29,6 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
-<<<<<<< HEAD
-<<<<<<< HEAD
   children?: JSXElement;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
@@ -39,7 +37,6 @@ export interface BaseButtonProps {
 }
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
-<<<<<<< HEAD
   href?: string;
   htmlType?: ButtonHTMLType;
 }
@@ -284,11 +281,6 @@ export const button = (props: ButtonProps,) => {
   }
 
   return wrapCSSVar(buttonNode);
-=======
-  children?: React.ReactNode;
-=======
-  children?: JSXElement;
->>>>>>> fc91179 (feat: button)
   [key: `data-${string}`]: string;
   classNames ?: { icon: string };
   styles ?: { icon: React.CSSProperties };
@@ -346,11 +338,6 @@ export const button = (props: ButtonProps,) => {
   } = props;
 
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
-<<<<<<< HEAD
-  return (
-    <button>Click me</button>
-  )
-=======
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   try {
@@ -547,5 +534,4 @@ export const button = (props: ButtonProps,) => {
   }
 
   return wrapCSSVar(buttonNode);
->>>>>>> ebe2878 (feat: button show)
 }
