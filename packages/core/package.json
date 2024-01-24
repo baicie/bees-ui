@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/register",
+  "name": "@baicie/core",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -22,8 +22,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "solid-js": "^1.8.11"
-  }
+  "license": "MIT"
 }

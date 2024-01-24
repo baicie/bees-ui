@@ -11,6 +11,7 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@baicie/button": "workspace:^",
 =======
     "@bees-ui/button": "workspace:^",
@@ -18,6 +19,8 @@
 =======
     "@baicie/button": "workspace:^",
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+>>>>>>> 4542458 (feat: add core)
     "solid-js": "^1.8.7"
   },
   "devDependencies": {
@@ -27,6 +30,7 @@
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -34,3 +38,6 @@
 =======
 }
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+}
+>>>>>>> 4542458 (feat: add core)

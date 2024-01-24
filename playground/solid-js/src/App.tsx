@@ -32,6 +32,7 @@ function App() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <solid-button type='primary'>solid</solid-button>
 =======
         <MyButton></MyButton>
@@ -42,6 +43,11 @@ function App() {
 =======
         <solid-button type='primary'>solid</solid-button>
 >>>>>>> 53c3d2d (feat: fangqi)
+=======
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count()}
+        </button>
+>>>>>>> 4542458 (feat: add core)
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

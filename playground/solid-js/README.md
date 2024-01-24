@@ -6,6 +6,7 @@ $ npm install # or pnpm install or yarn install
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [DMITord](https://dMITord.com/invite/solidjs)
 =======
 ### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
@@ -13,6 +14,9 @@ $ npm install # or pnpm install or yarn install
 =======
 ### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [DMITord](https://dMITord.com/invite/solidjs)
 >>>>>>> 1c7ff74 (feat: button start)
+=======
+### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+>>>>>>> 4542458 (feat: add core)
 
 ## Available Scripts
 

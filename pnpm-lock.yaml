@@ -420,21 +420,6 @@ importers:
       '@baicie/config-provider':
         specifier: workspace:^
         version: link:../config-provider
-      '@baicie/cssinjs':
-        specifier: workspace:^
-        version: link:../cssinjs
-      '@baicie/register':
-        specifier: workspace:^
-        version: link:../register
-      '@baicie/style':
-        specifier: workspace:^
-        version: link:../style
-      '@baicie/theme':
-        specifier: workspace:^
-        version: link:../theme
-      '@baicie/util':
-        specifier: workspace:^
-        version: link:../util
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -498,6 +483,7 @@ importers:
         specifier: ^1.8.11
         version: 1.8.11
 
+<<<<<<< HEAD
   packages/cssinjs:
     dependencies:
       '@baicie/util':
@@ -600,6 +586,9 @@ importers:
       solid-js:
         specifier: ^1.8.11
         version: 1.8.11
+=======
+  packages/core: {}
+>>>>>>> 4542458 (feat: add core)
 
   playground/html:
     dependencies:
@@ -844,6 +833,7 @@ importers:
     dependencies:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       '@baicie/button':
 =======
       '@bees-ui/button':
@@ -853,6 +843,8 @@ importers:
 >>>>>>> 1c7ff74 (feat: button start)
         specifier: workspace:^
         version: link:../../packages/button
+=======
+>>>>>>> 4542458 (feat: add core)
       solid-js:
         specifier: ^1.8.7
         version: 1.8.11
@@ -951,6 +943,7 @@ packages:
     resolution: {integrity: sha512-7KJkhTiPiLHSu+LmMJnehfJ6242OCxSlR3xHVBecYxnMW8MS/878NXct1GqYARyL59fyeFdKRxXTfvR9SnDgJg==}
     dependencies:
       '@ctrl/tinycolor': 3.6.1
+    dev: true
 
   /@ant-design/compatible@5.1.2(antd@5.13.1)(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-PcNV6hCrlx1JnKBjC148BjJNM3XLVSEER422SOk/HRVD8rm8ZovItlZrQOoO3WH5L4jqwj5gxQap2cqSnmQaTg==}
@@ -3461,10 +3454,12 @@ packages:
   /@ctrl/tinycolor@3.6.1:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
+    dev: true
 
   /@ctrl/tinycolor@4.0.3:
     resolution: {integrity: sha512-e9nEVehVJwkymQpkGhdSNzLT2Lr9UTTby+JePq4Z2SxBbOQjY7pLgSouAaXvfaGQVSAaY0U4eJdwfSDmCbItcw==}
     engines: {node: '>=14'}
+    dev: true
 
   /@emotion/babel-plugin@11.11.0:
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -3508,6 +3503,7 @@ packages:
 
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
+    dev: true
 
   /@emotion/is-prop-valid@1.2.1:
     resolution: {integrity: sha512-61Mf7Ufx4aDxx1xlDeOm8aFFigGHE4z+0sKCa+IHCeZKiyP9RLD0Mmx7m8b9/Cf37f7NAvQOOJAbQQGVr5uERw==}
@@ -3595,6 +3591,7 @@ packages:
 
   /@emotion/unitless@0.8.1:
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
+    dev: true
 
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.2.0):
     resolution: {integrity: sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==}
@@ -24644,6 +24641,7 @@ packages:
 
   /stylis@4.3.1:
     resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
+    dev: true
 
   /sucrase@3.35.0:
     resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
