@@ -13,6 +13,7 @@ cli.command('build', 'build mode')
   .option('-m, --minify', 'output path')
   .option('-f, --full', 'output path')
   .option('-s, --sourcemap', 'output path')
+  .option('-a, --alizer', 'output path')
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch)

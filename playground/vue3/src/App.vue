@@ -1,12 +1,16 @@
 <script setup lang="ts">
-// import '@baicie/button';
+import '@baicie/button';
 import { Button } from 'ant-design-vue';
+
+const handle = () => {
+  console.log('handle');
+};
 </script>
 
 <template>
   <Button type="primary">Button1</Button>
   <Button type="dashed">Button2</Button>
-  <!-- <svelte-buton type="parmary">svelte-buton-button</svelte-buton> -->
+  <svelte-buton name="parmary" @click="handle">svelte-buton-button</svelte-buton>
 </template>
 
 <style scoped>

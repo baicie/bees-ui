@@ -4,8 +4,8 @@ import { InputPluginOption, OutputOptions, RollupBuild, RollupOptions, WatcherOp
 import esbuild from 'rollup-plugin-esbuild';
 import svelte from 'rollup-plugin-svelte';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
-import { dts } from 'rollup-plugin-dts';
-import path from 'node:path';
+import preprocess from 'svelte-preprocess';
+import visualizer from 'rollup-plugin-visualizer';
 
 export interface Options {
   /**
@@ -19,6 +19,7 @@ export interface Options {
   watch?: boolean;
   minify?: boolean;
   full?: boolean;
+  alizer?: boolean;
 }
 
 export async function resolveConfig(root: string, options: Options = {}): Promise<RollupOptions> {
@@ -28,14 +29,15 @@ export async function resolveConfig(root: string, options: Options = {}): Promis
     watch = false,
     minify = false,
     full = false,
+    alizer = false,
   } = options;
   const inputPath = resolveInput(root, input)
-  const tsconfigPath = path.resolve(root, '..', '..', 'tsconfig.json')
   const watchOptions: WatcherOptions = {
     clearScreen: true,
   }
   const plugins = [
     svelte({
+      preprocess: preprocess({}),
       compilerOptions: {
         customElement: true,
         generate: 'dom'
@@ -46,15 +48,15 @@ export async function resolveConfig(root: string, options: Options = {}): Promis
       exportConditions: ['svelte'],
       extensions: ['.mjs', '.js', '.json', '.ts', 'tsx', '.svelte'],
     }),
-    // dts({
-    //   tsconfig: tsconfigPath
-    // }),
     commonjs(),
     esbuild({
       sourceMap: sourcemap,
       target,
       minify,
     }),
+    alizer ? visualizer({
+      open: true,
+    }) : null
   ] as unknown as InputPluginOption[];
 
   return {

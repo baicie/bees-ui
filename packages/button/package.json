@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap --alizer",
     "dev": "pnpm bee build --watch --sourcemap"
   },
   "keywords": [],
