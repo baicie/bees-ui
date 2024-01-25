@@ -1,4 +1,5 @@
-import { Component, JSXElement, createContext, useContext } from "solid-js";
+import type { Component, JSXElement} from "solid-js";
+import { createContext, useContext } from "solid-js";
 
 export type DisabledType = boolean | undefined;
 
@@ -9,11 +10,11 @@ export interface DisabledContextProps {
   children?: JSXElement;
 }
 
-export const DisabledContextProvider: Component<DisabledContextProps> = ({ children, disabled }) => {
+export const DisabledContextProvider: Component<DisabledContextProps> = (props) => {
   const originDisabled = useContext(DisabledContext);
   return (
-    <DisabledContext.Provider value={disabled ?? originDisabled}>
-      {children}
+    <DisabledContext.Provider value={props.disabled ?? originDisabled}>
+      {props.children}
     </DisabledContext.Provider>
   );
 };

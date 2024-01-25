@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import path from 'node:path';
 import type { ModuleFormat } from "rollup";

@@ -6,7 +6,6 @@ import { DEFAULT, resolveInput, target } from "./ustils";
 export async function dts(root: string, options: Options = {}) {
   const {
     input = DEFAULT,
-    sourcemap = true,
     watch = false,
     tsconfig = path.resolve(root, '..', '..', 'tsconfig.json'),
   } = options;

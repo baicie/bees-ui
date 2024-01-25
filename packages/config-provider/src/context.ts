@@ -15,8 +15,9 @@
 // import type { TabsProps } from '../tabs';
 // import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { SizeType } from './SizeContext';
-import { JSX, createContext } from 'solid-js';
+// import type { SizeType } from './SizeContext';
+import type { JSX } from 'solid-js';
+import { createContext } from 'solid-js';
 
 export const defaultIconPrefixCls = 'anticon';
 

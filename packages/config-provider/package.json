@@ -18,7 +18,10 @@
   ],
   "scripts": {
     "build": "pnpm bee build",
-    "dev": "pnpm bee build --watch"
+    "dev": "pnpm bee build --watch",
+    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "keywords": [],
   "author": "",

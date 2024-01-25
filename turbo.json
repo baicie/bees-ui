@@ -20,7 +20,9 @@
       "cache": true
     },
     "test": {},
+    "lint-fix": {},
     "lint": {},
+    "prettier": {},
     "stub": {
       "cache": true,
       "dependsOn": [

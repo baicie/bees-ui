@@ -7,8 +7,8 @@ import useSize from './hooks/useSize';
 export {
   ConfigContext,
   DisabledContext,
-  useSize
+  useSize,
 }
 export type {
-  SizeType
+  SizeType,
 }

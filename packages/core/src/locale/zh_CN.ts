@@ -1,4 +1,4 @@
-import { Locale } from './index';
+import type { Locale } from './index';
 
 const localeValues: Locale = {
   locale: 'zh-CN',

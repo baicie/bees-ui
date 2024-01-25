@@ -8,7 +8,10 @@
   },
   "scripts": {
     "build": "pnpm tsup",
-    "stub": "pnpm unbuild --stub"
+    "stub": "pnpm unbuild --stub",
+    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "keywords": [],
   "author": "",
