@@ -398,11 +398,11 @@ export default function useStyleRegister(
         (style as any)[CSS_IN_JS_INSTANCE] = cache.instanceId;
 
         // Used for `useCacheToken` to remove on batch when token removed
-        style.setAttribute(ATTR_TOKEN, tokenKey);
+        style!.setAttribute(ATTR_TOKEN, tokenKey);
 
         // Debug usage. Dev only
         if (process.env.NODE_ENV !== 'production') {
-          style.setAttribute(ATTR_CACHE_PATH, fullPath.join('|'));
+          style!.setAttribute(ATTR_CACHE_PATH, fullPath.join('|'));
         }
 
         // Inject client side effect style

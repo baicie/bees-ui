@@ -1,8 +1,7 @@
-
-import type { Accessor} from 'solid-js';
+import type { Accessor } from 'solid-js';
 import { createMemo, useContext } from 'solid-js';
-import type { SizeType } from '../SizeContext';
-import SizeContext from '../SizeContext';
+import type { SizeType } from '../../../sc-context/src/SizeContext';
+import SizeContext from '../../../sc-context/src/SizeContext';
 
 const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): Accessor<T | SizeType> => {
   const size = useContext<SizeType>(SizeContext);
@@ -17,7 +16,7 @@ const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): Accessor<T | S
       return customSize(size);
     }
     return size as T;
-  }, );
+  });
   return mergedSize;
 };
 

@@ -1,15 +1,16 @@
-import classNames from 'classnames';
+import type { CSSProperties } from '@baicie/core';
+import { clsx } from '@baicie/core';
 
-import { warning } from '@baicie/util';
-import { ConfigContext } from '@baicie/config-provider';
-import type { SizeType } from '@baicie/config-provider';
-import { useToken } from '@baicie/theme';
-import { JSX } from 'solid-js/jsx-runtime';
-import { JSXElement, Component, createContext, useContext } from 'solid-js';
+import { devUseWarning } from '@baicie/sc-util';
+import { ConfigContext } from '../config-provider';
+import type { SizeType } from '../config-provider/SizeContext';
+import { useToken } from '@baicie/core';
+import type { Component } from 'solid-js';
+import { createContext, useContext, type JSXElement } from 'solid-js';
 
 export interface ButtonGroupProps {
   size?: SizeType;
-  style?: JSX.CSSProperties;
+  style?: CSSProperties;
   className?: string;
   prefixCls?: string;
   children?: JSXElement;
@@ -40,12 +41,12 @@ const ButtonGroup: Component<ButtonGroupProps> = (props) => {
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    // const warning = devUseWarning('Button.Group');
+    const warning = devUseWarning('Button.Group');
 
-    warning(!size || ['large', 'small', 'middle'].includes(size), 'Invalid prop `size`.');
+    warning(!size || ['large', 'small', 'middle'].includes(size), 'usage', 'Invalid prop `size`.');
   }
 
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${sizeCls}`]: sizeCls,

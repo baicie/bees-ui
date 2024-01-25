@@ -71,7 +71,7 @@ const useCSSVarRegister = <V, T extends Record<string, V>>(
       (style as any)[CSS_IN_JS_INSTANCE] = instanceId;
 
       // Used for `useCacheToken` to remove on batch when token removed
-      style.setAttribute(ATTR_TOKEN, key);
+      style!.setAttribute(ATTR_TOKEN, key);
     },
   );
 

@@ -215,7 +215,7 @@ export default function useCacheToken<DerivativeToken = object, DesignToken = De
         (style as any)[CSS_IN_JS_INSTANCE] = instanceId;
 
         // Used for `useCacheToken` to remove on batch when token removed
-        style.setAttribute(ATTR_TOKEN, token._themeKey);
+        style!.setAttribute(ATTR_TOKEN, token._themeKey);
       }
     },
   );

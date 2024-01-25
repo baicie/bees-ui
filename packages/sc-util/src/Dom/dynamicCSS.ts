@@ -52,9 +52,9 @@ function getOrder(prepend?: Prepend): AppendType {
  * Find style which inject by rc-util
  */
 function findStyles(container: ContainerType) {
-  return Array.from(
-    (containerCache.get(container) || container).children,
-  ).filter(node => node.tagName === 'STYLE') as HTMLStyleElement[];
+  return Array.from((containerCache.get(container) || container).children).filter(
+    (node) => node.tagName === 'STYLE',
+  ) as HTMLStyleElement[];
 }
 
 export function injectCSS(css: string, option: Options = {}) {
@@ -84,28 +84,19 @@ export function injectCSS(css: string, option: Options = {}) {
   if (prepend) {
     // If is queue `prepend`, it will prepend first style and then append rest style
     if (isPrependQueue) {
-      const existStyle = (option.styles || findStyles(container)).filter(
-        node => {
-          // Ignore style which not injected by rc-util with prepend
-          if (
-            !['prepend', 'prependQueue'].includes(
-              node.getAttribute(APPEND_ORDER),
-            )
-          ) {
-            return false;
-          }
+      const existStyle = (option.styles || findStyles(container)).filter((node) => {
+        // Ignore style which not injected by rc-util with prepend
+        if (!['prepend', 'prependQueue'].includes(node.getAttribute(APPEND_ORDER)!)) {
+          return false;
+        }
 
-          // Ignore style which priority less then new style
-          const nodePriority = Number(node.getAttribute(APPEND_PRIORITY) || 0);
-          return priority >= nodePriority;
-        },
-      );
+        // Ignore style which priority less then new style
+        const nodePriority = Number(node.getAttribute(APPEND_PRIORITY) || 0);
+        return priority >= nodePriority;
+      });
 
       if (existStyle.length) {
-        container.insertBefore(
-          styleNode,
-          existStyle[existStyle.length - 1].nextSibling,
-        );
+        container.insertBefore(styleNode, existStyle[existStyle.length - 1].nextSibling);
 
         return styleNode;
       }
@@ -124,7 +115,7 @@ function findExistNode(key: string, option: Options = {}) {
   const container = getContainer(option);
 
   return (option.styles || findStyles(container)).find(
-    node => node.getAttribute(getMark(option)) === key,
+    (node) => node.getAttribute(getMark(option)) === key,
   );
 }
 
@@ -145,9 +136,9 @@ function syncRealContainer(container: ContainerType, option: Options) {
   // Find real container when not cached or cached container removed
   if (!cachedRealContainer || !contains(document, cachedRealContainer)) {
     const placeholderStyle = injectCSS('', option);
-    const { parentNode } = placeholderStyle;
-    containerCache.set(container, parentNode);
-    container.removeChild(placeholderStyle);
+    const { parentNode } = placeholderStyle!;
+    containerCache.set(container, parentNode!);
+    container.removeChild(placeholderStyle!);
   }
 }
 
@@ -158,11 +149,7 @@ export function clearContainerCache() {
   containerCache.clear();
 }
 
-export function updateCSS(
-  css: string,
-  key: string,
-  originOption: Options = {},
-) {
+export function updateCSS(css: string, key: string, originOption: Options = {}) {
   const container = getContainer(originOption);
   const styles = findStyles(container);
   const option = { ...originOption, styles };
@@ -185,6 +172,6 @@ export function updateCSS(
   }
 
   const newNode = injectCSS(css, option);
-  newNode.setAttribute(getMark(option), key);
+  newNode!.setAttribute(getMark(option), key);
   return newNode;
 }

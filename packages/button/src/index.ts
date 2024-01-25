@@ -1,35 +1,9 @@
-import { button } from './button';
-import { customElement } from 'solid-element';
-import type { ButtonType } from './buttonHelpers';
-import type { ButtonProps } from './button';
-import type { ComponentToken } from './style'
+import Button from './button';
 
-// customElement('solid-button', {
-//   loading: false,
-//   prefixCls: undefined,
-//   type: 'default',
-//   danger: undefined,
-//   shape: 'default',
-//   size: undefined,
-//   styles: undefined,
-//   disabled: undefined,
-//   className: undefined,
-//   rootClassName: undefined,
-//   icon: undefined,
-//   ghost: false,
-//   block: false,
-//   htmlType: 'button',
-//   classNames: undefined,
-// }, button);
+export type { SizeType as ButtonSize } from '../config-provider/SizeContext';
+export type { ButtonProps } from './button';
+export type { ButtonGroupProps } from './button-group';
 
-export {
-  button
-}
+export * from './buttonHelpers';
 
-export type {
-  ButtonType,
-  ButtonProps,
-  ComponentToken
-}
-
-export * from './registe'
+export default Button;

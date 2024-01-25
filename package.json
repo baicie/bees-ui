@@ -20,7 +20,8 @@
     "prettier": "turbo run prettier",
     "build": "turbo run build",
     "start": "turbo run start",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "core-dev": "turbo run core-dev"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",

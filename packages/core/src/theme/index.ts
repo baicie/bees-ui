@@ -4,6 +4,7 @@ import { defaultConfig, useToken as useInternalToken } from './internal';
 import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
 import defaultAlgorithm from './themes/default';
+import type { GenStyleFn } from './util/genComponentStyleHook';
 
 type ComponentsConfig = {
   [key in keyof OverrideToken]?: OverrideToken[key] & {
@@ -41,7 +42,7 @@ function useToken() {
   return { theme, token, hashId };
 }
 
-export type { GlobalToken, MappingAlgorithm };
+export type { GlobalToken, MappingAlgorithm, GenStyleFn };
 
 export default {
   /** @private Test Usage. Do not use in production. */

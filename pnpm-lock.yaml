@@ -194,6 +194,15 @@ importers:
       '@ctrl/tinycolor':
         specifier: ^4.0.3
         version: 4.0.3
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.0
+      solid-js:
+        specifier: ^1.8.12
+        version: 1.8.12
+
+  packages/sc-context:
+    devDependencies:
       solid-js:
         specifier: ^1.8.12
         version: 1.8.12

@@ -114,7 +114,7 @@ export const StyleProvider: Component<StyleProviderProps> = (props) => {
     (prev, next) => !isEqual(prev[0], next[0], true) || !isEqual(prev[1], next[1], true),
   );
 
-  return <StyleContext.Provider value={context()}>{children}</StyleContext.Provider>;
+  return <StyleContext.Provider value={context()!}>{children}</StyleContext.Provider>;
 };
 
 export default StyleContext;

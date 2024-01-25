@@ -2,9 +2,7 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "cache": false
     },
     "base": {
@@ -14,9 +12,11 @@
       "cache": false
     },
     "dev": {
-      "dependsOn": [
-        "^dev"
-      ],
+      "dependsOn": ["^dev"],
+      "cache": true
+    },
+    "core-dev": {
+      "dependsOn": ["^core-dev"],
       "cache": true
     },
     "test": {},
@@ -25,9 +25,7 @@
     "prettier": {},
     "stub": {
       "cache": true,
-      "dependsOn": [
-        "^stub"
-      ]
+      "dependsOn": ["^stub"]
     }
   }
 }

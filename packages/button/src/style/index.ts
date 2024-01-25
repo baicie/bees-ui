@@ -1,14 +1,11 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@baicie/sc-cssinjs';
+import { unit } from '@baicie/sc-cssinjs';
 
-import { genFocusStyle } from '../../style';
-import type { GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { GenerateStyle } from '@baicie/core';
+import { genFocusStyle, genStyleHooks, mergeToken } from '@baicie/core';
 import genGroupStyle from './group';
-import type { ButtonToken, ComponentToken } from './token';
+import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
-
-export type { ComponentToken };
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {

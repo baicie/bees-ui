@@ -138,3 +138,6 @@ export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
     ...genFocusOutline(token),
   },
 });
+
+export * from './compact-item';
+export * from './compact-item-vertical';

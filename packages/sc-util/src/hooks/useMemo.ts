@@ -1,4 +1,4 @@
-import { createMemo, onCleanup } from "solid-js";
+import { createMemo, onCleanup } from 'solid-js';
 
 interface Cache<Value, Condition> {
   condition?: Condition;
@@ -13,7 +13,7 @@ export default function useMemo<Value, Condition = any[]>(
   const cacheRef: Cache<Value, Condition> = { value: undefined, condition: undefined };
 
   const result = createMemo(() => {
-    if (!("value" in cacheRef) || shouldUpdate(cacheRef.condition, condition)) {
+    if (!('value' in cacheRef) || shouldUpdate(cacheRef.condition!, condition)) {
       cacheRef.value = getValue();
       cacheRef.condition = condition;
     }
@@ -28,4 +28,3 @@ export default function useMemo<Value, Condition = any[]>(
 
   return result;
 }
-

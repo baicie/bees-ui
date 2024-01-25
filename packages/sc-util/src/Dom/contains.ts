@@ -5,7 +5,7 @@ export default function contains(root: Node | null | undefined, n?: Node) {
 
   // Use native if support
   if (root.contains) {
-    return root.contains(n);
+    return root.contains(n!);
   }
 
   // `document.contains` not support with IE11
@@ -14,7 +14,7 @@ export default function contains(root: Node | null | undefined, n?: Node) {
     if (node === root) {
       return true;
     }
-    node = node.parentNode;
+    node = node.parentNode!;
   }
 
   return false;

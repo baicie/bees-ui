@@ -1,26 +1,27 @@
-import type { Accessor, JSX, JSXElement } from "solid-js";
-import { createEffect, createMemo, createSignal, useContext } from "solid-js";
-import type { ButtonHTMLType, ButtonShape, ButtonType } from "./buttonHelpers";
-import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from "./buttonHelpers";
-import type { SizeType } from '@baicie/config-provider';
-import { ConfigContext, DisabledContext, useSize } from '@baicie/config-provider';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
+
+import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
+import { useCompactItemContext } from '../space/Compact';
+import Group, { GroupSizeContext } from './button-group';
+import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
+import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import IconWrapper from './IconWrapper';
+import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
-import { GroupSizeContext } from "./button-group";
-import { warning } from "@baicie/util";
-import classNames from "classnames";
-import IconWrapper from "./IconWrapper";
+import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-type MergedHTMLAttributes = Omit<
-  JSX.IntrinsicElements['div'] &
-  JSX.IntrinsicElements['button'] &
-  JSX.IntrinsicElements['a'],
-  'type'
->;
 export interface BaseButtonProps {
   type?: ButtonType;
-  icon?: JSXElement;
+  icon?: React.ReactNode;
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -31,17 +32,31 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
-  children?: JSXElement;
+  children?: React.ReactNode;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
-  styles?: { icon: JSX.CSSProperties };
-  htmlType?: ButtonHTMLType;
+  styles?: { icon: React.CSSProperties };
 }
+
+type MergedHTMLAttributes = Omit<
+  React.HTMLAttributes<HTMLElement> &
+    React.ButtonHTMLAttributes<HTMLElement> &
+    React.AnchorHTMLAttributes<HTMLElement>,
+  'type'
+>;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
 }
+
+type CompoundedComponent = React.ForwardRefExoticComponent<
+  ButtonProps & React.RefAttributes<HTMLElement>
+> & {
+  Group: typeof Group;
+  /** @internal */
+  __ANT_BUTTON: boolean;
+};
 
 type LoadingConfigType = {
   loading: boolean;
@@ -64,7 +79,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-export const button = (props: ButtonProps) => {
+const InternalButton: React.ForwardRefRenderFunction<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+> = (props, ref) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -80,52 +98,44 @@ export const button = (props: ButtonProps) => {
     icon,
     ghost = false,
     block = false,
+    // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
-    // style: customStyle = {},
+    style: customStyle = {},
     ...rest
   } = props;
 
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  try {
-    const [wrapCSSVar, hashId] = useStyle(prefixCls);
-
-    const disabled = useContext(DisabledContext);
-    const mergedDisabled = customDisabled ?? disabled;
-
-  } catch (error) {
-    console.log('errpr', error);
-  }
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
   const groupSize = useContext(GroupSizeContext);
 
-  const loadingOrDelay = createMemo<LoadingConfigType>(() => getLoadingConfig(loading));
+  const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = createSignal<boolean>(loadingOrDelay().loading);
+  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
 
-  const [hasTwoCNChar, setHasTwoCNChar] = createSignal<boolean>(false);
+  const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  let internalRef: HTMLButtonElement | HTMLAnchorElement
+  const internalRef = createRef<HTMLButtonElement | HTMLAnchorElement>();
 
-  let buttonRef: undefined
+  const buttonRef = composeRef(ref, internalRef);
 
-  const needInserted = !icon && !isUnBorderedButtonType(type);
+  const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
-  createEffect(() => {
+  useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
-    if (loadingOrDelay().delay > 0) {
+    if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
         setLoading(true);
-      }, loadingOrDelay().delay);
+      }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay().loading);
+      setLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
@@ -138,7 +148,7 @@ export const button = (props: ButtonProps) => {
     return cleanupTimer;
   }, [loadingOrDelay]);
 
-  createEffect(() => {
+  useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
       return;
@@ -153,49 +163,49 @@ export const button = (props: ButtonProps) => {
     }
   }, [buttonRef]);
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
     const { onClick } = props;
-
-    if (innerLoading() || mergedDisabled) {
+    // FIXME: https://github.com/ant-design/ant-design/issues/30207
+    if (innerLoading || mergedDisabled) {
       e.preventDefault();
       return;
     }
-
-    // @ts-ignore
-    onClick?.(e);
+    (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    // const warning = devUseWarning('Button');
+    const warning = devUseWarning('Button');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
+      'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
 
     warning(
       !(ghost && isUnBorderedButtonType(type)),
+      'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
   }
 
   const autoInsertSpace = autoInsertSpaceInButton !== false;
-  // const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  // @ts-ignore
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
-  const sizeFullName = useSize<SizeType>((ctxSize) => customizeSize ?? groupSize ?? ctxSize);
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName()] || '' : '';
+  const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
-  // const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
+  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   const classes = classNames(
     prefixCls,
     hashId,
+    cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${type}`]: type,
@@ -208,79 +218,89 @@ export const button = (props: ButtonProps) => {
       [`${prefixCls}-dangerous`]: !!danger,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    // compactItemClassnames,
+    compactItemClassnames,
     className,
     rootClassName,
     button?.className,
   );
 
-  const fullStyle: JSX.CSSProperties = { ...button?.style };
+  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
   const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
-  const iconStyle: JSX.CSSProperties = {
+  const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
     ...(button?.styles?.icon || {}),
   };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} class={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
     ) : (
-      // <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
-      null
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
     );
 
-  // const kids =
-  //   children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+  const kids =
+    children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
-  // if (linkButtonRestProps.href !== undefined) {
-  //   return wrapCSSVar(
-  //     <a
-  //       {...linkButtonRestProps}
-  //       className={classNames(classes, {
-  //         [`${prefixCls}-disabled`]: mergedDisabled,
-  //       })}
-  //       href={mergedDisabled ? undefined : linkButtonRestProps.href}
-  //       style={fullStyle}
-  //       onClick={handleClick}
-  //       ref={buttonRef as React.Ref<HTMLAnchorElement>}
-  //       tabIndex={mergedDisabled ? -1 : 0}
-  //     >
-  //       {iconNode}
-  //       {kids}
-  //     </a>,
-  //   );
-  // }
-  console.log('children', children);
+  if (linkButtonRestProps.href !== undefined) {
+    return wrapCSSVar(
+      <a
+        {...linkButtonRestProps}
+        class={classNames(classes, {
+          [`${prefixCls}-disabled`]: mergedDisabled,
+        })}
+        href={mergedDisabled ? undefined : linkButtonRestProps.href}
+        style={fullStyle}
+        onClick={handleClick}
+        ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        tabIndex={mergedDisabled ? -1 : 0}
+      >
+        {iconNode}
+        {kids}
+      </a>,
+    );
+  }
 
-  const buttonNode = (
+  let buttonNode = (
     <button
       {...rest}
       type={htmlType}
-      className={classes}
+      class={classes}
       style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef as Accessor<HTMLButtonElement>}
+      ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
-      {/* {kids} */}
-      {children}
+      {kids}
 
       {/* Styles: compact */}
-      {/* {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />} */}
+      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
   if (!isUnBorderedButtonType(type)) {
-    // buttonNode = (
-    //   <Wave component="Button" disabled={!!innerLoading}>
-    //     {buttonNode}
-    //   </Wave>
-    // );
+    buttonNode = (
+      <Wave component="Button" disabled={!!innerLoading}>
+        {buttonNode}
+      </Wave>
+    );
   }
 
   return wrapCSSVar(buttonNode);
+};
+
+const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  InternalButton,
+) as CompoundedComponent;
+
+if (process.env.NODE_ENV !== 'production') {
+  Button.displayName = 'Button';
 }
+
+Button.Group = Group;
+Button.__ANT_BUTTON = true;
+
+export default Button;
