@@ -10,6 +10,7 @@ import { transformToken } from '../util/css-variables';
 import type { ExtractStyle } from './useGlobalCache';
 import useGlobalCache from './useGlobalCache';
 import { uniqueHash } from './useStyleRegister';
+import { useContext } from 'solid-js';
 
 export const CSS_VAR_PREFIX = 'cssVar';
 

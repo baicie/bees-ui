@@ -1,10 +1,11 @@
 module.exports = {
   extends: [
-    'airbnb',
     'prettier',
     'plugin:compat/recommended',
     'plugin:import/typescript',
     'plugin:markdown/recommended',
+    "eslint:recommended",
+    "plugin:solid/typescript",
   ],
   env: {
     browser: false,
@@ -20,6 +21,7 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   plugins: [
+    'solid',
     '@typescript-eslint',
     'unicorn',
     'markdown',
@@ -57,6 +59,7 @@ module.exports = {
       parserOptions: {
         ecmaFeatures: {
           impliedStrict: true,
+          jsx: true,
         },
       },
       globals: {
@@ -74,13 +77,11 @@ module.exports = {
         'class-methods-use-this': 0,
         'jsx-a11y/href-no-hash': 0,
         'jsx-a11y/control-has-associated-label': 0,
-        'import/no-extraneous-dependencies': 0,
       },
     },
     {
       files: ['components/**/demo/*.tsx'],
       rules: {
-        'import/no-extraneous-dependencies': 0,
         'no-console': 0,
         'compat/compat': 0,
         'jsx-a11y/control-has-associated-label': 0,
@@ -90,7 +91,6 @@ module.exports = {
     {
       files: ['.dumi/**/*.ts', '.dumi/**/*.tsx', '.dumi/**/*.js', '.dumi/**/*.jsx'],
       rules: {
-        'import/no-extraneous-dependencies': 0,
         'no-console': 0,
         'compat/compat': 0,
         'jsx-a11y/control-has-associated-label': 0,
@@ -113,22 +113,8 @@ module.exports = {
   ],
   rules: {
     'import/extensions': 0,
-    'import/no-cycle': 2,
+    'import/no-cycle': 0,
     'lodash/import-scope': 2,
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: [
-          'site/**',
-          'tests/**',
-          'scripts/**',
-          '**/*.test.js',
-          '**/__tests__/*',
-          '*.config.js',
-          '**/*.md',
-        ],
-      },
-    ],
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-has-content': 0,
     'jsx-a11y/click-events-have-key-events': 0,
@@ -164,6 +150,7 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
     'import/order': 0,
+    'solid/reactivity': 0,
   },
   globals: {
     gtag: true,

@@ -1,3 +1,4 @@
+import { createMemo, useContext } from 'solid-js';
 import { pathKey, type KeyType } from '../Cache';
 import StyleContext from '../StyleContext';
 import useCompatibleInsertionEffect from './useCompatibleInsertionEffect';
@@ -20,11 +21,11 @@ export default function useGlobalCache<CacheType>(
   // Add additional effect trigger by `useInsertionEffect`
   onCacheEffect?: (cachedValue: CacheType) => void,
 ): CacheType {
-  const { cache: globalCache } = React.useContext(StyleContext);
+  const { cache: globalCache } = useContext(StyleContext);
   const fullPath = [prefix, ...keyPath];
   const fullPathStr = pathKey(fullPath);
 
-  const register = useEffectCleanupRegister([fullPathStr]);
+  const register = useEffectCleanupRegister();
 
   const HMRUpdate = useHMR();
 
@@ -51,13 +52,10 @@ export default function useGlobalCache<CacheType>(
   };
 
   // Create cache
-  React.useMemo(
+  createMemo(
     () => {
       buildCache();
     },
-    /* eslint-disable react-hooks/exhaustive-deps */
-    [fullPathStr],
-    /* eslint-enable */
   );
 
   let cacheEntity = globalCache.opGet(fullPathStr);

@@ -22,6 +22,7 @@ import {
 } from '../util/cacheMapUtil';
 import type { ExtractStyle } from './useGlobalCache';
 import useGlobalCache from './useGlobalCache';
+import { useContext, type JSXElement } from 'solid-js';
 
 const SKIP_CHECK = '_skip_check_';
 const MULTI_VALUE = '_multi_value_';
@@ -264,6 +265,7 @@ export const parseStyle = (
 
           styleStr += `${mergedKey}${parsedStr}`;
         } else {
+          // eslint-disable-next-line no-inner-declarations
           function appendStyle(cssKey: string, cssValue: any) {
             if (
               process.env.NODE_ENV !== 'production' &&
@@ -344,7 +346,7 @@ export function uniqueHash(path: (string | number)[], styleStr: string) {
   return hash(`${path.join('%')}${styleStr}`);
 }
 
-function Empty() {
+function Empty(): null {
   return null;
 }
 
@@ -391,7 +393,7 @@ export default function useStyleRegister(
     transformers,
     linters,
     cache,
-  } = React.useContext(StyleContext);
+  } = useContext(StyleContext);
   const tokenKey = token._tokenKey as string;
 
   const fullPath = [tokenKey, ...path];
@@ -450,6 +452,7 @@ export default function useStyleRegister(
       },
 
       // Effect: Inject style here
+      // eslint-disable-next-line no-unused-vars
       ([styleStr, _, styleId, effectStyle]) => {
         if (isMergedClientSide && styleStr !== CSS_FILE_STYLE) {
           const mergedCSSConfig: Parameters<typeof updateCSS>[2] = {
@@ -489,8 +492,8 @@ export default function useStyleRegister(
       },
     );
 
-  return function (node: React.ReactElement) {
-    let styleNode: React.ReactElement;
+  return function (node: JSXElement) {
+    let styleNode: JSXElement;
 
     if (!ssrInline || isMergedClientSide || !defaultCache) {
       styleNode = <Empty />;
@@ -501,7 +504,8 @@ export default function useStyleRegister(
             [ATTR_TOKEN]: cachedTokenKey,
             [ATTR_MARK]: cachedStyleId,
           }}
-          dangerouslySetInnerHTML={{ __html: cachedStyleStr }}
+          // eslint-disable-next-line solid/no-innerhtml
+          innerHTML={cachedStyleStr}
         />
       );
     }

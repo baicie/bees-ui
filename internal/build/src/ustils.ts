@@ -1,13 +1,14 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import path from 'node:path';
-import { ModuleFormat } from "rollup";
+import type { ModuleFormat } from "rollup";
 import fs from 'node:fs';
 
 export const DEFAULT = ['src/index.ts', 'src/index.tsx']
 
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
-  const manifest = packages[0].manifest;
+  const { manifest } = packages[0];
   return Object.keys(manifest.dependencies ?? []).concat(['esbuild'])
 }
 
@@ -57,7 +58,7 @@ export function resolveBuildConfig(root: string) {
   }
 
   return Object.entries(
-    buildConfig
+    buildConfig,
   )
 }
 

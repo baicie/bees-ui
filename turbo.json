@@ -22,7 +22,10 @@
     "test": {},
     "lint": {},
     "stub": {
-      "cache": true
+      "cache": true,
+      "dependsOn": [
+        "^stub"
+      ]
     }
   }
 }

@@ -2,6 +2,8 @@ import { useMemo, isEqual } from '@baicie/sc-util';
 import CacheEntity from './Cache';
 import type { Linter } from './linters/interface';
 import type { Transformer } from './transformers/interface';
+import type { Component, JSXElement } from 'solid-js';
+import { createContext, useContext } from 'solid-js';
 
 export const ATTR_TOKEN = 'data-token-hash';
 export const ATTR_MARK = 'data-css-hash';
@@ -16,10 +18,10 @@ export function createCache() {
   // Tricky SSR: Move all inline style to the head.
   // PS: We do not recommend tricky mode.
   if (typeof document !== 'undefined' && document.head && document.body) {
-    const styles = document.body.querySelectorAll(`style[${ATTR_MARK}]`) || [];
+    const styles: NodeListOf<Element> = document.body.querySelectorAll(`style[${ATTR_MARK}]`);
     const { firstChild } = document.head;
 
-    Array.from(styles).forEach((style) => {
+    Array.from(styles || []).forEach((style) => {
       (style as any)[CSS_IN_JS_INSTANCE] =
         (style as any)[CSS_IN_JS_INSTANCE] || cssinjsInstanceId;
 
@@ -77,20 +79,20 @@ export interface StyleContextProps {
   linters?: Linter[];
 }
 
-const StyleContext = React.createContext<StyleContextProps>({
+const StyleContext = createContext<StyleContextProps>({
   hashPriority: 'low',
   cache: createCache(),
   defaultCache: true,
 });
 
 export type StyleProviderProps = Partial<StyleContextProps> & {
-  children?: React.ReactNode;
+  children?: JSXElement;
 };
 
-export const StyleProvider: React.FC<StyleProviderProps> = (props) => {
+export const StyleProvider: Component<StyleProviderProps> = (props) => {
   const { children, ...restProps } = props;
 
-  const parentContext = React.useContext(StyleContext);
+  const parentContext = useContext(StyleContext);
 
   const context = useMemo<StyleContextProps>(
     () => {
@@ -117,7 +119,7 @@ export const StyleProvider: React.FC<StyleProviderProps> = (props) => {
   );
 
   return (
-    <StyleContext.Provider value={context}>{children}</StyleContext.Provider>
+    <StyleContext.Provider value={context()}>{children}</StyleContext.Provider>
   );
 };
 

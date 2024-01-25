@@ -1,14 +1,11 @@
+import { onCleanup } from 'solid-js';
+
 import { warning } from '@baicie/sc-util';
 
-const fullClone = {
-  ...React,
-};
-const { useInsertionEffect } = fullClone;
-
-// DO NOT register functions in useEffect cleanup function, or functions that registered will never be called.
-const useCleanupRegister = (deps?: React.DependencyList) => {
+const useCleanupRegister = () => {
   const effectCleanups: (() => void)[] = [];
   let cleanupFlag = false;
+
   function register(fn: () => void) {
     if (cleanupFlag) {
       if (process.env.NODE_ENV !== 'production') {
@@ -22,26 +19,20 @@ const useCleanupRegister = (deps?: React.DependencyList) => {
     effectCleanups.push(fn);
   }
 
-  React.useEffect(() => {
-    // Compatible with strict mode
-    cleanupFlag = false;
-    return () => {
-      cleanupFlag = true;
-      if (effectCleanups.length) {
-        effectCleanups.forEach((fn) => fn());
-      }
-    };
-  }, deps);
+  onCleanup(() => {
+    cleanupFlag = true;
+    if (effectCleanups.length) {
+      effectCleanups.forEach((fn) => fn());
+    }
+  });
 
   return register;
 };
 
-const useRun = () => function (fn: () => void) {
-  fn();
-};
+// const useRun = () => (fn: () => void) => {
+//   fn();
+// };
 
-// Only enable register in React 18
-const useEffectCleanupRegister =
-  typeof useInsertionEffect !== 'undefined' ? useCleanupRegister : useRun;
+const useEffectCleanupRegister = useCleanupRegister
 
 export default useEffectCleanupRegister;
