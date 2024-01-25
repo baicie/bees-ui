@@ -1,4 +1,4 @@
-import type { SizeType } from '../../sc-context/src/SizeContext';
+import type { SizeType } from '../../core/src/context/SizeContext';
 import { ConfigContext } from './context';
 import DisabledContext from './DisabledContext';
 import useSize from './hooks/useSize';
