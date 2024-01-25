@@ -1,13 +1,13 @@
 import { createTheme, getComputedToken } from '@baicie/sc-cssinjs';
-import type { ThemeConfig } from '../config-provider/context';
 import type { AliasToken } from './interface';
 import defaultDerivative from './themes/default';
 import seedToken from './themes/seed';
 import formatToken from './util/alias';
+import type { ThemeConfig } from './index';
 
 const getDesignToken = (config?: ThemeConfig): AliasToken => {
   const theme = config?.algorithm ? createTheme(config.algorithm) : createTheme(defaultDerivative);
-  const mergedToken = {
+  const mergedToken: any = {
     ...seedToken,
     ...config?.token,
   };

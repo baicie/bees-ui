@@ -78,7 +78,7 @@ const useCSSVarRegister = <V, T extends Record<string, V>>(
   return cache;
 };
 
-export const extract: ExtractStyle<CSSVarCacheValue<any>> = (cache, effectStyles, options) => {
+export const extract: ExtractStyle<CSSVarCacheValue<any>> = (cache, _effectStyles, options) => {
   const [, styleStr, styleId, cssVarKey] = cache;
   const { plain } = options || {};
 

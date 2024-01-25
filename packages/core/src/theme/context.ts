@@ -4,6 +4,7 @@ import { createTheme } from '@baicie/sc-cssinjs';
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';
 import defaultDerivative from './themes/default';
 import defaultSeedToken from './themes/seed';
+import { createContext } from 'solid-js';
 
 export const defaultTheme = createTheme(defaultDerivative);
 
@@ -34,4 +35,4 @@ export interface DesignTokenProviderProps {
   };
 }
 
-export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);
+export const DesignTokenContext = createContext<DesignTokenProviderProps>(defaultConfig);

@@ -223,7 +223,7 @@ export default function useCacheToken<DerivativeToken = object, DesignToken = De
   return cachedToken;
 }
 
-export const extract: ExtractStyle<TokenCacheValue<any>> = (cache, effectStyles, options) => {
+export const extract: ExtractStyle<TokenCacheValue<any>> = (cache, _effectStyles, options) => {
   const [, , realToken, styleStr, cssVarKey] = cache;
   const { plain } = options || {};
 

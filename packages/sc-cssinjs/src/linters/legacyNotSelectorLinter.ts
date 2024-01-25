@@ -21,7 +21,7 @@ function parsePath(info: LinterInfo) {
   }, '');
 }
 
-const linter: Linter = (key, value, info) => {
+const linter: Linter = (_key, _value, info) => {
   const parentSelectorPath = parsePath(info);
   const notList = parentSelectorPath.match(/:not\([^)]*\)/g) || [];
 

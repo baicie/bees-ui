@@ -1,7 +1,10 @@
 import { useStyleRegister } from '@baicie/sc-cssinjs';
 import { resetIcon } from '../../style';
-import type { CSPConfig } from '../../config-provider';
 import useToken from '../useToken';
+
+export interface CSPConfig {
+  nonce?: string;
+}
 
 const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
   const [theme, token] = useToken();

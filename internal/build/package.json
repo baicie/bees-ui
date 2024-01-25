@@ -7,7 +7,6 @@
     "bee": "./index.js"
   },
   "scripts": {
-    "build": "pnpm tsup",
     "stub": "pnpm unbuild --stub",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
@@ -17,6 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "cac": "^6.7.14",

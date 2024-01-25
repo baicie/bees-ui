@@ -1,7 +1,7 @@
 import type { Linter } from '..';
 import { lintWarning } from './utils';
 
-const linter: Linter = (key, value, info) => {
+const linter: Linter = (_key, _value, info) => {
   if (
     info.parentSelectors.some((selector) => {
       const selectors = selector.split(',');

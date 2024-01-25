@@ -1,8 +1,7 @@
 import type { CSSInterpolation } from '@baicie/sc-cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@baicie/sc-cssinjs';
 import { warning } from '@baicie/sc-util';
-
-import { ConfigContext } from '../../config-provider/context';
+import { ConfigContext } from '../../../../config-provider/src/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
   AliasToken,
@@ -72,7 +71,7 @@ const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
   token: GlobalToken,
   getDefaultToken: GetDefaultToken<C>,
-) => {
+): any => {
   if (typeof getDefaultToken === 'function') {
     return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
@@ -275,12 +274,6 @@ export const genSubStyleComponent: <C extends OverrideComponent>(
     useStyle(prefixCls);
     return null;
   };
-
-  if (process.env.NODE_ENV !== 'production') {
-    StyledComponent.displayName = `SubStyle_${
-      Array.isArray(componentName) ? componentName.join('.') : componentName
-    }`;
-  }
 
   return StyledComponent;
 };

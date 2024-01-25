@@ -7,6 +7,7 @@ import { defaultTheme, DesignTokenContext } from './context';
 import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
+import { useContext } from 'solid-js';
 
 export const unitless: {
   [key in keyof AliasToken]?: boolean;
@@ -122,7 +123,7 @@ export default function useToken(): [
     theme,
     override,
     cssVar,
-  } = React.useContext(DesignTokenContext);
+  } = useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 

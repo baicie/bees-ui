@@ -7,7 +7,7 @@
 // import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 // import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 // import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
-// import type { ComponentToken as ButtonComponentToken } from '../../button/style';
+import type { ButtonComponentToken } from '@baicie/sc-type';
 // import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 // import type { ComponentToken as CardComponentToken } from '../../card/style';
 // import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
@@ -65,13 +65,13 @@
 // import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
 export interface ComponentTokenMap {
-  // Affix?: AffixComponentToken;
+  Affix?: {};
   // Alert?: AlertComponentToken;
   // Anchor?: AnchorComponentToken;
   // Avatar?: AvatarComponentToken;
   // BackTop?: BackTopComponentToken;
   // Badge?: BadgeComponentToken;
-  // Button?: ButtonComponentToken;
+  Button?: ButtonComponentToken;
   // Breadcrumb?: BreadcrumbComponentToken;
   // Card?: CardComponentToken;
   // Carousel?: CarouselComponentToken;

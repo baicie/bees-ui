@@ -17,8 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm tsup",
-    "dev": "pnpm run build --watch",
+    "build": "pnpm bee build",
+    "dev": "pnpm bee build --watch",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
@@ -29,6 +29,8 @@
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
     "@baicie/sc-cssinjs": "workspace:^",
+    "@baicie/sc-type": "workspace:^",
+    "@baicie/sc-util": "workspace:^",
     "@ctrl/tinycolor": "^4.0.3",
     "solid-js": "^1.8.12"
   }
