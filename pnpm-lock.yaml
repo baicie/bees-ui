@@ -168,9 +168,22 @@ importers:
         specifier: ^1.8.11
         version: 1.8.11
 
-  packages/core: {}
+  packages/core:
+    dependencies:
+      '@ant-design/colors':
+        specifier: ^7.0.2
+        version: 7.0.2
+      '@baicie/sc-cssinjs':
+        specifier: workspace:^
+        version: link:../sc-cssinjs
+      '@ctrl/tinycolor':
+        specifier: ^4.0.3
+        version: 4.0.3
+      solid-js:
+        specifier: ^1.8.12
+        version: 1.8.12
 
-  packages/cssinjs:
+  packages/sc-cssinjs:
     dependencies:
       '@baicie/sc-util':
         specifier: workspace:^
@@ -303,7 +316,6 @@ packages:
     resolution: {integrity: sha512-7KJkhTiPiLHSu+LmMJnehfJ6242OCxSlR3xHVBecYxnMW8MS/878NXct1GqYARyL59fyeFdKRxXTfvR9SnDgJg==}
     dependencies:
       '@ctrl/tinycolor': 3.6.1
-    dev: true
 
   /@ant-design/cssinjs@1.18.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-514V9rjLaFYb3v4s55/8bg2E6fb81b99s3crDZf4nSwtiDLLXs8axnIph+q2TVkY2hbJPZOn/cVsVcnLkzFy7w==}
@@ -1840,7 +1852,11 @@ packages:
   /@ctrl/tinycolor@3.6.1:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
-    dev: true
+
+  /@ctrl/tinycolor@4.0.3:
+    resolution: {integrity: sha512-e9nEVehVJwkymQpkGhdSNzLT2Lr9UTTby+JePq4Z2SxBbOQjY7pLgSouAaXvfaGQVSAaY0U4eJdwfSDmCbItcw==}
+    engines: {node: '>=14'}
+    dev: false
 
   /@emotion/hash@0.8.0:
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}
