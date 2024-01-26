@@ -1,9 +1,16 @@
-import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import { InputPluginOption, OutputOptions, RollupBuild, RollupOptions, WatcherOptions, rollup, watch as rollupWatch } from 'rollup';
+import type {
+  InputPluginOption,
+  OutputOptions,
+  RollupBuild,
+  RollupOptions,
+  WatcherOptions,
+} from 'rollup';
+import { rollup, watch as rollupWatch } from 'rollup';
+import esbuild from 'rollup-plugin-esbuild';
 import solidPlugin from 'vite-plugin-solid';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
-import esbuild from 'rollup-plugin-esbuild';
+
 export interface Options {
   /**
    * @description
@@ -18,6 +25,10 @@ export interface Options {
   full?: boolean;
 }
 
+async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
+  return Promise.all(options.map((option) => bundle.write(option)));
+}
+
 async function resolveConfig(root: string, options: Options = {}): Promise<RollupOptions> {
   const {
     input = DEFAULT,
@@ -26,12 +37,14 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     minify = false,
     full = false,
   } = options;
-  const inputPath = resolveInput(root, input)
+  const inputPath = resolveInput(root, input);
   const watchOptions: WatcherOptions = {
     clearScreen: true,
-  }
+  };
   const plugins = [
-    nodeResolve({ extensions: ['.js', '.jsx', '.ts', '.tsx'] }),
+    nodeResolve({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }),
     solidPlugin(),
     esbuild({
       sourceMap: sourcemap,
@@ -44,42 +57,43 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     input: inputPath,
     plugins,
     treeshake: true,
-    external: full ? [] : await generateExternal(root),
+    external: full ? ['@baicie/core'] : await generateExternal(root),
     watch: watch ? watchOptions : false,
-  }
+  };
 }
 
 export async function build(root: string, options: Options = {}) {
-  const config = await resolveConfig(root, options)
+  const config = await resolveConfig(root, options);
 
-  const bundle = await rollup(config)
+  const bundle = await rollup(config);
 
-  await writeBundles(bundle, resolveBuildConfig(root).map(([module, config]): OutputOptions => {
-    return {
-      format: config.format,
-      dir: config.output.path,
-      exports: module === 'cjs' ? 'named' : undefined,
-      sourcemap: options.sourcemap,
-    }
-  }))
+  await writeBundles(
+    bundle,
+    resolveBuildConfig(root).map(
+      ([module, _config]): OutputOptions => ({
+        format: _config.format,
+        dir: _config.output.path,
+        exports: module === 'cjs' ? 'named' : undefined,
+        sourcemap: options.sourcemap,
+      }),
+    ),
+  );
 }
 
-export async function watch(root: string, options: Options = {}) {
-  const _config = await resolveConfig(root, options)
+export async function watchFuc(root: string, options: Options = {}) {
+  const _config = await resolveConfig(root, options);
 
   const watcher = rollupWatch(
-    resolveBuildConfig(root).map(([module, config]) => {
-      return {
-        ..._config,
-        output: {
-          format: config.format,
-          dir: config.output.path,
-          exports: module === 'cjs' ? 'named' : undefined,
-          sourcemap: options.sourcemap,
-        }
-      }
-    })
-  )
+    resolveBuildConfig(root).map(([module, config]) => ({
+      ..._config,
+      output: {
+        format: config.format,
+        dir: config.output.path,
+        exports: module === 'cjs' ? 'named' : undefined,
+        sourcemap: options.sourcemap,
+      },
+    })),
+  );
 
   watcher.on('event', (event) => {
     // 事件处理逻辑
@@ -91,8 +105,4 @@ export async function watch(root: string, options: Options = {}) {
       console.error('Error during Rollup build:', event.error);
     }
   });
-}
-
-async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
-  return Promise.all(options.map(option => bundle.write(option)))
 }

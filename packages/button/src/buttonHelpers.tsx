@@ -1,7 +1,6 @@
-
-import { cloneElement, isFragment } from '@baicie/util';
+import React from 'react';
+import { cloneElement, isFragment } from '../_util/reactNode';
 import type { BaseButtonProps, LegacyButtonType } from './button';
-import type { JSXElement } from 'solid-js';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -23,7 +22,7 @@ export function isUnBorderedButtonType(type?: ButtonType) {
   return type === 'text' || type === 'link';
 }
 
-function splitCNCharsBySpace(child: JSXElement | string | number, needInserted: boolean) {
+function splitCNCharsBySpace(child: React.ReactElement | string | number, needInserted: boolean) {
   if (child === null || child === undefined) {
     return;
   }
@@ -33,11 +32,11 @@ function splitCNCharsBySpace(child: JSXElement | string | number, needInserted: 
   if (
     typeof child !== 'string' &&
     typeof child !== 'number' &&
-    isString(child)
-    // isTwoCNChar(child.props.children)
+    isString(child.type) &&
+    isTwoCNChar(child.props.children)
   ) {
     return cloneElement(child, {
-      // children: child.props.children.split('').join(SPACE),
+      children: child.props.children.split('').join(SPACE),
     });
   }
 
@@ -52,14 +51,14 @@ function splitCNCharsBySpace(child: JSXElement | string | number, needInserted: 
   return child;
 }
 
-export function spaceChildren(needInserted: boolean) {
+export function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   let isPrevChildPure: boolean = false;
-  const childList: JSXElement[] = [];
+  const childList: React.ReactNode[] = [];
 
-  childList.forEach((child) => {
+  React.Children.forEach(children, (child) => {
     const type = typeof child;
-    const MITurrentChildPure = type === 'string' || type === 'number';
-    if (isPrevChildPure && MITurrentChildPure) {
+    const isCurrentChildPure = type === 'string' || type === 'number';
+    if (isPrevChildPure && isCurrentChildPure) {
       const lastIndex = childList.length - 1;
       const lastChild = childList[lastIndex];
       childList[lastIndex] = `${lastChild}${child}`;
@@ -67,19 +66,19 @@ export function spaceChildren(needInserted: boolean) {
       childList.push(child);
     }
 
-    isPrevChildPure = MITurrentChildPure;
+    isPrevChildPure = isCurrentChildPure;
   });
 
-  return childList.map((child) =>
-    splitCNCharsBySpace(child as JSXElement | string | number, needInserted),
+  return React.Children.map(childList, (child) =>
+    splitCNCharsBySpace(child as React.ReactElement | string | number, needInserted),
   );
 }
 
 const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = typeof ButtonTypes[number];
+export type ButtonType = (typeof ButtonTypes)[number];
 
 const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = typeof ButtonShapes[number];
+export type ButtonShape = (typeof ButtonShapes)[number];
 
 const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];

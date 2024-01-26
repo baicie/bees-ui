@@ -1,31 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": false,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": false,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "target": "es6",
+    "lib": ["dom", "es2017"],
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "resolvePackageJsonExports": true,
 
     "baseUrl": ".",
     "paths": {
       "@baicie/*": ["packages/*"],
-    }
+      "#baicie/*": ["packages/*"],
+    },
   },
-  "include": ["packages"]
+  "include": ["packages"],
 }

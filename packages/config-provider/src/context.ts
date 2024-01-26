@@ -13,10 +13,11 @@
 // import type { ModalProps } from '../modal';
 // import type { SpaceProps } from '../space';
 // import type { TabsProps } from '../tabs';
-// import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+// import type { AliasToken, MappingAlgorithm, OverrideToken } from '@baicie/core';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { SizeType } from './SizeContext';
-import { JSX, createContext } from 'solid-js';
+// import type { SizeType } from './SizeContext';
+import type { JSX } from 'solid-js';
+import { createContext } from 'solid-js';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -34,32 +35,6 @@ export interface CSPConfig {
 }
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
-
-type ComponentsConfig = {
-  // [key in keyof OverrideToken]?: OverrideToken[key] & {
-  //   algorithm?: boolean | MappingAlgorithm | MappingAlgorithm[];
-  // };
-};
-
-export interface ThemeConfig {
-  // token?: Partial<AliasToken>;
-  components?: ComponentsConfig;
-  // algorithm?: MappingAlgorithm | MappingAlgorithm[];
-  hashed?: boolean;
-  inherit?: boolean;
-  cssVar?:
-  | {
-    /**
-     * Prefix for css variable, default to `ant`.
-     */
-    prefix?: string;
-    /**
-     * Unique key for theme, should be set manually < react@18.
-     */
-    key?: string;
-  }
-  | boolean;
-}
 
 export interface ComponentStyleConfig {
   className?: string;
@@ -133,7 +108,7 @@ export interface ConfigConsumerProps {
   //   scrollToFirstError?: Options | boolean;
   //   validateMessages?: ValidateMessages;
   // };
-  theme?: ThemeConfig;
+  theme?: {};
   select?: ComponentStyleConfig & {
     showSearch?: boolean;
   };
@@ -203,4 +178,3 @@ export const ConfigContext = createContext<ConfigConsumerProps>({
   getPrefixCls: defaultGetPrefixCls,
   iconPrefixCls: defaultIconPrefixCls,
 });
-

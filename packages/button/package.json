@@ -18,13 +18,17 @@
   ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
-    "dev": "pnpm bee build --watch --sourcemap"
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@baicie/config-provider": "workspace:^",
+    "@baicie/core": "workspace:^",
     "classnames": "^2.5.1",
     "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
