@@ -157,3 +157,5 @@ export interface ButtonComponentToken {
    */
   contentLineHeightSM: number;
 }
+
+export interface ButtonProps {}

@@ -16,7 +16,6 @@
       "cache": true
     },
     "core-dev": {
-      "dependsOn": ["^core-dev"],
       "cache": true
     },
     "test": {},

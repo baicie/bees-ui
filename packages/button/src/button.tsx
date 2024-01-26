@@ -1,27 +1,29 @@
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import { omit } from '@baicie/sc-util';
 import { composeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
+import { DisabledContext } from '@baicie/core';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import Group, { GroupSizeContext } from './button-group';
+import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
+import { type JSXElement, type JSX, useContext, createMemo, createSignal } from 'solid-js';
+import type { CSSProperties } from '@baicie/core';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  icon?: React.ReactNode;
+  icon?: JSXElement;
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -32,16 +34,16 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
-  children?: React.ReactNode;
+  children?: JSXElement;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
-  styles?: { icon: React.CSSProperties };
+  styles?: { icon: CSSProperties };
 }
 
 type MergedHTMLAttributes = Omit<
-  React.HTMLAttributes<HTMLElement> &
-    React.ButtonHTMLAttributes<HTMLElement> &
-    React.AnchorHTMLAttributes<HTMLElement>,
+  JSX.HTMLAttributes<HTMLElement> &
+    JSX.ButtonHTMLAttributes<HTMLElement> &
+    JSX.AnchorHTMLAttributes<HTMLElement>,
   'type'
 >;
 
@@ -49,14 +51,6 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
 }
-
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  ButtonProps & React.RefAttributes<HTMLElement>
-> & {
-  Group: typeof Group;
-  /** @internal */
-  __ANT_BUTTON: boolean;
-};
 
 type LoadingConfigType = {
   loading: boolean;
@@ -79,10 +73,7 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton: React.ForwardRefRenderFunction<
-  HTMLButtonElement | HTMLAnchorElement,
-  ButtonProps
-> = (props, ref) => {
+const InternalButton = (props: ButtonProps) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -98,7 +89,6 @@ const InternalButton: React.ForwardRefRenderFunction<
     icon,
     ghost = false,
     block = false,
-    // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
@@ -115,9 +105,9 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const groupSize = useContext(GroupSizeContext);
 
-  const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
+  const loadingOrDelay = createMemo<LoadingConfigType>(() => getLoadingConfig(loading));
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setLoading] = createSignal<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -271,7 +261,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       style={fullStyle}
       onClick={handleClick}
       disabled={mergedDisabled}
-      ref={buttonRef as React.Ref<HTMLButtonElement>}
+      ref={buttonRef}
     >
       {iconNode}
       {kids}
@@ -292,15 +282,6 @@ const InternalButton: React.ForwardRefRenderFunction<
   return wrapCSSVar(buttonNode);
 };
 
-const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  InternalButton,
-) as CompoundedComponent;
-
-if (process.env.NODE_ENV !== 'production') {
-  Button.displayName = 'Button';
-}
-
-Button.Group = Group;
-Button.__ANT_BUTTON = true;
+const Button = InternalButton;
 
 export default Button;
