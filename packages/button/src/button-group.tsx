@@ -1,10 +1,7 @@
 import type { CSSProperties } from '@baicie/core';
 import { clsx } from '@baicie/core';
-
-import { devUseWarning } from '@baicie/sc-util';
-import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
-import { useToken } from '@baicie/core';
+import type { SizeType } from '@baicie/core';
+import { ConfigContext, devUseWarning, useToken } from '@baicie/core';
 import type { Component } from 'solid-js';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 
@@ -58,6 +55,7 @@ const ButtonGroup: Component<ButtonGroupProps> = (props) => {
 
   return (
     <GroupSizeContext.Provider value={size}>
+      {/* @ts-ignore */}
       <div {...others} class={classes} />
     </GroupSizeContext.Provider>
   );

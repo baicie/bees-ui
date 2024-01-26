@@ -5,6 +5,7 @@ import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
 import defaultAlgorithm from './themes/default';
 import type { GenStyleFn } from './util/genComponentStyleHook';
+import type { SubStyleComponentProps } from './util/genComponentStyleHook';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
@@ -16,7 +17,7 @@ function useToken() {
   return { theme, token, hashId };
 }
 
-export type { GlobalToken, MappingAlgorithm, GenStyleFn };
+export type { GlobalToken, MappingAlgorithm, GenStyleFn, SubStyleComponentProps };
 
 export default {
   /** @private Test Usage. Do not use in production. */

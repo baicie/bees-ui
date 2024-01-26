@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import '@baicie/button';
+import { Button } from 'ant-design-vue';
 </script>
 
 <template>
+  <Button>Button</Button>
   <solid-button type="parmary">solid-button</solid-button>
 </template>
 
