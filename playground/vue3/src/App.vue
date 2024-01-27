@@ -4,8 +4,10 @@ import { Button } from 'ant-design-vue';
 </script>
 
 <template>
-  <Button>Button</Button>
-  <solid-button type="parmary">solid-button</solid-button>
+  <Button type="primary">Button</Button>
+  <solid-button type="parmary">
+    <span slot="my-text">Let's have some different text!</span>
+  </solid-button>
 </template>
 
 <style scoped>

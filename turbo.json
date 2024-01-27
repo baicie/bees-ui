@@ -18,6 +18,9 @@
     "core-dev": {
       "cache": true
     },
+    "tools-dev": {
+      "cache": true
+    },
     "test": {},
     "lint-fix": {},
     "lint": {},

@@ -147,6 +147,18 @@ importers:
         specifier: ^2.9.1
         version: 2.9.1(solid-js@1.8.12)(vite@5.0.12)
 
+  internal/component-register: {}
+
+  internal/solid-element:
+    dependencies:
+      '@baicie/component-register':
+        specifier: workspace:^
+        version: link:../component-register
+    devDependencies:
+      solid-js:
+        specifier: ^1.8.12
+        version: 1.8.12
+
   packages/button:
     dependencies:
       '@baicie/config-provider':
@@ -161,9 +173,9 @@ importers:
       '@baicie/sc-util':
         specifier: workspace:^
         version: link:../sc-util
-      classnames:
-        specifier: ^2.5.1
-        version: 2.5.1
+      '@baicie/solid-element':
+        specifier: workspace:^
+        version: link:../../internal/solid-element
       solid-element:
         specifier: ^1.8.0
         version: 1.8.0(solid-js@1.8.11)
@@ -4498,6 +4510,7 @@ packages:
 
   /classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: true
 
   /clean-regexp@1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}

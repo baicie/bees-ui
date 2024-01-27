@@ -1,5 +1,5 @@
 import { omit } from '@baicie/sc-util';
-import classNames from 'classnames';
+import { clsx } from '@baicie/core';
 import { ConfigContext, devUseWarning } from '@baicie/core';
 // import Wave from '../_util/wave';
 import { useSize } from '@baicie/config-provider';
@@ -19,7 +19,7 @@ import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
 import useStyle from './style';
-import CompactCmp from './style/compactCmp';
+// import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -191,7 +191,7 @@ const InternalButton = (props: ButtonProps) => {
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     hashId,
     cssVarCls,
@@ -218,7 +218,7 @@ const InternalButton = (props: ButtonProps) => {
     ...(typeof customStyle === 'object' ? customStyle : {}),
   };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.className);
+  const iconClasses = clsx(customClassNames?.icon, button?.className);
   const iconStyle: CSSProperties = {
     ...(styles?.icon || {}),
     ...(button?.style || {}),
@@ -240,7 +240,7 @@ const InternalButton = (props: ButtonProps) => {
     return wrapCSSVar(
       <a
         {...linkButtonRestProps}
-        class={classNames(classes, {
+        class={clsx(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
@@ -265,11 +265,13 @@ const InternalButton = (props: ButtonProps) => {
       disabled={mergedDisabled}
       ref={buttonRef}
     >
-      {iconNode}
-      {kids}
-
+      {/* {iconNode}
+      {kids} */}
+      <p>
+        <slot name="my-text">My default text</slot>
+      </p>
       {/* Styles: compact */}
-      {!!compactItemClassnames && <CompactCmp prefixCls={prefixCls} />}
+      {/* {!!compactItemClassnames && <CompactCmp prefixCls={prefixCls} />} */}
     </button>
   );
 

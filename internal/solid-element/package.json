@@ -1,7 +1,7 @@
 {
-  "name": "@baicie/button",
+  "name": "@baicie/solid-element",
   "version": "0.0.0",
-  "description": "",
+  "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
@@ -19,6 +19,8 @@
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
+    "stub": "pnpm bee build --sourcemap",
+    "tools-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
@@ -26,13 +28,13 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "solid-js": "^1.8.12"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.12"
+  },
   "dependencies": {
-    "@baicie/config-provider": "workspace:^",
-    "@baicie/core": "workspace:^",
-    "@baicie/sc-cssinjs": "workspace:^",
-    "@baicie/sc-util": "workspace:^",
-    "@baicie/solid-element": "workspace:^",
-    "solid-element": "^1.8.0",
-    "solid-js": "^1.8.11"
+    "@baicie/component-register": "workspace:^"
   }
 }
