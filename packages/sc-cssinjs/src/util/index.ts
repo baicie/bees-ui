@@ -116,7 +116,7 @@ let canWhere: boolean | undefined;
 export function supportWhere(): boolean {
   if (canWhere === undefined) {
     canWhere = supportSelector(
-      `:host(.${randomSelectorKey}) { content: "${checkContent}"!important; }`,
+      `:where(.${randomSelectorKey}) { content: "${checkContent}"!important; }`,
       (ele) => {
         ele.className = randomSelectorKey;
       },

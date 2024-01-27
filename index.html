@@ -1,0 +1,31 @@
+<!-- MyComponent.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyComponent</title>
+</head>
+
+<body>
+  <my-component>
+    <p>This content will be slotted into MyComponent.</p>
+  </my-component>
+  <script>
+    customElements.define('my-component', class extends HTMLElement {
+      connectedCallback() {
+        console.log('this', this);
+        this.innerHTML = `
+          <div>
+            <h2>MyComponent Content:</h2>
+            <slot></slot>
+          </div>
+        `;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

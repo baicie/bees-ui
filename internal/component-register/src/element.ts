@@ -23,6 +23,8 @@ export function createElementType<T>(
   BaseElement: typeof HTMLElement,
   propDefinition: PropsDefinition<T>,
 ) {
+  console.log('createElementType', BaseElement, propDefinition);
+
   const propKeys = Object.keys(propDefinition) as Array<keyof PropsDefinition<T>>;
   return class CustomElement extends BaseElement implements ICustomElement {
     [prop: string]: any;

@@ -6,11 +6,9 @@ import type {
   ComponentOptions,
   PropsDefinitionInput,
 } from '@baicie/component-register';
-import {
-  // noShadowDOM,
-  register,
-} from '@baicie/component-register';
+import { register } from '@baicie/component-register';
 export { hot, getCurrentElement, noShadowDOM } from '@baicie/component-register';
+export type { ICustomElement, ComponentOptions };
 export type ComponentType<T> = mComponentType<T>;
 import { createRoot, createSignal } from 'solid-js';
 import { insert } from 'solid-js/web';
@@ -59,7 +57,6 @@ function withSolid<T extends object>(ComponentType: ComponentType<T>): Component
       });
 
       const comp = (ComponentType as FunctionComponent<T>)(props as T, options);
-      // noShadowDOM()
       return insert(element.renderRoot, comp);
     }, lookupContext(element));
   };
@@ -83,6 +80,8 @@ function customElement<T extends object>(
     ComponentType = props as ComponentType<T>;
     props = {} as PropsDefinitionInput<T>;
   }
+  console.log('ComponentType', withSolid(ComponentType!));
+
   // @ts-ignore
   return register<T>(tag, props as PropsDefinitionInput<T>)(withSolid(ComponentType!));
 }

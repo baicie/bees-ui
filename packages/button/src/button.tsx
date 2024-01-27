@@ -1,10 +1,10 @@
+import { ConfigContext, clsx, devUseWarning } from '@baicie/core';
 import { omit } from '@baicie/sc-util';
-import { clsx } from '@baicie/core';
-import { ConfigContext, devUseWarning } from '@baicie/core';
 // import Wave from '../_util/wave';
 import { useSize } from '@baicie/config-provider';
 import type { CSSProperties, SizeType } from '@baicie/core';
 import { DisabledContext, useCompactItemContext } from '@baicie/core';
+import type { ComponentOptions } from '@baicie/solid-element';
 import {
   createEffect,
   createMemo,
@@ -75,7 +75,7 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton = (props: ButtonProps) => {
+const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -100,7 +100,10 @@ const InternalButton = (props: ButtonProps) => {
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(
+    prefixCls,
+    element.renderRoot as HTMLElement | ShadowRoot,
+  );
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
