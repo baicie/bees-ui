@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import '@baicie/button';
-import { Button } from 'ant-design-vue';
+// import { Button } from 'ant-design-vue';
+
+const handleClick = () => {
+  console.log('handleClick');
+}
 </script>
 
 <template>
-  <Button type="primary">Button</Button>
-  <solid-button type="parmary">
-    <span slot="my-text">Let's have some different text!</span>
+  <!-- <Button type="primary">Button</Button> -->
+  <solid-button type="primary" @click="handleClick">
+    Let's have some different text!
   </solid-button>
 </template>
 

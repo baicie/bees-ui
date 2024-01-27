@@ -270,9 +270,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
     >
       {/* {iconNode}
       {kids} */}
-      <p>
-        <slot name="my-text">My default text</slot>
-      </p>
+      <slot />
       {/* Styles: compact */}
       {/* {!!compactItemClassnames && <CompactCmp prefixCls={prefixCls} />} */}
     </button>
