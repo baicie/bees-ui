@@ -1,9 +1,10 @@
-import { useMemo, isEqual } from '@bees-ui/sc-util';
+import { isEqual, useMemo } from '@bees-ui/sc-util';
+import type { Component, JSXElement } from 'solid-js';
+import { createContext, useContext } from 'solid-js';
+
 import CacheEntity from './Cache';
 import type { Linter } from './linters/interface';
 import type { Transformer } from './transformers/interface';
-import type { Component, JSXElement } from 'solid-js';
-import { createContext, useContext } from 'solid-js';
 
 export const ATTR_TOKEN = 'data-token-hash';
 export const ATTR_MARK = 'data-css-hash';

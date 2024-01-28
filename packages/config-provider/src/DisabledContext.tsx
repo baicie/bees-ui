@@ -1,5 +1,5 @@
-import type { Component, JSXElement} from "solid-js";
-import { createContext, useContext } from "solid-js";
+import type { Component, JSXElement } from 'solid-js';
+import { createContext, useContext } from 'solid-js';
 
 export type DisabledType = boolean | undefined;
 

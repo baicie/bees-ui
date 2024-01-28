@@ -1,7 +1,7 @@
 import type Cache from './Cache';
-import { extract as tokenExtractStyle, TOKEN_PREFIX } from './hooks/useCacheToken';
+import { TOKEN_PREFIX, extract as tokenExtractStyle } from './hooks/useCacheToken';
 import { CSS_VAR_PREFIX, extract as cssVarExtractStyle } from './hooks/useCSSVarRegister';
-import { extract as styleExtractStyle, STYLE_PREFIX } from './hooks/useStyleRegister';
+import { STYLE_PREFIX, extract as styleExtractStyle } from './hooks/useStyleRegister';
 import { toStyleStr } from './util';
 import { ATTR_CACHE_MAP, serialize as serializeCacheMap } from './util/cacheMapUtil';
 

@@ -1,6 +1,7 @@
-import hash from '@emotion/hash';
 import { updateCSS } from '@bees-ui/sc-util';
+import hash from '@emotion/hash';
 import { useContext } from 'solid-js';
+
 import StyleContext, { ATTR_MARK, ATTR_TOKEN, CSS_IN_JS_INSTANCE } from '../StyleContext';
 import type Theme from '../theme/Theme';
 import { flattenToken, memoResult, token2key, toStyleStr } from '../util';

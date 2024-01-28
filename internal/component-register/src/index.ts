@@ -1,12 +1,12 @@
 import { createElementType } from './element';
 import type {
+  ComponentOptions as uComponentOptions,
   ComponentType as uComponentType,
   ConstructableComponent as uConstructableComponent,
   FunctionComponent as uFunctionComponent,
-  ComponentOptions as uComponentOptions,
   ICustomElement as uICustomElement,
-  PropsDefinitionInput as uPropsDefinitionInput,
   PropDefinition as uPropDefinition,
+  PropsDefinitionInput as uPropsDefinitionInput,
 } from './utils';
 import { normalizePropDefs } from './utils';
 

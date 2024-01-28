@@ -1,4 +1,5 @@
 import { createMemo, useContext } from 'solid-js';
+
 import { pathKey, type KeyType } from '../Cache';
 import StyleContext from '../StyleContext';
 import useCompatibleInsertionEffect from './useCompatibleInsertionEffect';

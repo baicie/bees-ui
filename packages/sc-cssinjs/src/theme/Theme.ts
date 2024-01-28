@@ -1,4 +1,5 @@
 import { warning } from '@bees-ui/sc-util';
+
 import type { DerivativeFunc, TokenType } from './interface';
 
 let uuid = 0;

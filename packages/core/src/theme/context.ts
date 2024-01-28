@@ -1,10 +1,10 @@
 import type { Theme } from '@bees-ui/sc-cssinjs';
 import { createTheme } from '@bees-ui/sc-cssinjs';
+import { createContext } from 'solid-js';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';
 import defaultDerivative from './themes/default';
 import defaultSeedToken from './themes/seed';
-import { createContext } from 'solid-js';
 
 export const defaultTheme = createTheme(defaultDerivative);
 

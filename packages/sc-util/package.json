@@ -23,7 +23,8 @@
     "core-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],
   "author": "",

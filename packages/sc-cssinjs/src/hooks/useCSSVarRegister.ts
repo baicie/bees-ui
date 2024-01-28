@@ -1,4 +1,6 @@
 import { removeCSS, updateCSS } from '@bees-ui/sc-util';
+import { useContext } from 'solid-js';
+
 import StyleContext, { ATTR_MARK, ATTR_TOKEN, CSS_IN_JS_INSTANCE } from '../StyleContext';
 import { isClientSide, toStyleStr } from '../util';
 import type { TokenWithCSSVar } from '../util/css-variables';
@@ -6,7 +8,6 @@ import { transformToken } from '../util/css-variables';
 import type { ExtractStyle } from './useGlobalCache';
 import useGlobalCache from './useGlobalCache';
 import { uniqueHash } from './useStyleRegister';
-import { useContext } from 'solid-js';
 
 export const CSS_VAR_PREFIX = 'cssVar';
 

@@ -8,6 +8,7 @@
 // import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 // import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ButtonComponentToken } from '@bees-ui/sc-type';
+
 // import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 // import type { ComponentToken as CardComponentToken } from '../../card/style';
 // import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';

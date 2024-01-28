@@ -1,5 +1,6 @@
-import hash from '@emotion/hash';
 import { canUseDom, removeCSS, updateCSS } from '@bees-ui/sc-util';
+import hash from '@emotion/hash';
+
 import { ATTR_MARK, ATTR_TOKEN } from '../StyleContext';
 import { Theme } from '../theme';
 

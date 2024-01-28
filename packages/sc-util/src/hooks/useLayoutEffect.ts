@@ -1,9 +1,6 @@
-import { createEffect, onCleanup, createSignal } from "solid-js";
+import { createEffect, createSignal, onCleanup } from 'solid-js';
 
-const useLayoutEffect = (
-  callback: (mount: boolean) => void | VoidFunction,
-  deps?: any[],
-) => {
+const useLayoutEffect = (callback: (mount: boolean) => void | VoidFunction, deps?: any[]) => {
   const [firstMount, setFirstMount] = createSignal(true);
 
   createEffect(() => {
@@ -15,14 +12,11 @@ const useLayoutEffect = (
     onCleanup(() => {
       setFirstMount(true);
     });
-  },);
+  });
 };
 
-export const useLayoutUpdateEffect = (
-  callback: () => void,
-  deps?: any[],
-) => {
-  useLayoutEffect(firstMount => {
+export const useLayoutUpdateEffect = (callback: () => void, deps?: any[]) => {
+  useLayoutEffect((firstMount) => {
     if (!firstMount) {
       return callback();
     }

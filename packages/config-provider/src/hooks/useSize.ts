@@ -1,7 +1,7 @@
-import type { Accessor } from 'solid-js';
-import { createMemo, useContext } from 'solid-js';
 import type { SizeType } from '@bees-ui/core';
 import { SizeContext } from '@bees-ui/core';
+import type { Accessor } from 'solid-js';
+import { createMemo, useContext } from 'solid-js';
 
 const useSize = <T>(customSize?: T | ((ctxSize: SizeType) => T)): Accessor<T | SizeType> => {
   const size = useContext<SizeType>(SizeContext);

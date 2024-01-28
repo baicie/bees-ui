@@ -1,8 +1,8 @@
 import type {
+  ComponentOptions,
   ComponentType,
   ConstructableComponent,
   FunctionComponent,
-  ComponentOptions,
 } from './utils';
 import { isConstructor } from './utils';
 

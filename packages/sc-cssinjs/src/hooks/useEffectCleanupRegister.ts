@@ -1,6 +1,5 @@
-import { onCleanup } from 'solid-js';
-
 import { warning } from '@bees-ui/sc-util';
+import { onCleanup } from 'solid-js';
 
 const useCleanupRegister = () => {
   const effectCleanups: (() => void)[] = [];

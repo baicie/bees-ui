@@ -1,8 +1,10 @@
-import hash from '@emotion/hash';
-import type * as CSS from 'csstype';
 import { removeCSS, updateCSS } from '@bees-ui/sc-util';
+import hash from '@emotion/hash';
 import unitless from '@emotion/unitless';
+import type * as CSS from 'csstype';
+import { useContext, type JSXElement } from 'solid-js';
 import { compile, serialize, stringify } from 'stylis';
+
 import type { Theme, Transformer } from '..';
 import type Keyframes from '../Keyframes';
 import type { Linter } from '../linters';
@@ -18,7 +20,6 @@ import { isClientSide, supportLayer, toStyleStr } from '../util';
 import { CSS_FILE_STYLE, existPath, getStyleAndHash } from '../util/cacheMapUtil';
 import type { ExtractStyle } from './useGlobalCache';
 import useGlobalCache from './useGlobalCache';
-import { useContext, type JSXElement } from 'solid-js';
 
 const SKIP_CHECK = '_skip_check_';
 const MULTI_VALUE = '_multi_value_';

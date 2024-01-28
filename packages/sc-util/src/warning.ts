@@ -28,11 +28,7 @@ export const preMessage = (fn: preMessageFn) => {
  * ```
  */
 export function warning(valid: boolean, message: string) {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    !valid &&
-    console !== undefined
-  ) {
+  if (process.env.NODE_ENV !== 'production' && !valid && console !== undefined) {
     const finalMessage = preWarningFns.reduce(
       // @ts-ignore
       (msg, preMessageFn) => preMessageFn(msg ?? '', 'warning'),
@@ -47,11 +43,7 @@ export function warning(valid: boolean, message: string) {
 
 /** @see Similar to {@link warning} */
 export function note(valid: boolean, message: string) {
-  if (
-    process.env.NODE_ENV !== 'production' &&
-    !valid &&
-    console !== undefined
-  ) {
+  if (process.env.NODE_ENV !== 'production' && !valid && console !== undefined) {
     const finalMessage = preWarningFns.reduce(
       // @ts-ignore
       (msg, preMessageFn) => preMessageFn(msg ?? '', 'note'),
@@ -93,4 +85,4 @@ warningOnce.preMessage = preMessage;
 warningOnce.resetWarned = resetWarned;
 warningOnce.noteOnce = noteOnce;
 
-export default warningOnce
+export default warningOnce;

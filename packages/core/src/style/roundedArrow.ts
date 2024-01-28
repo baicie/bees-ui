@@ -1,7 +1,8 @@
 import type { CSSObject } from '@bees-ui/sc-cssinjs';
-import type { AliasToken } from '../theme/interface';
 import { unit } from '@bees-ui/sc-cssinjs';
 import type { CSSUtil } from 'antd/es/theme/util/genComponentStyleHook';
+
+import type { AliasToken } from '../theme/interface';
 
 export interface ArrowToken {
   /** @internal */

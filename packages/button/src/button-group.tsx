@@ -1,7 +1,5 @@
-import type { CSSProperties } from '@bees-ui/core';
-import { clsx } from '@bees-ui/core';
-import type { SizeType } from '@bees-ui/core';
-import { ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
+import type { CSSProperties, SizeType } from '@bees-ui/core';
+import { clsx, ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
 import type { ComponentOptions } from '@bees-ui/solid-element';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 

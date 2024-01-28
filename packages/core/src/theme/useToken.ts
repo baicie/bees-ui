@@ -1,5 +1,6 @@
 import type { Theme } from '@bees-ui/sc-cssinjs';
 import { useCacheToken } from '@bees-ui/sc-cssinjs';
+import { useContext } from 'solid-js';
 
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';
@@ -7,7 +8,6 @@ import { defaultTheme, DesignTokenContext } from './context';
 import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
-import { useContext } from 'solid-js';
 
 export const unitless: {
   [key in keyof AliasToken]?: boolean;

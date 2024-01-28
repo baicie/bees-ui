@@ -40,7 +40,7 @@ function isEqual(obj1: any, obj2: any, shallow = false): boolean {
       if (keys.length !== Object.keys(b).length) {
         return false;
       }
-      return keys.every(key => deepEqual(a[key], b[key], newLevel));
+      return keys.every((key) => deepEqual(a[key], b[key], newLevel));
     }
     // other
     return false;

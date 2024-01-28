@@ -273,6 +273,30 @@ importers:
         specifier: ^1.8.12
         version: 1.8.12
 
+  packages/affix:
+    dependencies:
+      '@bees-ui/config-provider':
+        specifier: workspace:^
+        version: link:../config-provider
+      '@bees-ui/core':
+        specifier: workspace:^
+        version: link:../core
+      '@bees-ui/sc-cssinjs':
+        specifier: workspace:^
+        version: link:../sc-cssinjs
+      '@bees-ui/sc-util':
+        specifier: workspace:^
+        version: link:../sc-util
+      '@bees-ui/solid-element':
+        specifier: workspace:^
+        version: link:../../internal/solid-element
+      solid-element:
+        specifier: ^1.8.0
+        version: 1.8.0(solid-js@1.8.12)
+      solid-js:
+        specifier: ^1.8.11
+        version: 1.8.12
+
   packages/button:
     dependencies:
       '@bees-ui/config-provider':
@@ -8785,6 +8809,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: true
+    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
@@ -18593,6 +18618,15 @@ packages:
     dependencies:
       component-register: 0.8.3
       solid-js: 1.8.11
+    dev: false
+
+  /solid-element@1.8.0(solid-js@1.8.12):
+    resolution: {integrity: sha512-DG8HBCej5kNExUiFbVG8OFZojMGcLF8keXdGLEcHXBYtJ7zhm+a8HJnl5lfmBlTYGRk4ApgoBvlwH1ibg7quaQ==}
+    peerDependencies:
+      solid-js: ^1.8.0
+    dependencies:
+      component-register: 0.8.3
+      solid-js: 1.8.12
     dev: false
 
   /solid-js@1.8.11:
