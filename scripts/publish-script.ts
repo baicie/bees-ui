@@ -21,8 +21,7 @@ async function main() {
   );
 
   const publishPackage = async (project: Project) => {
-    const config: any = project.manifest.config;
-    if (project.manifest.private !== true && config && config.publish && config.publish === true) {
+    if (project.manifest.private !== true) {
       execSync('pnpm publish --access public --no-git-checks', {
         cwd: project.dir,
         stdio: 'inherit',
