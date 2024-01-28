@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import '@baicie/button';
-// import { Button } from 'ant-design-vue';
 
 const handleClick = () => {
   console.log('handleClick');
@@ -8,7 +7,9 @@ const handleClick = () => {
 </script>
 
 <template>
-  <!-- <Button type="primary">Button</Button> -->
+  <solid-button type="primary" @click="handleClick">
+    Let's have some different text!
+  </solid-button>
   <solid-button type="primary" @click="handleClick">
     Let's have some different text!
   </solid-button>
