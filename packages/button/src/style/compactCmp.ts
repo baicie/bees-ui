@@ -5,7 +5,7 @@ import {
   genSubStyleComponent,
 } from '@bees-ui/core';
 import type { GenerateStyle } from '@bees-ui/core';
-import { unit } from '@bees-ui/sc-cssinjs';
+import { unit } from '@bees-ui/cssinjs';
 
 import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';

@@ -1,4 +1,4 @@
-import { useStyleRegister } from '@bees-ui/sc-cssinjs';
+import { useStyleRegister } from '@bees-ui/cssinjs';
 
 import { resetIcon } from '../../style';
 import useToken from '../useToken';

@@ -1,4 +1,4 @@
-import type { CSSObject } from '@bees-ui/sc-cssinjs';
+import type { CSSObject } from '@bees-ui/cssinjs';
 
 import type { DerivativeToken } from '../theme/internal';
 

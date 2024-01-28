@@ -25,13 +25,10 @@
     "lint-fix": {},
     "lint": {},
     "prettier": {},
-    "interbal-stub": {
-      "cache": true,
-      "dependsOn": ["^interbal-stub"]
-    },
+    "interbal-stub": {},
     "stub": {
       "cache": true,
-      "dependsOn": ["^interbal-stub", "^stub"]
+      "dependsOn": ["^stub"]
     }
   }
 }

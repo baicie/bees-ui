@@ -5,7 +5,7 @@ export interface ButtonComponentToken {
    * @desc 文字字重
    * @descEN Font weight of text
    */
-  fontWeight: CSSProperties['fontWeight'];
+  fontWeight: CSSProperties['font-weight'];
   /**
    * @desc 默认按钮阴影
    * @descEN Shadow of default button
@@ -70,32 +70,32 @@ export interface ButtonComponentToken {
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
    */
-  paddingInline: CSSProperties['paddingInline'];
+  paddingInline: CSSProperties['padding-inline'];
   /**
    * @desc 大号按钮横向内间距
    * @descEN Horizontal padding of large button
    */
-  paddingInlineLG: CSSProperties['paddingInline'];
+  paddingInlineLG: CSSProperties['padding-inline'];
   /**
    * @desc 小号按钮横向内间距
    * @descEN Horizontal padding of small button
    */
-  paddingInlineSM: CSSProperties['paddingInline'];
+  paddingInlineSM: CSSProperties['padding-inline'];
   /**
    * @desc 按钮横向内间距
    * @descEN Horizontal padding of button
    */
-  paddingBlock: CSSProperties['paddingInline'];
+  paddingBlock: CSSProperties['padding-inline'];
   /**
    * @desc 大号按钮横向内间距
    * @descEN Horizontal padding of large button
    */
-  paddingBlockLG: CSSProperties['paddingInline'];
+  paddingBlockLG: CSSProperties['padding-inline'];
   /**
    * @desc 小号按钮横向内间距
    * @descEN Horizontal padding of small button
    */
-  paddingBlockSM: CSSProperties['paddingInline'];
+  paddingBlockSM: CSSProperties['padding-inline'];
   /**
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
@@ -157,5 +157,3 @@ export interface ButtonComponentToken {
    */
   contentLineHeightSM: number;
 }
-
-export interface ButtonProps {}

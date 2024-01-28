@@ -1,0 +1,26 @@
+{
+  "name": "@bees-ui/sc-resize-observer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "sc-dev": "pnpm bee build --watch --sourcemap",
+    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm rimraf node_modules .turbo dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "solid-js": "^1.8.12"
+  },
+  "dependencies": {
+    "@bees-ui/sc-util": "workspace:^",
+    "clsx": "^2.1.0",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

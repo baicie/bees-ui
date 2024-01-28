@@ -4,7 +4,7 @@
 // import type { WarningContextProps } from '../_util/warning';
 // import type { ShowWaveEffect } from '../_util/wave/interface';
 // import type { BadgeProps } from '../badge';
-import type { CSSProperties } from '@bees-ui/sc-type';
+import type { CSSProperties } from '@bees-ui/type';
 import { createContext } from 'solid-js';
 
 // import type { DrawerProps } from '../drawer';

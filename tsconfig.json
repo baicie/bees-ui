@@ -19,7 +19,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*"],
+      "@bees-ui/*": ["packages/*", "internal/*", "solid-components/*"],
     },
   },
   "include": ["packages"],

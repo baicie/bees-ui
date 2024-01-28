@@ -1,5 +1,5 @@
 // import type { ComponentToken as WaveToken } from '../../_util/wave/style';
-// import type { ComponentToken as AffixComponentToken } from '../../affix/style';
+import type { AffixComponentToken } from '@bees-ui/type';
 // import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 // import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 // import type { ComponentToken as AppComponentToken } from '../../app/style';
@@ -7,7 +7,7 @@
 // import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 // import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 // import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
-import type { ButtonComponentToken } from '@bees-ui/sc-type';
+import type { ButtonComponentToken } from '@bees-ui/type';
 
 // import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 // import type { ComponentToken as CardComponentToken } from '../../card/style';
@@ -66,7 +66,7 @@ import type { ButtonComponentToken } from '@bees-ui/sc-type';
 // import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
 export interface ComponentTokenMap {
-  Affix?: {};
+  Affix?: AffixComponentToken;
   // Alert?: AlertComponentToken;
   // Anchor?: AnchorComponentToken;
   // Avatar?: AvatarComponentToken;

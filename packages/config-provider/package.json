@@ -18,7 +18,9 @@
   ],
   "scripts": {
     "build": "pnpm bee build",
-    "dev": "pnpm bee build --watch",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "stub": "pnpm bee build --sourcemap",
+    "core-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",

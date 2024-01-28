@@ -19,7 +19,7 @@
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
-    "interbal-stub": "pnpm bee build --sourcemap",
+    "stub": "pnpm bee build --sourcemap",
     "tools-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",

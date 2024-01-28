@@ -1,11 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@bees-ui/cssinjs';
 
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks } from '../../theme/internal';
-
-export interface ComponentToken {
-  zIndexPopup: number;
-}
+import type { FullToken, GenerateStyle, GetDefaultToken } from '@bees-ui/core';
+import { genStyleHooks } from '@bees-ui/core';
 
 interface AffixToken extends FullToken<'Affix'> {
   //
