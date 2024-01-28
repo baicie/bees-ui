@@ -5,18 +5,19 @@ import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
 import defaultAlgorithm from './themes/default';
 import type { GenStyleFn } from './util/genComponentStyleHook';
+import type { SubStyleComponentProps } from './util/genComponentStyleHook';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
 // Please do not export internal `useToken` directly to avoid something export unexpected.
 /** Get current context Design Token. Will be different if you are using nest theme config. */
-function useToken() {
-  const [theme, token, hashId] = useInternalToken();
+function useToken(attachTo: HTMLElement | ShadowRoot) {
+  const [theme, token, hashId] = useInternalToken(attachTo);
 
   return { theme, token, hashId };
 }
 
-export type { GlobalToken, MappingAlgorithm, GenStyleFn };
+export type { GlobalToken, MappingAlgorithm, GenStyleFn, SubStyleComponentProps };
 
 export default {
   /** @private Test Usage. Do not use in production. */

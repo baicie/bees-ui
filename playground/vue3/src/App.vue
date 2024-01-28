@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import '@baicie/button';
+
+const handleClick = () => {
+  console.log('handleClick');
+}
 </script>
 
 <template>
-  <solid-button type="parmary">solid-button</solid-button>
+  <solid-button type="primary" @click="handleClick">
+    Let's have some different text!
+  </solid-button>
+  <solid-button type="primary" @click="handleClick">
+    Let's have some different text!
+  </solid-button>
 </template>
 
 <style scoped>

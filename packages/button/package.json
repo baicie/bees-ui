@@ -29,7 +29,9 @@
   "dependencies": {
     "@baicie/config-provider": "workspace:^",
     "@baicie/core": "workspace:^",
-    "classnames": "^2.5.1",
+    "@baicie/sc-cssinjs": "workspace:^",
+    "@baicie/sc-util": "workspace:^",
+    "@baicie/solid-element": "workspace:^",
     "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
   }

@@ -141,13 +141,13 @@ type TokenCacheValue<DerivativeToken> = [
  * @returns Call Theme.getDerivativeToken(tokenObject) to get token
  */
 export default function useCacheToken<DerivativeToken = object, DesignToken = DerivativeToken>(
+  container: HTMLElement | ShadowRoot,
   theme: Theme<any, any>,
   tokens: Partial<DesignToken>[],
   option: Option<DerivativeToken, DesignToken> = {},
 ): TokenCacheValue<DerivativeToken> {
   const {
     cache: { instanceId },
-    container,
   } = useContext(StyleContext);
   const {
     salt = '',

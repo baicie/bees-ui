@@ -16,6 +16,7 @@
 // import type { AliasToken, MappingAlgorithm, OverrideToken } from '@baicie/core';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
 // import type { SizeType } from './SizeContext';
+import type { CSSProperties } from '@baicie/sc-type';
 import type { JSX } from 'solid-js';
 import { createContext } from 'solid-js';
 
@@ -52,8 +53,8 @@ export interface BadgeConfig extends ComponentStyleConfig {
 }
 
 export interface ButtonConfig extends ComponentStyleConfig {
-  // classNames?: ButtonProps['classNames'];
-  // styles?: ButtonProps['styles'];
+  className?: string;
+  styles?: { icon: CSSProperties };
 }
 
 export interface DrawerConfig extends ComponentStyleConfig {

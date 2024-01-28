@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@baicie/button": "workspace:^",
+    "ant-design-vue": "^4.1.1",
+    "rollup-plugin-visualizer": "^5.12.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {

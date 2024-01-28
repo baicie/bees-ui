@@ -1,8 +1,9 @@
-import { button } from './button';
-import Element from '@baicie/register';
+import Button from './button';
+import { customElement } from '@baicie/solid-element';
 
-class SolidButton extends Element {
-  static props: any = {
+customElement(
+  'solid-button',
+  {
     loading: false,
     prefixCls: undefined,
     type: 'default',
@@ -18,15 +19,6 @@ class SolidButton extends Element {
     block: false,
     htmlType: 'button',
     classNames: undefined,
-  };
-
-  render() {
-    // @ts-ignore
-    console.log('this.', this.props);
-
-    // @ts-ignore
-    return button(this);
-  }
-}
-
-customElements.define('solid-button', SolidButton);
+  },
+  Button,
+);

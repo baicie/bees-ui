@@ -3,7 +3,7 @@ import { createContext, useContext } from 'solid-js';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
-const SizeContext = createContext<SizeType>(undefined);
+export const SizeContext = createContext<SizeType>(undefined);
 
 export interface SizeContextProps {
   size?: SizeType;
@@ -16,5 +16,3 @@ export const SizeContextProvider: Component<SizeContextProps> = (props) => {
     <SizeContext.Provider value={props.size || originSize}>{props.children}</SizeContext.Provider>
   );
 };
-
-export default SizeContext;

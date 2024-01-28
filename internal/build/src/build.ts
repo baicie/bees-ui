@@ -57,7 +57,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     input: inputPath,
     plugins,
     treeshake: true,
-    external: full ? ['@baicie/core'] : await generateExternal(root),
+    external: full ? [] : await generateExternal(root),
     watch: watch ? watchOptions : false,
   };
 }

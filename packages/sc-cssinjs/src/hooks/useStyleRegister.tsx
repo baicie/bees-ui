@@ -299,6 +299,7 @@ type StyleCacheValue = [
  */
 export default function useStyleRegister(
   info: {
+    container: HTMLElement | ShadowRoot;
     theme: Theme<any, any>;
     token: any;
     path: string[];
@@ -315,18 +316,9 @@ export default function useStyleRegister(
   },
   styleFn: () => CSSInterpolation,
 ) {
-  const { token, path, hashId, layer, nonce, clientOnly, order = 0 } = info;
-  const {
-    autoClear,
-    mock,
-    defaultCache,
-    hashPriority,
-    container,
-    ssrInline,
-    transformers,
-    linters,
-    cache,
-  } = useContext(StyleContext);
+  const { token, path, hashId, layer, nonce, clientOnly, order = 0, container } = info;
+  const { autoClear, mock, defaultCache, hashPriority, ssrInline, transformers, linters, cache } =
+    useContext(StyleContext);
   const tokenKey = token._tokenKey as string;
 
   const fullPath = [tokenKey, ...path];

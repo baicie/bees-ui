@@ -4,8 +4,8 @@ module.exports = {
     'plugin:compat/recommended',
     'plugin:import/typescript',
     'plugin:markdown/recommended',
-    "eslint:recommended",
-    "plugin:solid/typescript",
+    'eslint:recommended',
+    'plugin:solid/typescript',
   ],
   env: {
     browser: false,
@@ -20,13 +20,7 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    'solid',
-    '@typescript-eslint',
-    'unicorn',
-    'markdown',
-    'lodash',
-  ],
+  plugins: ['solid', '@typescript-eslint', 'unicorn', 'markdown', 'lodash'],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -151,6 +145,8 @@ module.exports = {
     'no-undef': 0,
     'import/order': 0,
     'solid/reactivity': 0,
+    'solid/components-return-once': 0,
+    'solid/no-react-specific-props': 0,
   },
   globals: {
     gtag: true,

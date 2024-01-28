@@ -19,8 +19,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@baicie/*": ["packages/*"],
-      "#baicie/*": ["packages/*"],
+      "@baicie/*": ["packages/*", "internal/*"],
     },
   },
   "include": ["packages"],

@@ -60,7 +60,7 @@ export interface StyleContextProps {
   cache: CacheEntity;
   /** Tell children that this context is default generated context */
   defaultCache: boolean;
-  /** Use `:where` selector to reduce hashId css selector priority */
+  /** Use `:host` selector to reduce hashId css selector priority */
   hashPriority?: HashPriority;
   /** Tell cssinjs where to inject style in */
   container?: Element | ShadowRoot;

@@ -1,11 +1,8 @@
 import type { CSSProperties } from '@baicie/core';
 import { clsx } from '@baicie/core';
-
-import { devUseWarning } from '@baicie/sc-util';
-import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
-import { useToken } from '@baicie/core';
-import type { Component } from 'solid-js';
+import type { SizeType } from '@baicie/core';
+import { ConfigContext, devUseWarning, useToken } from '@baicie/core';
+import type { ComponentOptions } from '@baicie/solid-element';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 
 export interface ButtonGroupProps {
@@ -18,13 +15,13 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = createContext<SizeType>(undefined);
 
-const ButtonGroup: Component<ButtonGroupProps> = (props) => {
+const ButtonGroup = (props: ButtonGroupProps, { element }: ComponentOptions) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
-  const [, , hashId] = useToken();
+  const [, , hashId] = useToken(element.renderRoot as HTMLElement | ShadowRoot);
 
   let sizeCls = '';
 
@@ -58,6 +55,7 @@ const ButtonGroup: Component<ButtonGroupProps> = (props) => {
 
   return (
     <GroupSizeContext.Provider value={size}>
+      {/* @ts-ignore */}
       <div {...others} class={classes} />
     </GroupSizeContext.Provider>
   );
