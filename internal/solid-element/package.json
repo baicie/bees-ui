@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/solid-element",
+  "name": "@bees-ui/solid-element",
   "version": "0.0.0",
   "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",
@@ -35,6 +35,6 @@
     "solid-js": "^1.8.12"
   },
   "dependencies": {
-    "@baicie/component-register": "workspace:^"
+    "@bees-ui/component-register": "workspace:^"
   }
 }

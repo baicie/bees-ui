@@ -1,5 +1,5 @@
-import type { FullToken, GetDefaultToken, GenStyleFn, CSSProperties } from '@baicie/core';
-import { getLineHeight, mergeToken } from '@baicie/core';
+import type { FullToken, GetDefaultToken, GenStyleFn, CSSProperties } from '@bees-ui/core';
+import { getLineHeight, mergeToken } from '@bees-ui/core';
 
 export interface ButtonToken extends FullToken<'Button'> {
   buttonPaddingHorizontal: CSSProperties['paddingInline'];

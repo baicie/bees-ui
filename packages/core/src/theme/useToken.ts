@@ -1,5 +1,5 @@
-import type { Theme } from '@baicie/sc-cssinjs';
-import { useCacheToken } from '@baicie/sc-cssinjs';
+import type { Theme } from '@bees-ui/sc-cssinjs';
+import { useCacheToken } from '@bees-ui/sc-cssinjs';
 
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';

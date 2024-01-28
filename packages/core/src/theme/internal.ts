@@ -1,4 +1,4 @@
-import { useStyleRegister } from '@baicie/sc-cssinjs';
+import { useStyleRegister } from '@bees-ui/sc-cssinjs';
 
 import type {
   AliasToken,

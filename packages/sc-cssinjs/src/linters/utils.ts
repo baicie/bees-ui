@@ -1,4 +1,4 @@
-import { warningOnce } from '@baicie/sc-util';
+import { warningOnce } from '@bees-ui/sc-util';
 import type { LinterInfo } from './interface';
 
 export function lintWarning(message: string, info: LinterInfo) {

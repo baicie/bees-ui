@@ -1,6 +1,6 @@
 import hash from '@emotion/hash';
 import type * as CSS from 'csstype';
-import { removeCSS, updateCSS } from '@baicie/sc-util';
+import { removeCSS, updateCSS } from '@bees-ui/sc-util';
 import unitless from '@emotion/unitless';
 import { compile, serialize, stringify } from 'stylis';
 import type { Theme, Transformer } from '..';

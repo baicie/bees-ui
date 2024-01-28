@@ -1,4 +1,4 @@
-import { useMemo, isEqual } from '@baicie/sc-util';
+import { useMemo, isEqual } from '@bees-ui/sc-util';
 import CacheEntity from './Cache';
 import type { Linter } from './linters/interface';
 import type { Transformer } from './transformers/interface';

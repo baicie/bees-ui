@@ -1,4 +1,4 @@
-import type { CSSInterpolation, DerivativeFunc } from '@baicie/sc-cssinjs';
+import type { CSSInterpolation, DerivativeFunc } from '@bees-ui/sc-cssinjs';
 
 import type { AnyObject } from '../../util/type';
 import type { AliasToken } from './alias';

@@ -1,4 +1,4 @@
-import type { CSSInterpolation, CSSObject } from '@baicie/sc-cssinjs';
+import type { CSSInterpolation, CSSObject } from '@bees-ui/sc-cssinjs';
 import type { FullToken, AliasToken } from '../theme/internal';
 import type { OverrideComponent, CSSUtil } from '../theme/util/genComponentStyleHook';
 

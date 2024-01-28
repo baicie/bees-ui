@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/sc-util",
+  "name": "@bees-ui/sc-util",
   "version": "0.0.0",
   "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",

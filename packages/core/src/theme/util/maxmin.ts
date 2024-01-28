@@ -1,4 +1,4 @@
-import { unit } from '@baicie/sc-cssinjs';
+import { unit } from '@bees-ui/sc-cssinjs';
 
 export default function genMaxMin(type: 'css' | 'js') {
   if (type === 'js') {

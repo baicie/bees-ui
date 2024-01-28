@@ -1,4 +1,4 @@
-import { unit, type CSSObject } from '@baicie/sc-cssinjs';
+import { unit, type CSSObject } from '@bees-ui/sc-cssinjs';
 
 import type { AliasToken, DerivativeToken } from '../theme/internal';
 

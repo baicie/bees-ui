@@ -5,9 +5,9 @@ import type {
   FunctionComponent,
   ComponentOptions,
   PropsDefinitionInput,
-} from '@baicie/component-register';
-import { register } from '@baicie/component-register';
-export { hot, getCurrentElement, noShadowDOM } from '@baicie/component-register';
+} from '@bees-ui/component-register';
+import { register } from '@bees-ui/component-register';
+export { hot, getCurrentElement, noShadowDOM } from '@bees-ui/component-register';
 export type { ICustomElement, ComponentOptions };
 export type ComponentType<T> = mComponentType<T>;
 import { createRoot, createSignal } from 'solid-js';

@@ -1,6 +1,6 @@
-import type { CSSObject } from '@baicie/sc-cssinjs';
+import type { CSSObject } from '@bees-ui/sc-cssinjs';
 import type { AliasToken } from '../theme/interface';
-import { unit } from '@baicie/sc-cssinjs';
+import { unit } from '@bees-ui/sc-cssinjs';
 import type { CSSUtil } from 'antd/es/theme/util/genComponentStyleHook';
 
 export interface ArrowToken {

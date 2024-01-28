@@ -1,5 +1,5 @@
 import Button from './button';
-import { customElement } from '@baicie/solid-element';
+import { customElement } from '@bees-ui/solid-element';
 
 customElement(
   'solid-button',

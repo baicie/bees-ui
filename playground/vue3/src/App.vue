@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import '@baicie/button';
+import '@bees-ui/button';
 
 const handleClick = () => {
   console.log('handleClick');

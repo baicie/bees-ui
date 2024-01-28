@@ -1,5 +1,5 @@
 import type { ButtonToken } from './token';
-import type { GenerateStyle } from '@baicie/core';
+import type { GenerateStyle } from '@bees-ui/core';
 
 const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({
   // Border

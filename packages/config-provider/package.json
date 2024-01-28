@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/config-provider",
+  "name": "@bees-ui/config-provider",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -27,7 +27,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baicie/core": "workspace:^",
+    "@bees-ui/core": "workspace:^",
     "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
   }

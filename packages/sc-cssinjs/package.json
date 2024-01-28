@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/sc-cssinjs",
+  "name": "@bees-ui/sc-cssinjs",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -28,7 +28,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baicie/sc-util": "workspace:^",
+    "@bees-ui/sc-util": "workspace:^",
     "@emotion/hash": "^0.9.1",
     "@emotion/unitless": "^0.8.1",
     "clsx": "^2.1.0",

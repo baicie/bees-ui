@@ -23,7 +23,9 @@ async function main() {
   consola.log(chalk.cyan(`$GIT_HEAD: ${gitHead}`));
   consola.debug(chalk.yellow('Updating package.json'));
 
-  const pkgs = Object.fromEntries((await getWorkspacePackages()).map(pkg => [pkg.manifest.name!, pkg]));
+  const pkgs = Object.fromEntries(
+    (await getWorkspacePackages()).map((pkg) => [pkg.manifest.name!, pkg]),
+  );
 
   const writeVersion = async (project: Project) => {
     await project.writeProjectManifest({
@@ -34,7 +36,7 @@ async function main() {
   };
 
   try {
-    for (const [name, project] of Object.entries(pkgs)) {
+    for (const [, project] of Object.entries(pkgs)) {
       await writeVersion(project);
     }
   } catch (error) {

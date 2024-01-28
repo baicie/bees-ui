@@ -1,5 +1,5 @@
 import hash from '@emotion/hash';
-import { updateCSS } from '@baicie/sc-util';
+import { updateCSS } from '@bees-ui/sc-util';
 import { useContext } from 'solid-js';
 import StyleContext, { ATTR_MARK, ATTR_TOKEN, CSS_IN_JS_INSTANCE } from '../StyleContext';
 import type Theme from '../theme/Theme';

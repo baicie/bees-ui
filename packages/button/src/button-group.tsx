@@ -1,8 +1,8 @@
-import type { CSSProperties } from '@baicie/core';
-import { clsx } from '@baicie/core';
-import type { SizeType } from '@baicie/core';
-import { ConfigContext, devUseWarning, useToken } from '@baicie/core';
-import type { ComponentOptions } from '@baicie/solid-element';
+import type { CSSProperties } from '@bees-ui/core';
+import { clsx } from '@bees-ui/core';
+import type { SizeType } from '@bees-ui/core';
+import { ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
+import type { ComponentOptions } from '@bees-ui/solid-element';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 
 export interface ButtonGroupProps {

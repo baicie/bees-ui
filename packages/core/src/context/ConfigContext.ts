@@ -5,7 +5,7 @@
 // import type { ShowWaveEffect } from '../_util/wave/interface';
 // import type { BadgeProps } from '../badge';
 import { createContext } from 'solid-js';
-import type { CSSProperties } from '@baicie/sc-type';
+import type { CSSProperties } from '@bees-ui/sc-type';
 // import type { DrawerProps } from '../drawer';
 // import type { FlexProps } from '../flex/interface';
 // import type { RequiredMark } from '../form/Form';

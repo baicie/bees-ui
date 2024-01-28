@@ -1,4 +1,4 @@
-import { removeCSS, updateCSS } from '@baicie/sc-util';
+import { removeCSS, updateCSS } from '@bees-ui/sc-util';
 import StyleContext, { ATTR_MARK, ATTR_TOKEN, CSS_IN_JS_INSTANCE } from '../StyleContext';
 import { isClientSide, toStyleStr } from '../util';
 import type { TokenWithCSSVar } from '../util/css-variables';

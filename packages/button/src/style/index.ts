@@ -1,8 +1,8 @@
-import type { CSSInterpolation, CSSObject } from '@baicie/sc-cssinjs';
-import { unit } from '@baicie/sc-cssinjs';
+import type { CSSInterpolation, CSSObject } from '@bees-ui/sc-cssinjs';
+import { unit } from '@bees-ui/sc-cssinjs';
 
-import type { GenerateStyle } from '@baicie/core';
-import { genFocusStyle, genStyleHooks, mergeToken } from '@baicie/core';
+import type { GenerateStyle } from '@bees-ui/core';
+import { genFocusStyle, genStyleHooks, mergeToken } from '@bees-ui/core';
 import genGroupStyle from './group';
 import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';

@@ -1,4 +1,4 @@
-import type { CSSObject } from '@baicie/sc-cssinjs';
+import type { CSSObject } from '@bees-ui/sc-cssinjs';
 import type { AliasToken, PresetColorKey } from '../internal';
 import { PresetColors } from '../interface';
 import type { TokenWithCommonCls } from './genComponentStyleHook';

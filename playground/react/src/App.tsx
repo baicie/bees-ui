@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import '@baicie/button';
+import '@bees-ui/button';
 
 function App() {
   const [count, setCount] = useState(0);

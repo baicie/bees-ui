@@ -1,5 +1,5 @@
 import hash from '@emotion/hash';
-import { canUseDom, removeCSS, updateCSS } from '@baicie/sc-util';
+import { canUseDom, removeCSS, updateCSS } from '@bees-ui/sc-util';
 import { ATTR_MARK, ATTR_TOKEN } from '../StyleContext';
 import { Theme } from '../theme';
 

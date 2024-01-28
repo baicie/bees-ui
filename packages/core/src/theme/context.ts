@@ -1,5 +1,5 @@
-import type { Theme } from '@baicie/sc-cssinjs';
-import { createTheme } from '@baicie/sc-cssinjs';
+import type { Theme } from '@bees-ui/sc-cssinjs';
+import { createTheme } from '@bees-ui/sc-cssinjs';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';
 import defaultDerivative from './themes/default';

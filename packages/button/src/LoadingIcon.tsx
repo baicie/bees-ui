@@ -1,6 +1,6 @@
 // import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import type { CSSProperties } from '@baicie/core';
-import { clsx } from '@baicie/core';
+import type { CSSProperties } from '@bees-ui/core';
+import { clsx } from '@bees-ui/core';
 // import CSSMotion from 'rc-motion';
 import IconWrapper from './IconWrapper';
 import type { Component } from 'solid-js';

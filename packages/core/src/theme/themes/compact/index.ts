@@ -1,4 +1,4 @@
-import type { DerivativeFunc } from '@baicie/sc-cssinjs';
+import type { DerivativeFunc } from '@bees-ui/sc-cssinjs';
 import genControlHeight from '../shared/genControlHeight';
 import type { MapToken, SeedToken } from '../../interface';
 import defaultAlgorithm from '../default';

@@ -1,11 +1,11 @@
 // Style as inline component
 import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
-import { genCompactItemStyle } from '@baicie/core';
-import { genCompactItemVerticalStyle } from '@baicie/core';
-import type { GenerateStyle } from '@baicie/core';
-import { genSubStyleComponent } from '@baicie/core';
-import { unit } from '@baicie/sc-cssinjs';
+import { genCompactItemStyle } from '@bees-ui/core';
+import { genCompactItemVerticalStyle } from '@bees-ui/core';
+import type { GenerateStyle } from '@bees-ui/core';
+import { genSubStyleComponent } from '@bees-ui/core';
+import { unit } from '@bees-ui/sc-cssinjs';
 
 const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, calc } = token;

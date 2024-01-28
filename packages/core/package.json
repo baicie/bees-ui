@@ -1,5 +1,5 @@
 {
-  "name": "@baicie/core",
+  "name": "@bees-ui/core",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -30,9 +30,9 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@baicie/sc-cssinjs": "workspace:^",
-    "@baicie/sc-type": "workspace:^",
-    "@baicie/sc-util": "workspace:^",
+    "@bees-ui/sc-cssinjs": "workspace:^",
+    "@bees-ui/sc-type": "workspace:^",
+    "@bees-ui/sc-util": "workspace:^",
     "@ctrl/tinycolor": "^4.0.3",
     "clsx": "^2.1.0",
     "solid-js": "^1.8.12"

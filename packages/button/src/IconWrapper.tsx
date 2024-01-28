@@ -1,5 +1,5 @@
-import type { CSSProperties } from '@baicie/core';
-import { clsx } from '@baicie/core';
+import type { CSSProperties } from '@bees-ui/core';
+import { clsx } from '@bees-ui/core';
 import type { Component, JSXElement } from 'solid-js';
 
 export type IconWrapperProps = {

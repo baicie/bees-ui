@@ -1,4 +1,4 @@
-import { createTheme, getComputedToken } from '@baicie/sc-cssinjs';
+import { createTheme, getComputedToken } from '@bees-ui/sc-cssinjs';
 import type { AliasToken } from './interface';
 import defaultDerivative from './themes/default';
 import seedToken from './themes/seed';

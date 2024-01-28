@@ -1,10 +1,10 @@
-import { ConfigContext, clsx, devUseWarning } from '@baicie/core';
-import { omit } from '@baicie/sc-util';
+import { ConfigContext, clsx, devUseWarning } from '@bees-ui/core';
+import { omit } from '@bees-ui/sc-util';
 // import Wave from '../_util/wave';
-import { useSize } from '@baicie/config-provider';
-import type { CSSProperties, SizeType } from '@baicie/core';
-import { DisabledContext, useCompactItemContext } from '@baicie/core';
-import type { ComponentOptions } from '@baicie/solid-element';
+import { useSize } from '@bees-ui/config-provider';
+import type { CSSProperties, SizeType } from '@bees-ui/core';
+import { DisabledContext, useCompactItemContext } from '@bees-ui/core';
+import type { ComponentOptions } from '@bees-ui/solid-element';
 import {
   createEffect,
   createMemo,

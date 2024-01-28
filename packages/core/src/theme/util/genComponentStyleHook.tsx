@@ -1,6 +1,6 @@
-import type { CSSInterpolation } from '@baicie/sc-cssinjs';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@baicie/sc-cssinjs';
-import { warning } from '@baicie/sc-util';
+import type { CSSInterpolation } from '@bees-ui/sc-cssinjs';
+import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@bees-ui/sc-cssinjs';
+import { warning } from '@bees-ui/sc-util';
 import { ConfigContext } from '../../../../config-provider/src/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {

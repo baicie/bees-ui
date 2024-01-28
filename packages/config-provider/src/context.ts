@@ -4,7 +4,7 @@
 // import type { WarningContextProps } from '../_util/warning';
 // import type { ShowWaveEffect } from '../_util/wave/interface';
 // import type { BadgeProps } from '../badge';
-// import type { ButtonProps } from '@baicie/button';
+// import type { ButtonProps } from '@bees-ui/button';
 // import type { DrawerProps } from '../drawer';
 // import type { FlexProps } from '../flex/interface';
 // import type { RequiredMark } from '../form/Form';
@@ -13,10 +13,10 @@
 // import type { ModalProps } from '../modal';
 // import type { SpaceProps } from '../space';
 // import type { TabsProps } from '../tabs';
-// import type { AliasToken, MappingAlgorithm, OverrideToken } from '@baicie/core';
+// import type { AliasToken, MappingAlgorithm, OverrideToken } from '@bees-ui/core';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
 // import type { SizeType } from './SizeContext';
-import type { CSSProperties } from '@baicie/sc-type';
+import type { CSSProperties } from '@bees-ui/sc-type';
 import type { JSX } from 'solid-js';
 import { createContext } from 'solid-js';
 

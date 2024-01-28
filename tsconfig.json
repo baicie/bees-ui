@@ -19,7 +19,7 @@
 
     "baseUrl": ".",
     "paths": {
-      "@baicie/*": ["packages/*", "internal/*"],
+      "@bees-ui/*": ["packages/*", "internal/*"],
     },
   },
   "include": ["packages"],

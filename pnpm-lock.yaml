@@ -8,12 +8,12 @@ importers:
 
   .:
     devDependencies:
-      '@baicie/build':
-        specifier: workspace:^
-        version: link:internal/build
       '@baicie/commitizen':
         specifier: ^0.1.0
         version: 0.1.0
+      '@bees-ui/build':
+        specifier: workspace:^
+        version: link:internal/build
       '@biomejs/biome':
         specifier: ^1.5.3
         version: 1.5.3
@@ -92,9 +92,6 @@ importers:
       prettier:
         specifier: ^3.2.4
         version: 3.2.4
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -149,11 +146,9 @@ importers:
 
   internal/component-register: {}
 
-  internal/registe: {}
-
   internal/solid-element:
     dependencies:
-      '@baicie/component-register':
+      '@bees-ui/component-register':
         specifier: workspace:^
         version: link:../component-register
     devDependencies:
@@ -163,19 +158,19 @@ importers:
 
   packages/button:
     dependencies:
-      '@baicie/config-provider':
+      '@bees-ui/config-provider':
         specifier: workspace:^
         version: link:../config-provider
-      '@baicie/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:../core
-      '@baicie/sc-cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
         version: link:../sc-cssinjs
-      '@baicie/sc-util':
+      '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../sc-util
-      '@baicie/solid-element':
+      '@bees-ui/solid-element':
         specifier: workspace:^
         version: link:../../internal/solid-element
       solid-element:
@@ -187,7 +182,7 @@ importers:
 
   packages/config-provider:
     dependencies:
-      '@baicie/core':
+      '@bees-ui/core':
         specifier: workspace:^
         version: link:../core
       solid-element:
@@ -202,13 +197,13 @@ importers:
       '@ant-design/colors':
         specifier: ^7.0.2
         version: 7.0.2
-      '@baicie/sc-cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
         version: link:../sc-cssinjs
-      '@baicie/sc-type':
+      '@bees-ui/sc-type':
         specifier: workspace:^
         version: link:../sc-type
-      '@baicie/sc-util':
+      '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../sc-util
       '@ctrl/tinycolor':
@@ -223,7 +218,7 @@ importers:
 
   packages/sc-cssinjs:
     dependencies:
-      '@baicie/sc-util':
+      '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../sc-util
       '@emotion/hash':
@@ -267,7 +262,7 @@ importers:
 
   playground/react:
     dependencies:
-      '@baicie/button':
+      '@bees-ui/button':
         specifier: workspace:^
         version: link:../../packages/button
       react:
@@ -326,7 +321,7 @@ importers:
 
   playground/svelte:
     dependencies:
-      '@baicie/button':
+      '@bees-ui/button':
         specifier: workspace:^
         version: link:../../packages/button
     devDependencies:
@@ -354,7 +349,7 @@ importers:
 
   playground/vue3:
     dependencies:
-      '@baicie/button':
+      '@bees-ui/button':
         specifier: workspace:^
         version: link:../../packages/button
       ant-design-vue:

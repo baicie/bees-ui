@@ -1,4 +1,4 @@
-import type { CSSObject, Keyframes } from '@baicie/sc-cssinjs';
+import type { CSSObject, Keyframes } from '@bees-ui/sc-cssinjs';
 
 const initMotionCommon = (duration: string): CSSObject => ({
   animationDuration: duration,
