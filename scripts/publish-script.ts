@@ -8,6 +8,10 @@ import { execSync } from 'node:child_process';
 
 const getWorkspacePackages = () => findWorkspacePackages(rootPath);
 
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function errorAndExit(err: Error): void {
   consola.error(err);
   process.exit(1);
@@ -26,7 +30,7 @@ async function main() {
         cwd: project.dir,
         stdio: 'inherit',
       });
-      return;
+      await sleep(1000);
     }
   };
 
