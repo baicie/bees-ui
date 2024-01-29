@@ -26,13 +26,13 @@ export function observe(element: Element, callback: ResizeListener) {
     resizeObserver.observe(element);
   }
 
-  elementListeners.get(element).add(callback);
+  elementListeners.get(element)?.add(callback);
 }
 
 export function unobserve(element: Element, callback: ResizeListener) {
   if (elementListeners.has(element)) {
-    elementListeners.get(element).delete(callback);
-    if (!elementListeners.get(element).size) {
+    elementListeners.get(element)?.delete(callback);
+    if (!elementListeners.get(element)?.size) {
       resizeObserver.unobserve(element);
       elementListeners.delete(element);
     }

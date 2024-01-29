@@ -1,7 +1,6 @@
-import type { CSSObject } from '@bees-ui/cssinjs';
-
 import type { FullToken, GenerateStyle, GetDefaultToken } from '@bees-ui/core';
 import { genStyleHooks } from '@bees-ui/core';
+import type { CSSObject } from '@bees-ui/cssinjs';
 
 interface AffixToken extends FullToken<'Affix'> {
   //

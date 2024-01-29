@@ -31,6 +31,7 @@
     "@bees-ui/config-provider": "workspace:^",
     "@bees-ui/core": "workspace:^",
     "@bees-ui/cssinjs": "workspace:^",
+    "@bees-ui/sc-resize-observer": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "@bees-ui/solid-element": "workspace:^",
     "solid-element": "^1.8.0",

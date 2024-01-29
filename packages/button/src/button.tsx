@@ -8,7 +8,7 @@ import {
   useCompactItemContext,
 } from '@bees-ui/core';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
-import { omit } from 'solid-components/sc-util/dist/types';
+import { omit } from '@bees-ui/sc-util';
 import type { ComponentOptions } from '@bees-ui/solid-element';
 import {
   createEffect,

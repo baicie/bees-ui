@@ -1,6 +1,6 @@
-import type { CSSInterpolation } from '@bees-ui/cssinjs/dist/types';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@bees-ui/cssinjs/dist/types';
-import { warning } from 'solid-components/sc-util/dist/types';
+import type { CSSInterpolation } from '@bees-ui/cssinjs';
+import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@bees-ui/cssinjs';
+import { warning } from '@bees-ui/sc-util';
 import type { Component, JSXElement } from 'solid-js';
 import { useContext } from 'solid-js';
 

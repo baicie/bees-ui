@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build-play": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bees-ui/affix": "workspace:^",
     "@bees-ui/button": "workspace:^",
     "ant-design-vue": "^4.1.1",
     "rollup-plugin-visualizer": "^5.12.0",

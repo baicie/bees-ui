@@ -1,11 +1,11 @@
 import type { CSSProperties } from '@bees-ui/core';
 import { clsx as classNames } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
-import ResizeObserver solid-components / sc - util / dist / typesobserver';
 
 import { ConfigContext } from '@bees-ui/config-provider';
 import type { ConfigConsumerProps } from '@bees-ui/core';
 import { throttleByAnimationFrame } from '@bees-ui/core';
+import ResizeObserver from '@bees-ui/sc-resize-observer';
 import type { ComponentOptions } from '@bees-ui/solid-element';
 import type { JSXElement, ParentProps, Ref } from 'solid-js';
 import { Show, createEffect, createSignal, onMount, useContext } from 'solid-js';
@@ -41,7 +41,7 @@ export interface AffixProps {
   className?: string;
   rootClassName?: string;
   children: JSXElement;
-  ref: Ref<JSXElement & AffixRef>
+  ref?: Ref<JSXElement & AffixRef>;
 }
 
 enum AffixStatus {
@@ -83,11 +83,11 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
   const [placeholderStyle, setPlaceholderStyle] = createSignal<CSSProperties>();
 
   const [status, setStatus] = createSignal(AffixStatus.None);
-  const [timer, setTimer] = createSignal<ReturnType<typeof setTimeout> | null>(null)
-  const [prevTarget, setPrevTarget] = createSignal<Window | HTMLElement | null>(null)
+  const [timer, setTimer] = createSignal<ReturnType<typeof setTimeout> | null>(null);
+  const [prevTarget, setPrevTarget] = createSignal<Window | HTMLElement | null>(null);
   const [prevListener, setPrevListener] = createSignal<EventListener>();
 
-  let fixedNodeRef: Ref<HTMLDivElement> | undefined
+  let fixedNodeRef: Ref<HTMLDivElement> | undefined;
 
   const targetFunc = target ?? getTargetContainer ?? getDefaultTarget;
 
@@ -95,12 +95,7 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
 
   // =================== Measure ===================
   const measure = () => {
-    if (
-      status() !== AffixStatus.Prepare ||
-      !fixedNodeRef ||
-      !props.ref ||
-      !targetFunc
-    ) {
+    if (status() !== AffixStatus.Prepare || !fixedNodeRef || !props.ref || !targetFunc) {
       return;
     }
 
@@ -120,31 +115,31 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
         return;
       }
 
-      const targetRect = getTargetRect(targetNode);
+      const targetRect = getTargetRect(targetNode as any);
       const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
       const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
 
       if (fixedTop !== undefined) {
         newState.affixStyle = {
           position: 'fixed',
-          top: fixedTop,
-          width: placeholderRect.width,
-          height: placeholderRect.height,
+          top: `${fixedTop}px`,
+          width: `${placeholderRect.width}px`,
+          height: `${placeholderRect.height}px`,
         };
         newState.placeholderStyle = {
-          width: placeholderRect.width,
-          height: placeholderRect.height,
+          width: `${placeholderRect.width}px`,
+          height: `${placeholderRect.height}px`,
         };
       } else if (fixedBottom !== undefined) {
         newState.affixStyle = {
           position: 'fixed',
-          bottom: fixedBottom,
-          width: placeholderRect.width,
-          height: placeholderRect.height,
+          bottom: `${fixedBottom}px`,
+          width: `${placeholderRect.width}px`,
+          height: `${placeholderRect.height}px`,
         };
         newState.placeholderStyle = {
-          width: placeholderRect.width,
-          height: placeholderRect.height,
+          width: `${placeholderRect.width}px`,
+          height: `${placeholderRect.height}px`,
         };
       }
 
@@ -162,7 +157,7 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
   };
 
   const prepareMeasure = () => {
-    setStatus(AffixStatus.Prepare)
+    setStatus(AffixStatus.Prepare);
     measure();
     if (process.env.NODE_ENV === 'test') {
       (props as any)?.onTestUpdatePosition?.();
@@ -178,7 +173,7 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
     if (targetFunc && affixStyle) {
       const targetNode = targetFunc();
       if (targetNode && props.ref) {
-        const targetRect = getTargetRect(targetNode);
+        const targetRect = getTargetRect(targetNode as any);
         const placeholderRect = getTargetRect(props.ref);
         const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop);
         const fixedBottom = getFixedBottom(placeholderRect, targetRect, offsetBottom);
@@ -207,15 +202,15 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
       }
       listenerTarget?.addEventListener(eventName, lazyUpdatePosition);
     });
-    setPrevTarget(listenerTarget)
-    setPrevListener(lazyUpdatePosition)
+    setPrevTarget(listenerTarget);
+    setPrevListener(lazyUpdatePosition as any);
   };
 
   const removeListeners = () => {
-    const _timer = timer()
+    const _timer = timer();
     if (_timer) {
       clearTimeout(_timer);
-      setTimer(null)
+      setTimer(null);
     }
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
@@ -232,22 +227,22 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
   createEffect(() => {
     // [Legacy] Wait for parent component ref has its value.
     // We should use target as directly element instead of function which makes element check hard.
-    setTimer(setTimeout(addListeners))
+    setTimer(setTimeout(addListeners));
     return () => removeListeners();
-  },);
+  });
 
   createEffect(() => {
     addListeners();
-  },);
+  });
 
   createEffect(() => {
     updatePosition();
-  },);
+  });
 
   onMount(() => {
     // @ts-ignore
-    props.ref.updatePosition = updatePosition
-  })
+    props.ref.updatePosition = updatePosition;
+  });
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(affixPrefixCls, element.renderRoot as any);
 
@@ -272,11 +267,11 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
 
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={(el) => props.ref = el} {...otherProps}>
+      <div style={style} className={className} ref={(el) => (props.ref = el)} {...otherProps}>
         <Show when={affixStyle()}>
           <div style={placeholderStyle()} aria-hidden="true" />
         </Show>
-        <div className={mergedCls} ref={fixedNodeRef} style={affixStyle()}>
+        <div class={mergedCls} ref={fixedNodeRef} style={affixStyle()}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
       </div>
@@ -289,3 +284,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default Affix;
+
+export * from './registe';

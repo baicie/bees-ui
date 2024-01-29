@@ -6,10 +6,12 @@ import isEqual from './isEqual';
 import omit from './omit';
 import raf from './raf';
 import toArray from './Children/toArray';
+import findDOMNode from './Dom/findDOMNode';
 
 export * from './Dom/dynamicCSS';
 export * from './warning';
 
+export { supportNodeRef, supportRef, useComposeRef } from './ref';
 export {
   canUseDom,
   contains,
@@ -20,4 +22,5 @@ export {
   useMemo,
   raf,
   toArray,
+  findDOMNode,
 };

@@ -1,9 +1,10 @@
-import * as React from 'react';
+import type { JSXElement } from 'solid-js';
+import { createContext, createSignal, useContext } from 'solid-js';
 import type { SizeInfo } from '.';
 
 type onCollectionResize = (size: SizeInfo, element: HTMLElement, data: any) => void;
 
-export const CollectionContext = React.createContext<onCollectionResize>(null);
+export const CollectionContext = createContext<onCollectionResize>();
 
 export interface ResizeInfo {
   size: SizeInfo;
@@ -14,41 +15,38 @@ export interface ResizeInfo {
 export interface CollectionProps {
   /** Trigger when some children ResizeObserver changed. Collect by frame render level */
   onBatchResize?: (resizeInfo: ResizeInfo[]) => void;
-  children?: React.ReactNode;
+  children?: JSXElement;
 }
 
 /**
  * Collect all the resize event from children ResizeObserver
  */
 export function Collection(props: CollectionProps) {
-  const resizeIdRef = React.useRef(0);
-  const resizeInfosRef = React.useRef<ResizeInfo[]>([]);
+  const [resizeIdRef, setResuzeIdRef] = createSignal(0);
+  const [resizeInfosRef, setResizeInfosRef] = createSignal<ResizeInfo[]>([]);
 
-  const onCollectionResize = React.useContext(CollectionContext);
+  const onCollectionResize = useContext(CollectionContext);
 
-  const onResize = React.useCallback<onCollectionResize>(
-    (size, element, data) => {
-      resizeIdRef.current += 1;
-      const currentId = resizeIdRef.current;
+  const onResize = (size: SizeInfo, element: HTMLElement, data: any) => {
+    setResuzeIdRef(resizeIdRef() + 1);
+    const currentId = resizeIdRef();
 
-      resizeInfosRef.current.push({
-        size,
-        element,
-        data,
-      });
+    resizeInfosRef().push({
+      size,
+      element,
+      data,
+    });
 
-      Promise.resolve().then(() => {
-        if (currentId === resizeIdRef.current) {
-          props.onBatchResize?.(resizeInfosRef.current);
-          resizeInfosRef.current = [];
-        }
-      });
+    Promise.resolve().then(() => {
+      if (currentId === resizeIdRef()) {
+        props.onBatchResize?.(resizeInfosRef());
+        setResizeInfosRef([]);
+      }
+    });
 
-      // Continue bubbling if parent exist
-      onCollectionResize?.(size, element, data);
-    },
-    [props.onBatchResize, onCollectionResize],
-  );
-
+    // Continue bubbling if parent exist
+    onCollectionResize?.(size, element, data);
+  };
+  // @ts-ignore
   return <CollectionContext.Provider value={onResize}>{props.children}</CollectionContext.Provider>;
 }

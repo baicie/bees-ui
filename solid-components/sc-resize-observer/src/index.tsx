@@ -1,7 +1,7 @@
 import { warning, toArray } from '@bees-ui/sc-util';
 import { Collection } from './Collection';
 import SingleObserver from './SingleObserver';
-import type { JSXElement } from 'solid-js';
+import type { JSXElement, Ref } from 'solid-js';
 
 const INTERNAL_PREFIX_KEY = 'rc-observer-key';
 
@@ -23,13 +23,17 @@ export type OnResize = (size: SizeInfo, element: HTMLElement) => void;
 export interface ResizeObserverProps {
   /** Pass to ResizeObserver.Collection with additional data */
   data?: any;
-  children: JSXElement | ((ref: React.RefObject<any>) => JSXElement);
+  children: JSXElement | ((ref: Ref<any>) => JSXElement);
   disabled?: boolean;
   /** Trigger if element resized. Will always trigger when first time render. */
   onResize?: OnResize;
+  ref?: Ref<HTMLElement> & {
+    getDom: () => HTMLElement | null;
+  };
+  key?: string;
 }
 
-function ResizeObserver(props: ResizeObserverProps, ref: React.Ref<HTMLElement>) {
+function ResizeObserver(props: ResizeObserverProps) {
   const { children } = props;
   const childNodes = typeof children === 'function' ? [children] : toArray(children);
 
@@ -45,25 +49,20 @@ function ResizeObserver(props: ResizeObserverProps, ref: React.Ref<HTMLElement>)
   }
 
   return childNodes.map((child, index) => {
-    const key = child?.key || `${INTERNAL_PREFIX_KEY}-${index}`;
+    const key = `${INTERNAL_PREFIX_KEY}-${index}`;
     return (
-      <SingleObserver {...props} key={key} ref={index === 0 ? ref : undefined}>
+      // @ts-ignore
+      <SingleObserver {...props} key={key} ref={index === 0 ? props.ref : undefined}>
         {child}
       </SingleObserver>
     );
-  }) as any as React.ReactElement;
+  }) as any as JSXElement;
 }
-
-const RefResizeObserver = React.forwardRef(ResizeObserver) as React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<ResizeObserverProps> & React.RefAttributes<any>
-> & {
-  Collection: typeof Collection;
-};
 
 if (process.env.NODE_ENV !== 'production') {
-  RefResizeObserver.displayName = 'ResizeObserver';
+  ResizeObserver.displayName = 'ResizeObserver';
 }
 
-RefResizeObserver.Collection = Collection;
+ResizeObserver.Collection = Collection;
 
-export default RefResizeObserver;
+export default ResizeObserver;

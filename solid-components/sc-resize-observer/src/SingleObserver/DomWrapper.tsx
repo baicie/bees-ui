@@ -1,14 +1,13 @@
-import * as React from 'react';
-
+import type { Component, Ref } from 'solid-js';
+import type { JSXElement } from 'solid-js';
 export interface DomWrapperProps {
-  children: React.ReactElement;
+  children?: JSXElement;
+  ref: Ref<JSXElement>;
 }
 
 /**
  * Fallback to findDOMNode if origin ref do not provide any dom element
  */
-export default class DomWrapper extends React.Component<DomWrapperProps> {
-  render() {
-    return this.props.children;
-  }
-}
+const DomWrapper: Component<DomWrapperProps> = (props: DomWrapperProps) => props.children;
+
+export default DomWrapper;

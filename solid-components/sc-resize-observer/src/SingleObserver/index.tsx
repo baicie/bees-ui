@@ -1,28 +1,33 @@
-import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
-import { supportRef, useComposeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+import { findDOMNode } from '@bees-ui/sc-util';
 import type { ResizeObserverProps } from '..';
 import { CollectionContext } from '../Collection';
 import { observe, unobserve } from '../utils/observerUtil';
 import DomWrapper from './DomWrapper';
+import {
+  createEffect,
+  createSignal,
+  onMount,
+  useContext,
+  type JSXElement,
+  type Ref,
+} from 'solid-js';
 
 export interface SingleObserverProps extends ResizeObserverProps {
-  children: React.ReactElement | ((ref: React.RefObject<Element>) => React.ReactElement);
+  children: JSXElement | ((ref: Ref<Element>) => JSXElement);
 }
 
-function SingleObserver(props: SingleObserverProps, ref: React.Ref<HTMLElement>) {
+function SingleObserver(props: SingleObserverProps): JSXElement {
   const { children, disabled } = props;
-  const elementRef = React.useRef<Element>(null);
-  const wrapperRef = React.useRef<DomWrapper>(null);
+  const [elementRef] = createSignal<Element>();
 
-  const onCollectionResize = React.useContext(CollectionContext);
+  const onCollectionResize = useContext(CollectionContext);
 
   // =========================== Children ===========================
   const isRenderProps = typeof children === 'function';
   const mergedChildren = isRenderProps ? children(elementRef) : children;
 
   // ============================= Size =============================
-  const sizeRef = React.useRef({
+  const [sizeRef, setSizeRef] = createSignal({
     width: -1,
     height: -1,
     offsetWidth: -1,
@@ -30,32 +35,25 @@ function SingleObserver(props: SingleObserverProps, ref: React.Ref<HTMLElement>)
   });
 
   // ============================= Ref ==============================
-  const canRef =
-    !isRenderProps && React.isValidElement(mergedChildren) && supportRef(mergedChildren);
-  const originRef: React.Ref<Element> = canRef ? (mergedChildren as any).ref : null;
-
-  const mergedRef = useComposeRef(originRef, elementRef);
-
   const getDom = () =>
-    findDOMNode<HTMLElement>(elementRef.current) ||
+    findDOMNode<HTMLElement>(elementRef()) ||
     // Support `nativeElement` format
-    (elementRef.current && typeof elementRef.current === 'object'
-      ? findDOMNode<HTMLElement>((elementRef.current as any)?.nativeElement)
-      : null) ||
-    findDOMNode<HTMLElement>(wrapperRef.current);
+    (elementRef() && typeof elementRef() === 'object'
+      ? findDOMNode<HTMLElement>((elementRef() as any)?.nativeElement)
+      : null);
 
-  React.useImperativeHandle(ref, () => getDom());
+  props.ref!.getDom = getDom;
 
   // =========================== Observe ============================
-  const propsRef = React.useRef<SingleObserverProps>(props);
-  propsRef.current = props;
+  const [propsRef, setPropRef] = createSignal<SingleObserverProps>(props);
+  setPropRef(props);
 
   // Handler
-  const onInternalResize = React.useCallback((target: HTMLElement) => {
-    const { onResize, data } = propsRef.current;
+  const onInternalResize = (target: Element) => {
+    const { onResize, data } = propsRef();
 
     const { width, height } = target.getBoundingClientRect();
-    const { offsetWidth, offsetHeight } = target;
+    const { offsetWidth, offsetHeight } = target as HTMLElement;
 
     /**
      * Resize observer trigger when content size changed.
@@ -66,13 +64,13 @@ function SingleObserver(props: SingleObserverProps, ref: React.Ref<HTMLElement>)
     const fixedHeight = Math.floor(height);
 
     if (
-      sizeRef.current.width !== fixedWidth ||
-      sizeRef.current.height !== fixedHeight ||
-      sizeRef.current.offsetWidth !== offsetWidth ||
-      sizeRef.current.offsetHeight !== offsetHeight
+      sizeRef().width !== fixedWidth ||
+      sizeRef().height !== fixedHeight ||
+      sizeRef().offsetWidth !== offsetWidth ||
+      sizeRef().offsetHeight !== offsetHeight
     ) {
       const size = { width: fixedWidth, height: fixedHeight, offsetWidth, offsetHeight };
-      sizeRef.current = size;
+      setSizeRef(size);
 
       // IE is strange, right?
       const mergedOffsetWidth = offsetWidth === Math.round(width) ? width : offsetWidth;
@@ -85,19 +83,20 @@ function SingleObserver(props: SingleObserverProps, ref: React.Ref<HTMLElement>)
       };
 
       // Let collection know what happened
-      onCollectionResize?.(sizeInfo, target, data);
+      onCollectionResize?.(sizeInfo, target as HTMLElement, data);
 
       if (onResize) {
         // defer the callback but not defer to next frame
         Promise.resolve().then(() => {
+          // @ts-ignore
           onResize(sizeInfo, target);
         });
       }
     }
-  }, []);
+  };
 
   // Dynamic observe
-  React.useEffect(() => {
+  createEffect(() => {
     const currentElement: HTMLElement = getDom();
 
     if (currentElement && !disabled) {
@@ -105,24 +104,16 @@ function SingleObserver(props: SingleObserverProps, ref: React.Ref<HTMLElement>)
     }
 
     return () => unobserve(currentElement, onInternalResize);
-  }, [elementRef.current, disabled]);
+  });
+
+  onMount(() => {});
 
   // ============================ Render ============================
+  // @ts-ignore
   return (
-    <DomWrapper ref={wrapperRef}>
-      {canRef
-        ? React.cloneElement(mergedChildren as any, {
-            ref: mergedRef,
-          })
-        : mergedChildren}
-    </DomWrapper>
+    // @ts-ignore
+    <DomWrapper ref={props.ref}>{mergedChildren}</DomWrapper>
   );
 }
 
-const RefSingleObserver = React.forwardRef(SingleObserver);
-
-if (process.env.NODE_ENV !== 'production') {
-  RefSingleObserver.displayName = 'SingleObserver';
-}
-
-export default RefSingleObserver;
+export default SingleObserver;

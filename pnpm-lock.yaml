@@ -287,6 +287,9 @@ importers:
       '@bees-ui/cssinjs':
         specifier: workspace:^
         version: link:../cssinjs
+      '@bees-ui/sc-resize-observer':
+        specifier: workspace:^
+        version: link:../../solid-components/sc-resize-observer
       '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../../solid-components/sc-util
@@ -483,6 +486,9 @@ importers:
 
   playground/vue3:
     dependencies:
+      '@bees-ui/affix':
+        specifier: workspace:^
+        version: link:../../packages/affix
       '@bees-ui/button':
         specifier: workspace:^
         version: link:../../packages/button

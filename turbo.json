@@ -12,8 +12,7 @@
       "cache": false
     },
     "dev": {
-      "dependsOn": ["^dev"],
-      "cache": true
+      "dependsOn": ["^dev"]
     },
     "core-dev": {
       "cache": true
