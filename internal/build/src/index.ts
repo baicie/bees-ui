@@ -25,3 +25,5 @@ cli
 
 cli.help();
 cli.parse();
+
+export { rootPath } from './path';

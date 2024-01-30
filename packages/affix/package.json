@@ -34,7 +34,6 @@
     "@bees-ui/sc-resize-observer": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "@bees-ui/solid-element": "workspace:^",
-    "solid-element": "^1.8.0",
     "solid-js": "^1.8.11"
   }
 }

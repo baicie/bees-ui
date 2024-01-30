@@ -9,6 +9,7 @@ import type {
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import solidPlugin from 'vite-plugin-solid';
+import commonjs from '@rollup/plugin-commonjs';
 
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 
@@ -46,6 +47,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     nodeResolve({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
+    commonjs(),
     solidPlugin(),
     esbuild({
       sourceMap: sourcemap,

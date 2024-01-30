@@ -10,6 +10,7 @@ import findDOMNode from './Dom/findDOMNode';
 
 export * from './Dom/dynamicCSS';
 export * from './warning';
+export * from './Dom/shadow';
 
 export { supportNodeRef, supportRef, useComposeRef } from './ref';
 export {

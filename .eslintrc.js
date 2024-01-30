@@ -144,9 +144,7 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/2528#issuecomment-689369395
     'no-undef': 0,
     'import/order': 0,
-    'solid/reactivity': 0,
     'solid/components-return-once': 0,
-    'solid/no-react-specific-props': 0,
   },
   globals: {
     gtag: true,

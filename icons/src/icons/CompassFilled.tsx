@@ -1,0 +1,14 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+import CompassFilledSvg from '@ant-design/icons-svg/lib/asn/CompassFilled';
+import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
+
+const CompassFilled = (props: AntdIconProps) => (
+  <AntdIcon {...props} ref={props.ref} icon={CompassFilledSvg} />
+);
+
+if (process.env.NODE_ENV !== 'production') {
+  CompassFilled.displayName = 'CompassFilled';
+}
+export default CompassFilled;
