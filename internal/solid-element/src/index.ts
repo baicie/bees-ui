@@ -51,7 +51,10 @@ function withSolid<T extends object>(ComponentType: ComponentType<T>): Component
     return createRoot((dispose: Function) => {
       const props = createProps<T>(rawProps);
 
-      element.addPropertyChangedCallback((key: string, val: any) => (props[key as keyof T] = val));
+      element.addPropertyChangedCallback((key: string, val: any) => {
+        console.log('addPropertyChangedCallback', key, val);
+        props[key as keyof T] = val;
+      });
       element.addReleaseCallback(() => {
         element.renderRoot.textContent = '';
         dispose();
@@ -81,8 +84,6 @@ function customElement<T extends object>(
     ComponentType = props as ComponentType<T>;
     props = {} as PropsDefinitionInput<T>;
   }
-  console.log('ComponentType', withSolid(ComponentType!));
-
   // @ts-ignore
   return register<T>(tag, props as PropsDefinitionInput<T>)(withSolid(ComponentType!));
 }

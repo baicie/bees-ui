@@ -487,6 +487,9 @@ importers:
 
   playground/solid-js:
     dependencies:
+      '@bees-ui/button':
+        specifier: workspace:^
+        version: link:../../packages/button
       '@bees-ui/icons':
         specifier: workspace:^
         version: link:../../icons

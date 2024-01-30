@@ -1,5 +1,6 @@
 {
   "name": "@bees-ui/component-register",
+  "private": true,
   "version": "0.0.0",
   "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",

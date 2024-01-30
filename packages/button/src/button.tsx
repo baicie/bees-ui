@@ -14,6 +14,8 @@ import {
   createEffect,
   createMemo,
   createSignal,
+  Match,
+  Switch,
   useContext,
   type JSX,
   type JSXElement,
@@ -82,11 +84,17 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
+const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
+  let element: any;
+  if (!options) {
+    element = { renderRoot: window.document.head };
+  } else {
+    element = options.element;
+  }
+
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    type = 'default',
     danger,
     shape = 'default',
     size: customizeSize,
@@ -107,10 +115,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(
-    prefixCls,
-    element.renderRoot as HTMLElement | ShadowRoot,
-  );
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, element.renderRoot as any);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -125,7 +130,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
 
   let buttonRef: any;
 
-  const needInserted = !icon && !isUnBorderedButtonType(type);
+  const needInserted = !icon && !isUnBorderedButtonType(props.type);
 
   createEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -182,7 +187,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(type)),
+      !(ghost && isUnBorderedButtonType(props.type)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -201,26 +206,28 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const classes = clsx(
-    prefixCls,
-    hashId,
-    cssVarCls,
-    {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${type}`]: type,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
-      [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar() && autoInsertSpace && !innerLoading,
-      [`${prefixCls}-block`]: block,
-      [`${prefixCls}-dangerous`]: !!danger,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    compactItemClassnames,
-    className,
-    rootClassName,
-    button?.className,
+  const classes = createMemo(() =>
+    clsx(
+      prefixCls,
+      hashId,
+      cssVarCls,
+      {
+        [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+        [`${prefixCls}-${props.type}`]: props.type,
+        [`${prefixCls}-${sizeCls}`]: sizeCls,
+        [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
+        [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(props.type),
+        [`${prefixCls}-loading`]: innerLoading,
+        [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar() && autoInsertSpace && !innerLoading,
+        [`${prefixCls}-block`]: block,
+        [`${prefixCls}-dangerous`]: !!danger,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      compactItemClassnames,
+      className,
+      rootClassName,
+      button?.className,
+    ),
   );
 
   const fullStyle: CSSProperties = {
@@ -236,6 +243,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
 
   const iconNode =
     icon && !innerLoading ? (
+      // eslint-disable-next-line solid/no-react-specific-props
       <IconWrapper prefixCls={prefixCls} className={iconClasses as any} style={iconStyle as any}>
         {icon as any}
       </IconWrapper>
@@ -250,7 +258,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
     return wrapCSSVar(
       <a
         {...linkButtonRestProps}
-        class={clsx(classes, {
+        class={clsx(classes(), {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
@@ -269,7 +277,7 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
     <button
       {...rest}
       type={htmlType}
-      class={classes}
+      class={classes()}
       style={fullStyle as any}
       onClick={handleClick}
       disabled={mergedDisabled}
@@ -277,7 +285,13 @@ const InternalButton = (props: ButtonProps, { element }: ComponentOptions) => {
     >
       {/* {iconNode}
       {kids} */}
-      <slot />
+      <Switch>
+        <Match when={props.children}>{props.children}</Match>
+
+        <Match when={!props.children}>
+          <slot />
+        </Match>
+      </Switch>
       {/* Styles: compact */}
       {/* {!!compactItemClassnames && <CompactCmp prefixCls={prefixCls} />} */}
     </button>
