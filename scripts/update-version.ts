@@ -22,7 +22,6 @@ async function main() {
   consola.log(chalk.cyan(`$new version: ${version}`));
   consola.log(chalk.cyan(`$GIT_HEAD: ${gitHead}`));
   consola.debug(chalk.yellow('Updating package.json'));
-
   const pkgs = Object.fromEntries(
     (await getWorkspacePackages()).map((pkg) => [pkg.manifest.name!, pkg]),
   );
