@@ -2,7 +2,9 @@
 
 set -e
 
-pnpm i --frozen-lockfile
+pnpm i --frozen-lockfile --ignore-scripts
+
+pnpm run stub
 
 pnpm update-version
 
