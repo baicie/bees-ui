@@ -25,7 +25,11 @@
     "clean": "pnpm rimraf node_modules .turbo dist src/icons",
     "generate": "pnpm rimraf src/icons && pnpm tsx scripts/generate.ts --target=icon"
   },
-  "keywords": [],
+  "keywords": [
+    "icon",
+    "ant-design-icons",
+    "solidjs"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
