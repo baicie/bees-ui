@@ -2,4 +2,6 @@ packages:
   - packages/*
   - playground/*
   - internal/*
+  - icons
+  - solid-components/*
   - .dumi

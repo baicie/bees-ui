@@ -1,9 +1,10 @@
 // import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import type { CSSProperties } from '@bees-ui/core';
 import { clsx } from '@bees-ui/core';
+import type { Component } from 'solid-js';
+
 // import CSSMotion from 'rc-motion';
 import IconWrapper from './IconWrapper';
-import type { Component } from 'solid-js';
 
 type InnerLoadingIconProps = {
   prefixCls: string;

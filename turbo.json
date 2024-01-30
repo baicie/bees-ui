@@ -13,7 +13,7 @@
     },
     "dev": {
       "dependsOn": ["^dev"],
-      "cache": true
+      "cache": false
     },
     "core-dev": {
       "cache": true
@@ -25,6 +25,7 @@
     "lint-fix": {},
     "lint": {},
     "prettier": {},
+    "interbal-stub": {},
     "stub": {
       "cache": true,
       "dependsOn": ["^stub"]

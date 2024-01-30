@@ -16,7 +16,7 @@
 // import type { AliasToken, MappingAlgorithm, OverrideToken } from '@bees-ui/core';
 // import type { RenderEmptyHandler } from './defaultRenderEmpty';
 // import type { SizeType } from './SizeContext';
-import type { CSSProperties } from '@bees-ui/sc-type';
+import type { CSSProperties } from '@bees-ui/type';
 import type { JSX } from 'solid-js';
 import { createContext } from 'solid-js';
 

@@ -1,5 +1,6 @@
-import type { CSSProperties } from '@bees-ui/sc-type';
+import type { CSSProperties } from '@bees-ui/type';
 import clsx from 'clsx';
+
 export * from './style';
 export * from './theme';
 export * from './util';

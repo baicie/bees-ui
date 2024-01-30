@@ -1,6 +1,7 @@
-import type { CSSObject } from '@bees-ui/sc-cssinjs';
-import type { AliasToken, PresetColorKey } from '../internal';
+import type { CSSObject } from '@bees-ui/cssinjs';
+
 import { PresetColors } from '../interface';
+import type { AliasToken, PresetColorKey } from '../internal';
 import type { TokenWithCommonCls } from './genComponentStyleHook';
 
 interface CalcColor {

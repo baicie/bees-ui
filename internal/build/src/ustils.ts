@@ -1,7 +1,7 @@
-import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
-import path from 'node:path';
-import type { ModuleFormat } from 'rollup';
 import fs from 'node:fs';
+import path from 'node:path';
+import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
+import type { ModuleFormat } from 'rollup';
 
 export const DEFAULT = ['src/index.ts', 'src/index.tsx'];
 export async function generateExternal(root: string) {

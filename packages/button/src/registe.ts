@@ -1,5 +1,6 @@
-import Button from './button';
 import { customElement } from '@bees-ui/solid-element';
+
+import Button from './button';
 
 customElement(
   'solid-button',

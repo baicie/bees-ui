@@ -19,19 +19,19 @@
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
-    "stub": "pnpm bee build --sourcemap",
     "core-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@bees-ui/sc-cssinjs": "workspace:^",
-    "@bees-ui/sc-type": "workspace:^",
+    "@bees-ui/cssinjs": "workspace:^",
+    "@bees-ui/type": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "@ctrl/tinycolor": "^4.0.3",
     "clsx": "^2.1.0",

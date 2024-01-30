@@ -4,8 +4,7 @@ import { defaultConfig, useToken as useInternalToken } from './internal';
 import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
 import defaultAlgorithm from './themes/default';
-import type { GenStyleFn } from './util/genComponentStyleHook';
-import type { SubStyleComponentProps } from './util/genComponentStyleHook';
+import type { GenStyleFn, SubStyleComponentProps } from './util/genComponentStyleHook';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.

@@ -1,17 +1,18 @@
 /* eslint-disable no-redeclare */
 import type {
-  ComponentType as mComponentType,
-  ICustomElement,
-  FunctionComponent,
   ComponentOptions,
+  FunctionComponent,
+  ICustomElement,
+  ComponentType as mComponentType,
   PropsDefinitionInput,
 } from '@bees-ui/component-register';
 import { register } from '@bees-ui/component-register';
+import { createRoot, createSignal } from 'solid-js';
+import { insert } from 'solid-js/web';
+
 export { hot, getCurrentElement, noShadowDOM } from '@bees-ui/component-register';
 export type { ICustomElement, ComponentOptions };
 export type ComponentType<T> = mComponentType<T>;
-import { createRoot, createSignal } from 'solid-js';
-import { insert } from 'solid-js/web';
 
 function createProps<T extends object>(raw: T) {
   const keys = Object.keys(raw) as (keyof T)[];

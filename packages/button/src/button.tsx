@@ -1,9 +1,14 @@
-import { ConfigContext, clsx, devUseWarning } from '@bees-ui/core';
-import { omit } from '@bees-ui/sc-util';
 // import Wave from '../_util/wave';
 import { useSize } from '@bees-ui/config-provider';
+import {
+  clsx,
+  ConfigContext,
+  devUseWarning,
+  DisabledContext,
+  useCompactItemContext,
+} from '@bees-ui/core';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
-import { DisabledContext, useCompactItemContext } from '@bees-ui/core';
+import { omit } from '@bees-ui/sc-util';
 import type { ComponentOptions } from '@bees-ui/solid-element';
 import {
   createEffect,
@@ -13,12 +18,14 @@ import {
   type JSX,
   type JSXElement,
 } from 'solid-js';
-import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
+
 import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
+import IconWrapper from './IconWrapper';
+import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
+
 // import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';

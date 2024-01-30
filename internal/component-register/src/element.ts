@@ -1,10 +1,10 @@
 import type {
-  ICustomElement,
   ConstructableComponent,
   FunctionComponent,
+  ICustomElement,
   PropsDefinition,
 } from './utils';
-import { propValues, isConstructor, initializeProps, parseAttributeValue } from './utils';
+import { initializeProps, isConstructor, parseAttributeValue, propValues } from './utils';
 
 let currentElement: HTMLElement & ICustomElement;
 export function getCurrentElement() {

@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build-play": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bees-ui/icons": "workspace:^",
     "solid-js": "^1.8.7"
   },
   "devDependencies": {

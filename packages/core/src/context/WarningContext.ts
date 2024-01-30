@@ -1,4 +1,4 @@
-import { warningOnce, resetWarned as rcResetWarned } from '@bees-ui/sc-util';
+import { resetWarned as rcResetWarned, warningOnce } from '@bees-ui/sc-util';
 import { createContext, useContext } from 'solid-js';
 
 export function noop() {}

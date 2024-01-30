@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "bin": {
     "bee": "./index.js"
   },
@@ -11,7 +13,8 @@
     "stub": "pnpm unbuild --stub",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\""
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],
   "author": "",
