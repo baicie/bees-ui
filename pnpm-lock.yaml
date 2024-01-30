@@ -39,7 +39,7 @@ importers:
         specifier: ^6.20.0
         version: 6.20.0(eslint@8.56.0)(typescript@5.3.3)
       '@umijs/fabric':
-        specifier: github:umijs/fabric
+        specifier: ^4.0.1
         version: github.com/umijs/fabric/44d3b92da6ac05ac4c4d93c2b4ff46792c08960e(postcss@8.4.33)
       antd:
         specifier: ^5.13.3
