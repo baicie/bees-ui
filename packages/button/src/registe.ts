@@ -3,7 +3,7 @@ import { customElement } from 'solid-element';
 import Button from './button';
 
 customElement(
-  'solid-button',
+  'bees-button',
   {
     loading: false,
     prefixCls: undefined,

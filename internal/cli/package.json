@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/build",
+  "name": "@bees-ui/cli",
   "private": true,
   "version": "0.0.0",
   "description": "",
@@ -7,7 +7,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "bee": "./index.js"
+    "bees": "./index.js"
   },
   "scripts": {
     "stub": "pnpm unbuild --stub",

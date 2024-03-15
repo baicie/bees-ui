@@ -1,7 +1,7 @@
-import * as allIconDefs from '@ant-design/icons-svg';
+import allIconDefs from '@ant-design/icons-svg';
 import type { IconDefinition } from '@ant-design/icons-svg/es/types';
-import * as fs from 'node:fs';
-import * as path from 'node:path';
+import fs from 'node:fs';
+import path from 'node:path';
 import { promisify } from 'node:util';
 // eslint-disable-next-line lodash/import-scope
 import { template } from 'lodash';
@@ -14,30 +14,34 @@ interface IconDefinitionWithIdentifier extends IconDefinition {
 
 function walk<T>(fn: (iconDef: IconDefinitionWithIdentifier) => Promise<T>) {
   return Promise.all(
+    // 便利所有svg文件 svgIdentifier为唯一标识大驼峰命名
     Object.keys(allIconDefs).map((svgIdentifier) => {
       const iconDef = (allIconDefs as { [id: string]: IconDefinition })[svgIdentifier];
-
+      // 为每一个svg文件生成组件
       return fn({ svgIdentifier, ...iconDef });
     }),
   );
 }
-
+// 生成icon组件文件
 async function generateIcons() {
   const iconsDir = path.join(__dirname, '../src/icons');
   try {
+    // 查看文件是否可以访问 第一次见
     await promisify(fs.access)(iconsDir);
   } catch (err) {
+    // 文件不存在就在创建一个
     await promisify(fs.mkdir)(iconsDir);
   }
-
+  // lodash template
   const render = template(
     `
 // GENERATE BY ./scripts/generate.ts
 // DON NOT EDIT IT MANUALLY
-
+// 引入svg文件
 import <%= svgIdentifier %>Svg from '@ant-design/icons-svg/lib/asn/<%= svgIdentifier %>';
+// 引入组件
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
-
+// 最终产物组件 传入ref 与 icon
 const <%= svgIdentifier %> = (
   props: AntdIconProps,
 ) => <AntdIcon {...props} ref={props.ref} icon={<%= svgIdentifier %>Svg} />;
@@ -48,7 +52,7 @@ if (process.env.NODE_ENV !== 'production') {
 export default <%= svgIdentifier %>;
 `.trim(),
   );
-
+  // 生成组件的函数 传入回调函数  会为所有的svg生成各自的组件
   await walk(async ({ svgIdentifier }) => {
     // generate icon file
     await writeFile(
@@ -73,7 +77,7 @@ ${entryText}
     `.trim(),
   );
 }
-
+// 生成入口文件
 async function generateEntries() {
   const render = template(
     `

@@ -1,14 +1,12 @@
-import type { CSSProperties } from '@bees-ui/core';
-import { clsx as classNames } from '@bees-ui/core';
-import { omit } from '@bees-ui/sc-util';
-
 import { ConfigContext } from '@bees-ui/config-provider';
-import type { ConfigConsumerProps } from '@bees-ui/core';
-import { throttleByAnimationFrame } from '@bees-ui/core';
+import type { ConfigConsumerProps, CSSProperties } from '@bees-ui/core';
+import { clsx as classNames, throttleByAnimationFrame } from '@bees-ui/core';
 import ResizeObserver from '@bees-ui/sc-resize-observer';
-import type { ComponentOptions } from '@bees-ui/solid-element';
+import { omit } from '@bees-ui/sc-util';
+import type { ComponentOptions } from '@bees-ui/type';
 import type { JSXElement, ParentProps, Ref } from 'solid-js';
-import { Show, createEffect, createSignal, onMount, useContext } from 'solid-js';
+import { createEffect, createSignal, onMount, Show, useContext } from 'solid-js';
+
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 

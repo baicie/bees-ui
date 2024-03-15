@@ -1,5 +1,6 @@
 // import Wave from '../_util/wave';
 import { useSize } from '@bees-ui/config-provider';
+import type { CSSProperties, SizeType } from '@bees-ui/core';
 import {
   clsx,
   ConfigContext,
@@ -7,9 +8,8 @@ import {
   DisabledContext,
   useCompactItemContext,
 } from '@bees-ui/core';
-import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
-import type { ComponentOptions } from '@bees-ui/solid-element';
+import type { ComponentOptions } from '@bees-ui/type';
 import {
   createEffect,
   createMemo,

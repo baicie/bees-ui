@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@ant-design/icons-svg": "^4.3.2",
+    "@ant-design/icons-svg": "^4.4.2",
     "@bees-ui/sc-util": "workspace:^",
     "clsx": "^2.1.0",
     "lodash": "^4.17.21",

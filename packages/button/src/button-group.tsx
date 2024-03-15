@@ -1,6 +1,6 @@
 import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { clsx, ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
-import type { ComponentOptions } from '@bees-ui/solid-element';
+import type { ComponentOptions } from '@bees-ui/type';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 
 export interface ButtonGroupProps {

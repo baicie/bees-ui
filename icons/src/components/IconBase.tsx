@@ -45,6 +45,7 @@ interface IconBaseComponent<P> extends Component<P> {
   setTwoToneColors: typeof setTwoToneColors;
 }
 
+// 内层icon的封装
 const IconBase: IconBaseComponent<IconProps> = (props) => {
   const {
     icon,
@@ -55,7 +56,7 @@ const IconBase: IconBaseComponent<IconProps> = (props) => {
     secondaryColor,
     ...restProps
   } = props;
-
+  // ref和react区别很大
   let svgRef: Ref<HTMLElement> | undefined;
 
   let colors: TwoToneColorPalette = twoToneColorPalette;
@@ -65,7 +66,7 @@ const IconBase: IconBaseComponent<IconProps> = (props) => {
       secondaryColor: secondaryColor || getSecondaryColor(primaryColor),
     };
   }
-
+  // 将icon挂在到header上 存在shadow dom的情况下会有问题待修复
   useInsertStyles(svgRef);
 
   warning(isIconDefinition(icon), `icon should be icon definiton, but got ${icon}`);
@@ -81,6 +82,7 @@ const IconBase: IconBaseComponent<IconProps> = (props) => {
       icon: target.icon(colors.primaryColor, colors.secondaryColor!),
     };
   }
+  // 工厂函数 生成jsx
   return generate(target.icon as AbstractNode, `svg-${target.name}`, {
     className,
     onClick,
