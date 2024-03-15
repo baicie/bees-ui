@@ -265,7 +265,7 @@ const Affix = (props: ParentProps<AffixProps>, { element }: ComponentOptions) =>
 
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={(el) => (props.ref = el)} {...otherProps}>
+      <div style={style} class={className} ref={(el) => (props.ref = el)} {...otherProps}>
         <Show when={affixStyle()}>
           <div style={placeholderStyle()} aria-hidden="true" />
         </Show>

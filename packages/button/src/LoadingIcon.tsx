@@ -19,7 +19,7 @@ const InnerLoadingIcon: Component<InnerLoadingIconProps> = (props) => {
   const mergedIconCls = clsx(`${prefixCls}-loading-icon`, className);
 
   return (
-    <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
+    <IconWrapper prefixCls={prefixCls} class={mergedIconCls} style={style} ref={ref}>
       <div class={iconClassName} />
     </IconWrapper>
   );
@@ -50,7 +50,7 @@ const LoadingIcon: Component<LoadingIconProps> = (props) => {
   // const visible = !!loading;
 
   if (existIcon) {
-    return <InnerLoadingIcon prefixCls={prefixCls} className={className} style={style} />;
+    return <InnerLoadingIcon prefixCls={prefixCls} class={className} style={style} />;
   }
 
   return (

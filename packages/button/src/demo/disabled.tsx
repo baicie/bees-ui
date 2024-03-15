@@ -61,7 +61,7 @@ const App: React.FC = () => (
         Danger Link(disabled)
       </Button>
     </Flex>
-    <Flex gap="small" className="site-button-ghost-wrapper">
+    <Flex gap="small" class="site-button-ghost-wrapper">
       <Button ghost>Ghost</Button>
       <Button ghost disabled>
         Ghost(disabled)
