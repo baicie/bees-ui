@@ -1,10 +1,10 @@
-import { Component, EventEmitter, Host, Prop, h ,Event, State, Watch, Method, Listen} from '@stencil/core';
+import { Component, EventEmitter, Host, Prop, h, Event, State, Watch, Method, Listen } from '@stencil/core';
 import warning from '../../utils/warning';
 
 @Component({
   tag: 'ikun-button',
   styleUrl: 'button.scss',
-  shadow: true,
+  shadow: false,
 })
 export class BButton {
   /**
@@ -29,7 +29,6 @@ export class BButton {
     warning(true, 'handleClick2');
   }
 
-
   @Watch('text')
   textChanged(text: string) {
     warning(true, text);
@@ -47,14 +46,14 @@ export class BButton {
       this.ikunClick.emit();
       this.text = 'textChanged';
     }
-  }
+  };
 
   render() {
     return (
-      <Host
-        onClick={this.handleClick}
-      >
-        <slot></slot>
+      <Host onClick={this.handleClick}>
+        <button>
+          <slot>111</slot>
+        </button>
       </Host>
     );
   }
