@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@bees-ui/sc-util": "workspace:^",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "resize-observer-polyfill": "^1.5.1"
   }
 }

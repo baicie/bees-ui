@@ -9,13 +9,11 @@ import {
   useCompactItemContext,
 } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
-import type { ComponentOptions } from '@bees-ui/type';
+import { noShadowDOM } from 'solid-element';
 import {
   createEffect,
   createMemo,
   createSignal,
-  Match,
-  Switch,
   useContext,
   type JSX,
   type JSXElement,
@@ -84,13 +82,8 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
-  let element: any;
-  if (!options) {
-    element = { renderRoot: window.document.head };
-  } else {
-    element = options.element;
-  }
+const InternalButton = (props: ButtonProps) => {
+  noShadowDOM();
 
   const {
     loading = false,
@@ -115,7 +108,7 @@ const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, element.renderRoot as any);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -154,7 +147,6 @@ const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
   });
 
   createEffect(() => {
-    // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
       return;
     }
@@ -273,30 +265,6 @@ const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
     );
   }
 
-  let buttonNode = (
-    <button
-      {...rest}
-      type={htmlType}
-      class={classes()}
-      style={fullStyle as any}
-      onClick={handleClick}
-      disabled={mergedDisabled}
-      ref={buttonRef}
-    >
-      {/* {iconNode}
-      {kids} */}
-      <Switch>
-        <Match when={props.children}>{props.children}</Match>
-
-        <Match when={!props.children}>
-          <slot />
-        </Match>
-      </Switch>
-      {/* Styles: compact */}
-      {/* {!!compactItemClassnames && <CompactCmp prefixCls={prefixCls} />} */}
-    </button>
-  );
-
   // if (!isUnBorderedButtonType(type)) {
   //   buttonNode =
   //   (
@@ -306,7 +274,10 @@ const InternalButton = (props: ButtonProps, options: ComponentOptions) => {
   //   );
   // }
 
-  return wrapCSSVar(buttonNode);
+  // return wrapCSSVar(buttonNode);
+  console.log('children', children);
+
+  return <button>{children}</button>;
 };
 
 const Button = InternalButton;

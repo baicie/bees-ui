@@ -71,7 +71,7 @@ function injectSelectorHash(key: string, hashId: string, hashPriority?: HashPrio
   }
 
   const hashClassName = `.${hashId}`;
-  const hashSelector = hashPriority === 'low' ? `:where(${hashClassName})` : hashClassName;
+  const hashSelector = hashPriority === 'low' ? `::path(${hashClassName})` : hashClassName;
 
   // 注入 hashId
   const keys = key.split(',').map((k) => {
@@ -300,7 +300,6 @@ type StyleCacheValue = [
  */
 export default function useStyleRegister(
   info: {
-    container: HTMLElement | ShadowRoot;
     theme: Theme<any, any>;
     token: any;
     path: string[];
@@ -317,9 +316,18 @@ export default function useStyleRegister(
   },
   styleFn: () => CSSInterpolation,
 ) {
-  const { token, path, hashId, layer, nonce, clientOnly, order = 0, container } = info;
-  const { autoClear, mock, defaultCache, hashPriority, ssrInline, transformers, linters, cache } =
-    useContext(StyleContext);
+  const { token, path, hashId, layer, nonce, clientOnly, order = 0 } = info;
+  const {
+    autoClear,
+    mock,
+    defaultCache,
+    hashPriority,
+    ssrInline,
+    transformers,
+    linters,
+    cache,
+    container,
+  } = useContext(StyleContext);
   const tokenKey = token._tokenKey as string;
 
   const fullPath = [tokenKey, ...path];

@@ -1,6 +1,5 @@
 import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { clsx, ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
-import type { ComponentOptions } from '@bees-ui/type';
 import { createContext, useContext, type JSXElement } from 'solid-js';
 
 export interface ButtonGroupProps {
@@ -13,13 +12,13 @@ export interface ButtonGroupProps {
 
 export const GroupSizeContext = createContext<SizeType>(undefined);
 
-const ButtonGroup = (props: ButtonGroupProps, { element }: ComponentOptions) => {
+const ButtonGroup = (props: ButtonGroupProps) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
-  const [, , hashId] = useToken(element.renderRoot as HTMLElement | ShadowRoot);
+  const [, , hashId] = useToken();
 
   let sizeCls = '';
 

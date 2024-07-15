@@ -32,7 +32,7 @@
     "@bees-ui/core": "workspace:^",
     "@bees-ui/cssinjs": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "solid-element": "^1.8.0",
+    "solid-element": "^1.8.1",
     "solid-js": "^1.8.11"
   }
 }

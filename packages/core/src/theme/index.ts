@@ -10,8 +10,8 @@ import type { GenStyleFn, SubStyleComponentProps } from './util/genComponentStyl
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
 // Please do not export internal `useToken` directly to avoid something export unexpected.
 /** Get current context Design Token. Will be different if you are using nest theme config. */
-function useToken(attachTo: HTMLElement | ShadowRoot) {
-  const [theme, token, hashId] = useInternalToken(attachTo);
+function useToken() {
+  const [theme, token, hashId] = useInternalToken();
 
   return { theme, token, hashId };
 }

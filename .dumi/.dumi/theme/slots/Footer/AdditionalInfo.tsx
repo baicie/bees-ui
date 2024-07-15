@@ -1,5 +1,6 @@
-import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import * as React from 'react';
+import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+
 import useLocale from '../../../hooks/useLocale';
 
 const whereCls = 'ant-where-checker';
@@ -34,7 +35,7 @@ export default function InfoNewVersion() {
     document.body.appendChild(p);
     updateCSS(
       `
-:where(.${whereCls}) {
+::path(.${whereCls}) {
   content: "__CHECK__";
 }
     `,

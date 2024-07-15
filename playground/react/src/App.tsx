@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import './App.css';
 import '@bees-ui/button';
+
 import { Button } from 'antd';
 
 function App() {
@@ -9,7 +11,8 @@ function App() {
   return (
     <div>
       <Button type="primary">Button</Button>
-      <solid-button type="primary">Let's have some different text!</solid-button>
+
+      <bees-button label="Click Me" children={<div>children</div>}></bees-button>
     </div>
   );
 }

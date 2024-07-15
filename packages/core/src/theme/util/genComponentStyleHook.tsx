@@ -153,8 +153,8 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string, attachTo: HTMLElement | ShadowRoot): UseComponentStyleResult => {
-    const [theme, realToken, hashId, token, cssVar] = useToken(attachTo);
+  return (prefixCls: string): UseComponentStyleResult => {
+    const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
@@ -164,7 +164,6 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
     // Shared config
     const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {
-      container: attachTo,
       theme,
       token,
       hashId,
@@ -187,7 +186,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
     );
 
     // Generate style for icons
-    useResetIconStyle(iconPrefixCls, attachTo, csp);
+    useResetIconStyle(iconPrefixCls, csp);
 
     const wrapSSR = useStyleRegister(
       { ...sharedConfig, path: [concatComponent, prefixCls, iconPrefixCls] },
@@ -273,9 +272,8 @@ export const genSubStyleComponent: <C extends OverrideComponent>(
 
   const StyledComponent: Component<SubStyleComponentProps> = ({
     prefixCls,
-    attachTo,
   }: SubStyleComponentProps) => {
-    useStyle(prefixCls, attachTo);
+    useStyle(prefixCls);
     return null;
   };
 
@@ -289,7 +287,6 @@ export type CSSVarRegisterProps = {
     prefix?: string;
     key?: string;
   };
-  attachTo: HTMLElement | ShadowRoot;
 };
 
 const genCSSVarRegister = <C extends OverrideComponent>(
@@ -315,11 +312,10 @@ const genCSSVarRegister = <C extends OverrideComponent>(
     compUnitless[prefixToken(key)] = originUnitless[key];
   });
 
-  const CSSVarRegister: Component<CSSVarRegisterProps> = ({ rootCls, cssVar, attachTo }) => {
-    const [, realToken] = useToken(attachTo);
+  const CSSVarRegister: Component<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
+    const [, realToken] = useToken();
     useCSSVarRegister(
       {
-        container: attachTo,
         path: [component],
         prefix: cssVar.prefix,
         key: cssVar?.key!,
@@ -346,19 +342,14 @@ const genCSSVarRegister = <C extends OverrideComponent>(
     return null;
   };
 
-  const useCSSVar = (rootCls: string, attachTo: HTMLElement | ShadowRoot) => {
-    const [, , , , cssVar] = useToken(attachTo);
+  const useCSSVar = (rootCls: string) => {
+    const [, , , , cssVar] = useToken();
 
     return [
       (node: JSXElement): JSXElement =>
         injectStyle && cssVar ? (
           <>
-            <CSSVarRegister
-              rootCls={rootCls}
-              cssVar={cssVar}
-              component={component}
-              attachTo={attachTo}
-            />
+            <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
             {node}
           </>
         ) : (
@@ -408,9 +399,9 @@ export const genStyleHooks = <C extends OverrideComponent>(
     options,
   );
 
-  return (prefixCls: string, attachTo: HTMLElement | ShadowRoot, rootCls: string = prefixCls) => {
-    const [, hashId] = useStyle(prefixCls, attachTo);
-    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls, attachTo);
+  return (prefixCls: string, rootCls: string = prefixCls) => {
+    const [, hashId] = useStyle(prefixCls);
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
     return [wrapCSSVar, hashId, cssVarCls] as const;
   };
