@@ -1,17 +1,3 @@
-<svelte:options
-  customElement={{
-    tag: "svelte-buton",
-    props: {
-      type: { reflect: false, type: "String", attribute: "bee-button-type" },
-    },
-    // no means no shadow dom
-    slot: {
-      name: "default",
-      no: true,
-    },
-  }}
-/>
-
 <script lang="ts" context="module">
   import { createEventDispatcher } from "svelte";
   import type { Action } from "svelte/action";
@@ -32,11 +18,6 @@
     classNames: ButtonProps["classNames"],
     style: ButtonProps["style"];
 
-  const dispatch = createEventDispatcher();
-  const handleClick = (e: Event) => {
-    dispatch("click", e);
-  };
-
   const foo: Action = (node) => {
     console.log("foo", node);
     return {
@@ -50,13 +31,10 @@
   };
 </script>
 
-<svelte:element this={"button"} class="primary" on:click={handleClick} use:foo>
-  name is {type}
-  <slot />
-</svelte:element>
+<svelte />
 
-<style>
-  .primary {
-    background-color: #ff0000;
-  }
-</style>
+<svelte:element this={"button"} class="primary">
+  <slot name="pre"></slot>
+  name is {type}
+  <slot></slot>
+</svelte:element>

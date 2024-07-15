@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import '@baicie/button'
-import reactifyWc from 'reactify-wc';
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import "@baicie/button";
+import reactifyWc from "reactify-wc";
 
 const VaadinButton = reactifyWc("svelte-buton");
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <VaadinButton>1111</VaadinButton>
+        <hello-world name="parmary">svelte-buton-button</hello-world>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -30,7 +30,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
