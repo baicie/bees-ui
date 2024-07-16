@@ -9,7 +9,10 @@ import { getRouteMetaById } from './exports';
 function wrapEmpty(meta, fieldName, defaultValue) {
   Object.defineProperty(meta, fieldName, {
     get: () => {
-      warning(false, `'${fieldName}' return empty in latest version, please use \`useRouteMeta\` instead.`);
+      warning(
+        false,
+        `'${fieldName}' return empty in latest version, please use \`useRouteMeta\` instead.`,
+      );
       return defaultValue;
     },
   });
@@ -20,7 +23,10 @@ export const patchRoutes = ({ routes }) => {
     const routeMeta = getRouteMetaById(route.id, { syncOnly: true });
 
     if (routeMeta) {
-      if (process.env.NODE_ENV === 'production' && (route.meta?.frontmatter?.debug || routeMeta.debug)) {
+      if (
+        process.env.NODE_ENV === 'production' &&
+        (route.meta?.frontmatter?.debug || routeMeta.debug)
+      ) {
         // hide route in production which set hide frontmatter
         delete routes[route.id];
       } else {
@@ -37,4 +43,4 @@ export const patchRoutes = ({ routes }) => {
       }
     }
   });
-}
+};

@@ -7,4 +7,4 @@ import { context } from './helmetContext';
 
 export const innerProvider = (container) => {
   return React.createElement(HelmetProvider, { context }, container);
-}
+};

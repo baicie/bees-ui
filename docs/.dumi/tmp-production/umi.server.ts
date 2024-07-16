@@ -9,10 +9,14 @@ import { getRoutes } from './core/route';
 import { createHistory as createClientHistory } from './core/history';
 import { ServerInsertedHTMLContext } from './core/serverInsertedHTMLContext';
 import { createPluginManager } from './core/plugin';
-import createRequestHandler, { createMarkupGenerator, createUmiHandler, createUmiServerLoader, createAppRootElement } from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/@umijs+server@4.3.6/node_modules/@umijs/server/dist/ssr.js';
+import createRequestHandler, {
+  createMarkupGenerator,
+  createUmiHandler,
+  createUmiServerLoader,
+  createAppRootElement,
+} from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/@umijs+server@4.3.6/node_modules/@umijs/server/dist/ssr.js';
 import fs from 'fs';
 import path from 'path';
-
 
 // always remove trailing slash from location.pathname
 if (
@@ -20,51 +24,59 @@ if (
   location.pathname.length > 1 &&
   location.pathname.endsWith('/')
 ) {
-  history.replaceState(
-    {},
-    '',
-    location.pathname.slice(0, -1) + location.search + location.hash,
-  );
+  history.replaceState({}, '', location.pathname.slice(0, -1) + location.search + location.hash);
 }
 
 (function () {
-  var cache = typeof navigator !== 'undefined' && navigator.cookieEnabled && typeof window.localStorage !== 'undefined' && localStorage.getItem('dumi:prefers-color') || 'light';
-  var isDark = typeof window !== 'undefined' &&  window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var cache =
+    (typeof navigator !== 'undefined' &&
+      navigator.cookieEnabled &&
+      typeof window.localStorage !== 'undefined' &&
+      localStorage.getItem('dumi:prefers-color')) ||
+    'light';
+  var isDark =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
   var enums = ['light', 'dark', 'auto'];
 
-  typeof document !== 'undefined' && document.documentElement.setAttribute(
-    'data-prefers-color',
-    cache === enums[2]
-      ? (isDark ? enums[1] : enums[0])
-      : (enums.indexOf(cache) > -1 ? cache : enums[0])
-  );
+  typeof document !== 'undefined' &&
+    document.documentElement.setAttribute(
+      'data-prefers-color',
+      cache === enums[2]
+        ? isDark
+          ? enums[1]
+          : enums[0]
+        : enums.indexOf(cache) > -1
+          ? cache
+          : enums[0],
+    );
 })();
 let helmetContext;
 
 try {
   helmetContext = require('./core/helmetContext').context;
-} catch { /* means `helmet: false`, do noting */ }
+} catch {
+  /* means `helmet: false`, do noting */
+}
 
-const routesWithServerLoader = {
-};
+const routesWithServerLoader = {};
 
 export function getManifest(sourceDir) {
   let manifestPath;
   if (process.env.SSR_MANIFEST) {
-    return JSON.parse(process.env.SSR_MANIFEST)
-  } 
-  if (sourceDir) {
-    manifestPath = path.join(sourceDir,'build-manifest.json')
+    return JSON.parse(process.env.SSR_MANIFEST);
   }
-  else {
-    manifestPath = '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/docs/_site/build-manifest.json'
+  if (sourceDir) {
+    manifestPath = path.join(sourceDir, 'build-manifest.json');
+  } else {
+    manifestPath =
+      '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/docs/_site/build-manifest.json';
   }
   if (fs.existsSync(manifestPath)) {
     return JSON.parse(fs.readFileSync(manifestPath), 'utf-8');
   }
   return {
-    assets: {}
-  }
+    assets: {},
+  };
 }
 
 export function createHistory(opts) {
@@ -86,10 +98,86 @@ const createOpts = {
   helmetContext,
   createHistory,
   ServerInsertedHTMLContext,
-  htmlPageOpts: {"headScripts":["\n    (function () {\n      function isLocalStorageNameSupported() {\n        const testKey = 'test';\n        const storage = window.localStorage;\n        try {\n          storage.setItem(testKey, '1');\n          storage.removeItem(testKey);\n          return true;\n        } catch (error) {\n          return false;\n        }\n      }\n      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义\n      const pathname = location.pathname;\n\n      function isZhCN(pathname) {\n        return /-cn\\/?$/.test(pathname);\n      }\n      function getLocalizedPathname(path, zhCN) {\n        const pathname = path.indexOf('/') === 0 ? path : '/' + path;\n        if (!zhCN) {\n          // to enUS\n          return /\\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');\n        } else if (pathname === '/') {\n          return '/index-cn';\n        } else if (pathname.indexOf('/') === pathname.length - 1) {\n          return pathname.replace(/\\/$/, '-cn/');\n        }\n        return pathname + '-cn';\n      }\n\n      // 兼容旧的 URL， `?locale=...`\n      const queryString = location.search;\n      if (queryString) {\n        const isZhCNConfig = queryString.indexOf('zh-CN') > -1;\n        if (isZhCNConfig && !isZhCN(pathname)) {\n          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);\n        }\n      }\n\n      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552\n      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {\n        const lang =\n          (window.localStorage && localStorage.getItem('locale')) ||\n          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'\n            ? 'zh-CN'\n            : 'en-US');\n        // safari is 'zh-cn', while other browser is 'zh-CN';\n        if ((lang === 'zh-CN') !== isZhCN(pathname)) {\n          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');\n        }\n      }\n      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';\n    })();\n    ",{"async":true,"src":"//www.googletagmanager.com/gtag/js?id=UA-72788897-1"},{"content":"window.dataLayer = window.dataLayer || [];\n      function gtag(){dataLayer.push(arguments);}\n      gtag('js', new Date());\n      gtag('config', 'UA-72788897-1');"}],"styles":[],"favicons":["https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"],"links":[{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_6e11e43nfj.woff2","type":"font/woff2","crossorigin":true},{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_6e11e43nfj.woff","type":"font/woff","crossorigin":true},{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_6e11e43nfj.ttf","type":"font/ttf","crossorigin":true},{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_exesdog9toj.woff2","type":"font/woff2","crossorigin":true},{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_exesdog9toj.woff","type":"font/woff","crossorigin":true},{"rel":"prefetch","as":"font","href":"//at.alicdn.com/t/webfont_exesdog9toj.ttf","type":"font/ttf","crossorigin":true},{"rel":"preload","as":"font","href":"//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2","type":"font/woff2","crossorigin":true},{"rel":"preload","as":"font","href":"//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff","type":"font/woff2","crossorigin":true}],"metas":[{"name":"theme-color","content":"#1677ff"}],"scripts":[{"async":true,"content":"(function createMirrorModal() {\n  if (\n    (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN')) &&\n    /-cn\\/?$/.test(window.location.pathname) &&\n    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname) &&\n    !window.location.host.includes('surge')\n  ) {\n    const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';\n\n    const lastShowTime = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);\n    if (\n      lastShowTime &&\n      lastShowTime !== 'true' &&\n      Date.now() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000\n    ) {\n      return;\n    }\n\n    const style = document.createElement('style');\n    style.innerHTML = `\n  @keyframes mirror-fade-in {\n    from {\n      opacity: 0;\n    }\n    to {\n      opacity: 1;\n    }\n  }\n\n  @keyframes mirror-zoom-in {\n    from {\n      transform: scale(0.8);\n    }\n    to {\n      transform: scale(1);\n    }\n  }\n\n  .mirror-modal-mask {\n    position: fixed;\n    inset: 0;\n    height: '100vh';\n    width: '100vw';\n    background: rgba(0, 0, 0, 0.3);\n    z-index: 9999;\n    animation: mirror-fade-in 0.3s forwards;\n  }\n\n  .mirror-modal-dialog {\n    position: fixed;\n    inset: 0;\n    top: 120px;\n    margin-left: auto;\n    margin-right: auto;\n    width: 400px;\n    height: 120px;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    border-radius: 8px;\n    border: 1px solid #eee;\n    background: #fff;\n    padding: 20px 24px;\n    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);\n    animation: mirror-zoom-in 0.3s forwards;\n  }\n\n  .mirror-modal-title {\n    font-size: 16px;\n    font-weight: 500;\n    align-self: flex-start;\n    margin-bottom: 8px;\n  }\n\n  .mirror-modal-content {\n    font-size: 14px;\n    align-self: flex-start;\n    margin-bottom: 16px;\n  }\n\n  .mirror-modal-btns {\n    align-self: flex-end;\n    margin-top: auto;\n    display: flex;\n    align-items: center;\n  }\n\n  .mirror-modal-btn {\n    border-radius: 6px;\n    cursor: pointer;\n    height: 32px;\n    box-sizing: border-box;\n    font-size: 14px;\n    padding: 4px 16px;\n    display: inline-flex;\n    align-items: center;\n    text-decoration: none;\n    transition: all 0.2s;\n  }\n\n  .mirror-modal-confirm-btn {\n    background: #1677ff;\n    color: #fff;\n  }\n\n  .mirror-modal-confirm-btn:hover {\n    background: #4096ff;\n  }\n\n  .mirror-modal-confirm-btn:active {\n    background: #0958d9;\n  }\n\n  .mirror-modal-cancel-btn {\n    border: 1px solid #eee;\n    color: #000;\n    margin-right: 8px;\n  }\n\n  .mirror-modal-cancel-btn:hover {\n    border-color: #4096ff;\n    color: #4096ff\n  }\n\n  .mirror-modal-cancel-btn:active {\n    border-color: #0958d9;\n    color: #0958d9;\n  }\n    `;\n    document.head.append(style);\n\n    const modal = document.createElement('div');\n    modal.className = 'mirror-modal-mask';\n\n    const dialog = document.createElement('div');\n    dialog.className = 'mirror-modal-dialog';\n    modal.append(dialog);\n\n    const title = document.createElement('div');\n    title.className = 'mirror-modal-title';\n    title.innerText = '提示';\n    dialog.append(title);\n\n    const content = document.createElement('div');\n    content.className = 'mirror-modal-content';\n    content.innerText = '国内用户推荐访问国内镜像以获得极速体验～';\n    dialog.append(content);\n\n    const btnWrapper = document.createElement('div');\n    btnWrapper.className = 'mirror-modal-btns';\n    dialog.append(btnWrapper);\n\n    const cancelBtn = document.createElement('a');\n    cancelBtn.className = 'mirror-modal-cancel-btn mirror-modal-btn';\n    cancelBtn.innerText = '7 天内不再显示';\n    btnWrapper.append(cancelBtn);\n    cancelBtn.addEventListener('click', () => {\n      window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, new Date().toISOString());\n      document.body.removeChild(modal);\n      document.head.removeChild(style);\n      document.body.style.overflow = '';\n    });\n\n    const confirmBtn = document.createElement('a');\n    confirmBtn.className = 'mirror-modal-confirm-btn mirror-modal-btn';\n    confirmBtn.href = window.location.href.replace(window.location.host, 'ant-design.antgroup.com');\n    confirmBtn.innerText = '🚀 立刻前往';\n    btnWrapper.append(confirmBtn);\n\n    document.body.append(modal);\n    document.body.style.overflow = 'hidden';\n  }\n})();\n"}]},
- __INTERNAL_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {"pureApp":false,"pureHtml":false},
-  mountElementId: 'root'
-
+  htmlPageOpts: {
+    headScripts: [
+      "\n    (function () {\n      function isLocalStorageNameSupported() {\n        const testKey = 'test';\n        const storage = window.localStorage;\n        try {\n          storage.setItem(testKey, '1');\n          storage.removeItem(testKey);\n          return true;\n        } catch (error) {\n          return false;\n        }\n      }\n      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义\n      const pathname = location.pathname;\n\n      function isZhCN(pathname) {\n        return /-cn\\/?$/.test(pathname);\n      }\n      function getLocalizedPathname(path, zhCN) {\n        const pathname = path.indexOf('/') === 0 ? path : '/' + path;\n        if (!zhCN) {\n          // to enUS\n          return /\\/?index(-cn)?/.test(pathname) ? '/' : pathname.replace('-cn', '');\n        } else if (pathname === '/') {\n          return '/index-cn';\n        } else if (pathname.indexOf('/') === pathname.length - 1) {\n          return pathname.replace(/\\/$/, '-cn/');\n        }\n        return pathname + '-cn';\n      }\n\n      // 兼容旧的 URL， `?locale=...`\n      const queryString = location.search;\n      if (queryString) {\n        const isZhCNConfig = queryString.indexOf('zh-CN') > -1;\n        if (isZhCNConfig && !isZhCN(pathname)) {\n          location.pathname = getLocalizedPathname(pathname, isZhCNConfig);\n        }\n      }\n\n      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552\n      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {\n        const lang =\n          (window.localStorage && localStorage.getItem('locale')) ||\n          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'\n            ? 'zh-CN'\n            : 'en-US');\n        // safari is 'zh-cn', while other browser is 'zh-CN';\n        if ((lang === 'zh-CN') !== isZhCN(pathname)) {\n          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');\n        }\n      }\n      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';\n    })();\n    ",
+      { async: true, src: '//www.googletagmanager.com/gtag/js?id=UA-72788897-1' },
+      {
+        content:
+          "window.dataLayer = window.dataLayer || [];\n      function gtag(){dataLayer.push(arguments);}\n      gtag('js', new Date());\n      gtag('config', 'UA-72788897-1');",
+      },
+    ],
+    styles: [],
+    favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
+    links: [
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
+        type: 'font/woff2',
+        crossorigin: true,
+      },
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
+        type: 'font/woff',
+        crossorigin: true,
+      },
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
+        type: 'font/ttf',
+        crossorigin: true,
+      },
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
+        type: 'font/woff2',
+        crossorigin: true,
+      },
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
+        type: 'font/woff',
+        crossorigin: true,
+      },
+      {
+        rel: 'prefetch',
+        as: 'font',
+        href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
+        type: 'font/ttf',
+        crossorigin: true,
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/Gsw2PSKrftc1yNWMNlXgw.woff2',
+        type: 'font/woff2',
+        crossorigin: true,
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        href: '//at.alicdn.com/wf/webfont/exMpJIukiCms/vtu73by4O2gEBcvBuLgeu.woff',
+        type: 'font/woff2',
+        crossorigin: true,
+      },
+    ],
+    metas: [{ name: 'theme-color', content: '#1677ff' }],
+    scripts: [
+      {
+        async: true,
+        content:
+          "(function createMirrorModal() {\n  if (\n    (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN')) &&\n    /-cn\\/?$/.test(window.location.pathname) &&\n    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname) &&\n    !window.location.host.includes('surge')\n  ) {\n    const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';\n\n    const lastShowTime = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);\n    if (\n      lastShowTime &&\n      lastShowTime !== 'true' &&\n      Date.now() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000\n    ) {\n      return;\n    }\n\n    const style = document.createElement('style');\n    style.innerHTML = `\n  @keyframes mirror-fade-in {\n    from {\n      opacity: 0;\n    }\n    to {\n      opacity: 1;\n    }\n  }\n\n  @keyframes mirror-zoom-in {\n    from {\n      transform: scale(0.8);\n    }\n    to {\n      transform: scale(1);\n    }\n  }\n\n  .mirror-modal-mask {\n    position: fixed;\n    inset: 0;\n    height: '100vh';\n    width: '100vw';\n    background: rgba(0, 0, 0, 0.3);\n    z-index: 9999;\n    animation: mirror-fade-in 0.3s forwards;\n  }\n\n  .mirror-modal-dialog {\n    position: fixed;\n    inset: 0;\n    top: 120px;\n    margin-left: auto;\n    margin-right: auto;\n    width: 400px;\n    height: 120px;\n    display: flex;\n    align-items: center;\n    flex-direction: column;\n    border-radius: 8px;\n    border: 1px solid #eee;\n    background: #fff;\n    padding: 20px 24px;\n    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);\n    animation: mirror-zoom-in 0.3s forwards;\n  }\n\n  .mirror-modal-title {\n    font-size: 16px;\n    font-weight: 500;\n    align-self: flex-start;\n    margin-bottom: 8px;\n  }\n\n  .mirror-modal-content {\n    font-size: 14px;\n    align-self: flex-start;\n    margin-bottom: 16px;\n  }\n\n  .mirror-modal-btns {\n    align-self: flex-end;\n    margin-top: auto;\n    display: flex;\n    align-items: center;\n  }\n\n  .mirror-modal-btn {\n    border-radius: 6px;\n    cursor: pointer;\n    height: 32px;\n    box-sizing: border-box;\n    font-size: 14px;\n    padding: 4px 16px;\n    display: inline-flex;\n    align-items: center;\n    text-decoration: none;\n    transition: all 0.2s;\n  }\n\n  .mirror-modal-confirm-btn {\n    background: #1677ff;\n    color: #fff;\n  }\n\n  .mirror-modal-confirm-btn:hover {\n    background: #4096ff;\n  }\n\n  .mirror-modal-confirm-btn:active {\n    background: #0958d9;\n  }\n\n  .mirror-modal-cancel-btn {\n    border: 1px solid #eee;\n    color: #000;\n    margin-right: 8px;\n  }\n\n  .mirror-modal-cancel-btn:hover {\n    border-color: #4096ff;\n    color: #4096ff\n  }\n\n  .mirror-modal-cancel-btn:active {\n    border-color: #0958d9;\n    color: #0958d9;\n  }\n    `;\n    document.head.append(style);\n\n    const modal = document.createElement('div');\n    modal.className = 'mirror-modal-mask';\n\n    const dialog = document.createElement('div');\n    dialog.className = 'mirror-modal-dialog';\n    modal.append(dialog);\n\n    const title = document.createElement('div');\n    title.className = 'mirror-modal-title';\n    title.innerText = '提示';\n    dialog.append(title);\n\n    const content = document.createElement('div');\n    content.className = 'mirror-modal-content';\n    content.innerText = '国内用户推荐访问国内镜像以获得极速体验～';\n    dialog.append(content);\n\n    const btnWrapper = document.createElement('div');\n    btnWrapper.className = 'mirror-modal-btns';\n    dialog.append(btnWrapper);\n\n    const cancelBtn = document.createElement('a');\n    cancelBtn.className = 'mirror-modal-cancel-btn mirror-modal-btn';\n    cancelBtn.innerText = '7 天内不再显示';\n    btnWrapper.append(cancelBtn);\n    cancelBtn.addEventListener('click', () => {\n      window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, new Date().toISOString());\n      document.body.removeChild(modal);\n      document.head.removeChild(style);\n      document.body.style.overflow = '';\n    });\n\n    const confirmBtn = document.createElement('a');\n    confirmBtn.className = 'mirror-modal-confirm-btn mirror-modal-btn';\n    confirmBtn.href = window.location.href.replace(window.location.host, 'ant-design.antgroup.com');\n    confirmBtn.innerText = '🚀 立刻前往';\n    btnWrapper.append(confirmBtn);\n\n    document.body.append(modal);\n    document.body.style.overflow = 'hidden';\n  }\n})();\n",
+      },
+    ],
+  },
+  __INTERNAL_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: { pureApp: false, pureHtml: false },
+  mountElementId: 'root',
 };
 const requestHandler = createRequestHandler(createOpts);
 /**
@@ -107,13 +195,12 @@ export const getAppRootElement = createAppRootElement.bind(null, createOpts)();
 
 export default requestHandler;
 
-export const g_umi = '4.3.6'
+export const g_umi = '4.3.6';
 
+if (typeof window !== 'undefined') {
+  window.g_umi = {
+    version: '4.3.6',
+  };
+}
 
-    if (typeof window !== 'undefined') {
-      window.g_umi = {
-        version: '4.3.6',
-      };
-    }
-    
 setDumiPluginManager(getDumiPluginManager());

@@ -8,9 +8,9 @@ import * as Plugin_3 from '@@/dumi/locales/runtime.tsx';
 import * as Plugin_4 from '@@/dumi/exportStaticRuntimePlugin.ts';
 import { PluginManager } from 'umi';
 
-function __defaultExport (obj) {
+function __defaultExport(obj) {
   if (obj.default) {
-    return typeof obj.default === 'function' ? obj.default() :  obj.default
+    return typeof obj.default === 'function' ? obj.default() : obj.default;
   }
   return obj;
 }
@@ -40,7 +40,22 @@ export function getPlugins() {
 }
 
 export function getValidKeys() {
-  return ['patchRoutes','patchClientRoutes','modifyContextOpts','modifyClientRenderOpts','rootContainer','innerProvider','i18nProvider','accessProvider','dataflowProvider','outerProvider','render','onRouteChange','modifyCodeSandboxData','modifyStackBlitzData',];
+  return [
+    'patchRoutes',
+    'patchClientRoutes',
+    'modifyContextOpts',
+    'modifyClientRenderOpts',
+    'rootContainer',
+    'innerProvider',
+    'i18nProvider',
+    'accessProvider',
+    'dataflowProvider',
+    'outerProvider',
+    'render',
+    'onRouteChange',
+    'modifyCodeSandboxData',
+    'modifyStackBlitzData',
+  ];
 }
 
 let pluginManager = null;
@@ -50,7 +65,6 @@ export function createPluginManager() {
     plugins: getPlugins(),
     validKeys: getValidKeys(),
   });
-
 
   return pluginManager;
 }

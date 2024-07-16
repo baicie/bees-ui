@@ -6,6 +6,6 @@ export function modifyClientRenderOpts(memo: any) {
 
   return {
     ...memo,
-    hydrate: hydrate && !["/~demos/:id"].includes(history.location.pathname),
+    hydrate: hydrate && !['/~demos/:id'].includes(history.location.pathname),
   };
 }

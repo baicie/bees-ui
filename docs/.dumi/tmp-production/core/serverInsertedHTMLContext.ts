@@ -3,12 +3,13 @@
 // DO NOT CHANGE IT MANUALLY!
 // Use React.createContext to avoid errors from the RSC checks because
 // it can't be imported directly in Server Components:
-import React from 'react'
+import React from 'react';
 
 export type ServerInsertedHTMLHook = (callbacks: () => React.ReactNode) => void;
 // More info: https://github.com/vercel/next.js/pull/40686
-export const ServerInsertedHTMLContext =
-  React.createContext<ServerInsertedHTMLHook | null>(null as any);
+export const ServerInsertedHTMLContext = React.createContext<ServerInsertedHTMLHook | null>(
+  null as any,
+);
 
 // copy form https://github.com/vercel/next.js/blob/fa076a3a69c9ccf63c9d1e53e7b681aa6dc23db7/packages/next/src/shared/lib/server-inserted-html.tsx#L13
 export function useServerInsertedHTML(callback: () => React.ReactNode): void {

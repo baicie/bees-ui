@@ -91,9 +91,7 @@ export function useDemo(id: string): IDemoData | undefined {
  * get all demos
  */
 export async function getFullDemos() {
-  const demoFilesMeta = Object.entries(filesMeta).filter(
-    ([_id, meta]) => meta.demoIndex,
-  );
+  const demoFilesMeta = Object.entries(filesMeta).filter(([_id, meta]) => meta.demoIndex);
 
   return Promise.all(
     demoFilesMeta.map(async ([id, meta]) => ({
@@ -140,9 +138,7 @@ function genTab(id: string, meta?: ITab['meta']): ITab {
 export function getRouteMetaById<T extends { syncOnly?: boolean }>(
   id: string,
   opts?: T,
-): T extends { syncOnly: true }
-  ? IRouteMeta | undefined
-  : Promise<IRouteMeta> | undefined {
+): T extends { syncOnly: true } ? IRouteMeta | undefined : Promise<IRouteMeta> | undefined {
   if (filesMeta[id]) {
     const { frontmatter, toc, textGetter, tabs } = filesMeta[id];
     const routeMeta: IRouteMeta = {
@@ -153,9 +149,7 @@ export function getRouteMetaById<T extends { syncOnly?: boolean }>(
 
     if (opts?.syncOnly) {
       if (tabs) {
-        routeMeta.tabs = tabs.map((tabId) =>
-          genTab(tabId, getRouteMetaById(tabId, opts)),
-        );
+        routeMeta.tabs = tabs.map((tabId) => genTab(tabId, getRouteMetaById(tabId, opts)));
       }
       return routeMeta;
     } else {
@@ -165,9 +159,7 @@ export function getRouteMetaById<T extends { syncOnly?: boolean }>(
         }
         if (tabs) {
           routeMeta.tabs = await Promise.all(
-            tabs.map(async (tabId) =>
-              genTab(tabId, await getRouteMetaById(tabId, opts)),
-            ),
+            tabs.map(async (tabId) => genTab(tabId, await getRouteMetaById(tabId, opts))),
           );
         }
         resolve(routeMeta);

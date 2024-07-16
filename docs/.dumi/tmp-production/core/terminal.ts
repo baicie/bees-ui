@@ -4,11 +4,14 @@
 let count = 0;
 let groupLevel = 0;
 function send(type: string, message?: string) {
-  if(process.env.NODE_ENV==='production'){
+  if (process.env.NODE_ENV === 'production') {
     return;
-  }else{
+  } else {
     const encodedMessage = message ? `&m=${encodeURI(message)}` : '';
-    fetch(`/__umi/api/terminal?type=${type}&t=${Date.now()}&c=${count++}&g=${groupLevel}${encodedMessage}`, { mode: 'no-cors' })
+    fetch(
+      `/__umi/api/terminal?type=${type}&t=${Date.now()}&c=${count++}&g=${groupLevel}${encodedMessage}`,
+      { mode: 'no-cors' },
+    );
   }
 }
 function prettyPrint(obj: any) {
@@ -22,16 +25,38 @@ function stringify(obj: any) {
   return typeof obj === 'object' ? `${JSON.stringify(obj)}` : obj.toString();
 }
 const terminal = {
-  log(...objs: any[]) { send('log', stringifyObjs(objs)) },
-  info(...objs: any[]) { send('info', stringifyObjs(objs)) },
-  warn(...objs: any[]) { send('warn', stringifyObjs(objs)) },
-  error(...objs: any[]) { send('error', stringifyObjs(objs)) },
-  group() { groupLevel++ },
-  groupCollapsed() { groupLevel++ },
-  groupEnd() { groupLevel && --groupLevel },
-  clear() { send('clear') },
-  trace(...args: any[]) { console.trace(...args) },
-  profile(...args: any[]) { console.profile(...args) },
-  profileEnd(...args: any[]) { console.profileEnd(...args) },
+  log(...objs: any[]) {
+    send('log', stringifyObjs(objs));
+  },
+  info(...objs: any[]) {
+    send('info', stringifyObjs(objs));
+  },
+  warn(...objs: any[]) {
+    send('warn', stringifyObjs(objs));
+  },
+  error(...objs: any[]) {
+    send('error', stringifyObjs(objs));
+  },
+  group() {
+    groupLevel++;
+  },
+  groupCollapsed() {
+    groupLevel++;
+  },
+  groupEnd() {
+    groupLevel && --groupLevel;
+  },
+  clear() {
+    send('clear');
+  },
+  trace(...args: any[]) {
+    console.trace(...args);
+  },
+  profile(...args: any[]) {
+    console.profile(...args);
+  },
+  profileEnd(...args: any[]) {
+    console.profileEnd(...args);
+  },
 };
 export { terminal };

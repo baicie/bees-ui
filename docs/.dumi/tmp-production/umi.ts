@@ -12,8 +12,7 @@ import { createHistory } from './core/history';
 import Loading from '@@/dumi/theme/loading';
 import { ApplyPluginsType } from 'umi';
 
-
-const publicPath = "/";
+const publicPath = '/';
 const runtimePublicPath = false;
 
 async function render() {
@@ -45,7 +44,7 @@ async function render() {
     ...contextOpts.historyOpts,
   });
 
-  return (pluginManager.applyPlugins({
+  return pluginManager.applyPlugins({
     key: 'render',
     type: ApplyPluginsType.compose,
     initialValue() {
@@ -62,7 +61,7 @@ async function render() {
         history,
         historyType,
         basename,
-        __INTERNAL_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {"pureApp":false,"pureHtml":false},
+        __INTERNAL_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: { pureApp: false, pureHtml: false },
         callback: contextOpts.callback,
       };
       const modifiedContext = pluginManager.applyPlugins({
@@ -72,9 +71,8 @@ async function render() {
       });
       return renderClient(modifiedContext);
     },
-  }))();
+  })();
 }
-
 
 // always remove trailing slash from location.pathname
 if (
@@ -82,31 +80,38 @@ if (
   location.pathname.length > 1 &&
   location.pathname.endsWith('/')
 ) {
-  history.replaceState(
-    {},
-    '',
-    location.pathname.slice(0, -1) + location.search + location.hash,
-  );
+  history.replaceState({}, '', location.pathname.slice(0, -1) + location.search + location.hash);
 }
 
 (function () {
-  var cache = typeof navigator !== 'undefined' && navigator.cookieEnabled && typeof window.localStorage !== 'undefined' && localStorage.getItem('dumi:prefers-color') || 'light';
-  var isDark = typeof window !== 'undefined' &&  window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var cache =
+    (typeof navigator !== 'undefined' &&
+      navigator.cookieEnabled &&
+      typeof window.localStorage !== 'undefined' &&
+      localStorage.getItem('dumi:prefers-color')) ||
+    'light';
+  var isDark =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
   var enums = ['light', 'dark', 'auto'];
 
-  typeof document !== 'undefined' && document.documentElement.setAttribute(
-    'data-prefers-color',
-    cache === enums[2]
-      ? (isDark ? enums[1] : enums[0])
-      : (enums.indexOf(cache) > -1 ? cache : enums[0])
-  );
+  typeof document !== 'undefined' &&
+    document.documentElement.setAttribute(
+      'data-prefers-color',
+      cache === enums[2]
+        ? isDark
+          ? enums[1]
+          : enums[0]
+        : enums.indexOf(cache) > -1
+          ? cache
+          : enums[0],
+    );
 })();
 render();
 
-    if (typeof window !== 'undefined') {
-      window.g_umi = {
-        version: '4.3.6',
-      };
-    }
-    
+if (typeof window !== 'undefined') {
+  window.g_umi = {
+    version: '4.3.6',
+  };
+}
+
 setDumiPluginManager(getDumiPluginManager());

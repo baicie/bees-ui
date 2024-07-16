@@ -17,10 +17,10 @@ const DumiLoading: FC = () => {
     return () => {
       setLoading(false);
       nprogress.done();
-    }
+    };
   }, []);
 
-  return <UserLoading />
-}
+  return <UserLoading />;
+};
 
 export default DumiLoading;

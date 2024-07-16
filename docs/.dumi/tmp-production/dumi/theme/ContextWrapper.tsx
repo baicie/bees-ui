@@ -4,20 +4,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useOutlet, history } from 'dumi';
 import { warning } from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/rc-util@5.43.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/rc-util';
-import { SiteContext, type ISiteContext } from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/dumi@2.4.6_@babel+core@7.24.8_@swc+helpers@0.5.1_@types+node@20.14.10_@types+react@18.3.3_esl_mnrqy54fofpzh4toporgj5px7i/node_modules/dumi/dist/client/theme-api/context.js';
+import {
+  SiteContext,
+  type ISiteContext,
+} from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/dumi@2.4.6_@babel+core@7.24.8_@swc+helpers@0.5.1_@types+node@20.14.10_@types+react@18.3.3_esl_mnrqy54fofpzh4toporgj5px7i/node_modules/dumi/dist/client/theme-api/context.js';
 import { components } from '../meta/atoms';
 import { locales } from '../locales/config';
 
-
-
-const entryExports = {
-};
+const entryExports = {};
 
 // Static content
-const pkg = {"name":"docs","description":"","version":"0.0.0","license":"MIT","author":""};
-const historyType = "browser";
+const pkg = { name: 'docs', description: '', version: '0.0.0', license: 'MIT', author: '' };
+const historyType = 'browser';
 const hostname = undefined;
-const themeConfig = {"footer":"Copyright © 2024 | Powered by <a href=\"https://d.umijs.org\" target=\"_blank\" rel=\"noreferrer\">dumi</a>","prefersColor":{"default":"light","switch":true},"nprogress":true,"lastUpdated":true};
+const themeConfig = {
+  footer:
+    'Copyright © 2024 | Powered by <a href="https://d.umijs.org" target="_blank" rel="noreferrer">dumi</a>',
+  prefersColor: { default: 'light', switch: true },
+  nprogress: true,
+  lastUpdated: true,
+};
 const _2_level_nav_available = true;
 
 export default function DumiContextWrapper() {
@@ -73,9 +79,5 @@ export default function DumiContextWrapper() {
     _2_level_nav_available,
   ]);
 
-  return (
-    <SiteContext.Provider value={context}>
-      {outlet}
-    </SiteContext.Provider>
-  );
+  return <SiteContext.Provider value={context}>{outlet}</SiteContext.Provider>;
 }

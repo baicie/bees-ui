@@ -9,4 +9,4 @@ export type {
   MetadataLoader,
   IMetadata,
   IMetaTag,
-} from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/@umijs+server@4.3.6/node_modules/@umijs/server/dist/types'
+} from '/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/node_modules/.pnpm/@umijs+server@4.3.6/node_modules/@umijs/server/dist/types';

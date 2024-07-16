@@ -6,8 +6,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks && pnpm run stub",
+    "biome": "biome migrate eslint --write --include-inspired",
     "format": "biome format --write .",
-    "lint": "eslint --cache .",
+    "lint": "biome lint .",
     "typecheck": "echo typecheck",
     "clean": "turbo run clean && rimraf node_modules .turbo --turbo",
     "stub": "turbo run stub",
