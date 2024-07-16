@@ -1,10 +1,12 @@
 import './App.css';
 import { AccountBookFilled } from '@bees-ui/icons';
+import Button from '@bees-ui/button';
 
 function App() {
   return (
     <>
-      <AccountBookFilled style={{ color: 'red' }} spin />
+      <Button type="primary">Primary Button</Button>
+      <AccountBookFilled style={{ color: 'red' }} />
     </>
   );
 }

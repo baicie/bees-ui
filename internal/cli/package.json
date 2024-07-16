@@ -1,0 +1,32 @@
+{
+  "name": "@bees-ui/cli",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "bees": "./index.js"
+  },
+  "scripts": {
+    "stub": "pnpm unbuild --stub",
+    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "pnpm rimraf node_modules .turbo dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@rollup/plugin-alias": "^5.1.0",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "cac": "^6.7.14",
+    "rollup": "^4.18.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "tsx": "^4.16.2",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}

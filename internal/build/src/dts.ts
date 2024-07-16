@@ -2,8 +2,8 @@ import path from 'node:path';
 import { build } from 'tsup';
 
 import type { Options } from './build';
-import { DEFAULT, resolveInput, target } from './ustils';
 import { rootPath } from './path';
+import { DEFAULT, resolveInput, target } from './ustils';
 
 export async function dts(root: string, options: Options = {}) {
   const {

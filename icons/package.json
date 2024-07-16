@@ -33,10 +33,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/colors": "^7.0.2",
-    "@ant-design/icons-svg": "^4.3.2",
+    "@ant-design/colors": "^7.1.0",
+    "@ant-design/icons-svg": "^4.4.2",
     "@bees-ui/sc-util": "workspace:^",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "lodash": "^4.17.21",
     "solid-js": "^1.8.11"
   }

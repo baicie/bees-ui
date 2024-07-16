@@ -1,9 +1,12 @@
+// classnames的平替 包体积更小
 import { clsx as classNames } from 'clsx';
 import type { IconDefinition } from '@ant-design/icons-svg/lib/types';
 import { blue } from '@ant-design/colors';
-
+// 全局上下文
 import Context from './Context';
+// 基础的props 是否旋转spin 类名class
 import type { IconBaseProps } from './Icon';
+// 基础的icon
 import SolidIcon from './IconBase';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 import type { TwoToneColor } from './twoTonePrimaryColor';
@@ -19,6 +22,7 @@ export interface IconComponentProps extends AntdIconProps {
   icon: IconDefinition;
 }
 
+// 为渲染函数增加额外的三个属性
 interface IconBaseComponent<P> extends Component<P> {
   displayName: string;
   getTwoToneColor: typeof getTwoToneColor;
@@ -30,6 +34,7 @@ interface IconBaseComponent<P> extends Component<P> {
 setTwoToneColor(blue.primary!);
 
 const Icon: IconBaseComponent<IconComponentProps> = (props) => {
+  // 结构在solidjs中会破坏响应式 这么些又问题之后找到好的办法再说
   const {
     // affect outter <i>...</i>
     // affect inner <svg>...</svg>
@@ -45,9 +50,9 @@ const Icon: IconBaseComponent<IconComponentProps> = (props) => {
 
     ...restProps
   } = props;
-
+  // 从上下文获取一些属性
   const { prefixCls = 'anticon', rootClassName } = useContext(Context);
-
+  // 生产类名
   const classString = classNames(
     rootClassName,
     prefixCls,

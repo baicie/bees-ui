@@ -110,9 +110,7 @@ export const getComputedToken = (
 };
 
 // ================================== Hook ==================================
-export default function useToken(
-  attachTo: HTMLElement | ShadowRoot,
-): [
+export default function useToken(): [
   theme: Theme<SeedToken, MapToken>,
   token: GlobalToken,
   hashId: string,
@@ -132,7 +130,6 @@ export default function useToken(
   const mergedTheme = theme || defaultTheme;
 
   const [token, hashId, realToken] = useCacheToken<GlobalToken, SeedToken>(
-    attachTo,
     mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {

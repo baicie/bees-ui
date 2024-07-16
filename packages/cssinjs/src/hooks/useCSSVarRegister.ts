@@ -20,7 +20,6 @@ type CSSVarCacheValue<V, T extends Record<string, V> = Record<string, V>> = [
 
 const useCSSVarRegister = <V, T extends Record<string, V>>(
   config: {
-    container: Element | ShadowRoot;
     path: string[];
     key: string;
     prefix?: string;
@@ -31,9 +30,10 @@ const useCSSVarRegister = <V, T extends Record<string, V>>(
   },
   fn: () => T,
 ) => {
-  const { key, prefix, unitless, ignore, token, scope = '', container } = config;
+  const { key, prefix, unitless, ignore, token, scope = '' } = config;
   const {
     cache: { instanceId },
+    container,
   } = useContext(StyleContext);
   const { _tokenKey: tokenKey } = token;
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "cache": false
@@ -30,5 +30,6 @@
       "cache": true,
       "dependsOn": ["^stub"]
     }
-  }
+  },
+  "ui": "stream"
 }

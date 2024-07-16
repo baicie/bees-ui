@@ -29,12 +29,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/colors": "^7.0.2",
+    "@ant-design/colors": "^7.1.0",
     "@bees-ui/cssinjs": "workspace:^",
     "@bees-ui/type": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "@ctrl/tinycolor": "^4.0.3",
-    "clsx": "^2.1.0",
+    "@ctrl/tinycolor": "^4.1.0",
+    "clsx": "^2.1.1",
     "solid-js": "^1.8.12"
   }
 }

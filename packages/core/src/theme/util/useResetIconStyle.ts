@@ -7,17 +7,12 @@ export interface CSPConfig {
   nonce?: string;
 }
 
-const useResetIconStyle = (
-  iconPrefixCls: string,
-  attachTo: HTMLElement | ShadowRoot,
-  csp?: CSPConfig,
-) => {
-  const [theme, token] = useToken(attachTo);
+const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
+  const [theme, token] = useToken();
 
   // Generate style for icons
   return useStyleRegister(
     {
-      container: attachTo,
       theme,
       token,
       hashId: '',

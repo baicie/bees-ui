@@ -50,6 +50,7 @@ interface RootProps {
 
 export function generate(node: AbstractNode, key: string, rootProps?: RootProps | false): any {
   if (!rootProps) {
+    // solid-js/h
     return h(
       node.tag,
       { key, ...normalizeAttrs(node.attrs) },

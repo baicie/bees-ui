@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import dayjs from 'dayjs';
 import {
   createCache,
   extractStyle,
@@ -10,8 +9,9 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { App, theme as antdTheme } from 'antd';
+import { theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
+import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
@@ -45,7 +45,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
       }
       return null;
     })
-    .filter((item) => item) as typeof antdTheme.darkAlgorithm[];
+    .filter((item) => item) as (typeof antdTheme.darkAlgorithm)[];
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
