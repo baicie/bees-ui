@@ -1,16 +1,11 @@
 // import Wave from '../_util/wave';
 import { useSize } from '@bees-ui/config-provider';
-import type { SizeType } from '@bees-ui/core';
-import {
-  clsx,
-  ConfigContext,
-  devUseWarning,
-  DisabledContext,
-  useCompactItemContext,
-} from '@bees-ui/core';
+import type { CSSProperties, SizeType } from '@bees-ui/core';
+import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
 import { createSignal, onCleanup, onMount, splitProps, useContext, type JSX } from 'solid-js';
 
+import { ConfigContext } from '../../_util/context';
 import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
@@ -270,7 +265,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
-        style={fullStyle}
+        style={fullStyle as CSSProperties}
         onClick={handleClick}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -288,7 +283,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
       {...rest}
       type={htmlType}
       class={classes}
-      style={fullStyle}
+      style={fullStyle as CSSProperties}
       onClick={handleClick}
       disabled={mergedDisabled}
       ref={buttonRef as HTMLButtonElement}

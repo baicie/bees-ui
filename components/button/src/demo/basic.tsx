@@ -1,13 +1,15 @@
 import React from 'react';
-import { Button, Flex } from 'antd';
+import { Flex } from 'antd';
+
+import '../registe';
 
 const App: React.FC = () => (
   <Flex gap="small" wrap="wrap">
-    <Button type="primary">Primary Button</Button>
-    <Button>Default Button</Button>
-    <Button type="dashed">Dashed Button</Button>
-    <Button type="text">Text Button</Button>
-    <Button type="link">Link Button</Button>
+    <bees-button type="primary">Primary Button</bees-button>
+    <bees-button>Default Button</bees-button>
+    <bees-button type="dashed">Dashed Button</bees-button>
+    <bees-button type="text">Text Button</bees-button>
+    <bees-button type="link">Link Button</bees-button>
   </Flex>
 );
 
