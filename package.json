@@ -25,9 +25,6 @@
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm exec lint-staged --concurrent false"
-  },
   "devDependencies": {
     "@baicie/commitizen": "^0.1.0",
     "@bees-ui/internal-build": "workspace:^",
@@ -69,5 +66,22 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.16.1",
     "unbuild": "^2.0.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ],
+    "*/**/{src,types}/**/*.ts": [
+      "eslint --cache --fix"
+    ],
+    "*/**/*.d.ts": [
+      "eslint --cache --fix"
+    ],
+    "*/**/__tests__/**/*.ts": [
+      "eslint --cache --fix"
+    ]
   }
 }
