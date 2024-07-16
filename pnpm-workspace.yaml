@@ -3,4 +3,4 @@ packages:
   - 'playground/*'
   - 'internal/*'
   - 'components/*'
-  - .dumi
+  - docs
