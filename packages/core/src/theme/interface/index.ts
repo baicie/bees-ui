@@ -1,4 +1,4 @@
-import type { CSSInterpolation, DerivativeFunc } from '@bees-ui/cssinjs';
+import type { CSSInterpolation, DerivativeFunc } from '@bees-ui/sc-cssinjs';
 import type { JSXElement } from 'solid-js';
 
 import type { AnyObject } from '../../util/type';

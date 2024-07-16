@@ -1,0 +1,15 @@
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+import GooglePlusOutlinedSvg from '@ant-design/icons-svg/lib/asn/GooglePlusOutlined';
+
+import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
+
+const GooglePlusOutlined = (props: AntdIconProps) => (
+  <AntdIcon {...props} ref={props.ref} icon={GooglePlusOutlinedSvg} />
+);
+
+if (process.env.NODE_ENV !== 'production') {
+  GooglePlusOutlined.displayName = 'GooglePlusOutlined';
+}
+export default GooglePlusOutlined;

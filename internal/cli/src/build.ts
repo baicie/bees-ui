@@ -1,3 +1,4 @@
+import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
   InputPluginOption,
@@ -9,7 +10,6 @@ import type {
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import solidPlugin from 'vite-plugin-solid';
-import commonjs from '@rollup/plugin-commonjs';
 
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 

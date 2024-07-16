@@ -13,15 +13,10 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
-    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
-    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],
@@ -30,7 +25,7 @@
   "dependencies": {
     "@bees-ui/config-provider": "workspace:^",
     "@bees-ui/core": "workspace:^",
-    "@bees-ui/cssinjs": "workspace:^",
+    "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "@webcomponents/shadydom": "^1.11.0",

@@ -1,5 +1,5 @@
-import type { Component, Ref } from 'solid-js';
-import type { JSXElement } from 'solid-js';
+import type { Component, JSXElement, Ref } from 'solid-js';
+
 export interface DomWrapperProps {
   children?: JSXElement;
   ref: Ref<JSXElement>;

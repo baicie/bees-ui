@@ -2,8 +2,8 @@ import { ConfigContext } from '@bees-ui/config-provider';
 import type { ConfigConsumerProps, CSSProperties } from '@bees-ui/core';
 import { clsx as classNames, throttleByAnimationFrame } from '@bees-ui/core';
 import ResizeObserver from '@bees-ui/sc-resize-observer';
+import type { ComponentOptions } from '@bees-ui/sc-type';
 import { omit } from '@bees-ui/sc-util';
-import type { ComponentOptions } from '@bees-ui/type';
 import type { JSXElement, ParentProps, Ref } from 'solid-js';
 import { createEffect, createSignal, onMount, Show, useContext } from 'solid-js';
 

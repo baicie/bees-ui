@@ -18,3 +18,4 @@ coverage
 scripts/previewEditor/**/*
 jest-stare
 .eslintrc.js
+.eslintcache

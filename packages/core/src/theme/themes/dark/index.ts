@@ -1,5 +1,5 @@
 import { generate } from '@ant-design/colors';
-import type { DerivativeFunc } from '@bees-ui/cssinjs';
+import type { DerivativeFunc } from '@bees-ui/sc-cssinjs';
 
 import type {
   ColorPalettes,

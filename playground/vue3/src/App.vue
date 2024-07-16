@@ -4,17 +4,13 @@ import '@bees-ui/affix';
 
 const handleClick = () => {
   console.log('handleClick');
-}
+};
 </script>
 
 <template>
   <solid-affix>affix</solid-affix>
-  <solid-button type="primary" @click="handleClick">
-    Let's have some different text!
-  </solid-button>
-  <solid-button type="primary" @click="handleClick">
-    Let's have some different text!
-  </solid-button>
+  <solid-button type="primary" @click="handleClick"> Let's have some different text! </solid-button>
+  <solid-button type="primary" @click="handleClick"> Let's have some different text! </solid-button>
 </template>
 
 <style scoped>

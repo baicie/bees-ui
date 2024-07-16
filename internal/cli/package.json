@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/cli",
+  "name": "@bees-ui/internal-cli",
   "private": true,
   "version": "0.0.0",
   "description": "",
@@ -11,9 +11,7 @@
   },
   "scripts": {
     "stub": "pnpm unbuild --stub",
-    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
-    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "build": "pnpm unbuild --stub",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],

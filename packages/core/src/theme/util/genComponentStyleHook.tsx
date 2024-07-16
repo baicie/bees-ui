@@ -1,10 +1,10 @@
-import type { CSSInterpolation } from '@bees-ui/cssinjs';
-import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@bees-ui/cssinjs';
+import type { CSSInterpolation } from '@bees-ui/sc-cssinjs';
+import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@bees-ui/sc-cssinjs';
 import { warning } from '@bees-ui/sc-util';
 import type { Component, JSXElement } from 'solid-js';
 import { useContext } from 'solid-js';
 
-import { ConfigContext } from '../../../../config-provider/src/context';
+import { ConfigContext } from '../../context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
   AliasToken,

@@ -1,4 +1,4 @@
-import { createTheme, getComputedToken } from '@bees-ui/cssinjs';
+import { createTheme, getComputedToken } from '@bees-ui/sc-cssinjs';
 
 import type { ThemeConfig } from './index';
 import type { AliasToken } from './interface';

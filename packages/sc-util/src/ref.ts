@@ -1,4 +1,5 @@
 import type { JSXElement, Ref } from 'solid-js';
+
 import useMemo from './hooks/useMemo';
 
 export function fillRef<T>(ref: Ref<T>, node: T) {

@@ -1,5 +1,6 @@
 import type { JSX } from 'solid-js';
-import {} from 'solid-js/web';
+
+import 'solid-js/web';
 
 export interface Option {
   keepEmpty?: boolean;

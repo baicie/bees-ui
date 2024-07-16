@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '@bees-ui/button';
+import '@bees-ui/button';
 </script>
 
 <main>
