@@ -10,7 +10,11 @@ function App() {
 
   return (
     <div>
-      <bees-button label="Click Me">
+      <Button type="primary" onClick={() => setCount(count + 1)}>
+        demo
+        <div>dome222</div>
+      </Button>
+      <bees-button type="primary">
         <div slot="pre">pre</div>
         demo
         <div>dome222</div>

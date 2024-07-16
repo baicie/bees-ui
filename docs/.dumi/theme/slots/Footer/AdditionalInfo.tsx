@@ -35,7 +35,7 @@ export default function InfoNewVersion() {
     document.body.appendChild(p);
     updateCSS(
       `
-::path(.${whereCls}) {
+:where(.${whereCls}) {
   content: "__CHECK__";
 }
     `,

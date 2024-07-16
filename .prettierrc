@@ -1,22 +1,23 @@
 {
-  "semi": false,
   "singleQuote": true,
+  "jsxSingleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "proseWrap": "never",
+  "importOrder": [
+    "^(react|react-dom)$",
+    "^([a-z]|@[a-z])",
+    "",
+    ".*"
+  ],
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
   "overrides": [
     {
-      "files": [
-        "*.json5"
-      ],
+      "files": ".prettierrc",
       "options": {
-        "singleQuote": false,
-        "quoteProps": "preserve"
-      }
-    },
-    {
-      "files": [
-        "*.yml"
-      ],
-      "options": {
-        "singleQuote": false
+        "parser": "json"
       }
     }
   ]

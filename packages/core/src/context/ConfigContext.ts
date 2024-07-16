@@ -1,20 +1,6 @@
-// import type { ValidateMessages } from 'rc-field-form/lib/interface';
-// import type { Options } from 'scroll-into-view-if-needed';
-
-// import type { WarningContextProps } from '../_util/warning';
-// import type { ShowWaveEffect } from '../_util/wave/interface';
-// import type { BadgeProps } from '../badge';
 import type { CSSProperties } from '@bees-ui/sc-type';
 import { createContext } from 'solid-js';
 
-// import type { DrawerProps } from '../drawer';
-// import type { FlexProps } from '../flex/interface';
-// import type { RequiredMark } from '../form/Form';
-// import type { InputProps } from '../input';
-// import type { Locale } from '../locale';
-// import type { ModalProps } from '../modal';
-// import type { SpaceProps } from '../space';
-// import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
@@ -140,7 +126,11 @@ export interface ConfigConsumerProps {
   };
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
-  button?: ButtonConfig;
+  button?: ComponentStyleConfig & {
+    autoInsertSpace?: boolean;
+    classNames?: { icon: CSSProperties };
+    styles?: { icon: CSSProperties };
+  };
   divider?: ComponentStyleConfig;
   // drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
@@ -195,7 +185,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   if (customizePrefixCls) {
     return customizePrefixCls;
   }
-  return suffixCls ? `baicie-${suffixCls}` : 'baicie';
+  return suffixCls ? `bees-${suffixCls}` : 'bees';
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.

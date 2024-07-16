@@ -34,7 +34,6 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "devDependencies": {
-    "@baicie/commitizen": "^0.1.0",
     "@bees-ui/internal-build": "workspace:^",
     "@biomejs/biome": "^1.8.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
@@ -68,6 +67,7 @@
     "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.3",
+    "prettier-plugin-jsdoc": "^1.3.0",
     "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.11.1",
     "tsup": "^8.1.0",
@@ -81,9 +81,17 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": ["prettier --write --cache --ignore-unknown"],
-    "*/**/{src,types}/**/*.ts": ["eslint --cache --fix"],
-    "*/**/*.d.ts": ["eslint --cache --fix"],
-    "*/**/__tests__/**/*.ts": ["eslint --cache --fix"]
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ],
+    "*/**/{src,types}/**/*.ts": [
+      "eslint --cache --fix"
+    ],
+    "*/**/*.d.ts": [
+      "eslint --cache --fix"
+    ],
+    "*/**/__tests__/**/*.ts": [
+      "eslint --cache --fix"
+    ]
   }
 }

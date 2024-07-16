@@ -6,8 +6,6 @@ import eslint from '@eslint/js';
 import pluginImportX from 'eslint-plugin-import-x';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import pluginN from 'eslint-plugin-n';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import pluginRegExp from 'eslint-plugin-regexp';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -20,8 +18,6 @@ export default tseslint.config(
     plugins: {
       ['@typescript-eslint']: tseslint.plugin,
       ['jsx-a11y']: jsxA11yPlugin,
-      ['react-hooks']: reactHooksPlugin,
-      ['react']: reactPlugin,
       ['n']: pluginN,
       ['import-x']: pluginImportX,
     },
@@ -106,26 +102,14 @@ export default tseslint.config(
     extends: [
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       ...compat.config(jsxA11yPlugin.configs.recommended),
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      ...compat.config(reactPlugin.configs.recommended),
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      ...compat.config(reactHooksPlugin.configs.recommended),
     ],
     rules: {
       '@typescript-eslint/internal/prefer-ast-types-enum': 'off',
       'import/no-default-export': 'off',
-      'react/jsx-no-target-blank': 'off',
-      'react/no-unescaped-entities': 'off',
-      'react-hooks/exhaustive-deps': 'warn',
-      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/consistent-type-definitions': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
+    settings: {},
   },
 
   // node
