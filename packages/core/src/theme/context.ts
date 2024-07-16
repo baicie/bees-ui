@@ -1,5 +1,5 @@
-import type { Theme } from '@bees-ui/cssinjs';
-import { createTheme } from '@bees-ui/cssinjs';
+import type { Theme } from '@bees-ui/sc-cssinjs';
+import { createTheme } from '@bees-ui/sc-cssinjs';
 import { createContext } from 'solid-js';
 
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';

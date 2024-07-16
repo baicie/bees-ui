@@ -41,7 +41,7 @@
   "packageManager": "pnpm@9.4.0",
   "devDependencies": {
     "@baicie/commitizen": "^0.1.0",
-    "@bees-ui/build": "workspace:^",
+    "@bees-ui/internal-build": "workspace:^",
     "@biomejs/biome": "^1.8.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@pnpm/find-workspace-packages": "^6.0.9",

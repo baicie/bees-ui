@@ -1,7 +1,7 @@
 import type { GenerateStyle } from '@bees-ui/core';
 import { genFocusStyle, genStyleHooks, mergeToken } from '@bees-ui/core';
-import type { CSSInterpolation, CSSObject } from '@bees-ui/cssinjs';
-import { unit } from '@bees-ui/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@bees-ui/sc-cssinjs';
+import { unit } from '@bees-ui/sc-cssinjs';
 
 import genGroupStyle from './group';
 import type { ButtonToken } from './token';

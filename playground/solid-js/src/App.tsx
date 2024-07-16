@@ -1,6 +1,7 @@
 import './App.css';
-import { AccountBookFilled } from '@bees-ui/icons';
+
 import Button from '@bees-ui/button';
+import { AccountBookFilled } from '@bees-ui/sc-icons';
 
 function App() {
   return (

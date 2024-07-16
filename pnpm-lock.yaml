@@ -11,7 +11,7 @@ importers:
       '@baicie/commitizen':
         specifier: ^0.1.0
         version: 0.1.0
-      '@bees-ui/build':
+      '@bees-ui/internal-build':
         specifier: workspace:^
         version: link:internal/build
       '@biomejs/biome':
@@ -248,9 +248,9 @@ importers:
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
-      '@bees-ui/cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
-        version: link:../../packages/cssinjs
+        version: link:../../packages/sc-cssinjs
       '@bees-ui/sc-resize-observer':
         specifier: workspace:^
         version: link:../../packages/sc-resize-observer
@@ -272,9 +272,9 @@ importers:
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
-      '@bees-ui/cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
-        version: link:../../packages/cssinjs
+        version: link:../../packages/sc-cssinjs
       '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../../packages/sc-util
@@ -293,9 +293,9 @@ importers:
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
-      '@bees-ui/cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
-        version: link:../../packages/cssinjs
+        version: link:../../packages/sc-cssinjs
       '@bees-ui/sc-element':
         specifier: workspace:^
         version: link:../../packages/sc-element
@@ -320,27 +320,6 @@ importers:
       solid-js:
         specifier: ^1.8.11
         version: 1.8.18
-
-  icons:
-    dependencies:
-      '@ant-design/colors':
-        specifier: ^7.1.0
-        version: 7.1.0
-      '@ant-design/icons-svg':
-        specifier: ^4.4.2
-        version: 4.4.2
-      '@bees-ui/sc-util':
-        specifier: workspace:^
-        version: link:../packages/sc-util
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
-      solid-js:
-        specifier: ^1.8.11
-        version: 1.8.12
 
   internal/build:
     dependencies:
@@ -401,15 +380,15 @@ importers:
       '@ant-design/colors':
         specifier: ^7.1.0
         version: 7.1.0
-      '@bees-ui/cssinjs':
+      '@bees-ui/sc-cssinjs':
         specifier: workspace:^
-        version: link:../cssinjs
+        version: link:../sc-cssinjs
+      '@bees-ui/sc-type':
+        specifier: workspace:^
+        version: link:../sc-type
       '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../sc-util
-      '@bees-ui/type':
-        specifier: workspace:^
-        version: link:../type
       '@ctrl/tinycolor':
         specifier: ^4.1.0
         version: 4.1.0
@@ -420,7 +399,7 @@ importers:
         specifier: ^1.8.12
         version: 1.8.12
 
-  packages/cssinjs:
+  packages/sc-cssinjs:
     dependencies:
       '@bees-ui/sc-util':
         specifier: workspace:^
@@ -446,7 +425,7 @@ importers:
         version: 4.0.1(postcss@8.4.39)
       solid-js:
         specifier: ^1.8.12
-        version: 1.8.12
+        version: 1.8.18
 
   packages/sc-element:
     dependencies:
@@ -456,6 +435,27 @@ importers:
     devDependencies:
       solid-js:
         specifier: ^1.8.18
+        version: 1.8.18
+
+  packages/sc-icons:
+    dependencies:
+      '@ant-design/colors':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@ant-design/icons-svg':
+        specifier: ^4.4.2
+        version: 4.4.2
+      '@bees-ui/sc-util':
+        specifier: workspace:^
+        version: link:../sc-util
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      solid-js:
+        specifier: ^1.8.11
         version: 1.8.18
 
   packages/sc-register: {}
@@ -475,17 +475,17 @@ importers:
         specifier: ^1.8.12
         version: 1.8.18
 
-  packages/sc-util:
+  packages/sc-type:
     devDependencies:
       solid-js:
         specifier: ^1.8.12
         version: 1.8.18
 
-  packages/type:
+  packages/sc-util:
     devDependencies:
       solid-js:
         specifier: ^1.8.12
-        version: 1.8.12
+        version: 1.8.18
 
   playground/react:
     dependencies:
@@ -538,9 +538,9 @@ importers:
       '@bees-ui/button':
         specifier: workspace:^
         version: link:../../components/button
-      '@bees-ui/icons':
+      '@bees-ui/sc-icons':
         specifier: workspace:^
-        version: link:../../icons
+        version: link:../../packages/sc-icons
       solid-js:
         specifier: ^1.8.7
         version: 1.8.11

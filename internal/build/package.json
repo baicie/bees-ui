@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/build",
+  "name": "@bees-ui/internal-build",
   "private": true,
   "version": "0.0.0",
   "description": "",

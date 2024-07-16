@@ -1,4 +1,4 @@
-import type { DerivativeFunc } from '@bees-ui/cssinjs';
+import type { DerivativeFunc } from '@bees-ui/sc-cssinjs';
 
 import type { MapToken, SeedToken } from '../../interface';
 import defaultAlgorithm from '../default';

@@ -1,5 +1,5 @@
-import type { CSSInterpolation } from '@bees-ui/cssinjs';
-import { Keyframes } from '@bees-ui/cssinjs';
+import type { CSSInterpolation } from '@bees-ui/sc-cssinjs';
+import { Keyframes } from '@bees-ui/sc-cssinjs';
 
 import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';

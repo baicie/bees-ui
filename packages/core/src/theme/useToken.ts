@@ -1,5 +1,5 @@
-import type { Theme } from '@bees-ui/cssinjs';
-import { useCacheToken } from '@bees-ui/cssinjs';
+import type { Theme } from '@bees-ui/sc-cssinjs';
+import { useCacheToken } from '@bees-ui/sc-cssinjs';
 import { useContext } from 'solid-js';
 
 import version from '../version';

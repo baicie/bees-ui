@@ -1,9 +1,9 @@
+import process from 'node:process';
+import { rootPath } from '@bees-ui/internal-build';
 import type { Project } from '@pnpm/find-workspace-packages';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import chalk from 'chalk';
 import consola from 'consola';
-import process from 'node:process';
-import { rootPath } from '@bees-ui/build';
 
 const getWorkspacePackages = () => findWorkspacePackages(rootPath);
 
