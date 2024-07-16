@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BoxPlotTwoToneSvg from '@ant-design/icons-svg/lib/asn/BoxPlotTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BoxPlotTwoTone = (props: AntdIconProps) => (

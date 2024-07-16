@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DotChartOutlinedSvg from '@ant-design/icons-svg/lib/asn/DotChartOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DotChartOutlined = (props: AntdIconProps) => (

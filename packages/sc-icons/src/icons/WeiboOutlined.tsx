@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WeiboOutlinedSvg from '@ant-design/icons-svg/lib/asn/WeiboOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WeiboOutlined = (props: AntdIconProps) => (

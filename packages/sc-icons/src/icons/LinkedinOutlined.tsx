@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LinkedinOutlinedSvg from '@ant-design/icons-svg/lib/asn/LinkedinOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LinkedinOutlined = (props: AntdIconProps) => (

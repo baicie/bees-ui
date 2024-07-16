@@ -1,6 +1,7 @@
-import { Helmet } from 'dumi';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
+import { Helmet } from 'dumi';
+
 import Footer from '../../slots/Footer';
 
 const IndexLayout: React.FC<PropsWithChildren<{ title: string; desc: string }>> = ({

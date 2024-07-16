@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CrownOutlinedSvg from '@ant-design/icons-svg/lib/asn/CrownOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CrownOutlined = (props: AntdIconProps) => (

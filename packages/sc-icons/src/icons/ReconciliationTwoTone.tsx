@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ReconciliationTwoToneSvg from '@ant-design/icons-svg/lib/asn/ReconciliationTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ReconciliationTwoTone = (props: AntdIconProps) => (

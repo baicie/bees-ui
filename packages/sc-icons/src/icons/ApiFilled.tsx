@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ApiFilledSvg from '@ant-design/icons-svg/lib/asn/ApiFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ApiFilled = (props: AntdIconProps) => (

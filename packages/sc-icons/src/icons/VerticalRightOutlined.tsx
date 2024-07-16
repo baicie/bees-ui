@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VerticalRightOutlinedSvg from '@ant-design/icons-svg/lib/asn/VerticalRightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VerticalRightOutlined = (props: AntdIconProps) => (

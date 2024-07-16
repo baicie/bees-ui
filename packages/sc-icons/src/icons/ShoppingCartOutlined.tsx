@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ShoppingCartOutlinedSvg from '@ant-design/icons-svg/lib/asn/ShoppingCartOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ShoppingCartOutlined = (props: AntdIconProps) => (

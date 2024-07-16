@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StarTwoToneSvg from '@ant-design/icons-svg/lib/asn/StarTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StarTwoTone = (props: AntdIconProps) => (

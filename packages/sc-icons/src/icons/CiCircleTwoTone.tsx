@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CiCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/CiCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CiCircleTwoTone = (props: AntdIconProps) => (

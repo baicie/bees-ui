@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DropboxCircleFilledSvg from '@ant-design/icons-svg/lib/asn/DropboxCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DropboxCircleFilled = (props: AntdIconProps) => (

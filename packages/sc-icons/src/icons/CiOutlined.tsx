@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CiOutlinedSvg from '@ant-design/icons-svg/lib/asn/CiOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CiOutlined = (props: AntdIconProps) => (

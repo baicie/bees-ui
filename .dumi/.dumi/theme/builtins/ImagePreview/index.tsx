@@ -1,7 +1,7 @@
 import React from 'react';
+import { Image } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import { Image } from 'antd';
 
 interface ImagePreviewProps {
   children: React.ReactNode[];

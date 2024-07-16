@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloseCircleFilledSvg from '@ant-design/icons-svg/lib/asn/CloseCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloseCircleFilled = (props: AntdIconProps) => (

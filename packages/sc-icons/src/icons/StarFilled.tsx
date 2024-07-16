@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StarFilledSvg from '@ant-design/icons-svg/lib/asn/StarFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StarFilled = (props: AntdIconProps) => (

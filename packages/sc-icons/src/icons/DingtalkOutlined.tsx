@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DingtalkOutlinedSvg from '@ant-design/icons-svg/lib/asn/DingtalkOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DingtalkOutlined = (props: AntdIconProps) => (

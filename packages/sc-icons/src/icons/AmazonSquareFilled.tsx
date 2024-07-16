@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AmazonSquareFilledSvg from '@ant-design/icons-svg/lib/asn/AmazonSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AmazonSquareFilled = (props: AntdIconProps) => (

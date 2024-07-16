@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GoldTwoToneSvg from '@ant-design/icons-svg/lib/asn/GoldTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GoldTwoTone = (props: AntdIconProps) => (

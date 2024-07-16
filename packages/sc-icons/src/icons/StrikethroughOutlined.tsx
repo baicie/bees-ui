@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StrikethroughOutlinedSvg from '@ant-design/icons-svg/lib/asn/StrikethroughOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StrikethroughOutlined = (props: AntdIconProps) => (

@@ -1,5 +1,5 @@
-import SolidIcon from './IconBase';
 import { normalizeTwoToneColors } from '../utils';
+import SolidIcon from './IconBase';
 
 export type TwoToneColor = string | [string, string];
 

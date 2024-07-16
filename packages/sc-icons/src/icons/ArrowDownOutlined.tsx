@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ArrowDownOutlinedSvg from '@ant-design/icons-svg/lib/asn/ArrowDownOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ArrowDownOutlined = (props: AntdIconProps) => (

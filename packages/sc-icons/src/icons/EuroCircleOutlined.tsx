@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EuroCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/EuroCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EuroCircleOutlined = (props: AntdIconProps) => (

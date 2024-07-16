@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EnterOutlinedSvg from '@ant-design/icons-svg/lib/asn/EnterOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EnterOutlined = (props: AntdIconProps) => (

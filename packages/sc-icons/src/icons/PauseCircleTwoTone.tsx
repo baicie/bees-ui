@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PauseCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/PauseCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PauseCircleTwoTone = (props: AntdIconProps) => (

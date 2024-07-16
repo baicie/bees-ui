@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FrownTwoToneSvg from '@ant-design/icons-svg/lib/asn/FrownTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FrownTwoTone = (props: AntdIconProps) => (

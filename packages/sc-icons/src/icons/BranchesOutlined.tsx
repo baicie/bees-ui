@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BranchesOutlinedSvg from '@ant-design/icons-svg/lib/asn/BranchesOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BranchesOutlined = (props: AntdIconProps) => (

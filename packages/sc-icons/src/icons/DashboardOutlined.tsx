@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DashboardOutlinedSvg from '@ant-design/icons-svg/lib/asn/DashboardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DashboardOutlined = (props: AntdIconProps) => (

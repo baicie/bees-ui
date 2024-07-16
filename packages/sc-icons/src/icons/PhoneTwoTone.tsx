@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PhoneTwoToneSvg from '@ant-design/icons-svg/lib/asn/PhoneTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PhoneTwoTone = (props: AntdIconProps) => (

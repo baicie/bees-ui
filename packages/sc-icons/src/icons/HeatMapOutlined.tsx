@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HeatMapOutlinedSvg from '@ant-design/icons-svg/lib/asn/HeatMapOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HeatMapOutlined = (props: AntdIconProps) => (

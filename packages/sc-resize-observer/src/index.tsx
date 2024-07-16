@@ -1,11 +1,12 @@
-import { warning, toArray } from '@bees-ui/sc-util';
+import { toArray, warning } from '@bees-ui/sc-util';
+import type { JSXElement, Ref } from 'solid-js';
+
 import { Collection } from './Collection';
 import SingleObserver from './SingleObserver';
-import type { JSXElement, Ref } from 'solid-js';
+import { _rs } from './utils/observerUtil';
 
 const INTERNAL_PREFIX_KEY = 'rc-observer-key';
 
-import { _rs } from './utils/observerUtil';
 export {
   /** @private Test only for mock trigger resize event */
   _rs,

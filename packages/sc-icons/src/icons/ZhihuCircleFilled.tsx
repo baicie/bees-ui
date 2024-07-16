@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ZhihuCircleFilledSvg from '@ant-design/icons-svg/lib/asn/ZhihuCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ZhihuCircleFilled = (props: AntdIconProps) => (

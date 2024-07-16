@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FundProjectionScreenOutlinedSvg from '@ant-design/icons-svg/lib/asn/FundProjectionScreenOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FundProjectionScreenOutlined = (props: AntdIconProps) => (

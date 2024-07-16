@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ShareAltOutlinedSvg from '@ant-design/icons-svg/lib/asn/ShareAltOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ShareAltOutlined = (props: AntdIconProps) => (

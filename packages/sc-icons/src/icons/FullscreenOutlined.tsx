@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FullscreenOutlinedSvg from '@ant-design/icons-svg/lib/asn/FullscreenOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FullscreenOutlined = (props: AntdIconProps) => (

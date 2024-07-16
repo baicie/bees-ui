@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UsergroupAddOutlinedSvg from '@ant-design/icons-svg/lib/asn/UsergroupAddOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UsergroupAddOutlined = (props: AntdIconProps) => (

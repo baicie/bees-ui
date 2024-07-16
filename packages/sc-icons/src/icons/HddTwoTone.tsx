@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HddTwoToneSvg from '@ant-design/icons-svg/lib/asn/HddTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HddTwoTone = (props: AntdIconProps) => (

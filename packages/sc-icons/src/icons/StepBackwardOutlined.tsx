@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StepBackwardOutlinedSvg from '@ant-design/icons-svg/lib/asn/StepBackwardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StepBackwardOutlined = (props: AntdIconProps) => (

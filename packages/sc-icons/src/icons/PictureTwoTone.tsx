@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PictureTwoToneSvg from '@ant-design/icons-svg/lib/asn/PictureTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PictureTwoTone = (props: AntdIconProps) => (

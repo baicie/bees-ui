@@ -1,11 +1,11 @@
 import { generate as generateColor } from '@ant-design/colors';
 import type { AbstractNode, IconDefinition } from '@ant-design/icons-svg/lib/types';
-import { updateCSS, getShadowRoot } from '@bees-ui/sc-util';
-import { warningOnce } from '@bees-ui/sc-util';
-import IconContext from './components/Context';
+import { getShadowRoot, updateCSS, warningOnce } from '@bees-ui/sc-util';
 import type { JSX, JSXElement, Ref } from 'solid-js';
 import { createEffect, useContext } from 'solid-js';
 import h from 'solid-js/h';
+
+import IconContext from './components/Context';
 
 function camelCase(input: string) {
   return input.replace(/-(.)/g, (match, g) => g.toUpperCase());

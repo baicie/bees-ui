@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RedEnvelopeOutlinedSvg from '@ant-design/icons-svg/lib/asn/RedEnvelopeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RedEnvelopeOutlined = (props: AntdIconProps) => (

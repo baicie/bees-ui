@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IeSquareFilledSvg from '@ant-design/icons-svg/lib/asn/IeSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IeSquareFilled = (props: AntdIconProps) => (

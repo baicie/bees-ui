@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VerticalAlignMiddleOutlinedSvg from '@ant-design/icons-svg/lib/asn/VerticalAlignMiddleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VerticalAlignMiddleOutlined = (props: AntdIconProps) => (

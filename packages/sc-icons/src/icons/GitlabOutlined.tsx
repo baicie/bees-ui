@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GitlabOutlinedSvg from '@ant-design/icons-svg/lib/asn/GitlabOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GitlabOutlined = (props: AntdIconProps) => (

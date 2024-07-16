@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlibabaOutlinedSvg from '@ant-design/icons-svg/lib/asn/AlibabaOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlibabaOutlined = (props: AntdIconProps) => (

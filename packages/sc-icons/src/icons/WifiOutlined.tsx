@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WifiOutlinedSvg from '@ant-design/icons-svg/lib/asn/WifiOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WifiOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SplitCellsOutlinedSvg from '@ant-design/icons-svg/lib/asn/SplitCellsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SplitCellsOutlined = (props: AntdIconProps) => (

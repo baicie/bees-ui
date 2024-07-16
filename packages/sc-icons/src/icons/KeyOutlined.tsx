@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import KeyOutlinedSvg from '@ant-design/icons-svg/lib/asn/KeyOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const KeyOutlined = (props: AntdIconProps) => (

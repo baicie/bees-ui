@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LaptopOutlinedSvg from '@ant-design/icons-svg/lib/asn/LaptopOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LaptopOutlined = (props: AntdIconProps) => (

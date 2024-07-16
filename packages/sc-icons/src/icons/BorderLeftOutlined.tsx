@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BorderLeftOutlinedSvg from '@ant-design/icons-svg/lib/asn/BorderLeftOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BorderLeftOutlined = (props: AntdIconProps) => (

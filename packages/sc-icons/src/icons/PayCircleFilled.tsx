@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PayCircleFilledSvg from '@ant-design/icons-svg/lib/asn/PayCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PayCircleFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LineHeightOutlinedSvg from '@ant-design/icons-svg/lib/asn/LineHeightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LineHeightOutlined = (props: AntdIconProps) => (

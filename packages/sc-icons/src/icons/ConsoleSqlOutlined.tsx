@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ConsoleSqlOutlinedSvg from '@ant-design/icons-svg/lib/asn/ConsoleSqlOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ConsoleSqlOutlined = (props: AntdIconProps) => (

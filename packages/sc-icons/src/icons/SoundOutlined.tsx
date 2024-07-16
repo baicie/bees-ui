@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SoundOutlinedSvg from '@ant-design/icons-svg/lib/asn/SoundOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SoundOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DatabaseOutlinedSvg from '@ant-design/icons-svg/lib/asn/DatabaseOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DatabaseOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PoweroffOutlinedSvg from '@ant-design/icons-svg/lib/asn/PoweroffOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PoweroffOutlined = (props: AntdIconProps) => (

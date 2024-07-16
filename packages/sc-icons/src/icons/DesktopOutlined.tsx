@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DesktopOutlinedSvg from '@ant-design/icons-svg/lib/asn/DesktopOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DesktopOutlined = (props: AntdIconProps) => (

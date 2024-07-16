@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FieldTimeOutlinedSvg from '@ant-design/icons-svg/lib/asn/FieldTimeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FieldTimeOutlined = (props: AntdIconProps) => (

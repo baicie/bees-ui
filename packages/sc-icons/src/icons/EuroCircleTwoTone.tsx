@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EuroCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/EuroCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EuroCircleTwoTone = (props: AntdIconProps) => (

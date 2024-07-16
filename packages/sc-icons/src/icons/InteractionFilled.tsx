@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InteractionFilledSvg from '@ant-design/icons-svg/lib/asn/InteractionFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InteractionFilled = (props: AntdIconProps) => (

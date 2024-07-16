@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ColumnWidthOutlinedSvg from '@ant-design/icons-svg/lib/asn/ColumnWidthOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ColumnWidthOutlined = (props: AntdIconProps) => (

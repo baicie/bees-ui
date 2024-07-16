@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ToolOutlinedSvg from '@ant-design/icons-svg/lib/asn/ToolOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ToolOutlined = (props: AntdIconProps) => (

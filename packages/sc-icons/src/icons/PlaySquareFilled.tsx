@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlaySquareFilledSvg from '@ant-design/icons-svg/lib/asn/PlaySquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlaySquareFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PauseCircleFilledSvg from '@ant-design/icons-svg/lib/asn/PauseCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PauseCircleFilled = (props: AntdIconProps) => (

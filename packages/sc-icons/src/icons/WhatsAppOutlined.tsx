@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WhatsAppOutlinedSvg from '@ant-design/icons-svg/lib/asn/WhatsAppOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WhatsAppOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FieldStringOutlinedSvg from '@ant-design/icons-svg/lib/asn/FieldStringOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FieldStringOutlined = (props: AntdIconProps) => (

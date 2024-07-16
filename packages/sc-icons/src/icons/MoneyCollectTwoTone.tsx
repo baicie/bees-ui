@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MoneyCollectTwoToneSvg from '@ant-design/icons-svg/lib/asn/MoneyCollectTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MoneyCollectTwoTone = (props: AntdIconProps) => (

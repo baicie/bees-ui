@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileZipTwoToneSvg from '@ant-design/icons-svg/lib/asn/FileZipTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileZipTwoTone = (props: AntdIconProps) => (

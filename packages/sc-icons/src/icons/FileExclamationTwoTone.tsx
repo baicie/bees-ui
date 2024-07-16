@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileExclamationTwoToneSvg from '@ant-design/icons-svg/lib/asn/FileExclamationTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileExclamationTwoTone = (props: AntdIconProps) => (

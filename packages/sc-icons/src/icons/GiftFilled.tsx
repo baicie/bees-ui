@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GiftFilledSvg from '@ant-design/icons-svg/lib/asn/GiftFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GiftFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IdcardFilledSvg from '@ant-design/icons-svg/lib/asn/IdcardFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IdcardFilled = (props: AntdIconProps) => (

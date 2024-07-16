@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DropboxSquareFilledSvg from '@ant-design/icons-svg/lib/asn/DropboxSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DropboxSquareFilled = (props: AntdIconProps) => (

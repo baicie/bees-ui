@@ -1,5 +1,5 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
+import { css, Global } from '@emotion/react';
 
 export default () => (
   <Global
@@ -25,7 +25,10 @@ export default () => (
         height: 0.5em;
         background-color: #f44;
         border-radius: 50%;
-        box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+        box-shadow:
+          0 0 0 2px #f44,
+          1.5em 0 0 2px #9b3,
+          3em 0 0 2px #fb5;
         content: '';
       }
 

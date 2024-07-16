@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WarningTwoToneSvg from '@ant-design/icons-svg/lib/asn/WarningTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WarningTwoTone = (props: AntdIconProps) => (

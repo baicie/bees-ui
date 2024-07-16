@@ -1,7 +1,10 @@
 // classnames的平替 包体积更小
-import { clsx as classNames } from 'clsx';
-import type { IconDefinition } from '@ant-design/icons-svg/lib/types';
 import { blue } from '@ant-design/colors';
+import type { IconDefinition } from '@ant-design/icons-svg/lib/types';
+import { clsx as classNames } from 'clsx';
+import { useContext, type Component } from 'solid-js';
+
+import { normalizeTwoToneColors } from '../utils';
 // 全局上下文
 import Context from './Context';
 // 基础的props 是否旋转spin 类名class
@@ -10,8 +13,6 @@ import type { IconBaseProps } from './Icon';
 import SolidIcon from './IconBase';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 import type { TwoToneColor } from './twoTonePrimaryColor';
-import { normalizeTwoToneColors } from '../utils';
-import { useContext, type Component } from 'solid-js';
 
 export interface AntdIconProps extends IconBaseProps {
   twoToneColor?: TwoToneColor;

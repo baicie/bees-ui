@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HeartFilledSvg from '@ant-design/icons-svg/lib/asn/HeartFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HeartFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ReadOutlinedSvg from '@ant-design/icons-svg/lib/asn/ReadOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ReadOutlined = (props: AntdIconProps) => (

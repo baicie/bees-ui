@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SwitcherTwoToneSvg from '@ant-design/icons-svg/lib/asn/SwitcherTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SwitcherTwoTone = (props: AntdIconProps) => (

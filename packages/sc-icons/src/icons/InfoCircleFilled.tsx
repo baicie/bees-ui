@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InfoCircleFilledSvg from '@ant-design/icons-svg/lib/asn/InfoCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InfoCircleFilled = (props: AntdIconProps) => (

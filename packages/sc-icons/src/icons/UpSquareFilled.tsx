@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UpSquareFilledSvg from '@ant-design/icons-svg/lib/asn/UpSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UpSquareFilled = (props: AntdIconProps) => (

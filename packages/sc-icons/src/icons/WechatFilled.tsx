@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WechatFilledSvg from '@ant-design/icons-svg/lib/asn/WechatFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WechatFilled = (props: AntdIconProps) => (

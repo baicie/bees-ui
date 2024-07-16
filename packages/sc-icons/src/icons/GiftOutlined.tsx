@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GiftOutlinedSvg from '@ant-design/icons-svg/lib/asn/GiftOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GiftOutlined = (props: AntdIconProps) => (

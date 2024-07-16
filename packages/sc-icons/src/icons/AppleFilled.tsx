@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AppleFilledSvg from '@ant-design/icons-svg/lib/asn/AppleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AppleFilled = (props: AntdIconProps) => (

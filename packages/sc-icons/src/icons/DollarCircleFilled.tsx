@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DollarCircleFilledSvg from '@ant-design/icons-svg/lib/asn/DollarCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DollarCircleFilled = (props: AntdIconProps) => (

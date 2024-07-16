@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SortAscendingOutlinedSvg from '@ant-design/icons-svg/lib/asn/SortAscendingOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SortAscendingOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlusCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/PlusCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlusCircleOutlined = (props: AntdIconProps) => (

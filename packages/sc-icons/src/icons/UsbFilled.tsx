@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UsbFilledSvg from '@ant-design/icons-svg/lib/asn/UsbFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UsbFilled = (props: AntdIconProps) => (

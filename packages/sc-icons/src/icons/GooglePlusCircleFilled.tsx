@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GooglePlusCircleFilledSvg from '@ant-design/icons-svg/lib/asn/GooglePlusCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GooglePlusCircleFilled = (props: AntdIconProps) => (

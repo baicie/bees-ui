@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DashOutlinedSvg from '@ant-design/icons-svg/lib/asn/DashOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DashOutlined = (props: AntdIconProps) => (

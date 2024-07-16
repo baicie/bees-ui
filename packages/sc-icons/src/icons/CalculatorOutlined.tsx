@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CalculatorOutlinedSvg from '@ant-design/icons-svg/lib/asn/CalculatorOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CalculatorOutlined = (props: AntdIconProps) => (

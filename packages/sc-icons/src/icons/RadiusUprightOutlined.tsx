@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RadiusUprightOutlinedSvg from '@ant-design/icons-svg/lib/asn/RadiusUprightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RadiusUprightOutlined = (props: AntdIconProps) => (

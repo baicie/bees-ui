@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MedicineBoxOutlinedSvg from '@ant-design/icons-svg/lib/asn/MedicineBoxOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MedicineBoxOutlined = (props: AntdIconProps) => (

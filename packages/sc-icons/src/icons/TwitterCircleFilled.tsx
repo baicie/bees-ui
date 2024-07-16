@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TwitterCircleFilledSvg from '@ant-design/icons-svg/lib/asn/TwitterCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TwitterCircleFilled = (props: AntdIconProps) => (

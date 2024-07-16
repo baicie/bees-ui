@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CaretUpFilledSvg from '@ant-design/icons-svg/lib/asn/CaretUpFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CaretUpFilled = (props: AntdIconProps) => (

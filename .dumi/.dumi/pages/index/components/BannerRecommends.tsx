@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { createStyles, css, useTheme } from 'antd-style';
-import classNames from 'classnames';
 import type { FC } from 'react';
 import { useContext } from 'react';
-import { Typography, Skeleton, Carousel } from 'antd';
-import type { Extra, Icon } from './util';
-import SiteContext from '../../../theme/slots/SiteContext';
-import { getCarouselStyle, useSiteData } from './util';
+import { Carousel, Skeleton, Typography } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
+
 import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
+import type { Extra, Icon } from './util';
+import { getCarouselStyle, useSiteData } from './util';
 
 const useStyle = createStyles(({ token }) => {
   const { carousel } = getCarouselStyle();

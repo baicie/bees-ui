@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CaretLeftOutlinedSvg from '@ant-design/icons-svg/lib/asn/CaretLeftOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CaretLeftOutlined = (props: AntdIconProps) => (

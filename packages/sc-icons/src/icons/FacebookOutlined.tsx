@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FacebookOutlinedSvg from '@ant-design/icons-svg/lib/asn/FacebookOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FacebookOutlined = (props: AntdIconProps) => (

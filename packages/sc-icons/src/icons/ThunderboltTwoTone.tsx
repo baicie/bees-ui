@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ThunderboltTwoToneSvg from '@ant-design/icons-svg/lib/asn/ThunderboltTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ThunderboltTwoTone = (props: AntdIconProps) => (

@@ -1,9 +1,10 @@
-import { defineConfig } from 'dumi';
 import path from 'path';
+import { defineConfig } from 'dumi';
+import * as fs from 'fs-extra';
+
+import { version } from '../package.json';
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
-import { version } from '../package.json';
-import * as fs from 'fs-extra';
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],

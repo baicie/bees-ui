@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlaySquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/PlaySquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlaySquareOutlined = (props: AntdIconProps) => (

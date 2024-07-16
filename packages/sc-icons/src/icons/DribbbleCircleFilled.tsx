@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DribbbleCircleFilledSvg from '@ant-design/icons-svg/lib/asn/DribbbleCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DribbbleCircleFilled = (props: AntdIconProps) => (

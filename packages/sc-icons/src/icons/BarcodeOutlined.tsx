@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BarcodeOutlinedSvg from '@ant-design/icons-svg/lib/asn/BarcodeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BarcodeOutlined = (props: AntdIconProps) => (

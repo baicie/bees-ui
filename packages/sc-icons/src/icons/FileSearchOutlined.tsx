@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileSearchOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileSearchOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileSearchOutlined = (props: AntdIconProps) => (

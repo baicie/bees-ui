@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FontSizeOutlinedSvg from '@ant-design/icons-svg/lib/asn/FontSizeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FontSizeOutlined = (props: AntdIconProps) => (

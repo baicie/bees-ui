@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloseSquareFilledSvg from '@ant-design/icons-svg/lib/asn/CloseSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloseSquareFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CiCircleFilledSvg from '@ant-design/icons-svg/lib/asn/CiCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CiCircleFilled = (props: AntdIconProps) => (

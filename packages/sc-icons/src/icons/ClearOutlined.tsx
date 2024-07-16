@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ClearOutlinedSvg from '@ant-design/icons-svg/lib/asn/ClearOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ClearOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UpSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/UpSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UpSquareOutlined = (props: AntdIconProps) => (

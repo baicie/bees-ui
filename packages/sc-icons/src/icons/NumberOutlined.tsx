@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import NumberOutlinedSvg from '@ant-design/icons-svg/lib/asn/NumberOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const NumberOutlined = (props: AntdIconProps) => (

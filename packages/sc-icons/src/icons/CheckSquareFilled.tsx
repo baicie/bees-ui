@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckSquareFilledSvg from '@ant-design/icons-svg/lib/asn/CheckSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckSquareFilled = (props: AntdIconProps) => (

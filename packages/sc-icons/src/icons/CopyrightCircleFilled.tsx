@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CopyrightCircleFilledSvg from '@ant-design/icons-svg/lib/asn/CopyrightCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CopyrightCircleFilled = (props: AntdIconProps) => (

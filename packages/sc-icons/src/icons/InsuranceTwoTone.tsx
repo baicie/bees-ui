@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InsuranceTwoToneSvg from '@ant-design/icons-svg/lib/asn/InsuranceTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InsuranceTwoTone = (props: AntdIconProps) => (

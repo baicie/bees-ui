@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ZoomOutOutlinedSvg from '@ant-design/icons-svg/lib/asn/ZoomOutOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ZoomOutOutlined = (props: AntdIconProps) => (

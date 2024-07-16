@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BellFilledSvg from '@ant-design/icons-svg/lib/asn/BellFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BellFilled = (props: AntdIconProps) => (

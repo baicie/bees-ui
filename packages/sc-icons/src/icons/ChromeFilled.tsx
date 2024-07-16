@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ChromeFilledSvg from '@ant-design/icons-svg/lib/asn/ChromeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ChromeFilled = (props: AntdIconProps) => (

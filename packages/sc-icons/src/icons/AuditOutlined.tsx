@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AuditOutlinedSvg from '@ant-design/icons-svg/lib/asn/AuditOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AuditOutlined = (props: AntdIconProps) => (

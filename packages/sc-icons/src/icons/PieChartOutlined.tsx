@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PieChartOutlinedSvg from '@ant-design/icons-svg/lib/asn/PieChartOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PieChartOutlined = (props: AntdIconProps) => (

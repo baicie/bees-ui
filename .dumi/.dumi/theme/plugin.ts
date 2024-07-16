@@ -1,17 +1,18 @@
+import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import { createHash } from 'crypto';
+import createEmotionServer from '@emotion/server/create-instance';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 // import chalk from 'chalk';
 import sylvanas from 'sylvanas';
-import createEmotionServer from '@emotion/server/create-instance';
+
 import localPackage from '../../package.json';
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr
   // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
-  const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map(cache => {
+  const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map((cache) => {
     const result = createEmotionServer(cache).extractCritical(html);
     if (!result.css) return null;
 
@@ -27,7 +28,8 @@ function extractEmotionStyle(html: string) {
   return styles.filter(Boolean);
 }
 
-export const getHash = (str: string, length = 8) => createHash('md5').update(str).digest('hex').slice(0, length);
+export const getHash = (str: string, length = 8) =>
+  createHash('md5').update(str).digest('hex').slice(0, length);
 
 /**
  * extends dumi internal tech stack, for customize previewer props
@@ -52,7 +54,9 @@ class AntdReactTechStack extends ReactTechStack {
 
       if (md) {
         // extract description & css style from md file
-        const description = md.match(new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`))?.[1];
+        const description = md.match(
+          new RegExp(`(?:^|\\n)## ${locale}([^]+?)(\\n## [a-z]|\\n\`\`\`|\\n<style>|$)`),
+        )?.[1];
         const style = md.match(/\r?\n(?:```css|<style>)\r?\n([^]+?)\r?\n(?:```|<\/style>)/)?.[1];
 
         props.description ??= description?.trim();
@@ -94,7 +98,7 @@ const RoutesPlugin = (api: IApi) => {
 
   api.registerTechStack(() => new AntdReactTechStack());
 
-  api.modifyRoutes(routes => {
+  api.modifyRoutes((routes) => {
     // TODO: append extra routes, such as home, changelog, form-v3
 
     const extraRoutesList: IRoute[] = [
@@ -114,18 +118,18 @@ const RoutesPlugin = (api: IApi) => {
       },
     ];
 
-    extraRoutesList.forEach(itemRoute => {
+    extraRoutesList.forEach((itemRoute) => {
       routes[itemRoute.path] = itemRoute;
     });
 
     return routes;
   });
 
-  api.modifyExportHTMLFiles(files =>
+  api.modifyExportHTMLFiles((files) =>
     files
       // exclude dynamic route path, to avoid deploy failed by `:id` directory
-      .filter(f => !f.path.includes(':'))
-      .map(file => {
+      .filter((f) => !f.path.includes(':'))
+      .map((file) => {
         let globalStyles = '';
 
         // Debug for file content: uncomment this if need check raw out
@@ -134,11 +138,14 @@ const RoutesPlugin = (api: IApi) => {
         // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
 
         // extract all emotion style tags from body
-        file.content = file.content.replace(/<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g, s => {
-          globalStyles += s;
+        file.content = file.content.replace(
+          /<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g,
+          (s) => {
+            globalStyles += s;
 
-          return '';
-        });
+            return '';
+          },
+        );
 
         // insert emotion style tags to head
         file.content = file.content.replace('</head>', `${globalStyles}</head>`);
@@ -147,7 +154,7 @@ const RoutesPlugin = (api: IApi) => {
         const styles = extractEmotionStyle(file.content);
 
         // 2. 提取每个样式到独立 css 文件
-        styles.forEach(result => {
+        styles.forEach((result) => {
           // api.logger.event(`${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(result!.ids.length)} styles`);
 
           const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
@@ -161,7 +168,7 @@ const RoutesPlugin = (api: IApi) => {
 
         let antdStyle = '';
 
-        matchList.forEach(text => {
+        matchList.forEach((text) => {
           file.content = file.content.replace(text, '');
           antdStyle += text.replace(matchRegex, '$1');
         });
@@ -174,7 +181,7 @@ const RoutesPlugin = (api: IApi) => {
   );
 
   // add ssr css file to html
-  api.modifyConfig(memo => {
+  api.modifyConfig((memo) => {
     memo.styles ??= [];
     // memo.styles.push(`/${ssrCssFileName}`);
 

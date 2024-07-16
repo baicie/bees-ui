@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UsbTwoToneSvg from '@ant-design/icons-svg/lib/asn/UsbTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UsbTwoTone = (props: AntdIconProps) => (

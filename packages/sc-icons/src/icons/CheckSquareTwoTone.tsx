@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckSquareTwoToneSvg from '@ant-design/icons-svg/lib/asn/CheckSquareTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckSquareTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BorderlessTableOutlinedSvg from '@ant-design/icons-svg/lib/asn/BorderlessTableOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BorderlessTableOutlined = (props: AntdIconProps) => (

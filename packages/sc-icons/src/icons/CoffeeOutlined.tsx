@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CoffeeOutlinedSvg from '@ant-design/icons-svg/lib/asn/CoffeeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CoffeeOutlined = (props: AntdIconProps) => (

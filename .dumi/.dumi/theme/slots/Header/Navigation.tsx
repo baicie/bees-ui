@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
 import { MenuOutlined } from '@ant-design/icons';
-import { createStyles, css } from 'antd-style';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { getEcosystemGroup } from './More';
-import * as utils from '../../utils';
-import type { SharedProps } from './interface';
+import { createStyles, css } from 'antd-style';
+import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
 import Link from '../../common/Link';
+import * as utils from '../../utils';
+import type { SharedProps } from './interface';
+import { getEcosystemGroup } from './More';
 
 // ============================= Theme =============================
 const locales = {
@@ -66,7 +67,7 @@ const useStyle = createStyles(({ token }) => {
             position: absolute;
             inset: 0;
             background-color: transparent;
-            content: "";
+            content: '';
           }
         }
 

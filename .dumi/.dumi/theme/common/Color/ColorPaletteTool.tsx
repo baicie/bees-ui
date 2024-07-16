@@ -1,9 +1,10 @@
-import { FormattedMessage } from 'dumi';
 import React, { useMemo, useState } from 'react';
 import { ColorPicker } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import ColorPatterns from './ColorPatterns';
+import { FormattedMessage } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
+import ColorPatterns from './ColorPatterns';
 
 const primaryMinSaturation = 70; // 主色推荐最小饱和度
 const primaryMinBrightness = 70; // 主色推荐最小亮度

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CreditCardFilledSvg from '@ant-design/icons-svg/lib/asn/CreditCardFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CreditCardFilled = (props: AntdIconProps) => (

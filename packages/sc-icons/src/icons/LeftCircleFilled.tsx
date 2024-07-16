@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftCircleFilledSvg from '@ant-design/icons-svg/lib/asn/LeftCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftCircleFilled = (props: AntdIconProps) => (

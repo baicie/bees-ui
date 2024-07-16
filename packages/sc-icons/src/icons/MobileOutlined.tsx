@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MobileOutlinedSvg from '@ant-design/icons-svg/lib/asn/MobileOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MobileOutlined = (props: AntdIconProps) => (

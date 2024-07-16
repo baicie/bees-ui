@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TeamOutlinedSvg from '@ant-design/icons-svg/lib/asn/TeamOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TeamOutlined = (props: AntdIconProps) => (

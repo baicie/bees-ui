@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HighlightTwoToneSvg from '@ant-design/icons-svg/lib/asn/HighlightTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HighlightTwoTone = (props: AntdIconProps) => (

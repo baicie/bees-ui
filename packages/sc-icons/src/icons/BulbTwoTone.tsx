@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BulbTwoToneSvg from '@ant-design/icons-svg/lib/asn/BulbTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BulbTwoTone = (props: AntdIconProps) => (

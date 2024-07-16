@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UpSquareTwoToneSvg from '@ant-design/icons-svg/lib/asn/UpSquareTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UpSquareTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PicRightOutlinedSvg from '@ant-design/icons-svg/lib/asn/PicRightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PicRightOutlined = (props: AntdIconProps) => (

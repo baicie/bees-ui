@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BarsOutlinedSvg from '@ant-design/icons-svg/lib/asn/BarsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BarsOutlined = (props: AntdIconProps) => (

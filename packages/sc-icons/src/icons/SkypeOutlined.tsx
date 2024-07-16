@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SkypeOutlinedSvg from '@ant-design/icons-svg/lib/asn/SkypeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SkypeOutlined = (props: AntdIconProps) => (

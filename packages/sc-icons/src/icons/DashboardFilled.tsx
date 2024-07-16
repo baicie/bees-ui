@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DashboardFilledSvg from '@ant-design/icons-svg/lib/asn/DashboardFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DashboardFilled = (props: AntdIconProps) => (

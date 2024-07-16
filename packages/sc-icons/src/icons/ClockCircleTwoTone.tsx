@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ClockCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/ClockCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ClockCircleTwoTone = (props: AntdIconProps) => (

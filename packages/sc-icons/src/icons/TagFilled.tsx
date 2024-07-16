@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TagFilledSvg from '@ant-design/icons-svg/lib/asn/TagFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TagFilled = (props: AntdIconProps) => (

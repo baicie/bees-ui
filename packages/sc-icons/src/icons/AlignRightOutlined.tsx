@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlignRightOutlinedSvg from '@ant-design/icons-svg/lib/asn/AlignRightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlignRightOutlined = (props: AntdIconProps) => (

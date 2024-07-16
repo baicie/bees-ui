@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import YuqueFilledSvg from '@ant-design/icons-svg/lib/asn/YuqueFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const YuqueFilled = (props: AntdIconProps) => (

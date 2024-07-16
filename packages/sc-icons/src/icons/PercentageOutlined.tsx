@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PercentageOutlinedSvg from '@ant-design/icons-svg/lib/asn/PercentageOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PercentageOutlined = (props: AntdIconProps) => (

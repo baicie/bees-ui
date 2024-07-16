@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileTextTwoToneSvg from '@ant-design/icons-svg/lib/asn/FileTextTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileTextTwoTone = (props: AntdIconProps) => (

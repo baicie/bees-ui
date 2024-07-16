@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloudTwoToneSvg from '@ant-design/icons-svg/lib/asn/CloudTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloudTwoTone = (props: AntdIconProps) => (

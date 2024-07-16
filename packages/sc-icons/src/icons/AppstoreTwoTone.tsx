@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AppstoreTwoToneSvg from '@ant-design/icons-svg/lib/asn/AppstoreTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AppstoreTwoTone = (props: AntdIconProps) => (

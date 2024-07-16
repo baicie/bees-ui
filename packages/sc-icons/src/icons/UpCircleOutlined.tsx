@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UpCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/UpCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UpCircleOutlined = (props: AntdIconProps) => (

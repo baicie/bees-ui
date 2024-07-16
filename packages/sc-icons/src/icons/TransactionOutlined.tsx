@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TransactionOutlinedSvg from '@ant-design/icons-svg/lib/asn/TransactionOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TransactionOutlined = (props: AntdIconProps) => (

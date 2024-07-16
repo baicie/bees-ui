@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SafetyCertificateTwoToneSvg from '@ant-design/icons-svg/lib/asn/SafetyCertificateTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SafetyCertificateTwoTone = (props: AntdIconProps) => (

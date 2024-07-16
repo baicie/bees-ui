@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ExceptionOutlinedSvg from '@ant-design/icons-svg/lib/asn/ExceptionOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ExceptionOutlined = (props: AntdIconProps) => (

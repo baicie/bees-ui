@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SwapRightOutlinedSvg from '@ant-design/icons-svg/lib/asn/SwapRightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SwapRightOutlined = (props: AntdIconProps) => (

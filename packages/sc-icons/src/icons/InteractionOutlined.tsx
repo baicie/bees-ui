@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InteractionOutlinedSvg from '@ant-design/icons-svg/lib/asn/InteractionOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InteractionOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CameraFilledSvg from '@ant-design/icons-svg/lib/asn/CameraFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CameraFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GoldFilledSvg from '@ant-design/icons-svg/lib/asn/GoldFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GoldFilled = (props: AntdIconProps) => (

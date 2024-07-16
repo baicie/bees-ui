@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FastBackwardOutlinedSvg from '@ant-design/icons-svg/lib/asn/FastBackwardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FastBackwardOutlined = (props: AntdIconProps) => (

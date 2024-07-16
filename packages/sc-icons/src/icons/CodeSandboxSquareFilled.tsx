@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CodeSandboxSquareFilledSvg from '@ant-design/icons-svg/lib/asn/CodeSandboxSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CodeSandboxSquareFilled = (props: AntdIconProps) => (

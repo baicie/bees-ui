@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlertOutlinedSvg from '@ant-design/icons-svg/lib/asn/AlertOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlertOutlined = (props: AntdIconProps) => (

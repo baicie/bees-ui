@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SkypeFilledSvg from '@ant-design/icons-svg/lib/asn/SkypeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SkypeFilled = (props: AntdIconProps) => (

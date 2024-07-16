@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CopyTwoToneSvg from '@ant-design/icons-svg/lib/asn/CopyTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CopyTwoTone = (props: AntdIconProps) => (

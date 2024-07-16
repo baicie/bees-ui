@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SearchOutlinedSvg from '@ant-design/icons-svg/lib/asn/SearchOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SearchOutlined = (props: AntdIconProps) => (

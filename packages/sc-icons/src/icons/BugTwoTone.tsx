@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BugTwoToneSvg from '@ant-design/icons-svg/lib/asn/BugTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BugTwoTone = (props: AntdIconProps) => (

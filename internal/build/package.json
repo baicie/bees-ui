@@ -11,9 +11,8 @@
   },
   "scripts": {
     "stub": "pnpm unbuild --stub",
-    "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
-    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "build": "pnpm bee build --minify --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],

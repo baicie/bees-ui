@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import OrderedListOutlinedSvg from '@ant-design/icons-svg/lib/asn/OrderedListOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const OrderedListOutlined = (props: AntdIconProps) => (

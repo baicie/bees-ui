@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ToTopOutlinedSvg from '@ant-design/icons-svg/lib/asn/ToTopOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ToTopOutlined = (props: AntdIconProps) => (

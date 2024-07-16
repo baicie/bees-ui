@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloseCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/CloseCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloseCircleTwoTone = (props: AntdIconProps) => (

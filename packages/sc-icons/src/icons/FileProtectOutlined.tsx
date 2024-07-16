@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileProtectOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileProtectOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileProtectOutlined = (props: AntdIconProps) => (

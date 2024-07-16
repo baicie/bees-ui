@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LockFilledSvg from '@ant-design/icons-svg/lib/asn/LockFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LockFilled = (props: AntdIconProps) => (

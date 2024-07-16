@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LockTwoToneSvg from '@ant-design/icons-svg/lib/asn/LockTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LockTwoTone = (props: AntdIconProps) => (

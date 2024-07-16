@@ -1,4 +1,5 @@
 import type { JSXElement } from 'solid-js';
+
 import Icon from './Icon';
 import type { IconBaseProps } from './Icon';
 

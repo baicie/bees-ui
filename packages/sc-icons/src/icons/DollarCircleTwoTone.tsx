@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DollarCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/DollarCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DollarCircleTwoTone = (props: AntdIconProps) => (

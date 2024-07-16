@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AudioMutedOutlinedSvg from '@ant-design/icons-svg/lib/asn/AudioMutedOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AudioMutedOutlined = (props: AntdIconProps) => (

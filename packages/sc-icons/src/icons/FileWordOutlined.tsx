@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileWordOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileWordOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileWordOutlined = (props: AntdIconProps) => (

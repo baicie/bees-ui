@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ShoppingFilledSvg from '@ant-design/icons-svg/lib/asn/ShoppingFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ShoppingFilled = (props: AntdIconProps) => (

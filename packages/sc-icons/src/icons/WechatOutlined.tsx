@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WechatOutlinedSvg from '@ant-design/icons-svg/lib/asn/WechatOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WechatOutlined = (props: AntdIconProps) => (

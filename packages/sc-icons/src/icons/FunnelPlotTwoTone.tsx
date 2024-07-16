@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FunnelPlotTwoToneSvg from '@ant-design/icons-svg/lib/asn/FunnelPlotTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FunnelPlotTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ForwardOutlinedSvg from '@ant-design/icons-svg/lib/asn/ForwardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ForwardOutlined = (props: AntdIconProps) => (

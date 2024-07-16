@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DownOutlinedSvg from '@ant-design/icons-svg/lib/asn/DownOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DownOutlined = (props: AntdIconProps) => (

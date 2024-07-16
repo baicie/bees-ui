@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ManOutlinedSvg from '@ant-design/icons-svg/lib/asn/ManOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ManOutlined = (props: AntdIconProps) => (

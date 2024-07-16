@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import YahooOutlinedSvg from '@ant-design/icons-svg/lib/asn/YahooOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const YahooOutlined = (props: AntdIconProps) => (

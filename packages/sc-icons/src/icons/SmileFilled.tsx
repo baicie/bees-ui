@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SmileFilledSvg from '@ant-design/icons-svg/lib/asn/SmileFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SmileFilled = (props: AntdIconProps) => (

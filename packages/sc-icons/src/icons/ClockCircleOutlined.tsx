@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ClockCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/ClockCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ClockCircleOutlined = (props: AntdIconProps) => (

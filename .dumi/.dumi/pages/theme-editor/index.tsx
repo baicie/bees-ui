@@ -1,8 +1,9 @@
-import { enUS, zhCN } from 'antd-token-previewer';
-import { Helmet } from 'dumi';
 import React, { Suspense, useEffect } from 'react';
-import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Button, message, Skeleton } from 'antd';
+import { enUS, zhCN } from 'antd-token-previewer';
+import type { ThemeConfig } from 'antd/es/config-provider/context';
+import { Helmet } from 'dumi';
+
 import useLocale from '../../hooks/useLocale';
 
 const ThemeEditor = React.lazy(() => import('antd-token-previewer/lib/ThemeEditor'));

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SyncOutlinedSvg from '@ant-design/icons-svg/lib/asn/SyncOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SyncOutlined = (props: AntdIconProps) => (

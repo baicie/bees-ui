@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BellTwoToneSvg from '@ant-design/icons-svg/lib/asn/BellTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BellTwoTone = (props: AntdIconProps) => (

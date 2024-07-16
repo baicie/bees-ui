@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftSquareFilledSvg from '@ant-design/icons-svg/lib/asn/LeftSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftSquareFilled = (props: AntdIconProps) => (

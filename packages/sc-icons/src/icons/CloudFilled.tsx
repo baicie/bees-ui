@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloudFilledSvg from '@ant-design/icons-svg/lib/asn/CloudFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloudFilled = (props: AntdIconProps) => (

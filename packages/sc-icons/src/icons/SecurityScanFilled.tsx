@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SecurityScanFilledSvg from '@ant-design/icons-svg/lib/asn/SecurityScanFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SecurityScanFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LoadingOutlinedSvg from '@ant-design/icons-svg/lib/asn/LoadingOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LoadingOutlined = (props: AntdIconProps) => (

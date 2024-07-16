@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DribbbleOutlinedSvg from '@ant-design/icons-svg/lib/asn/DribbbleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DribbbleOutlined = (props: AntdIconProps) => (

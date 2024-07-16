@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UndoOutlinedSvg from '@ant-design/icons-svg/lib/asn/UndoOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UndoOutlined = (props: AntdIconProps) => (

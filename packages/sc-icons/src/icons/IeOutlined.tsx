@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IeOutlinedSvg from '@ant-design/icons-svg/lib/asn/IeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IeOutlined = (props: AntdIconProps) => (

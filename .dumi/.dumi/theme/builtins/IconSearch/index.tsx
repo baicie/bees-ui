@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
 
 const IconSearch = React.lazy(() => import('./IconSearch'));
 

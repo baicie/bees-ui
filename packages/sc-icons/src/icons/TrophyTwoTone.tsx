@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TrophyTwoToneSvg from '@ant-design/icons-svg/lib/asn/TrophyTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TrophyTwoTone = (props: AntdIconProps) => (

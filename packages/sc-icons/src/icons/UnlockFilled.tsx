@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UnlockFilledSvg from '@ant-design/icons-svg/lib/asn/UnlockFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UnlockFilled = (props: AntdIconProps) => (

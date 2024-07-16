@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CarryOutFilledSvg from '@ant-design/icons-svg/lib/asn/CarryOutFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CarryOutFilled = (props: AntdIconProps) => (

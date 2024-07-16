@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MediumWorkmarkOutlinedSvg from '@ant-design/icons-svg/lib/asn/MediumWorkmarkOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MediumWorkmarkOutlined = (props: AntdIconProps) => (

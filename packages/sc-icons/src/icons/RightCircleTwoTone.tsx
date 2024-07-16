@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RightCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/RightCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RightCircleTwoTone = (props: AntdIconProps) => (

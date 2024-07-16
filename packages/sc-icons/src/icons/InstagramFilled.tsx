@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InstagramFilledSvg from '@ant-design/icons-svg/lib/asn/InstagramFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InstagramFilled = (props: AntdIconProps) => (

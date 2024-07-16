@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import QrcodeOutlinedSvg from '@ant-design/icons-svg/lib/asn/QrcodeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const QrcodeOutlined = (props: AntdIconProps) => (

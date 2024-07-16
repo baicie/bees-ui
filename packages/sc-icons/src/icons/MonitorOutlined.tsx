@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MonitorOutlinedSvg from '@ant-design/icons-svg/lib/asn/MonitorOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MonitorOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ContactsOutlinedSvg from '@ant-design/icons-svg/lib/asn/ContactsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ContactsOutlined = (props: AntdIconProps) => (

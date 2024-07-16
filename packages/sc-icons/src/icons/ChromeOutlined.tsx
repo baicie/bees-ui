@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ChromeOutlinedSvg from '@ant-design/icons-svg/lib/asn/ChromeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ChromeOutlined = (props: AntdIconProps) => (

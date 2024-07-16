@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CrownTwoToneSvg from '@ant-design/icons-svg/lib/asn/CrownTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CrownTwoTone = (props: AntdIconProps) => (

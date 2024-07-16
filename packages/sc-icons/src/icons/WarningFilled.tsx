@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WarningFilledSvg from '@ant-design/icons-svg/lib/asn/WarningFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WarningFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CalculatorTwoToneSvg from '@ant-design/icons-svg/lib/asn/CalculatorTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CalculatorTwoTone = (props: AntdIconProps) => (

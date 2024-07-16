@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CopyrightCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/CopyrightCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CopyrightCircleTwoTone = (props: AntdIconProps) => (

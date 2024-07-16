@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ShakeOutlinedSvg from '@ant-design/icons-svg/lib/asn/ShakeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ShakeOutlined = (props: AntdIconProps) => (

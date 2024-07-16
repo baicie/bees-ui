@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MacCommandFilledSvg from '@ant-design/icons-svg/lib/asn/MacCommandFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MacCommandFilled = (props: AntdIconProps) => (

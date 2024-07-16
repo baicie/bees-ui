@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloseCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/CloseCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloseCircleOutlined = (props: AntdIconProps) => (

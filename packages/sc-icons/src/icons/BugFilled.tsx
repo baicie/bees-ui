@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BugFilledSvg from '@ant-design/icons-svg/lib/asn/BugFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BugFilled = (props: AntdIconProps) => (

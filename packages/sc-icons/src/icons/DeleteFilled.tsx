@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeleteFilledSvg from '@ant-design/icons-svg/lib/asn/DeleteFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeleteFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AccountBookFilledSvg from '@ant-design/icons-svg/lib/asn/AccountBookFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AccountBookFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RestTwoToneSvg from '@ant-design/icons-svg/lib/asn/RestTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RestTwoTone = (props: AntdIconProps) => (

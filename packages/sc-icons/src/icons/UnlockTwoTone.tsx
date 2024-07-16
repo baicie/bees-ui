@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UnlockTwoToneSvg from '@ant-design/icons-svg/lib/asn/UnlockTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UnlockTwoTone = (props: AntdIconProps) => (

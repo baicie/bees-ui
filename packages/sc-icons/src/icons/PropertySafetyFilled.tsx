@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PropertySafetyFilledSvg from '@ant-design/icons-svg/lib/asn/PropertySafetyFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PropertySafetyFilled = (props: AntdIconProps) => (

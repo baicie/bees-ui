@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ExclamationOutlinedSvg from '@ant-design/icons-svg/lib/asn/ExclamationOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ExclamationOutlined = (props: AntdIconProps) => (

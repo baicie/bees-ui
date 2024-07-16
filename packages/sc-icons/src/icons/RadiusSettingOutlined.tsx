@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RadiusSettingOutlinedSvg from '@ant-design/icons-svg/lib/asn/RadiusSettingOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RadiusSettingOutlined = (props: AntdIconProps) => (

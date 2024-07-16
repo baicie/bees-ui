@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WindowsOutlinedSvg from '@ant-design/icons-svg/lib/asn/WindowsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WindowsOutlined = (props: AntdIconProps) => (

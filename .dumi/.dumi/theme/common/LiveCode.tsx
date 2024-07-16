@@ -1,11 +1,12 @@
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import { createStyles } from 'antd-style';
-import LiveEditor from '../slots/LiveEditor';
-import LiveError from '../slots/LiveError';
 import { EditFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+
 import useLocale from '../../hooks/useLocale';
+import LiveEditor from '../slots/LiveEditor';
+import LiveError from '../slots/LiveError';
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorPrimaryBorder, colorIcon, colorPrimary } = token;

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GlobalOutlinedSvg from '@ant-design/icons-svg/lib/asn/GlobalOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GlobalOutlined = (props: AntdIconProps) => (

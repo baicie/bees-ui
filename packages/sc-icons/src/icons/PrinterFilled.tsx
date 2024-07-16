@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PrinterFilledSvg from '@ant-design/icons-svg/lib/asn/PrinterFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PrinterFilled = (props: AntdIconProps) => (

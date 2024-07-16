@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PoundCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/PoundCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PoundCircleTwoTone = (props: AntdIconProps) => (

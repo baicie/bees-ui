@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CopyrightOutlinedSvg from '@ant-design/icons-svg/lib/asn/CopyrightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CopyrightOutlined = (props: AntdIconProps) => (

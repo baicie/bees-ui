@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MenuFoldOutlinedSvg from '@ant-design/icons-svg/lib/asn/MenuFoldOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MenuFoldOutlined = (props: AntdIconProps) => (

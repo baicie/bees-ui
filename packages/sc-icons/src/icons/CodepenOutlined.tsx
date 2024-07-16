@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CodepenOutlinedSvg from '@ant-design/icons-svg/lib/asn/CodepenOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CodepenOutlined = (props: AntdIconProps) => (

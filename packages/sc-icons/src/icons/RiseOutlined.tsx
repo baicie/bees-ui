@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RiseOutlinedSvg from '@ant-design/icons-svg/lib/asn/RiseOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RiseOutlined = (props: AntdIconProps) => (

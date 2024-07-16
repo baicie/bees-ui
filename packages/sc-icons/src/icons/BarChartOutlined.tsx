@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BarChartOutlinedSvg from '@ant-design/icons-svg/lib/asn/BarChartOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BarChartOutlined = (props: AntdIconProps) => (

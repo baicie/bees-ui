@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PrinterOutlinedSvg from '@ant-design/icons-svg/lib/asn/PrinterOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PrinterOutlined = (props: AntdIconProps) => (

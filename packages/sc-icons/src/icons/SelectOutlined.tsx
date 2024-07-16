@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SelectOutlinedSvg from '@ant-design/icons-svg/lib/asn/SelectOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SelectOutlined = (props: AntdIconProps) => (

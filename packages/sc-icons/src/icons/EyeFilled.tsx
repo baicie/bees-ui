@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EyeFilledSvg from '@ant-design/icons-svg/lib/asn/EyeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EyeFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileJpgOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileJpgOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileJpgOutlined = (props: AntdIconProps) => (

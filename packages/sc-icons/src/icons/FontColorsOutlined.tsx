@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FontColorsOutlinedSvg from '@ant-design/icons-svg/lib/asn/FontColorsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FontColorsOutlined = (props: AntdIconProps) => (

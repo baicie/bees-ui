@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UsergroupDeleteOutlinedSvg from '@ant-design/icons-svg/lib/asn/UsergroupDeleteOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UsergroupDeleteOutlined = (props: AntdIconProps) => (

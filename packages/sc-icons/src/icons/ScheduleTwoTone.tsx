@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ScheduleTwoToneSvg from '@ant-design/icons-svg/lib/asn/ScheduleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ScheduleTwoTone = (props: AntdIconProps) => (

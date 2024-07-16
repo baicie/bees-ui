@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlayCircleFilledSvg from '@ant-design/icons-svg/lib/asn/PlayCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlayCircleFilled = (props: AntdIconProps) => (

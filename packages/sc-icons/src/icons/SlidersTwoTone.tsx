@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SlidersTwoToneSvg from '@ant-design/icons-svg/lib/asn/SlidersTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SlidersTwoTone = (props: AntdIconProps) => (

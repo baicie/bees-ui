@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import Html5OutlinedSvg from '@ant-design/icons-svg/lib/asn/Html5Outlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const Html5Outlined = (props: AntdIconProps) => (

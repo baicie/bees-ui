@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PropertySafetyOutlinedSvg from '@ant-design/icons-svg/lib/asn/PropertySafetyOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PropertySafetyOutlined = (props: AntdIconProps) => (

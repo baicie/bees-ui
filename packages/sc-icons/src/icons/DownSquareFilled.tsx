@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DownSquareFilledSvg from '@ant-design/icons-svg/lib/asn/DownSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DownSquareFilled = (props: AntdIconProps) => (

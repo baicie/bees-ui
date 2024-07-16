@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PieChartTwoToneSvg from '@ant-design/icons-svg/lib/asn/PieChartTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PieChartTwoTone = (props: AntdIconProps) => (

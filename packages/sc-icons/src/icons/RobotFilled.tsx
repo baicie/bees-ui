@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RobotFilledSvg from '@ant-design/icons-svg/lib/asn/RobotFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RobotFilled = (props: AntdIconProps) => (

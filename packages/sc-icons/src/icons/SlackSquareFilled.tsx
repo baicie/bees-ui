@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SlackSquareFilledSvg from '@ant-design/icons-svg/lib/asn/SlackSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SlackSquareFilled = (props: AntdIconProps) => (

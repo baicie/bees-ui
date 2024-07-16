@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileSyncOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileSyncOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileSyncOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileZipOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileZipOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileZipOutlined = (props: AntdIconProps) => (

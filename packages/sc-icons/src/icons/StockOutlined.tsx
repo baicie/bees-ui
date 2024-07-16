@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StockOutlinedSvg from '@ant-design/icons-svg/lib/asn/StockOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StockOutlined = (props: AntdIconProps) => (

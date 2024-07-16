@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VerifiedOutlinedSvg from '@ant-design/icons-svg/lib/asn/VerifiedOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VerifiedOutlined = (props: AntdIconProps) => (

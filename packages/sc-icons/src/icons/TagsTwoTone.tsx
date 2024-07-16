@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TagsTwoToneSvg from '@ant-design/icons-svg/lib/asn/TagsTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TagsTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UsbOutlinedSvg from '@ant-design/icons-svg/lib/asn/UsbOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UsbOutlined = (props: AntdIconProps) => (

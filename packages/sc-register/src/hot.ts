@@ -1,4 +1,4 @@
-import { reloadElement, ICustomElement } from './utils';
+import { ICustomElement, reloadElement } from './utils';
 
 function walk(root: Node, call: (node: Node) => void) {
   call(root);

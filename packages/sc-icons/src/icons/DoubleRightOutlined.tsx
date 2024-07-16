@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DoubleRightOutlinedSvg from '@ant-design/icons-svg/lib/asn/DoubleRightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DoubleRightOutlined = (props: AntdIconProps) => (

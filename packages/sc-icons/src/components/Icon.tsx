@@ -1,9 +1,9 @@
 import classNames from 'clsx';
-import Context from './Context';
-
-import { svgBaseProps, warning, useInsertStyles } from '../utils';
 import type { Ref } from 'solid-js';
-import { type JSX, type Component, useContext } from 'solid-js';
+import { useContext, type Component, type JSX } from 'solid-js';
+
+import { svgBaseProps, useInsertStyles, warning } from '../utils';
+import Context from './Context';
 
 export interface IconBaseProps extends JSX.HTMLAttributes<HTMLSpanElement> {
   spin?: boolean;

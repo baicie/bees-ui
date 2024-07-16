@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ForkOutlinedSvg from '@ant-design/icons-svg/lib/asn/ForkOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ForkOutlined = (props: AntdIconProps) => (

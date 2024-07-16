@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AudioTwoToneSvg from '@ant-design/icons-svg/lib/asn/AudioTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AudioTwoTone = (props: AntdIconProps) => (

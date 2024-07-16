@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RadarChartOutlinedSvg from '@ant-design/icons-svg/lib/asn/RadarChartOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RadarChartOutlined = (props: AntdIconProps) => (

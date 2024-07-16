@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AliyunOutlinedSvg from '@ant-design/icons-svg/lib/asn/AliyunOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AliyunOutlined = (props: AntdIconProps) => (

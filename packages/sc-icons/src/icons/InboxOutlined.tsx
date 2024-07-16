@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InboxOutlinedSvg from '@ant-design/icons-svg/lib/asn/InboxOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InboxOutlined = (props: AntdIconProps) => (

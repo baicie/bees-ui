@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FastForwardFilledSvg from '@ant-design/icons-svg/lib/asn/FastForwardFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FastForwardFilled = (props: AntdIconProps) => (

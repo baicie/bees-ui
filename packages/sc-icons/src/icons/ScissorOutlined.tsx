@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ScissorOutlinedSvg from '@ant-design/icons-svg/lib/asn/ScissorOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ScissorOutlined = (props: AntdIconProps) => (

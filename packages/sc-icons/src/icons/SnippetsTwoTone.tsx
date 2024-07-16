@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SnippetsTwoToneSvg from '@ant-design/icons-svg/lib/asn/SnippetsTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SnippetsTwoTone = (props: AntdIconProps) => (

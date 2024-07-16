@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PictureOutlinedSvg from '@ant-design/icons-svg/lib/asn/PictureOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PictureOutlined = (props: AntdIconProps) => (

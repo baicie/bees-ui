@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StopTwoToneSvg from '@ant-design/icons-svg/lib/asn/StopTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StopTwoTone = (props: AntdIconProps) => (

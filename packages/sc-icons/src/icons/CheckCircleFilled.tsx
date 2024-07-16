@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckCircleFilledSvg from '@ant-design/icons-svg/lib/asn/CheckCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckCircleFilled = (props: AntdIconProps) => (

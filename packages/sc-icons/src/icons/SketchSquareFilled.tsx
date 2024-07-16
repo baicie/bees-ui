@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SketchSquareFilledSvg from '@ant-design/icons-svg/lib/asn/SketchSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SketchSquareFilled = (props: AntdIconProps) => (

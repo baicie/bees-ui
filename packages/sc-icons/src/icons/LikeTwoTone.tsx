@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LikeTwoToneSvg from '@ant-design/icons-svg/lib/asn/LikeTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LikeTwoTone = (props: AntdIconProps) => (

@@ -1,5 +1,6 @@
 import type { JSXElement } from 'solid-js';
 import { createContext, createSignal, useContext } from 'solid-js';
+
 import type { SizeInfo } from '.';
 
 type onCollectionResize = (size: SizeInfo, element: HTMLElement, data: any) => void;

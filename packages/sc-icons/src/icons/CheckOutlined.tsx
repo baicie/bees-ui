@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckOutlinedSvg from '@ant-design/icons-svg/lib/asn/CheckOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckOutlined = (props: AntdIconProps) => (

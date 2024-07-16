@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VideoCameraFilledSvg from '@ant-design/icons-svg/lib/asn/VideoCameraFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VideoCameraFilled = (props: AntdIconProps) => (

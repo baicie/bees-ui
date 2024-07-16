@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SlackOutlinedSvg from '@ant-design/icons-svg/lib/asn/SlackOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SlackOutlined = (props: AntdIconProps) => (

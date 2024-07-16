@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TabletFilledSvg from '@ant-design/icons-svg/lib/asn/TabletFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TabletFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AliwangwangOutlinedSvg from '@ant-design/icons-svg/lib/asn/AliwangwangOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AliwangwangOutlined = (props: AntdIconProps) => (

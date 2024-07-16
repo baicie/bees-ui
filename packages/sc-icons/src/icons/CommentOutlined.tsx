@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CommentOutlinedSvg from '@ant-design/icons-svg/lib/asn/CommentOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CommentOutlined = (props: AntdIconProps) => (

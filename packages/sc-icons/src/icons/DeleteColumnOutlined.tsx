@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeleteColumnOutlinedSvg from '@ant-design/icons-svg/lib/asn/DeleteColumnOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeleteColumnOutlined = (props: AntdIconProps) => (

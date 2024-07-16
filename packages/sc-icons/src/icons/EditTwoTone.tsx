@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EditTwoToneSvg from '@ant-design/icons-svg/lib/asn/EditTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EditTwoTone = (props: AntdIconProps) => (

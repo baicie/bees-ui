@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ScheduleFilledSvg from '@ant-design/icons-svg/lib/asn/ScheduleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ScheduleFilled = (props: AntdIconProps) => (

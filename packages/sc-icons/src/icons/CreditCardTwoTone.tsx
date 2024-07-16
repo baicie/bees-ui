@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CreditCardTwoToneSvg from '@ant-design/icons-svg/lib/asn/CreditCardTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CreditCardTwoTone = (props: AntdIconProps) => (

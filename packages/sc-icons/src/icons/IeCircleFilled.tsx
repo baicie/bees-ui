@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IeCircleFilledSvg from '@ant-design/icons-svg/lib/asn/IeCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IeCircleFilled = (props: AntdIconProps) => (

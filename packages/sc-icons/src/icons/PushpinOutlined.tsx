@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PushpinOutlinedSvg from '@ant-design/icons-svg/lib/asn/PushpinOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PushpinOutlined = (props: AntdIconProps) => (

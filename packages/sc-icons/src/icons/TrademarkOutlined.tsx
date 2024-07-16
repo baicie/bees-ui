@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TrademarkOutlinedSvg from '@ant-design/icons-svg/lib/asn/TrademarkOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TrademarkOutlined = (props: AntdIconProps) => (

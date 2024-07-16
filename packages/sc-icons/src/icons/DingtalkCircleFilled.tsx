@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DingtalkCircleFilledSvg from '@ant-design/icons-svg/lib/asn/DingtalkCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DingtalkCircleFilled = (props: AntdIconProps) => (

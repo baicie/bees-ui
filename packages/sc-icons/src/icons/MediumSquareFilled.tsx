@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MediumSquareFilledSvg from '@ant-design/icons-svg/lib/asn/MediumSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MediumSquareFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ExclamationCircleFilledSvg from '@ant-design/icons-svg/lib/asn/ExclamationCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ExclamationCircleFilled = (props: AntdIconProps) => (

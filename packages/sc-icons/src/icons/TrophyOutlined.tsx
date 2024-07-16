@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TrophyOutlinedSvg from '@ant-design/icons-svg/lib/asn/TrophyOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TrophyOutlined = (props: AntdIconProps) => (

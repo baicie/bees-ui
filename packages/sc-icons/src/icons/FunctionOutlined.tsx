@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FunctionOutlinedSvg from '@ant-design/icons-svg/lib/asn/FunctionOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FunctionOutlined = (props: AntdIconProps) => (

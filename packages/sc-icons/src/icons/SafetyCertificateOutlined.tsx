@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SafetyCertificateOutlinedSvg from '@ant-design/icons-svg/lib/asn/SafetyCertificateOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SafetyCertificateOutlined = (props: AntdIconProps) => (

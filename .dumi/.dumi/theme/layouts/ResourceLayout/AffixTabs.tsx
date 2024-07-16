@@ -1,8 +1,9 @@
-import { createStyles } from 'antd-style';
-import throttle from 'lodash/throttle';
 import * as React from 'react';
-import classNames from 'classnames';
 import { Tabs } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
+import throttle from 'lodash/throttle';
+
 import scrollTo from '../../../utils/scrollTo';
 
 const listenerEvents = ['scroll', 'resize'] as const;
@@ -22,7 +23,9 @@ const useStyle = createStyles(({ token, css }) => {
       box-shadow: ${boxShadowSecondary};
       transform: translate3d(0, -100%, 0);
       opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
+      transition:
+        opacity 0.3s,
+        transform 0.3s;
 
       ${antCls}-tabs {
         max-width: 1208px;

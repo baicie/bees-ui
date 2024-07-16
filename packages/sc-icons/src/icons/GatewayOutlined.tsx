@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GatewayOutlinedSvg from '@ant-design/icons-svg/lib/asn/GatewayOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GatewayOutlined = (props: AntdIconProps) => (

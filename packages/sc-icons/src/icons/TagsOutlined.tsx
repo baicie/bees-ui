@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TagsOutlinedSvg from '@ant-design/icons-svg/lib/asn/TagsOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TagsOutlined = (props: AntdIconProps) => (

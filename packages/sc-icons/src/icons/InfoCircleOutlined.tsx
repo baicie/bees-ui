@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InfoCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/InfoCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InfoCircleOutlined = (props: AntdIconProps) => (

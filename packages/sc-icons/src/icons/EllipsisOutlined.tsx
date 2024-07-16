@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EllipsisOutlinedSvg from '@ant-design/icons-svg/lib/asn/EllipsisOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EllipsisOutlined = (props: AntdIconProps) => (

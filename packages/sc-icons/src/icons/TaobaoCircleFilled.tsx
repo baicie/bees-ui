@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TaobaoCircleFilledSvg from '@ant-design/icons-svg/lib/asn/TaobaoCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TaobaoCircleFilled = (props: AntdIconProps) => (

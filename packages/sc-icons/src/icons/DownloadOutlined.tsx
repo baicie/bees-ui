@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DownloadOutlinedSvg from '@ant-design/icons-svg/lib/asn/DownloadOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DownloadOutlined = (props: AntdIconProps) => (

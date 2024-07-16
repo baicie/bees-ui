@@ -1,9 +1,9 @@
 import {
-  isConstructor,
+  ComponentOptions,
   ComponentType,
   ConstructableComponent,
   FunctionComponent,
-  ComponentOptions,
+  isConstructor,
 } from './utils';
 
 export function createMixin(mixinFn: (options: ComponentOptions) => ComponentOptions) {

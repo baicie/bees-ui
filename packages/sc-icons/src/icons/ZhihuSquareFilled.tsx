@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ZhihuSquareFilledSvg from '@ant-design/icons-svg/lib/asn/ZhihuSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ZhihuSquareFilled = (props: AntdIconProps) => (

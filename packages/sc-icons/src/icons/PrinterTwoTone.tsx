@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PrinterTwoToneSvg from '@ant-design/icons-svg/lib/asn/PrinterTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PrinterTwoTone = (props: AntdIconProps) => (

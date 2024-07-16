@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HighlightOutlinedSvg from '@ant-design/icons-svg/lib/asn/HighlightOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HighlightOutlined = (props: AntdIconProps) => (

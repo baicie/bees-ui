@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
 import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 

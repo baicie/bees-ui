@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import Html5FilledSvg from '@ant-design/icons-svg/lib/asn/Html5Filled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const Html5Filled = (props: AntdIconProps) => (

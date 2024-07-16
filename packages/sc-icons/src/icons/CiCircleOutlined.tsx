@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CiCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/CiCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CiCircleOutlined = (props: AntdIconProps) => (

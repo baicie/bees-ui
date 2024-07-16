@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PieChartFilledSvg from '@ant-design/icons-svg/lib/asn/PieChartFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PieChartFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlipayCircleFilledSvg from '@ant-design/icons-svg/lib/asn/AlipayCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlipayCircleFilled = (props: AntdIconProps) => (

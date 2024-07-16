@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SaveOutlinedSvg from '@ant-design/icons-svg/lib/asn/SaveOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SaveOutlined = (props: AntdIconProps) => (

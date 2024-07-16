@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TranslationOutlinedSvg from '@ant-design/icons-svg/lib/asn/TranslationOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TranslationOutlined = (props: AntdIconProps) => (

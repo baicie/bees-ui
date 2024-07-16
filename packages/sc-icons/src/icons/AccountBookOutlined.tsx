@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AccountBookOutlinedSvg from '@ant-design/icons-svg/lib/asn/AccountBookOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AccountBookOutlined = (props: AntdIconProps) => (

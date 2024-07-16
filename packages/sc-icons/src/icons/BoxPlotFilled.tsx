@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BoxPlotFilledSvg from '@ant-design/icons-svg/lib/asn/BoxPlotFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BoxPlotFilled = (props: AntdIconProps) => (

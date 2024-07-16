@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BackwardOutlinedSvg from '@ant-design/icons-svg/lib/asn/BackwardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BackwardOutlined = (props: AntdIconProps) => (

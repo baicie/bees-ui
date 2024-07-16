@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CopyFilledSvg from '@ant-design/icons-svg/lib/asn/CopyFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CopyFilled = (props: AntdIconProps) => (

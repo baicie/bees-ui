@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HourglassOutlinedSvg from '@ant-design/icons-svg/lib/asn/HourglassOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HourglassOutlined = (props: AntdIconProps) => (

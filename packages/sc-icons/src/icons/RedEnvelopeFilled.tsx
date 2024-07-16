@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RedEnvelopeFilledSvg from '@ant-design/icons-svg/lib/asn/RedEnvelopeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RedEnvelopeFilled = (props: AntdIconProps) => (

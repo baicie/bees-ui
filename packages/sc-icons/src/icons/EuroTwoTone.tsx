@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EuroTwoToneSvg from '@ant-design/icons-svg/lib/asn/EuroTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EuroTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PayCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/PayCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PayCircleOutlined = (props: AntdIconProps) => (

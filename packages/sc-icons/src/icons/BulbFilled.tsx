@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BulbFilledSvg from '@ant-design/icons-svg/lib/asn/BulbFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BulbFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SisternodeOutlinedSvg from '@ant-design/icons-svg/lib/asn/SisternodeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SisternodeOutlined = (props: AntdIconProps) => (

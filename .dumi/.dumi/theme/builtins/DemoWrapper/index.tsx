@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { DumiDemoGrid, FormattedMessage } from 'dumi';
 import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
 import { Tooltip } from 'antd';
-import DemoContext from '../../slots/DemoContext';
+import classNames from 'classnames';
+import { DumiDemoGrid, FormattedMessage } from 'dumi';
+
 import useLayoutState from '../../../hooks/useLayoutState';
+import DemoContext from '../../slots/DemoContext';
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   const { showDebug, setShowDebug } = useContext(DemoContext);
@@ -25,27 +26,30 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const demos = React.useMemo(
     () =>
-      items.reduce((acc, item) => {
-        const { previewerProps } = item;
-        const { debug } = previewerProps;
+      items.reduce(
+        (acc, item) => {
+          const { previewerProps } = item;
+          const { debug } = previewerProps;
 
-        if (debug && !showDebug) return acc;
+          if (debug && !showDebug) return acc;
 
-        return acc.concat({
-          ...item,
-          previewerProps: {
-            ...previewerProps,
-            expand: expandAll,
-            // always override debug property, because dumi will hide debug demo in production
-            debug: false,
-            /**
-             * antd extra marker for the original debug
-             * @see https://github.com/ant-design/ant-design/pull/40130#issuecomment-1380208762
-             */
-            originDebug: debug,
-          },
-        });
-      }, [] as typeof items),
+          return acc.concat({
+            ...item,
+            previewerProps: {
+              ...previewerProps,
+              expand: expandAll,
+              // always override debug property, because dumi will hide debug demo in production
+              debug: false,
+              /**
+               * antd extra marker for the original debug
+               * @see https://github.com/ant-design/ant-design/pull/40130#issuecomment-1380208762
+               */
+              originDebug: debug,
+            },
+          });
+        },
+        [] as typeof items,
+      ),
     [expandAll, showDebug],
   );
 

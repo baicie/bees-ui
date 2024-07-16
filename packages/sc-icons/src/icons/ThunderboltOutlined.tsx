@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ThunderboltOutlinedSvg from '@ant-design/icons-svg/lib/asn/ThunderboltOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ThunderboltOutlined = (props: AntdIconProps) => (

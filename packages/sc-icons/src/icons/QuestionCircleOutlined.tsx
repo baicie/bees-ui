@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import QuestionCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/QuestionCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const QuestionCircleOutlined = (props: AntdIconProps) => (

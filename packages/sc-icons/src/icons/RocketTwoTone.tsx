@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RocketTwoToneSvg from '@ant-design/icons-svg/lib/asn/RocketTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RocketTwoTone = (props: AntdIconProps) => (

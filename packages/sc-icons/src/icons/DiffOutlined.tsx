@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DiffOutlinedSvg from '@ant-design/icons-svg/lib/asn/DiffOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DiffOutlined = (props: AntdIconProps) => (

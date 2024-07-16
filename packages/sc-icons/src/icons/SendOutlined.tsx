@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SendOutlinedSvg from '@ant-design/icons-svg/lib/asn/SendOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SendOutlined = (props: AntdIconProps) => (

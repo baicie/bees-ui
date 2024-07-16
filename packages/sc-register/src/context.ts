@@ -1,5 +1,5 @@
-import { createMixin } from './mixin';
 import { getCurrentElement } from './element';
+import { createMixin } from './mixin';
 
 const EC = Symbol('element-context');
 

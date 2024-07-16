@@ -5,9 +5,6 @@
       "dependsOn": ["^build"],
       "cache": false
     },
-    "base": {
-      "cache": true
-    },
     "clean": {
       "cache": false
     },
@@ -15,17 +12,6 @@
       "dependsOn": ["^dev"],
       "cache": false
     },
-    "core-dev": {
-      "cache": true
-    },
-    "tools-dev": {
-      "cache": true
-    },
-    "test": {},
-    "lint-fix": {},
-    "lint": {},
-    "prettier": {},
-    "interbal-stub": {},
     "stub": {
       "cache": true,
       "dependsOn": ["^stub"]

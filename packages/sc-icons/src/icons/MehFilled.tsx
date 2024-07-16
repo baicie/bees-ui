@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MehFilledSvg from '@ant-design/icons-svg/lib/asn/MehFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MehFilled = (props: AntdIconProps) => (

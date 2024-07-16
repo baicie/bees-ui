@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StarOutlinedSvg from '@ant-design/icons-svg/lib/asn/StarOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StarOutlined = (props: AntdIconProps) => (

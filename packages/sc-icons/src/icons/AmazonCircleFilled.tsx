@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AmazonCircleFilledSvg from '@ant-design/icons-svg/lib/asn/AmazonCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AmazonCircleFilled = (props: AntdIconProps) => (

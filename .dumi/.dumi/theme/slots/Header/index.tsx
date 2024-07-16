@@ -328,11 +328,7 @@ const Header: React.FC = () => {
       pure
       aria-label="RTL Switch Button"
     />,
-    <a
-      key="github"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a key="github" target="_blank" rel="noreferrer">
       <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
     </a>,
   ];
@@ -346,9 +342,9 @@ const Header: React.FC = () => {
   const colProps = isHome
     ? [{ flex: 'none' }, { flex: 'auto' }]
     : [
-      { xxl: 4, xl: 5, lg: 6, md: 6, sm: 24, xs: 24 },
-      { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
-    ];
+        { xxl: 4, xl: 5, lg: 6, md: 6, sm: 24, xs: 24 },
+        { xxl: 20, xl: 19, lg: 18, md: 18, sm: 0, xs: 0 },
+      ];
 
   return (
     <header className={headerClassName}>

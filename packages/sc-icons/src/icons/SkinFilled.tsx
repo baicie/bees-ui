@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SkinFilledSvg from '@ant-design/icons-svg/lib/asn/SkinFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SkinFilled = (props: AntdIconProps) => (

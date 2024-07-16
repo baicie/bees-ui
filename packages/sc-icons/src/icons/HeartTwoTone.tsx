@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HeartTwoToneSvg from '@ant-design/icons-svg/lib/asn/HeartTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HeartTwoTone = (props: AntdIconProps) => (

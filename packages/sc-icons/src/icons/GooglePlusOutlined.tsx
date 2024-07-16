@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GooglePlusOutlinedSvg from '@ant-design/icons-svg/lib/asn/GooglePlusOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GooglePlusOutlined = (props: AntdIconProps) => (

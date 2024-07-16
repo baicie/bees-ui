@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IdcardTwoToneSvg from '@ant-design/icons-svg/lib/asn/IdcardTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IdcardTwoTone = (props: AntdIconProps) => (

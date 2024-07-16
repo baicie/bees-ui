@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlusCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/PlusCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlusCircleTwoTone = (props: AntdIconProps) => (

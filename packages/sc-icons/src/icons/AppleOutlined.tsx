@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AppleOutlinedSvg from '@ant-design/icons-svg/lib/asn/AppleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AppleOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloseSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/CloseSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloseSquareOutlined = (props: AntdIconProps) => (

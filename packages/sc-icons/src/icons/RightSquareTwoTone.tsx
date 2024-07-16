@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RightSquareTwoToneSvg from '@ant-design/icons-svg/lib/asn/RightSquareTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RightSquareTwoTone = (props: AntdIconProps) => (

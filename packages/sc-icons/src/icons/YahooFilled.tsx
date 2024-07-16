@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import YahooFilledSvg from '@ant-design/icons-svg/lib/asn/YahooFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const YahooFilled = (props: AntdIconProps) => (

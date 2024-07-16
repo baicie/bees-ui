@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SlidersFilledSvg from '@ant-design/icons-svg/lib/asn/SlidersFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SlidersFilled = (props: AntdIconProps) => (

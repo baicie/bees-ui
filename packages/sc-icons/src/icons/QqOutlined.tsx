@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import QqOutlinedSvg from '@ant-design/icons-svg/lib/asn/QqOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const QqOutlined = (props: AntdIconProps) => (

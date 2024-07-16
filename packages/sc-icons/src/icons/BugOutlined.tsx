@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BugOutlinedSvg from '@ant-design/icons-svg/lib/asn/BugOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BugOutlined = (props: AntdIconProps) => (

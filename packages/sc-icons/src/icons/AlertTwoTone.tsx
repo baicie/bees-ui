@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlertTwoToneSvg from '@ant-design/icons-svg/lib/asn/AlertTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlertTwoTone = (props: AntdIconProps) => (

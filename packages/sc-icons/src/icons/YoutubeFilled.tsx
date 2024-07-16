@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import YoutubeFilledSvg from '@ant-design/icons-svg/lib/asn/YoutubeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const YoutubeFilled = (props: AntdIconProps) => (

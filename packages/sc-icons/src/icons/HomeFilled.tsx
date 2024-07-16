@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HomeFilledSvg from '@ant-design/icons-svg/lib/asn/HomeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HomeFilled = (props: AntdIconProps) => (

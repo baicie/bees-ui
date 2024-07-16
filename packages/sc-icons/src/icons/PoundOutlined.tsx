@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PoundOutlinedSvg from '@ant-design/icons-svg/lib/asn/PoundOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PoundOutlined = (props: AntdIconProps) => (

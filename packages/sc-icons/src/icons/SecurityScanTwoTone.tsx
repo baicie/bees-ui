@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SecurityScanTwoToneSvg from '@ant-design/icons-svg/lib/asn/SecurityScanTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SecurityScanTwoTone = (props: AntdIconProps) => (

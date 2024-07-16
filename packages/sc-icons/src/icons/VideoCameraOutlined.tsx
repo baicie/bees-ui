@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VideoCameraOutlinedSvg from '@ant-design/icons-svg/lib/asn/VideoCameraOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VideoCameraOutlined = (props: AntdIconProps) => (

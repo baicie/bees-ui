@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SmileTwoToneSvg from '@ant-design/icons-svg/lib/asn/SmileTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SmileTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import NodeExpandOutlinedSvg from '@ant-design/icons-svg/lib/asn/NodeExpandOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const NodeExpandOutlined = (props: AntdIconProps) => (

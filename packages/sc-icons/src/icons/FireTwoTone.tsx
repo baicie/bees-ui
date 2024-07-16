@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FireTwoToneSvg from '@ant-design/icons-svg/lib/asn/FireTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FireTwoTone = (props: AntdIconProps) => (

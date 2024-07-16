@@ -1,8 +1,8 @@
-import allIconDefs from '@ant-design/icons-svg';
-import type { IconDefinition } from '@ant-design/icons-svg/es/types';
 import fs from 'node:fs';
 import path from 'node:path';
 import { promisify } from 'node:util';
+import allIconDefs from '@ant-design/icons-svg';
+import type { IconDefinition } from '@ant-design/icons-svg/es/types';
 // eslint-disable-next-line lodash/import-scope
 import { template } from 'lodash';
 

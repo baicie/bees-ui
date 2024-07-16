@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MedicineBoxFilledSvg from '@ant-design/icons-svg/lib/asn/MedicineBoxFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MedicineBoxFilled = (props: AntdIconProps) => (

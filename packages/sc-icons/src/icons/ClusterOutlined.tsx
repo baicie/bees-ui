@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ClusterOutlinedSvg from '@ant-design/icons-svg/lib/asn/ClusterOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ClusterOutlined = (props: AntdIconProps) => (

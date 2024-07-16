@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftCircleTwoToneSvg from '@ant-design/icons-svg/lib/asn/LeftCircleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftCircleTwoTone = (props: AntdIconProps) => (

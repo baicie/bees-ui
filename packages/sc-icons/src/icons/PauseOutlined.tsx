@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PauseOutlinedSvg from '@ant-design/icons-svg/lib/asn/PauseOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PauseOutlined = (props: AntdIconProps) => (

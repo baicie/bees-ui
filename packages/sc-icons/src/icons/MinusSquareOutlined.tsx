@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MinusSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/MinusSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MinusSquareOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MobileFilledSvg from '@ant-design/icons-svg/lib/asn/MobileFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MobileFilled = (props: AntdIconProps) => (

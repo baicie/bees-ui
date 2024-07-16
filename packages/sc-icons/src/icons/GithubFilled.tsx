@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GithubFilledSvg from '@ant-design/icons-svg/lib/asn/GithubFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GithubFilled = (props: AntdIconProps) => (

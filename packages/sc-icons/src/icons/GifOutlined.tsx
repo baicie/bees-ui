@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GifOutlinedSvg from '@ant-design/icons-svg/lib/asn/GifOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GifOutlined = (props: AntdIconProps) => (

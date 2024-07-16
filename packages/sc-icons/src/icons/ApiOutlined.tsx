@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ApiOutlinedSvg from '@ant-design/icons-svg/lib/asn/ApiOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ApiOutlined = (props: AntdIconProps) => (

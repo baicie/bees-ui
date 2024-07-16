@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UngroupOutlinedSvg from '@ant-design/icons-svg/lib/asn/UngroupOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UngroupOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CalendarFilledSvg from '@ant-design/icons-svg/lib/asn/CalendarFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CalendarFilled = (props: AntdIconProps) => (

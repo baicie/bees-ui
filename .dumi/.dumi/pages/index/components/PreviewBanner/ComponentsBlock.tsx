@@ -19,8 +19,8 @@ import {
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
-import Tilt from './Tilt';
 import useLocale from '../../../../hooks/useLocale';
+import Tilt from './Tilt';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;

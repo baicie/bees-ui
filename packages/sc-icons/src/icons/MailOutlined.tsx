@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MailOutlinedSvg from '@ant-design/icons-svg/lib/asn/MailOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MailOutlined = (props: AntdIconProps) => (

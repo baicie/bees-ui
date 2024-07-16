@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import IdcardOutlinedSvg from '@ant-design/icons-svg/lib/asn/IdcardOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const IdcardOutlined = (props: AntdIconProps) => (

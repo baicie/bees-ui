@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CompassTwoToneSvg from '@ant-design/icons-svg/lib/asn/CompassTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CompassTwoTone = (props: AntdIconProps) => (

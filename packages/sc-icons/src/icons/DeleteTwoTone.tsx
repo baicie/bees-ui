@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeleteTwoToneSvg from '@ant-design/icons-svg/lib/asn/DeleteTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeleteTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AppstoreFilledSvg from '@ant-design/icons-svg/lib/asn/AppstoreFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AppstoreFilled = (props: AntdIconProps) => (

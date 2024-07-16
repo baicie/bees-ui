@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeleteOutlinedSvg from '@ant-design/icons-svg/lib/asn/DeleteOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeleteOutlined = (props: AntdIconProps) => (

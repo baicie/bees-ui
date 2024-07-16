@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LogoutOutlinedSvg from '@ant-design/icons-svg/lib/asn/LogoutOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LogoutOutlined = (props: AntdIconProps) => (

@@ -1,7 +1,8 @@
 import type { FC } from 'react';
 import React, { Suspense } from 'react';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
+
 import type { BehaviorMapProps } from './BehaviorMap';
 
 const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PaperClipOutlinedSvg from '@ant-design/icons-svg/lib/asn/PaperClipOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PaperClipOutlined = (props: AntdIconProps) => (

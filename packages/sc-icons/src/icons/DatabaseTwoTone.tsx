@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DatabaseTwoToneSvg from '@ant-design/icons-svg/lib/asn/DatabaseTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DatabaseTwoTone = (props: AntdIconProps) => (

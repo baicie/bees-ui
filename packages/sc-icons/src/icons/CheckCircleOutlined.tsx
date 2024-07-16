@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/CheckCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckCircleOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MehTwoToneSvg from '@ant-design/icons-svg/lib/asn/MehTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MehTwoTone = (props: AntdIconProps) => (

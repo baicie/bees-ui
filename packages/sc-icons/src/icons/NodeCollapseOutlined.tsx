@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import NodeCollapseOutlinedSvg from '@ant-design/icons-svg/lib/asn/NodeCollapseOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const NodeCollapseOutlined = (props: AntdIconProps) => (

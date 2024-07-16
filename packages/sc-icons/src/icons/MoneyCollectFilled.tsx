@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MoneyCollectFilledSvg from '@ant-design/icons-svg/lib/asn/MoneyCollectFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MoneyCollectFilled = (props: AntdIconProps) => (

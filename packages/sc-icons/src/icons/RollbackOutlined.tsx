@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RollbackOutlinedSvg from '@ant-design/icons-svg/lib/asn/RollbackOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RollbackOutlined = (props: AntdIconProps) => (

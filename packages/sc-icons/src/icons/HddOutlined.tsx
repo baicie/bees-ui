@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import HddOutlinedSvg from '@ant-design/icons-svg/lib/asn/HddOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const HddOutlined = (props: AntdIconProps) => (

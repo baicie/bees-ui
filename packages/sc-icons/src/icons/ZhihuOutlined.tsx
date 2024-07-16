@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ZhihuOutlinedSvg from '@ant-design/icons-svg/lib/asn/ZhihuOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ZhihuOutlined = (props: AntdIconProps) => (

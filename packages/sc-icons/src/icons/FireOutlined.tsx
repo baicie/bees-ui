@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FireOutlinedSvg from '@ant-design/icons-svg/lib/asn/FireOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FireOutlined = (props: AntdIconProps) => (

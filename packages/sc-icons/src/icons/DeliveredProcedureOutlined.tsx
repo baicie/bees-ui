@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeliveredProcedureOutlinedSvg from '@ant-design/icons-svg/lib/asn/DeliveredProcedureOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeliveredProcedureOutlined = (props: AntdIconProps) => (

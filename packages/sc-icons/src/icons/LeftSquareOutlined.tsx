@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/LeftSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftSquareOutlined = (props: AntdIconProps) => (

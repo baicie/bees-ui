@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftCircleOutlinedSvg from '@ant-design/icons-svg/lib/asn/LeftCircleOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftCircleOutlined = (props: AntdIconProps) => (

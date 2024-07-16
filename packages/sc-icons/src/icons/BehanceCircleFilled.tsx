@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BehanceCircleFilledSvg from '@ant-design/icons-svg/lib/asn/BehanceCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BehanceCircleFilled = (props: AntdIconProps) => (

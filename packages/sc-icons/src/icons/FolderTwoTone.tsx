@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FolderTwoToneSvg from '@ant-design/icons-svg/lib/asn/FolderTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FolderTwoTone = (props: AntdIconProps) => (

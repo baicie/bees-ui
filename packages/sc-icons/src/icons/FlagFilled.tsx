@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FlagFilledSvg from '@ant-design/icons-svg/lib/asn/FlagFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FlagFilled = (props: AntdIconProps) => (

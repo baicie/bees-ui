@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TwitterOutlinedSvg from '@ant-design/icons-svg/lib/asn/TwitterOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TwitterOutlined = (props: AntdIconProps) => (

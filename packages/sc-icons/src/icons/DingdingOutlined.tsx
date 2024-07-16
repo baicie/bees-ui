@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DingdingOutlinedSvg from '@ant-design/icons-svg/lib/asn/DingdingOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DingdingOutlined = (props: AntdIconProps) => (

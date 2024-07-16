@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CustomerServiceFilledSvg from '@ant-design/icons-svg/lib/asn/CustomerServiceFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CustomerServiceFilled = (props: AntdIconProps) => (

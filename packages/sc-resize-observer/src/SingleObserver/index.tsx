@@ -1,8 +1,4 @@
 import { findDOMNode } from '@bees-ui/sc-util';
-import type { ResizeObserverProps } from '..';
-import { CollectionContext } from '../Collection';
-import { observe, unobserve } from '../utils/observerUtil';
-import DomWrapper from './DomWrapper';
 import {
   createEffect,
   createSignal,
@@ -11,6 +7,11 @@ import {
   type JSXElement,
   type Ref,
 } from 'solid-js';
+
+import type { ResizeObserverProps } from '..';
+import { CollectionContext } from '../Collection';
+import { observe, unobserve } from '../utils/observerUtil';
+import DomWrapper from './DomWrapper';
 
 export interface SingleObserverProps extends ResizeObserverProps {
   children: JSXElement | ((ref: Ref<Element>) => JSXElement);

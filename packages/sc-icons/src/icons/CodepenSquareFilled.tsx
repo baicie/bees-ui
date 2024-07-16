@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CodepenSquareFilledSvg from '@ant-design/icons-svg/lib/asn/CodepenSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CodepenSquareFilled = (props: AntdIconProps) => (

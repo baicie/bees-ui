@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileImageFilledSvg from '@ant-design/icons-svg/lib/asn/FileImageFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileImageFilled = (props: AntdIconProps) => (

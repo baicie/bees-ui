@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CarryOutTwoToneSvg from '@ant-design/icons-svg/lib/asn/CarryOutTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CarryOutTwoTone = (props: AntdIconProps) => (

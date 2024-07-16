@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RocketFilledSvg from '@ant-design/icons-svg/lib/asn/RocketFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RocketFilled = (props: AntdIconProps) => (

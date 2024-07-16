@@ -5,10 +5,10 @@ import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
+import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
+import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
 import LZString from 'lz-string';
 
-import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -21,7 +21,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
 

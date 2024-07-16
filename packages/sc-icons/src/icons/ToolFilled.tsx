@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ToolFilledSvg from '@ant-design/icons-svg/lib/asn/ToolFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ToolFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RadiusBottomleftOutlinedSvg from '@ant-design/icons-svg/lib/asn/RadiusBottomleftOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RadiusBottomleftOutlined = (props: AntdIconProps) => (

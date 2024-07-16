@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LineOutlinedSvg from '@ant-design/icons-svg/lib/asn/LineOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LineOutlined = (props: AntdIconProps) => (

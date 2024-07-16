@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DollarOutlinedSvg from '@ant-design/icons-svg/lib/asn/DollarOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DollarOutlined = (props: AntdIconProps) => (

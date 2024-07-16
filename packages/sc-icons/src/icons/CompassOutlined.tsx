@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CompassOutlinedSvg from '@ant-design/icons-svg/lib/asn/CompassOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CompassOutlined = (props: AntdIconProps) => (

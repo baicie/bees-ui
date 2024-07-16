@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RocketOutlinedSvg from '@ant-design/icons-svg/lib/asn/RocketOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RocketOutlined = (props: AntdIconProps) => (

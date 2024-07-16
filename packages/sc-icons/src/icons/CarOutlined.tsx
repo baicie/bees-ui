@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CarOutlinedSvg from '@ant-design/icons-svg/lib/asn/CarOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CarOutlined = (props: AntdIconProps) => (

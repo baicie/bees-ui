@@ -96,7 +96,7 @@ type ChangelogInfo = {
 };
 
 function useChangelog(componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] {
-  const data = {}
+  const data = {};
 
   return useMemo(() => {
     const component = componentPath.replace(/-/g, '');

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AppstoreOutlinedSvg from '@ant-design/icons-svg/lib/asn/AppstoreOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AppstoreOutlined = (props: AntdIconProps) => (

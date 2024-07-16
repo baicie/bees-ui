@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WindowsFilledSvg from '@ant-design/icons-svg/lib/asn/WindowsFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WindowsFilled = (props: AntdIconProps) => (

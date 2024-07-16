@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CompassFilledSvg from '@ant-design/icons-svg/lib/asn/CompassFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CompassFilled = (props: AntdIconProps) => (

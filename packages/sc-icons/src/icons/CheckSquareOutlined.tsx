@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CheckSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/CheckSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CheckSquareOutlined = (props: AntdIconProps) => (

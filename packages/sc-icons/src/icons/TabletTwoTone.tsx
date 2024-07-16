@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TabletTwoToneSvg from '@ant-design/icons-svg/lib/asn/TabletTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TabletTwoTone = (props: AntdIconProps) => (

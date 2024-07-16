@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ReconciliationFilledSvg from '@ant-design/icons-svg/lib/asn/ReconciliationFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ReconciliationFilled = (props: AntdIconProps) => (

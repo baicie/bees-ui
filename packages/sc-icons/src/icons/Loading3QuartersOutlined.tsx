@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import Loading3QuartersOutlinedSvg from '@ant-design/icons-svg/lib/asn/Loading3QuartersOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const Loading3QuartersOutlined = (props: AntdIconProps) => (

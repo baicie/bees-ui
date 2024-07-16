@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BoxPlotOutlinedSvg from '@ant-design/icons-svg/lib/asn/BoxPlotOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BoxPlotOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RightSquareFilledSvg from '@ant-design/icons-svg/lib/asn/RightSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RightSquareFilled = (props: AntdIconProps) => (

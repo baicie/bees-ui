@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SaveTwoToneSvg from '@ant-design/icons-svg/lib/asn/SaveTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SaveTwoTone = (props: AntdIconProps) => (

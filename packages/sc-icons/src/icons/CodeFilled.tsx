@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CodeFilledSvg from '@ant-design/icons-svg/lib/asn/CodeFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CodeFilled = (props: AntdIconProps) => (

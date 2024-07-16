@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PhoneOutlinedSvg from '@ant-design/icons-svg/lib/asn/PhoneOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PhoneOutlined = (props: AntdIconProps) => (

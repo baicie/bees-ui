@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EyeInvisibleTwoToneSvg from '@ant-design/icons-svg/lib/asn/EyeInvisibleTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EyeInvisibleTwoTone = (props: AntdIconProps) => (

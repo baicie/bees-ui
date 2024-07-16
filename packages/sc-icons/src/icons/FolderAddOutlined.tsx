@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FolderAddOutlinedSvg from '@ant-design/icons-svg/lib/asn/FolderAddOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FolderAddOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UserSwitchOutlinedSvg from '@ant-design/icons-svg/lib/asn/UserSwitchOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UserSwitchOutlined = (props: AntdIconProps) => (

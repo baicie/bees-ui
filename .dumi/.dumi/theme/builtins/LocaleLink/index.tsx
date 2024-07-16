@@ -1,5 +1,6 @@
-import { Link } from 'dumi';
 import * as React from 'react';
+import { Link } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
 
 type LinkProps = Parameters<typeof Link>[0];

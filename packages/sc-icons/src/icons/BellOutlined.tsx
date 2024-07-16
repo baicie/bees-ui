@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BellOutlinedSvg from '@ant-design/icons-svg/lib/asn/BellOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BellOutlined = (props: AntdIconProps) => (

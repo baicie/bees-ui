@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlipayOutlinedSvg from '@ant-design/icons-svg/lib/asn/AlipayOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlipayOutlined = (props: AntdIconProps) => (

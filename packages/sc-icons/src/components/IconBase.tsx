@@ -1,6 +1,7 @@
 import type { AbstractNode, IconDefinition } from '@ant-design/icons-svg/lib/types';
-import { generate, getSecondaryColor, isIconDefinition, warning, useInsertStyles } from '../utils';
 import type { Component, JSX, Ref } from 'solid-js';
+
+import { generate, getSecondaryColor, isIconDefinition, useInsertStyles, warning } from '../utils';
 
 export interface IconProps {
   icon: IconDefinition;

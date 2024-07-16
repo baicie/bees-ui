@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FilePdfOutlinedSvg from '@ant-design/icons-svg/lib/asn/FilePdfOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FilePdfOutlined = (props: AntdIconProps) => (

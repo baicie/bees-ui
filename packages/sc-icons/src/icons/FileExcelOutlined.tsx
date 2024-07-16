@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileExcelOutlinedSvg from '@ant-design/icons-svg/lib/asn/FileExcelOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileExcelOutlined = (props: AntdIconProps) => (

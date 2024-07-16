@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WalletOutlinedSvg from '@ant-design/icons-svg/lib/asn/WalletOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WalletOutlined = (props: AntdIconProps) => (

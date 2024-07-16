@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InsuranceFilledSvg from '@ant-design/icons-svg/lib/asn/InsuranceFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InsuranceFilled = (props: AntdIconProps) => (

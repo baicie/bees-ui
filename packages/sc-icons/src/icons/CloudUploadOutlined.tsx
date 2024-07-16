@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloudUploadOutlinedSvg from '@ant-design/icons-svg/lib/asn/CloudUploadOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloudUploadOutlined = (props: AntdIconProps) => (

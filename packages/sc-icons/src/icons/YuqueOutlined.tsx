@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import YuqueOutlinedSvg from '@ant-design/icons-svg/lib/asn/YuqueOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const YuqueOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SubnodeOutlinedSvg from '@ant-design/icons-svg/lib/asn/SubnodeOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SubnodeOutlined = (props: AntdIconProps) => (

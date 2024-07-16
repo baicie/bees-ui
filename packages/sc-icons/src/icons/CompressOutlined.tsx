@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CompressOutlinedSvg from '@ant-design/icons-svg/lib/asn/CompressOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CompressOutlined = (props: AntdIconProps) => (

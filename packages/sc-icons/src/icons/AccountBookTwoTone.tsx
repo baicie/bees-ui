@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AccountBookTwoToneSvg from '@ant-design/icons-svg/lib/asn/AccountBookTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AccountBookTwoTone = (props: AntdIconProps) => (

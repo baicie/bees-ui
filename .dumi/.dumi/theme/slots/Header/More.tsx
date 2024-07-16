@@ -1,10 +1,11 @@
-import { DownOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
-import { FormattedMessage } from 'dumi';
 import React from 'react';
-import classnames from 'classnames';
+import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
+import { createStyles } from 'antd-style';
+import classnames from 'classnames';
+import { FormattedMessage } from 'dumi';
+
 import type { SharedProps } from './interface';
 
 const useStyle = createStyles(({ css, token }) => ({

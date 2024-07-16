@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EyeTwoToneSvg from '@ant-design/icons-svg/lib/asn/EyeTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EyeTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DiffFilledSvg from '@ant-design/icons-svg/lib/asn/DiffFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DiffFilled = (props: AntdIconProps) => (

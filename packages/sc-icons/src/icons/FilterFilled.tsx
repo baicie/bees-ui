@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FilterFilledSvg from '@ant-design/icons-svg/lib/asn/FilterFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FilterFilled = (props: AntdIconProps) => (

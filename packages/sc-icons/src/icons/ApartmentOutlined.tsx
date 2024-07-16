@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ApartmentOutlinedSvg from '@ant-design/icons-svg/lib/asn/ApartmentOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ApartmentOutlined = (props: AntdIconProps) => (

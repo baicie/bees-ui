@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CameraTwoToneSvg from '@ant-design/icons-svg/lib/asn/CameraTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CameraTwoTone = (props: AntdIconProps) => (

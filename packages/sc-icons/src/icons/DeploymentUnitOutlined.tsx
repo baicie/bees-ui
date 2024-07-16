@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DeploymentUnitOutlinedSvg from '@ant-design/icons-svg/lib/asn/DeploymentUnitOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DeploymentUnitOutlined = (props: AntdIconProps) => (

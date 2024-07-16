@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RotateLeftOutlinedSvg from '@ant-design/icons-svg/lib/asn/RotateLeftOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RotateLeftOutlined = (props: AntdIconProps) => (

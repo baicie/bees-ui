@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UpCircleFilledSvg from '@ant-design/icons-svg/lib/asn/UpCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UpCircleFilled = (props: AntdIconProps) => (

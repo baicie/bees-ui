@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ExperimentOutlinedSvg from '@ant-design/icons-svg/lib/asn/ExperimentOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ExperimentOutlined = (props: AntdIconProps) => (

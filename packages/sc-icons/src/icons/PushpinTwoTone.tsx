@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PushpinTwoToneSvg from '@ant-design/icons-svg/lib/asn/PushpinTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PushpinTwoTone = (props: AntdIconProps) => (

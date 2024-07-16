@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BehanceSquareOutlinedSvg from '@ant-design/icons-svg/lib/asn/BehanceSquareOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BehanceSquareOutlined = (props: AntdIconProps) => (

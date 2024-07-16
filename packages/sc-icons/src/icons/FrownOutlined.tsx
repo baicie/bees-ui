@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FrownOutlinedSvg from '@ant-design/icons-svg/lib/asn/FrownOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FrownOutlined = (props: AntdIconProps) => (

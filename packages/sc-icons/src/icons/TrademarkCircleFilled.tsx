@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TrademarkCircleFilledSvg from '@ant-design/icons-svg/lib/asn/TrademarkCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TrademarkCircleFilled = (props: AntdIconProps) => (

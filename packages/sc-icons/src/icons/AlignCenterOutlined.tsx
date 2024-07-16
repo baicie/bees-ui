@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import AlignCenterOutlinedSvg from '@ant-design/icons-svg/lib/asn/AlignCenterOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const AlignCenterOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PlusSquareTwoToneSvg from '@ant-design/icons-svg/lib/asn/PlusSquareTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PlusSquareTwoTone = (props: AntdIconProps) => (

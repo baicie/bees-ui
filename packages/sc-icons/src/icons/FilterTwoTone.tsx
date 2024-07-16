@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FilterTwoToneSvg from '@ant-design/icons-svg/lib/asn/FilterTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FilterTwoTone = (props: AntdIconProps) => (

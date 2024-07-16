@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CloudServerOutlinedSvg from '@ant-design/icons-svg/lib/asn/CloudServerOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CloudServerOutlined = (props: AntdIconProps) => (

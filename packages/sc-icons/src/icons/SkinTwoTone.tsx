@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SkinTwoToneSvg from '@ant-design/icons-svg/lib/asn/SkinTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SkinTwoTone = (props: AntdIconProps) => (

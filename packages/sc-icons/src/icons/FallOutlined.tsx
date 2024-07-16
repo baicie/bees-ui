@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FallOutlinedSvg from '@ant-design/icons-svg/lib/asn/FallOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FallOutlined = (props: AntdIconProps) => (

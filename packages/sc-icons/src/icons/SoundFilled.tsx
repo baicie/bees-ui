@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SoundFilledSvg from '@ant-design/icons-svg/lib/asn/SoundFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SoundFilled = (props: AntdIconProps) => (

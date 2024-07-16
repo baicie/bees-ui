@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FundTwoToneSvg from '@ant-design/icons-svg/lib/asn/FundTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FundTwoTone = (props: AntdIconProps) => (

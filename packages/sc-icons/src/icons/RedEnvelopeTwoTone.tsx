@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import RedEnvelopeTwoToneSvg from '@ant-design/icons-svg/lib/asn/RedEnvelopeTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const RedEnvelopeTwoTone = (props: AntdIconProps) => (

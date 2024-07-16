@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import QuestionCircleFilledSvg from '@ant-design/icons-svg/lib/asn/QuestionCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const QuestionCircleFilled = (props: AntdIconProps) => (

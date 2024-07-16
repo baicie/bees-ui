@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CrownFilledSvg from '@ant-design/icons-svg/lib/asn/CrownFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CrownFilled = (props: AntdIconProps) => (

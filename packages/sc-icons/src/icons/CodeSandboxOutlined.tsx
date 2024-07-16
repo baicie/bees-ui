@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CodeSandboxOutlinedSvg from '@ant-design/icons-svg/lib/asn/CodeSandboxOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CodeSandboxOutlined = (props: AntdIconProps) => (

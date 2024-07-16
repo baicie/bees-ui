@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ScanOutlinedSvg from '@ant-design/icons-svg/lib/asn/ScanOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ScanOutlined = (props: AntdIconProps) => (

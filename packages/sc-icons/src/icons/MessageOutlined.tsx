@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import MessageOutlinedSvg from '@ant-design/icons-svg/lib/asn/MessageOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const MessageOutlined = (props: AntdIconProps) => (

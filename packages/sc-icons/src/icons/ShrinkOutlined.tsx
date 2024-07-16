@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ShrinkOutlinedSvg from '@ant-design/icons-svg/lib/asn/ShrinkOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ShrinkOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FlagOutlinedSvg from '@ant-design/icons-svg/lib/asn/FlagOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FlagOutlined = (props: AntdIconProps) => (

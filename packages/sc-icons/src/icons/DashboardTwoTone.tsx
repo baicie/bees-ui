@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import DashboardTwoToneSvg from '@ant-design/icons-svg/lib/asn/DashboardTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const DashboardTwoTone = (props: AntdIconProps) => (

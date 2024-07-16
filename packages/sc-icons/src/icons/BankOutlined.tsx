@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import BankOutlinedSvg from '@ant-design/icons-svg/lib/asn/BankOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const BankOutlined = (props: AntdIconProps) => (

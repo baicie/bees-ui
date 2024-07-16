@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SmileOutlinedSvg from '@ant-design/icons-svg/lib/asn/SmileOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SmileOutlined = (props: AntdIconProps) => (

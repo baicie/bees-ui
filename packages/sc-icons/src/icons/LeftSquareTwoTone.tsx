@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import LeftSquareTwoToneSvg from '@ant-design/icons-svg/lib/asn/LeftSquareTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const LeftSquareTwoTone = (props: AntdIconProps) => (

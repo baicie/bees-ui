@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ExportOutlinedSvg from '@ant-design/icons-svg/lib/asn/ExportOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ExportOutlined = (props: AntdIconProps) => (

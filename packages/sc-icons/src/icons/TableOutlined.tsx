@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TableOutlinedSvg from '@ant-design/icons-svg/lib/asn/TableOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TableOutlined = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InteractionTwoToneSvg from '@ant-design/icons-svg/lib/asn/InteractionTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InteractionTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FolderOpenFilledSvg from '@ant-design/icons-svg/lib/asn/FolderOpenFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FolderOpenFilled = (props: AntdIconProps) => (

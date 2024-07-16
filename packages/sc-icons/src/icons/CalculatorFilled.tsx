@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CalculatorFilledSvg from '@ant-design/icons-svg/lib/asn/CalculatorFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CalculatorFilled = (props: AntdIconProps) => (

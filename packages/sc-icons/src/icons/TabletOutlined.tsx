@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import TabletOutlinedSvg from '@ant-design/icons-svg/lib/asn/TabletOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const TabletOutlined = (props: AntdIconProps) => (

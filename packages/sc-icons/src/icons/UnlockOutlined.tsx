@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import UnlockOutlinedSvg from '@ant-design/icons-svg/lib/asn/UnlockOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const UnlockOutlined = (props: AntdIconProps) => (

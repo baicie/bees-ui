@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import InsertRowBelowOutlinedSvg from '@ant-design/icons-svg/lib/asn/InsertRowBelowOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const InsertRowBelowOutlined = (props: AntdIconProps) => (

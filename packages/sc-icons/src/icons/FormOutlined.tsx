@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FormOutlinedSvg from '@ant-design/icons-svg/lib/asn/FormOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FormOutlined = (props: AntdIconProps) => (

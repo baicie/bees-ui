@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import CarryOutOutlinedSvg from '@ant-design/icons-svg/lib/asn/CarryOutOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const CarryOutOutlined = (props: AntdIconProps) => (

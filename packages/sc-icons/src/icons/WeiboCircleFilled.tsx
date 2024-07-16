@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import WeiboCircleFilledSvg from '@ant-design/icons-svg/lib/asn/WeiboCircleFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const WeiboCircleFilled = (props: AntdIconProps) => (

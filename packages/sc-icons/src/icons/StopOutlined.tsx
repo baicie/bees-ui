@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import StopOutlinedSvg from '@ant-design/icons-svg/lib/asn/StopOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const StopOutlined = (props: AntdIconProps) => (

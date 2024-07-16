@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import EnvironmentTwoToneSvg from '@ant-design/icons-svg/lib/asn/EnvironmentTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const EnvironmentTwoTone = (props: AntdIconProps) => (

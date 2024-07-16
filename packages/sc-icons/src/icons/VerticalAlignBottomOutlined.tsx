@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import VerticalAlignBottomOutlinedSvg from '@ant-design/icons-svg/lib/asn/VerticalAlignBottomOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const VerticalAlignBottomOutlined = (props: AntdIconProps) => (

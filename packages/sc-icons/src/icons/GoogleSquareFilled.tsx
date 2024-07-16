@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import GoogleSquareFilledSvg from '@ant-design/icons-svg/lib/asn/GoogleSquareFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const GoogleSquareFilled = (props: AntdIconProps) => (

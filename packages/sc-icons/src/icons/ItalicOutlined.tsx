@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ItalicOutlinedSvg from '@ant-design/icons-svg/lib/asn/ItalicOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ItalicOutlined = (props: AntdIconProps) => (

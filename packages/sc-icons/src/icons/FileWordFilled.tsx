@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import FileWordFilledSvg from '@ant-design/icons-svg/lib/asn/FileWordFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const FileWordFilled = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import SignalFilledSvg from '@ant-design/icons-svg/lib/asn/SignalFilled';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const SignalFilled = (props: AntdIconProps) => (

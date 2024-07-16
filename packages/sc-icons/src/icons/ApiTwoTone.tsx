@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import ApiTwoToneSvg from '@ant-design/icons-svg/lib/asn/ApiTwoTone';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const ApiTwoTone = (props: AntdIconProps) => (

@@ -2,6 +2,7 @@
 // DON NOT EDIT IT MANUALLY
 
 import PartitionOutlinedSvg from '@ant-design/icons-svg/lib/asn/PartitionOutlined';
+
 import AntdIcon, { type AntdIconProps } from '../components/AntdIcon';
 
 const PartitionOutlined = (props: AntdIconProps) => (
