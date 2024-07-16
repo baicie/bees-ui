@@ -82,16 +82,8 @@
   },
   "lint-staged": {
     "*": [
-      "prettier --write --cache --ignore-unknown"
-    ],
-    "*/**/{src,types}/**/*.ts": [
-      "eslint --cache --fix"
-    ],
-    "*/**/*.d.ts": [
-      "eslint --cache --fix"
-    ],
-    "*/**/__tests__/**/*.ts": [
-      "eslint --cache --fix"
+      "biome format --write .",
+      "biome lint ."
     ]
   }
 }
