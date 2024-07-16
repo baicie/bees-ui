@@ -1,19 +1,19 @@
 // @ts-check
-import { builtinModules } from 'node:module';
-import { fileURLToPath, URL } from 'node:url';
-import { FlatCompat } from '@eslint/eslintrc';
-import eslint from '@eslint/js';
-import pluginImportX from 'eslint-plugin-import-x';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import pluginN from 'eslint-plugin-n';
-import reactPlugin from 'eslint-plugin-react';
-import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import pluginRegExp from 'eslint-plugin-regexp';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { builtinModules } from 'node:module'
+import { fileURLToPath, URL } from 'node:url'
+import { FlatCompat } from '@eslint/eslintrc'
+import eslint from '@eslint/js'
+import pluginImportX from 'eslint-plugin-import-x'
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
+import pluginN from 'eslint-plugin-n'
+import reactPlugin from 'eslint-plugin-react'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import pluginRegExp from 'eslint-plugin-regexp'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
+const compat = new FlatCompat({ baseDirectory: __dirname })
 
 export default tseslint.config(
   {
@@ -22,7 +22,6 @@ export default tseslint.config(
       ['jsx-a11y']: jsxA11yPlugin,
       ['react-hooks']: reactHooksPlugin,
       ['react']: reactPlugin,
-      // ['import']: importPlugin,
       ['n']: pluginN,
       ['import-x']: pluginImportX,
     },
@@ -66,11 +65,12 @@ export default tseslint.config(
         },
         project: [
           'packages/*/tsconfig.json',
-          'client/*/tsconfig.json',
-          'servers/*/tsconfig.json',
           'playground/*/tsconfig.json',
+          'components/*/tsconfig.json',
+          'internal/*/tsconfig.json',
+          'docs/tsconfig.json',
           'tsconfig.json',
-          'playground/tsconfig.json',
+          'tsconfig.node.json',
         ],
         tsconfigRootDir: __dirname,
         warnOnUnsupportedTypeScriptVersion: false,
@@ -97,7 +97,10 @@ export default tseslint.config(
 
   // website
   {
-    files: ['servers/client/**/*.{ts,tsx,mts,cts,js,jsx}', 'client/**/*.{ts,tsx,mts,cts,js,jsx}'],
+    files: [
+      'components/**/*.{ts,tsx,mts,cts,js,jsx}',
+      'playground/**/*.{ts,tsx,mts,cts,js,jsx}',
+    ],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -105,7 +108,6 @@ export default tseslint.config(
     },
     extends: [
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       ...compat.config(jsxA11yPlugin.configs.recommended),
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
@@ -131,7 +133,7 @@ export default tseslint.config(
 
   // node
   {
-    files: ['servers/{api,cli}/*.{ts,mts,cts,js}'],
+    files: ['internal/**/*.{ts,mts,cts,js}'],
     languageOptions: {
       parserOptions: {
         sourceType: 'module',
@@ -222,11 +224,14 @@ export default tseslint.config(
   },
   {
     name: 'disables/test',
-    files: ['**/__tests__/**/*.?([cm])[jt]s?(x)', 'playground/test/**/*.?([cm])[jt]s?(x)'],
+    files: [
+      '**/__tests__/**/*.?([cm])[jt]s?(x)',
+      'playground/test/**/*.?([cm])[jt]s?(x)',
+    ],
     rules: {
       'no-console': 'off',
       'typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
     },
   },
-);
+)
