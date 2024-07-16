@@ -10,9 +10,12 @@ function App() {
 
   return (
     <div>
-      <Button type="primary">Button</Button>
-
-      <bees-button label="Click Me" children={<div>children</div>}></bees-button>
+      <bees-button label="Click Me">
+        <div slot="pre">pre</div>
+        demo
+        <div>dome222</div>
+        <div slot="post">post</div>
+      </bees-button>
     </div>
   );
 }

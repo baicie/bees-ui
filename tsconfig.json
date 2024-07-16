@@ -22,5 +22,5 @@
       "@bees-ui/*": ["packages/*", "internal/*", "solid-components/*"]
     }
   },
-  "include": ["packages", "internal", "solid-components", "icons"]
+  "include": ["packages", "internal", "solid-components", "icons", "components"]
 }

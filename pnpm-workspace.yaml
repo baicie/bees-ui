@@ -3,5 +3,5 @@ packages:
   - playground/*
   - internal/*
   - icons
-  - solid-components/*
+  - components/*
   - .dumi

@@ -9,7 +9,6 @@ import {
   useCompactItemContext,
 } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
-import { noShadowDOM } from 'solid-element';
 import {
   createEffect,
   createMemo,
@@ -25,8 +24,6 @@ import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
-
-// import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -82,9 +79,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton = (props: ButtonProps) => {
-  noShadowDOM();
+const InternalButton = (props: ButtonProps, options: any) => {
+  console.log('element', options.slots);
 
+  // noShadowDOM();
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -275,9 +273,14 @@ const InternalButton = (props: ButtonProps) => {
   // }
 
   // return wrapCSSVar(buttonNode);
-  console.log('children', children);
 
-  return <button>{children}</button>;
+  return (
+    <button>
+      {options.slots?.pre}
+      {options.slots?.default}
+      {options.slots?.post}
+    </button>
+  );
 };
 
 const Button = InternalButton;

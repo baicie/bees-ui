@@ -1,7 +1,7 @@
 {
-  "name": "@bees-ui/button",
+  "name": "@bees-ui/sc-register",
   "version": "0.0.0",
-  "description": "",
+  "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
@@ -19,6 +19,7 @@
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
+    "core-dev": "pnpm bee build --watch --sourcemap",
     "lint-fix": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md --fix",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
@@ -26,14 +27,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@bees-ui/config-provider": "workspace:^",
-    "@bees-ui/core": "workspace:^",
-    "@bees-ui/cssinjs": "workspace:^",
-    "@bees-ui/sc-util": "workspace:^",
-    "@webcomponents/shadydom": "^1.11.0",
-    "solid-element": "^1.8.1",
-    "solid-js": "^1.8.11"
-  }
+  "license": "MIT"
 }

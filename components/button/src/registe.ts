@@ -1,4 +1,4 @@
-import { customElement } from 'solid-element';
+import { customElement } from '@bees-ui/sc-element';
 
 import Button from './button';
 

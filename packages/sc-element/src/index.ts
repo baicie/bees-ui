@@ -1,15 +1,17 @@
 import {
-  register,
-  ComponentType as mComponentType,
-  ICustomElement,
-  FunctionComponent,
   ComponentOptions,
+  FunctionComponent,
+  getCurrentElement,
+  ICustomElement,
+  ComponentType as mComponentType,
   PropsDefinitionInput,
-} from 'component-register';
-export { hot, getCurrentElement, noShadowDOM } from 'component-register';
-export type ComponentType<T> = mComponentType<T>;
+  register,
+} from '@bees-ui/sc-register';
 import { createRoot, createSignal } from 'solid-js';
 import { insert } from 'solid-js/web';
+
+export { hot, getCurrentElement } from '@bees-ui/sc-register';
+export type ComponentType<T> = mComponentType<T>;
 
 function createProps<T extends object>(raw: T) {
   const keys = Object.keys(raw) as (keyof T)[];
@@ -55,7 +57,7 @@ function withSolid<T extends object>(ComponentType: ComponentType<T>): Component
       });
 
       const comp = (ComponentType as FunctionComponent<T>)(props as T, options);
-      return insert(element.renderRoot, comp);
+      return insert(getCurrentElement(), comp);
     }, lookupContext(element));
   };
 }
