@@ -23,5 +23,6 @@ export async function dts(root: string, options: Options = {}) {
     tsconfig,
     target,
     watch,
+    clean: true,
   });
 }

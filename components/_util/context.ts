@@ -6,8 +6,9 @@ import { OverrideToken } from '@bees-ui/core/src/theme/interface';
 import { createContext } from 'solid-js';
 
 import { ButtonProps } from '../button/src';
+import { ShowWaveEffect } from './wave/interface';
 
-const defaultPrefixCls = 'bees';
+export const defaultPrefixCls = 'bees';
 const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
@@ -135,7 +136,7 @@ export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   disabled?: boolean;
-  // showEffect?: ShowWaveEffect;
+  showEffect?: ShowWaveEffect;
 }
 
 export interface ConfigConsumerProps {

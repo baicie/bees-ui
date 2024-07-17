@@ -1,4 +1,4 @@
-// import Wave from '../_util/wave';
+import Wave from '@bees-ui/_util/wave';
 import { useSize } from '@bees-ui/config-provider';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
@@ -206,7 +206,11 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
 
   const { compactSize } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeClassNameMap: Record<string, string | undefined> = {
+    large: 'lg',
+    small: 'sm',
+    middle: undefined,
+  };
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
@@ -278,7 +282,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
     );
   }
 
-  const buttonNode = (
+  let buttonNode = (
     <button
       {...rest}
       type={htmlType}
@@ -295,11 +299,11 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
   );
 
   if (!isUnBorderedButtonType(type)) {
-    // buttonNode = (
-    //   <Wave component="Button" disabled={innerLoading()}>
-    //     {buttonNode}
-    //   </Wave>
-    // );
+    buttonNode = (
+      <Wave component="Button" disabled={innerLoading()}>
+        {buttonNode}
+      </Wave>
+    );
   }
   return wrapCSSVar(buttonNode);
 };

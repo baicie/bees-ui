@@ -2,8 +2,6 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-
-    "strictNullChecks": true,
     "module": "esnext",
     "moduleResolution": "Bundler",
     "esModuleInterop": true,
@@ -19,8 +17,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*", "solid-components/*"]
+      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
     }
   },
-  "include": ["packages", "internal", "solid-components", "icons", "components"]
+  "include": ["packages", "internal", "icons", "components"]
 }

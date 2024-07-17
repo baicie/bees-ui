@@ -6,6 +6,7 @@
 // import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 // import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 // import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
+import { ComponentToken as WaveToken } from '@bees-ui/_util/wave/style';
 import type { AffixComponentToken, ButtonComponentToken } from '@bees-ui/sc-type';
 
 // import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
@@ -129,6 +130,7 @@ export interface ComponentTokenMap {
   // Tour?: TourComponentToken;
   // QRCode?: QRCodeComponentToken;
   // App?: AppComponentToken;
-  // /** @private Internal TS definition. Do not use. */
-  // Wave?: WaveToken;
+
+  /** @private Internal TS definition. Do not use. */
+  Wave?: WaveToken;
 }

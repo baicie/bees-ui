@@ -94,7 +94,7 @@ export default tseslint.config(
 
   // website
   {
-    files: ['components/**/*.{ts,tsx,mts,cts,js,jsx}', 'playground/**/*.{ts,tsx,mts,cts,js,jsx}'],
+    files: ['{components,packages,playground}/**/*.{ts,tsx,mts,cts,js,jsx}'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -109,6 +109,7 @@ export default tseslint.config(
       'import/no-default-export': 'off',
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-empty-interface': 'off',
     },
     settings: {},
   },
@@ -154,7 +155,7 @@ export default tseslint.config(
       'n/no-extraneous-import': [
         'error',
         {
-          allowModules: ['vite', 'less', 'sass', 'vitest', 'unbuild'],
+          allowModules: ['tsup'],
         },
       ],
       'n/no-extraneous-require': [
