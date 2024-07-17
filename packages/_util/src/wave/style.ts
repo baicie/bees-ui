@@ -1,4 +1,4 @@
-import { FullToken, genComponentStyleHook, GenerateStyle } from '@bees-ui/core/src/index';
+import { FullToken, genComponentStyleHook, GenerateStyle } from '@bees-ui/core';
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}

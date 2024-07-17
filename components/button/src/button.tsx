@@ -1,11 +1,11 @@
-import Wave from '@bees-ui/_util/wave';
+import { Wave } from '@bees-ui/_util';
 import { useSize } from '@bees-ui/config-provider';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
 import { createSignal, onCleanup, onMount, splitProps, useContext, type JSX } from 'solid-js';
 
-import { ConfigContext } from '../../_util/context';
+import { ConfigContext } from '../../context';
 import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';

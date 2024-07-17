@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import path from 'node:path';
-import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
@@ -14,7 +12,6 @@ import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import solidPlugin from 'vite-plugin-solid';
 
-import { rootPath } from './path';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 
 export interface Options {
@@ -48,22 +45,6 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     clearScreen: true,
   };
   const plugins = [
-    alias({
-      entries: [
-        {
-          find: '@bees-ui/_util',
-          replacement: path.resolve(rootPath, 'components/_util'),
-        },
-        {
-          find: '@bees-ui/core',
-          replacement: path.resolve(rootPath, 'packages/core'),
-        },
-        {
-          find: '@bees-ui/sc-motion',
-          replacement: path.resolve(rootPath, 'packages/sc-motion'),
-        },
-      ],
-    }),
     nodeResolve({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),

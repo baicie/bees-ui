@@ -1,4 +1,4 @@
-import CSSMotion from '@bees-ui/sc-motion/src/index';
+import CSSMotion from '@bees-ui/sc-motion';
 import { raf } from '@bees-ui/sc-util';
 import classNames from 'clsx';
 import { createSignal, onCleanup, onMount } from 'solid-js';
@@ -87,8 +87,6 @@ const WaveEffect = (props: WaveEffectProps) => {
         setEnabled(true);
       });
 
-      console.log('id', id);
-
       // Add resize observer to follow size
       let resizeObserver: ResizeObserver;
       if (typeof ResizeObserver !== 'undefined') {
@@ -102,7 +100,6 @@ const WaveEffect = (props: WaveEffectProps) => {
       });
     }
   });
-  console.log('WaveEffect', enabled());
 
   // if (!enabled()) {
   //   return null;
@@ -129,6 +126,8 @@ const WaveEffect = (props: WaveEffectProps) => {
       {({ className: motionClassName }, ref) => (
         <div
           ref={(el) => {
+            console.log('el', el);
+
             divRef = el;
             ref(el);
           }}
@@ -154,6 +153,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.left = '0px';
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
+  console.log('holder', holder);
 
   render(() => <WaveEffect {...info} target={target} />, holder);
 };

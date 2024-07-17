@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/button",
+  "name": "@bees-ui/_util",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -25,11 +25,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bees-ui/_util": "workspace:^",
-    "@bees-ui/config-provider": "workspace:^",
     "@bees-ui/core": "workspace:^",
-    "@bees-ui/sc-cssinjs": "workspace:^",
-    "@bees-ui/sc-element": "workspace:^",
+    "@bees-ui/sc-motion": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "solid-js": "^1.8.11"
   }
