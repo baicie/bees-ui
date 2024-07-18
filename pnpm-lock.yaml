@@ -161,9 +161,6 @@ importers:
       rc-util:
         specifier: ^5.43.0
         version: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1

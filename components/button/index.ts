@@ -1,6 +1,6 @@
 import register from 'preact-custom-element';
 
-import Button, { InternalCompoundedButton } from './button';
+import Button from './button';
 
 export type { SizeType as ButtonSize } from '../config-provider/SizeContext';
 export type { ButtonProps } from './button';
@@ -10,4 +10,4 @@ export * from './buttonHelpers';
 
 export default Button;
 
-register(InternalCompoundedButton, 'ant-button', ['type'], { shadow: false });
+register(Button, 'ant-button', ['type','children'], { shadow: false });

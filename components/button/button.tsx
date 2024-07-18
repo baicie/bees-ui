@@ -79,6 +79,8 @@ export const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
 >((props, ref) => {
+  console.log('InternalCompoundedButton', props, ref);
+
   const {
     loading = false,
     prefixCls: customizePrefixCls,

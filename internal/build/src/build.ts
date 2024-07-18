@@ -10,9 +10,11 @@ import type {
   WatcherOptions,
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
-import { defineRollupSwcOption, swc } from 'rollup-plugin-swc3';
+import esbuild from 'rollup-plugin-esbuild';
+import path from 'node:path';
 
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
+import { rootPath } from './path';
 
 export interface Options {
   /**
@@ -58,31 +60,13 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     nodeResolve({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
-    commonjs({
-      include: /node_modules/,
-    }),
-    swc(
-      defineRollupSwcOption({
-        jsc: {
-          parser: {
-            syntax: 'typescript',
-            tsx: true,
-          },
-          transform: {
-            react: {
-              pragma: 'h',
-              pragmaFrag: 'Fragment',
-              importSource: 'preact',
-              runtime: 'automatic',
-            },
-          },
-          target,
-        },
-        tsconfig: '../../../tsconfig.json',
-        minify: minify,
-        sourceMaps: sourcemap,
-      }),
-    ),
+    commonjs( ),
+    esbuild({
+      sourceMap: sourcemap,
+      minify,
+      target,
+      tsconfig:path.resolve(rootPath, 'tsconfig.json'),
+    })
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
   console.log('External dependencies:', external);
