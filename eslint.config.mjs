@@ -6,6 +6,8 @@ import eslint from '@eslint/js';
 import pluginImportX from 'eslint-plugin-import-x';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import pluginN from 'eslint-plugin-n';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import pluginRegExp from 'eslint-plugin-regexp';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -19,6 +21,8 @@ export default tseslint.config(
       ['@typescript-eslint']: tseslint.plugin,
       ['jsx-a11y']: jsxA11yPlugin,
       ['n']: pluginN,
+      ['react-hooks']: reactHooksPlugin,
+      ['react']: reactPlugin,
       ['import-x']: pluginImportX,
     },
   },
@@ -89,6 +93,7 @@ export default tseslint.config(
       'no-empty': 'off',
       '@typescript-eslint/no-empty-function': 'off',
       'n/no-extraneous-import': 'off',
+      'n/no-extraneous-require': 'off',
     },
   },
 
@@ -110,6 +115,12 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-empty-interface': 'off',
+      'n/no-extraneous-import': [
+        'error',
+        {
+          allowModules: ['react', 'react-dom', 'react/jsx-runtime'],
+        },
+      ],
     },
     settings: {},
   },
@@ -150,18 +161,6 @@ export default tseslint.config(
         {
           allowModules: ['pnpapi', 'vite'],
           tryExtensions: ['.ts', '.js', '.jsx', '.tsx', '.d.ts'],
-        },
-      ],
-      'n/no-extraneous-import': [
-        'error',
-        {
-          allowModules: ['tsup'],
-        },
-      ],
-      'n/no-extraneous-require': [
-        'error',
-        {
-          allowModules: ['vite'],
         },
       ],
       '@typescript-eslint/interface-name-prefix': 'off',

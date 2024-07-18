@@ -17,11 +17,13 @@ cli
   .option('-m, --minify', 'output path')
   .option('-f, --full', 'output path')
   .option('-s, --sourcemap', 'output path')
+  .option('-d, --dts', 'output path')
+  .option('-n, --name', 'output path')
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
     else await build(root, args);
-    await dts(root, args);
+    if (args.dts) await dts(root, args);
   });
 
 cli.help();

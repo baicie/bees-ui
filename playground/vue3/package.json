@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@bees-ui/affix": "workspace:^",
     "@bees-ui/button": "workspace:^",
     "ant-design-vue": "^4.2.3",
     "rollup-plugin-visualizer": "^5.12.0",

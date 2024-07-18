@@ -3,10 +3,11 @@ import path from 'node:path';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import type { ModuleFormat } from 'rollup';
 
-export const DEFAULT = ['src/index.ts', 'src/index.tsx'];
+export const DEFAULT = ['src/index.ts', 'src/index.tsx', 'index.ts', 'index.tsx'];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
+
   return Object.keys(manifest.dependencies ?? []);
 }
 
@@ -15,7 +16,7 @@ export const target = 'es2018';
 export const modules = ['esm', 'cjs'] as const;
 export type Module = (typeof modules)[number];
 export interface BuildInfo {
-  module: 'ESNext' | 'CommonJS';
+  module: 'ESNext' | 'CommonJS' | 'UMD';
   format: ModuleFormat;
   ext: 'mjs' | 'cjs' | 'js';
   output: {

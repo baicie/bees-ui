@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
@@ -9,8 +10,7 @@ import type {
   WatcherOptions,
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
-import esbuild from 'rollup-plugin-esbuild';
-import solidPlugin from 'vite-plugin-solid';
+import { defineRollupSwcOption, swc } from 'rollup-plugin-swc3';
 
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 
@@ -26,6 +26,7 @@ export interface Options {
   watch?: boolean;
   minify?: boolean;
   full?: boolean;
+  name?: string;
 }
 
 async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
@@ -45,23 +46,52 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     clearScreen: true,
   };
   const plugins = [
+    alias({
+      entries: [
+        { find: 'react', replacement: 'preact/compat' },
+        { find: 'react-dom/test-utils', replacement: 'preact/test-utils' },
+        { find: 'react-dom', replacement: 'preact/compat' },
+        { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
+        { find: 'classnames', replacement: 'clsx' },
+      ],
+    }),
     nodeResolve({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
-    commonjs(),
-    solidPlugin(),
-    esbuild({
-      sourceMap: sourcemap,
-      target,
-      minify,
+    commonjs({
+      include: /node_modules/,
     }),
+    swc(
+      defineRollupSwcOption({
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: true,
+          },
+          transform: {
+            react: {
+              pragma: 'h',
+              pragmaFrag: 'Fragment',
+              importSource: 'preact',
+              runtime: 'automatic',
+            },
+          },
+          target,
+        },
+        tsconfig: '../../../tsconfig.json',
+        minify: minify,
+        sourceMaps: sourcemap,
+      }),
+    ),
   ] as unknown as InputPluginOption[];
+  const external = full ? [] : await generateExternal(root);
+  console.log('External dependencies:', external);
 
   return {
     input: inputPath,
     plugins,
     treeshake: true,
-    external: full ? [] : await generateExternal(root),
+    external,
     watch: watch ? watchOptions : false,
   };
 }
@@ -74,10 +104,10 @@ export async function build(root: string, options: Options = {}) {
   await writeBundles(
     bundle,
     resolveBuildConfig(root).map(
-      ([module, _config]): OutputOptions => ({
+      ([_, _config]): OutputOptions => ({
         format: _config.format,
         dir: _config.output.path,
-        exports: module === 'cjs' ? 'named' : undefined,
+        exports: 'named',
         sourcemap: options.sourcemap,
       }),
     ),
