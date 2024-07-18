@@ -1,23 +1,11 @@
-// import Wave from '../_util/wave';
+import { Wave } from '@bees-ui/_util';
 import { useSize } from '@bees-ui/config-provider';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
-import {
-  clsx,
-  ConfigContext,
-  devUseWarning,
-  DisabledContext,
-  useCompactItemContext,
-} from '@bees-ui/core';
+import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
 import { omit } from '@bees-ui/sc-util';
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  useContext,
-  type JSX,
-  type JSXElement,
-} from 'solid-js';
+import { createSignal, onCleanup, onMount, splitProps, useContext, type JSX } from 'solid-js';
 
+import { ConfigContext } from '../../context';
 import { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
@@ -29,7 +17,8 @@ export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  icon?: JSXElement;
+  icon?: JSX.Element;
+  iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -40,22 +29,24 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
-  children?: JSXElement;
+  children?: JSX.Element;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
-  styles?: { icon: CSSProperties };
+  styles?: { icon: JSX.CSSProperties };
+  style: JSX.CSSProperties;
 }
 
 type MergedHTMLAttributes = Omit<
   JSX.HTMLAttributes<HTMLElement> &
     JSX.ButtonHTMLAttributes<HTMLElement> &
     JSX.AnchorHTMLAttributes<HTMLElement>,
-  'type'
+  'type' | 'style'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
+  autoInsertSpace?: boolean;
 }
 
 type LoadingConfigType = {
@@ -79,14 +70,38 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-const InternalButton = (props: ButtonProps, options: any) => {
-  console.log('element', options.slots);
+function isArray(value: unknown) {
+  return value instanceof Array;
+}
 
-  // noShadowDOM();
+const InternalCompoundedButton = (props: ButtonProps, options: any) => {
+  const [local, rest] = splitProps(props, [
+    'loading',
+    'prefixCls',
+    'type',
+    'danger',
+    'shape',
+    'size',
+    'styles',
+    'disabled',
+    'className',
+    'rootClassName',
+    'children',
+    'icon',
+    'iconPosition',
+    'ghost',
+    'block',
+    'htmlType',
+    'classNames',
+    'style',
+    'autoInsertSpace',
+  ]);
+
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    danger,
+    type,
+    danger = false,
     shape = 'default',
     size: customizeSize,
     styles,
@@ -95,15 +110,21 @@ const InternalButton = (props: ButtonProps, options: any) => {
     rootClassName,
     children,
     icon,
+    iconPosition = 'start',
     ghost = false,
     block = false,
     htmlType = 'button',
     classNames: customClassNames,
     style: customStyle = {},
-    ...rest
-  } = props;
+    autoInsertSpace,
+  } = local;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
+  const mergedType = type || 'default';
+
+  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+
+  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -113,58 +134,58 @@ const InternalButton = (props: ButtonProps, options: any) => {
 
   const groupSize = useContext(GroupSizeContext);
 
-  const loadingOrDelay = createMemo<LoadingConfigType>(() => getLoadingConfig(loading));
+  const loadingOrDelay = () => getLoadingConfig(loading);
 
-  const [innerLoading, setLoading] = createSignal<boolean>(loadingOrDelay().loading);
+  const [innerLoading, setInnerLoading] = createSignal(loadingOrDelay().loading);
 
-  const [hasTwoCNChar, setHasTwoCNChar] = createSignal<boolean>(false);
+  const [hasTwoCNChar, setHasTwoCNChar] = createSignal(false);
 
-  let buttonRef: any;
+  let buttonRef: HTMLAnchorElement | HTMLButtonElement | undefined;
 
-  const needInserted = !icon && !isUnBorderedButtonType(props.type);
+  const needInserted = () => {
+    return (
+      isArray(children) &&
+      children.length === 1 &&
+      !local.icon &&
+      !isUnBorderedButtonType(mergedType)
+    );
+  };
 
-  createEffect(() => {
+  onMount(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay().delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
+        setInnerLoading(true);
       }, loadingOrDelay().delay);
     } else {
-      setLoading(loadingOrDelay().loading);
+      setInnerLoading(loadingOrDelay().loading);
     }
 
-    function cleanupTimer() {
+    onCleanup(() => {
       if (delayTimer) {
         clearTimeout(delayTimer);
         delayTimer = null;
       }
-    }
-
-    return cleanupTimer;
+    });
   });
 
-  createEffect(() => {
-    if (!buttonRef || !(buttonRef as any).current || autoInsertSpaceInButton === false) {
-      return;
-    }
-    const buttonText = (buttonRef as any).current.textContent;
-    if (needInserted && isTwoCNChar(buttonText)) {
-      if (!hasTwoCNChar) {
-        setHasTwoCNChar(true);
-      }
-    } else if (hasTwoCNChar()) {
-      setHasTwoCNChar(false);
-    }
+  onMount(() => {
+    if (!buttonRef || !autoInsertSpace) return;
+    const buttonText = buttonRef.textContent;
+    if (needInserted() && isTwoCNChar(buttonText)) {
+      if (!hasTwoCNChar()) setHasTwoCNChar(true);
+    } else if (hasTwoCNChar()) setHasTwoCNChar(false);
   });
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: MouseEvent) => {
     const { onClick } = props;
     if (innerLoading() || mergedDisabled) {
       e.preventDefault();
       return;
     }
-    (onClick as any)?.(e);
+
+    (onClick as (e: MouseEvent) => void)?.(e);
   };
 
   if (process.env.NODE_ENV !== 'production') {
@@ -177,16 +198,19 @@ const InternalButton = (props: ButtonProps, options: any) => {
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(props.type)),
+      !(ghost && isUnBorderedButtonType(mergedType)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
   }
 
-  const autoInsertSpace = autoInsertSpaceInButton !== false;
-  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+  const { compactSize } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeClassNameMap: Record<string, string | undefined> = {
+    large: 'lg',
+    small: 'sm',
+    middle: undefined,
+  };
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
@@ -196,64 +220,59 @@ const InternalButton = (props: ButtonProps, options: any) => {
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
-  const classes = createMemo(() =>
-    clsx(
-      prefixCls,
-      hashId,
-      cssVarCls,
-      {
-        [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-        [`${prefixCls}-${props.type}`]: props.type,
-        [`${prefixCls}-${sizeCls}`]: sizeCls,
-        [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-        [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(props.type),
-        [`${prefixCls}-loading`]: innerLoading,
-        [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar() && autoInsertSpace && !innerLoading,
-        [`${prefixCls}-block`]: block,
-        [`${prefixCls}-dangerous`]: !!danger,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      compactItemClassnames,
-      className,
-      rootClassName,
-      button?.className,
-    ),
+  const classes = clsx(
+    prefixCls,
+    hashId,
+    cssVarCls,
+    {
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+      [`${prefixCls}-loading`]: innerLoading(),
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar() && mergedInsertSpace && !innerLoading(),
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-dangerous`]: danger,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-icon-end`]: iconPosition === 'end',
+    },
+    className,
+    rootClassName,
+    button?.className,
   );
 
-  const fullStyle: CSSProperties = {
-    ...button?.style,
-    ...(typeof customStyle === 'object' ? customStyle : {}),
-  };
+  const fullStyle = { ...button?.style, ...customStyle };
 
-  const iconClasses = clsx(customClassNames?.icon, button?.className);
-  const iconStyle: CSSProperties = {
+  const iconClasses = clsx(customClassNames?.icon, button?.classNames?.icon);
+  const iconStyle = {
     ...(styles?.icon || {}),
-    ...(button?.style || {}),
+    ...(button?.styles?.icon || {}),
   };
 
   const iconNode =
-    icon && !innerLoading ? (
-      // eslint-disable-next-line solid/no-react-specific-props
-      <IconWrapper prefixCls={prefixCls} className={iconClasses as any} style={iconStyle as any}>
-        {icon as any}
+    icon && !innerLoading() ? (
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+        {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading()} />
     );
 
-  const kids = null;
-  // children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
+  const kids = children || children === 0 ? children : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
       <a
         {...linkButtonRestProps}
-        class={clsx(classes(), {
+        className={clsx(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
         href={mergedDisabled ? undefined : linkButtonRestProps.href}
-        style={fullStyle as any}
+        style={fullStyle as CSSProperties}
         onClick={handleClick}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         ref={buttonRef}
         tabIndex={mergedDisabled ? -1 : 0}
       >
@@ -263,26 +282,35 @@ const InternalButton = (props: ButtonProps, options: any) => {
     );
   }
 
-  // if (!isUnBorderedButtonType(type)) {
-  //   buttonNode =
-  //   (
-  //     <Wave component="Button" disabled={!!innerLoading}>
-  //     { buttonNode }
-  //     </Wave>
-  //   );
-  // }
-
-  // return wrapCSSVar(buttonNode);
-
-  return (
-    <button>
-      {options.slots?.pre}
-      {options.slots?.default}
-      {options.slots?.post}
+  let buttonNode = (
+    <button
+      {...rest}
+      type={htmlType}
+      class={classes}
+      style={fullStyle as CSSProperties}
+      onClick={handleClick}
+      disabled={mergedDisabled}
+      ref={buttonRef as HTMLButtonElement}
+    >
+      {options.slots.icon}
+      {options.slots.default}
+      {/* {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />} */}
     </button>
   );
+
+  if (!isUnBorderedButtonType(type)) {
+    buttonNode = (
+      <Wave component="Button" disabled={innerLoading()}>
+        {buttonNode}
+      </Wave>
+    );
+  }
+  return wrapCSSVar(buttonNode);
 };
 
-const Button = InternalButton;
+const Button = Object.assign(InternalCompoundedButton, {
+  // Group,
+  __ANT_BUTTON: true,
+});
 
 export default Button;

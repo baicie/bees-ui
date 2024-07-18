@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {

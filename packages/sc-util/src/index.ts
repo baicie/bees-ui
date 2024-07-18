@@ -12,6 +12,8 @@ export * from './Dom/dynamicCSS';
 export * from './warning';
 export * from './Dom/shadow';
 
+export { default as useEvent } from './hooks/useEvent';
+export { default as isVisible } from './Dom/isVisible';
 export { supportNodeRef, supportRef, useComposeRef } from './ref';
 export {
   canUseDom,

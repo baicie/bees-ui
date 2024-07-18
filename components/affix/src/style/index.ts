@@ -2,9 +2,7 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '@bees-ui/core';
 import { genStyleHooks } from '@bees-ui/core';
 import type { CSSObject } from '@bees-ui/sc-cssinjs';
 
-interface AffixToken extends FullToken<'Affix'> {
-  //
-}
+type AffixToken = FullToken<'Affix'>;
 
 // ============================== Shared ==============================
 const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {

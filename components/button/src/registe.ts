@@ -21,6 +21,7 @@ customElement(
     block: false,
     htmlType: 'button',
     classNames: undefined,
+    style: {},
   },
   Button,
 );

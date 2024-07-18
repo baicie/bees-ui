@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import cac from 'cac';
 
 import { build, watchFuc } from './build';
