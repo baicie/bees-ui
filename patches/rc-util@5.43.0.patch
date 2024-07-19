@@ -1,0 +1,21 @@
+diff --git a/package.json b/package.json
+index 73cd97bcd5fd856fb0f2bcb32855554ff4f64654..da08e725577014c694eb5a10ff3aadddcf192685 100644
+--- a/package.json
++++ b/package.json
+@@ -67,10 +67,15 @@
+     "rc-test": "^7.0.14",
+     "react": "^18.0.0",
+     "react-dom": "^18.0.0",
+-    "typescript": "^5.3.2"
++    "typescript": "^5.3.2",
++    "preact": "^10.22.1"
+   },
+   "peerDependencies": {
+     "react": ">=16.9.0",
+     "react-dom": ">=16.9.0"
++  },
++  "resolutions": {
++    "react": "preact/compat",
++    "react-dom": "preact/compat"
+   }
+ }

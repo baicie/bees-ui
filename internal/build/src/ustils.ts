@@ -8,7 +8,10 @@ export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
 
-  return Object.keys(manifest.dependencies ?? []);
+  return [
+    ...Object.keys(manifest.dependencies ?? []),
+    ...Object.keys(manifest.peerDependencies ?? []),
+  ];
 }
 
 export const target = 'es2018';

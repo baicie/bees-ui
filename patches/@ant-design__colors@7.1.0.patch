@@ -1,0 +1,12 @@
+diff --git a/package.json b/package.json
+index f8c7b2c8c5967d9a73ea44740b6ec76239e4a7a6..9361a014b76d81fd663de11b2dac6d33c66908fb 100644
+--- a/package.json
++++ b/package.json
+@@ -45,5 +45,6 @@
+     "tsx": "^4.16.0",
+     "typescript": "^4.9.5",
+     "vitest": "^1.6.0"
+-  }
++  },
++  "resolutions": {}
+ }

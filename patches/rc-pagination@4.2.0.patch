@@ -1,0 +1,35 @@
+diff --git a/package.json b/package.json
+index e253d0dd2347b8b4cf72fe97b99f5d1781d394ad..a1578d654f6d5c392df25cb33a69b02c43f3c449 100644
+--- a/package.json
++++ b/package.json
+@@ -44,7 +44,8 @@
+   "dependencies": {
+     "@babel/runtime": "^7.10.1",
+     "classnames": "^2.3.2",
+-    "rc-util": "^5.38.0"
++    "rc-util": "^5.38.0",
++    "clsx": "^2.1.1"
+   },
+   "devDependencies": {
+     "@rc-component/father-plugin": "^1.0.0",
+@@ -72,7 +73,8 @@
+     "rc-select": "^14.1.2",
+     "rc-test": "^7.0.15",
+     "react": "^18.2.0",
+-    "react-dom": "^18.2.0"
++    "react-dom": "^18.2.0",
++    "preact": "^10.22.1"
+   },
+   "peerDependencies": {
+     "react": ">=16.9.0",
+@@ -89,5 +91,10 @@
+       "prettier --write",
+       "git add"
+     ]
++  },
++  "resolutions": {
++    "classnames": "clsx",
++    "react": "preact/compat",
++    "react-dom": "preact/compat"
+   }
+ }
