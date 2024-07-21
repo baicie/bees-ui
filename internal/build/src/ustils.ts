@@ -11,15 +11,18 @@ export const DEFAULT = [
   'index.js',
   'src/index.js',
 ];
+
+const ignore = ['preact'];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
 
   return [
-    'preact/compat',
     ...Object.keys(manifest.dependencies ?? []),
     ...Object.keys(manifest.peerDependencies ?? []),
-  ];
+  ]
+    .filter((item) => !item.startsWith('@types/'))
+    .filter((item) => !ignore.includes(item));
 }
 
 export const target = 'es2018';

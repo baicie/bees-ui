@@ -1,0 +1,40 @@
+{
+  "name": "@bees-ui/test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm bee build --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ant-design/colors": "^7.1.0",
+    "@ant-design/cssinjs": "1.21.0",
+    "@ant-design/icons": "^5.4.0",
+    "@bees-ui/register": "workspace:^",
+    "@ctrl/tinycolor": "^4.1.0",
+    "clsx": "^2.1.1",
+    "preact": "^10.22.1",
+    "rc-motion": "^2.9.2",
+    "rc-pagination": "^4.2.0",
+    "rc-picker": "^4.6.9",
+    "rc-util": "^5.43.0"
+  }
+}

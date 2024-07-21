@@ -1,4 +1,4 @@
-import register from 'preact-custom-element';
+import register from '@bees-ui/register';
 
 import Button from './button';
 
@@ -10,4 +10,5 @@ export * from './buttonHelpers';
 
 export default Button;
 
-register(Button, 'ant-button', ['type','children'], { shadow: false });
+register(Button, 'ant-button', ['type', 'children'], { shadow: false });
+register(Button.Group, 'ant-button-group', ['children'], { shadow: false });

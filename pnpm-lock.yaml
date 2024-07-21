@@ -11,6 +11,9 @@ patchedDependencies:
   '@ant-design/icons@5.4.0':
     hash: qablyn54nlzxutw4laxdkngcwi
     path: patches/@ant-design__icons@5.4.0.patch
+  rc-field-form@2.2.1:
+    hash: qjuygupkl6cqez53slhcsinfzm
+    path: patches/rc-field-form@2.2.1.patch
   rc-motion@2.9.2:
     hash: kx7kbvnno2a774uf7dfjloila4
     path: patches/rc-motion@2.9.2.patch
@@ -20,6 +23,12 @@ patchedDependencies:
   rc-picker@4.6.9:
     hash: z3stnc27v3falzteomk7pntm2y
     path: patches/rc-picker@4.6.9.patch
+  rc-resize-observer@1.4.0:
+    hash: ky4ajol2cnspy4agu54ocdpoqe
+    path: patches/rc-resize-observer@1.4.0.patch
+  rc-tooltip@6.2.0:
+    hash: mqiyasomvqjohxdvdgp4jgusei
+    path: patches/rc-tooltip@6.2.0.patch
   rc-util@5.43.0:
     hash: j27gtl6m2fs43osbeypq3yw3ua
     path: patches/rc-util@5.43.0.patch
@@ -40,6 +49,9 @@ importers:
       '@bees-ui/internal-build':
         specifier: workspace:^
         version: link:internal/build
+      '@bees-ui/register':
+        specifier: workspace:^
+        version: link:packages/register
       '@biomejs/biome':
         specifier: ^1.8.3
         version: 1.8.3
@@ -190,6 +202,9 @@ importers:
       prettier-plugin-jsdoc:
         specifier: ^1.3.0
         version: 1.3.0(prettier@3.3.3)
+      rc-field-form:
+        specifier: ^2.2.1
+        version: 2.2.1(patch_hash=qjuygupkl6cqez53slhcsinfzm)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-motion:
         specifier: ^2.9.2
         version: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -199,6 +214,12 @@ importers:
       rc-picker:
         specifier: ^4.6.9
         version: 4.6.9(patch_hash=z3stnc27v3falzteomk7pntm2y)(dayjs@1.11.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer:
+        specifier: ^1.4.0
+        version: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-tooltip:
+        specifier: ^6.2.0
+        version: 6.2.0(patch_hash=mqiyasomvqjohxdvdgp4jgusei)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util:
         specifier: ^5.43.0
         version: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -245,6 +266,39 @@ importers:
         specifier: ^5.3.4
         version: 5.3.4(@types/node@20.14.11)(less@4.2.0)(lightningcss@1.22.1)(sass@1.70.0)(sugarss@2.0.0)(terser@5.27.0)
 
+  components/avatar:
+    dependencies:
+      '@ant-design/colors':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@ant-design/cssinjs':
+        specifier: 1.21.0
+        version: 1.21.0(patch_hash=4jv5cpua4taxnqixh2tyjj6aeu)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/icons':
+        specifier: ^5.4.0
+        version: 5.4.0(patch_hash=qablyn54nlzxutw4laxdkngcwi)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ctrl/tinycolor':
+        specifier: ^4.1.0
+        version: 4.1.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      preact:
+        specifier: ^10.22.1
+        version: 10.22.1
+      rc-motion:
+        specifier: ^2.9.2
+        version: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-pagination:
+        specifier: ^4.2.0
+        version: 4.2.0(patch_hash=6dbshdzhr76r2zmzhrr4n26uq4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-picker:
+        specifier: ^4.6.9
+        version: 4.6.9(patch_hash=z3stnc27v3falzteomk7pntm2y)(dayjs@1.11.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-util:
+        specifier: ^5.43.0
+        version: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
   components/button:
     dependencies:
       '@ant-design/colors':
@@ -256,6 +310,42 @@ importers:
       '@ant-design/icons':
         specifier: ^5.4.0
         version: 5.4.0(patch_hash=qablyn54nlzxutw4laxdkngcwi)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ctrl/tinycolor':
+        specifier: ^4.1.0
+        version: 4.1.0
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      preact:
+        specifier: ^10.22.1
+        version: 10.22.1
+      rc-motion:
+        specifier: ^2.9.2
+        version: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-pagination:
+        specifier: ^4.2.0
+        version: 4.2.0(patch_hash=6dbshdzhr76r2zmzhrr4n26uq4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-picker:
+        specifier: ^4.6.9
+        version: 4.6.9(patch_hash=z3stnc27v3falzteomk7pntm2y)(dayjs@1.11.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-util:
+        specifier: ^5.43.0
+        version: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  components/test:
+    dependencies:
+      '@ant-design/colors':
+        specifier: ^7.1.0
+        version: 7.1.0
+      '@ant-design/cssinjs':
+        specifier: 1.21.0
+        version: 1.21.0(patch_hash=4jv5cpua4taxnqixh2tyjj6aeu)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/icons':
+        specifier: ^5.4.0
+        version: 5.4.0(patch_hash=qablyn54nlzxutw4laxdkngcwi)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@bees-ui/register':
+        specifier: workspace:^
+        version: link:../../packages/register
       '@ctrl/tinycolor':
         specifier: ^4.1.0
         version: 4.1.0
@@ -17731,7 +17821,7 @@ snapshots:
       '@rc-component/portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       classnames: 2.5.1
       rc-motion: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -17742,7 +17832,7 @@ snapshots:
       '@rc-component/portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       classnames: 2.5.1
       rc-motion: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -19964,7 +20054,7 @@ snapshots:
       rc-dialog: 9.5.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-drawer: 7.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-dropdown: 4.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-field-form: 2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-field-form: 2.2.1(patch_hash=qjuygupkl6cqez53slhcsinfzm)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-image: 7.9.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-input: 1.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-input-number: 9.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -19976,7 +20066,7 @@ snapshots:
       rc-picker: 4.6.9(patch_hash=z3stnc27v3falzteomk7pntm2y)(dayjs@1.11.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-progress: 4.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-rate: 2.13.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-segmented: 2.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-select: 14.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-slider: 10.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -19985,7 +20075,7 @@ snapshots:
       rc-table: 7.45.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-tabs: 15.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-textarea: 1.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-tooltip: 6.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-tooltip: 6.2.0(patch_hash=mqiyasomvqjohxdvdgp4jgusei)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-tree: 5.8.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-tree-select: 5.22.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-upload: 4.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -21861,7 +21951,7 @@ snapshots:
       raw-loader: 4.0.2(webpack@5.90.0(@swc/core@1.7.0(@swc/helpers@0.5.1))(esbuild@0.23.0))
       rc-motion: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-tabs: 12.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-tooltip: 6.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-tooltip: 6.2.0(patch_hash=mqiyasomvqjohxdvdgp4jgusei)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-tree: 5.8.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -27510,7 +27600,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  rc-field-form@2.2.1(patch_hash=qjuygupkl6cqez53slhcsinfzm)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.8
       '@rc-component/async-validator': 5.0.4
@@ -27622,7 +27712,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.8
       classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -27641,7 +27731,7 @@ snapshots:
       '@rc-component/trigger': 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       classnames: 2.5.1
       rc-overflow: 1.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -27664,7 +27754,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  rc-resize-observer@1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  rc-resize-observer@1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.8
       classnames: 2.5.1
@@ -27723,7 +27813,7 @@ snapshots:
       '@babel/runtime': 7.24.8
       '@rc-component/context': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-virtual-list: 3.14.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -27736,7 +27826,7 @@ snapshots:
       rc-dropdown: 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-menu: 9.12.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-motion: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -27748,7 +27838,7 @@ snapshots:
       rc-dropdown: 4.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-menu: 9.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-motion: 2.9.2(patch_hash=kx7kbvnno2a774uf7dfjloila4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -27758,12 +27848,12 @@ snapshots:
       '@babel/runtime': 7.24.8
       classnames: 2.5.1
       rc-input: 1.5.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  rc-tooltip@6.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  rc-tooltip@6.2.0(patch_hash=mqiyasomvqjohxdvdgp4jgusei)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.8
       '@rc-component/trigger': 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -27818,7 +27908,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.24.8
       classnames: 2.5.1
-      rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      rc-resize-observer: 1.4.0(patch_hash=ky4ajol2cnspy4agu54ocdpoqe)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(patch_hash=j27gtl6m2fs43osbeypq3yw3ua)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)

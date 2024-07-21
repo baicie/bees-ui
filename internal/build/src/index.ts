@@ -19,6 +19,7 @@ cli
   .option('-s, --sourcemap', 'output path')
   .option('-d, --dts', 'output path')
   .option('-n, --name', 'output path')
+  .option('-v, --visualizer', 'output path')
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);

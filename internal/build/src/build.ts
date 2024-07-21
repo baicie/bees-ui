@@ -12,6 +12,7 @@ import type {
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
+import visualizer from 'rollup-plugin-visualizer';
 
 import { rootPath } from './path';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
@@ -29,6 +30,7 @@ export interface Options {
   minify?: boolean;
   full?: boolean;
   name?: string;
+  visualizer?: boolean;
 }
 
 async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
@@ -67,7 +69,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
       target,
       tsconfig: path.resolve(rootPath, 'tsconfig.json'),
     }),
-    // visualizer({ open: true }),
+    options.visualizer ? visualizer({ open: true }) : null,
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
   console.log('External dependencies:', external);

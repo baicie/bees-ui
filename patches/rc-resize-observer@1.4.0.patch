@@ -1,0 +1,155 @@
+diff --git a/es/Collection.d.ts b/es/Collection.d.ts
+index bf103278a78b490ecf84f58aaa4abcac3605a091..0e137f1f74d74cdcdd59d8031ae2c734ea42a04e 100644
+--- a/es/Collection.d.ts
++++ b/es/Collection.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import type { SizeInfo } from '.';
+ type onCollectionResize = (size: SizeInfo, element: HTMLElement, data: any) => void;
+ export declare const CollectionContext: React.Context<onCollectionResize>;
+diff --git a/es/Collection.js b/es/Collection.js
+index 58944ad3c5039e5fa30914fddf4c8fc8ed4b66f8..704eb5c2cd3ea9210de3125a4b837d80c533e0ac 100644
+--- a/es/Collection.js
++++ b/es/Collection.js
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export var CollectionContext = /*#__PURE__*/React.createContext(null);
+ /**
+  * Collect all the resize event from children ResizeObserver
+diff --git a/es/SingleObserver/DomWrapper.d.ts b/es/SingleObserver/DomWrapper.d.ts
+index de4bf18bd5c66032ad914088bf166bb402b5d23f..069df773f657f1d8799942faa28784f6f8c7c497 100644
+--- a/es/SingleObserver/DomWrapper.d.ts
++++ b/es/SingleObserver/DomWrapper.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export interface DomWrapperProps {
+     children: React.ReactElement;
+ }
+diff --git a/es/SingleObserver/DomWrapper.js b/es/SingleObserver/DomWrapper.js
+index 3dd51d2440fb5fdd44656b0a14acd64227ac5a49..f54b6df0b28b017d57af9a494c533f34932fd583 100644
+--- a/es/SingleObserver/DomWrapper.js
++++ b/es/SingleObserver/DomWrapper.js
+@@ -2,7 +2,7 @@ import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
+ import _createClass from "@babel/runtime/helpers/esm/createClass";
+ import _inherits from "@babel/runtime/helpers/esm/inherits";
+ import _createSuper from "@babel/runtime/helpers/esm/createSuper";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ /**
+  * Fallback to findDOMNode if origin ref do not provide any dom element
+  */
+diff --git a/es/SingleObserver/index.d.ts b/es/SingleObserver/index.d.ts
+index 9f428a826fdd800aca59f931593af6734bb40e45..f12b1e1cedfa8cba76ce48570c3047cfc3422f40 100644
+--- a/es/SingleObserver/index.d.ts
++++ b/es/SingleObserver/index.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import type { ResizeObserverProps } from '..';
+ export interface SingleObserverProps extends ResizeObserverProps {
+     children: React.ReactElement | ((ref: React.RefObject<Element>) => React.ReactElement);
+diff --git a/es/SingleObserver/index.js b/es/SingleObserver/index.js
+index bb187240080258c1c3fa097b9a80be2d3124616a..6876e23fec87d82a6a586f35477cad1defee4ffc 100644
+--- a/es/SingleObserver/index.js
++++ b/es/SingleObserver/index.js
+@@ -2,7 +2,7 @@ import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
+ import _typeof from "@babel/runtime/helpers/esm/typeof";
+ import findDOMNode from "rc-util/es/Dom/findDOMNode";
+ import { supportRef, useComposeRef } from "rc-util/es/ref";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import { CollectionContext } from "../Collection";
+ import { observe, unobserve } from "../utils/observerUtil";
+ import DomWrapper from "./DomWrapper";
+diff --git a/es/index.d.ts b/es/index.d.ts
+index a63d730e914b3f0710ce7089c3fbd86f4d74707a..24f749073543c2344f80546810c7701f753d6494 100644
+--- a/es/index.d.ts
++++ b/es/index.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import { Collection } from './Collection';
+ import { _rs } from './utils/observerUtil';
+ export { 
+diff --git a/es/index.js b/es/index.js
+index c1c44a81bb855a3991d38483b9b39d9b8daf2688..9ac157dbfaac0490da42d29a435e3425cf9edcfc 100644
+--- a/es/index.js
++++ b/es/index.js
+@@ -1,5 +1,5 @@
+ import _extends from "@babel/runtime/helpers/esm/extends";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import toArray from "rc-util/es/Children/toArray";
+ import { warning } from "rc-util/es/warning";
+ import SingleObserver from "./SingleObserver";
+diff --git a/lib/Collection.d.ts b/lib/Collection.d.ts
+index bf103278a78b490ecf84f58aaa4abcac3605a091..0e137f1f74d74cdcdd59d8031ae2c734ea42a04e 100644
+--- a/lib/Collection.d.ts
++++ b/lib/Collection.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import type { SizeInfo } from '.';
+ type onCollectionResize = (size: SizeInfo, element: HTMLElement, data: any) => void;
+ export declare const CollectionContext: React.Context<onCollectionResize>;
+diff --git a/lib/SingleObserver/DomWrapper.d.ts b/lib/SingleObserver/DomWrapper.d.ts
+index de4bf18bd5c66032ad914088bf166bb402b5d23f..069df773f657f1d8799942faa28784f6f8c7c497 100644
+--- a/lib/SingleObserver/DomWrapper.d.ts
++++ b/lib/SingleObserver/DomWrapper.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export interface DomWrapperProps {
+     children: React.ReactElement;
+ }
+diff --git a/lib/SingleObserver/index.d.ts b/lib/SingleObserver/index.d.ts
+index 9f428a826fdd800aca59f931593af6734bb40e45..f12b1e1cedfa8cba76ce48570c3047cfc3422f40 100644
+--- a/lib/SingleObserver/index.d.ts
++++ b/lib/SingleObserver/index.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import type { ResizeObserverProps } from '..';
+ export interface SingleObserverProps extends ResizeObserverProps {
+     children: React.ReactElement | ((ref: React.RefObject<Element>) => React.ReactElement);
+diff --git a/lib/index.d.ts b/lib/index.d.ts
+index a63d730e914b3f0710ce7089c3fbd86f4d74707a..24f749073543c2344f80546810c7701f753d6494 100644
+--- a/lib/index.d.ts
++++ b/lib/index.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import { Collection } from './Collection';
+ import { _rs } from './utils/observerUtil';
+ export { 
+diff --git a/package.json b/package.json
+index 080b11621a374281c1bd66a1a21ccbc1d24dc17b..64fac3151de6c037a91cf30a32006b8518841f18 100644
+--- a/package.json
++++ b/package.json
+@@ -42,9 +42,9 @@
+   },
+   "dependencies": {
+     "@babel/runtime": "^7.20.7",
+-    "classnames": "^2.2.1",
+     "rc-util": "^5.38.0",
+-    "resize-observer-polyfill": "^1.5.1"
++    "resize-observer-polyfill": "^1.5.1",
++    "clsx": "^2.1.1"
+   },
+   "devDependencies": {
+     "@rc-component/father-plugin": "^1.0.0",
+@@ -68,9 +68,8 @@
+     "prettier": "^2.1.1",
+     "pretty-quick": "^3.0.1",
+     "rc-test": "^7.0.15",
+-    "react": "^16.0.0",
+-    "react-dom": "^16.0.0",
+-    "regenerator-runtime": "^0.13.7"
++    "regenerator-runtime": "^0.13.7",
++    "preact": "^10.22.1"
+   },
+   "peerDependencies": {
+     "react": ">=16.9.0",

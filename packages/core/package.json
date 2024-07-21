@@ -17,8 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm bee build --sourcemap --dts",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "build": "pnpm bee build --sourcemap --dts --minify --full",
+    "dev": "pnpm bee build --watch --sourcemap --full",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
   "keywords": [],
