@@ -132,7 +132,8 @@
       "rc-util@5.43.0": "patches/rc-util@5.43.0.patch",
       "rc-field-form@2.2.1": "patches/rc-field-form@2.2.1.patch",
       "rc-resize-observer@1.4.0": "patches/rc-resize-observer@1.4.0.patch",
-      "rc-tooltip@6.2.0": "patches/rc-tooltip@6.2.0.patch"
+      "rc-tooltip@6.2.0": "patches/rc-tooltip@6.2.0.patch",
+      "antd@5.19.3": "patches/antd@5.19.3.patch"
     }
   },
   "ncu": {
