@@ -1,4 +1,3 @@
-import React from 'react';
 import { AntDesignOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import {
   Alert,
@@ -18,6 +17,7 @@ import {
 } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
+import React from 'preact/compat';
 
 import useLocale from '../../../../hooks/useLocale';
 import Tilt from './Tilt';

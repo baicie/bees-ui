@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Helmet } from 'dumi';
+import * as React from 'preact/compat';
 
 type HelmetProps = Helmet['props'];
 export interface WrapHelmetProps extends HelmetProps {

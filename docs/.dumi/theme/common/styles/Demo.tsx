@@ -1,6 +1,6 @@
-import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
+import React from 'preact/compat';
 
 const GlobalDemoStyles: React.FC = () => {
   const token = useTheme();

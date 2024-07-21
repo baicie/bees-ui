@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
-import React, { useMemo } from 'react';
 import { HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Timeline, Typography } from 'antd';
 import { createStyles } from 'antd-style';
+import React, { useMemo } from 'preact/compat';
 
 import useFetch from '../../../hooks/useFetch';
 import useLocale from '../../../hooks/useLocale';

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Button, Space, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
 import { Link, useLocation } from 'dumi';
+import * as React from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';

@@ -1,10 +1,10 @@
-import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 import { createStyles } from 'antd-style';
 import classnames from 'classnames';
 import { FormattedMessage } from 'dumi';
+import React from 'preact/compat';
 
 import type { SharedProps } from './interface';
 

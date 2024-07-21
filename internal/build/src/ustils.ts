@@ -3,12 +3,20 @@ import path from 'node:path';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
 import type { ModuleFormat } from 'rollup';
 
-export const DEFAULT = ['src/index.ts', 'src/index.tsx', 'index.ts', 'index.tsx'];
+export const DEFAULT = [
+  'src/index.ts',
+  'src/index.tsx',
+  'index.ts',
+  'index.tsx',
+  'index.js',
+  'src/index.js',
+];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
 
   return [
+    'preact/compat',
     ...Object.keys(manifest.dependencies ?? []),
     ...Object.keys(manifest.peerDependencies ?? []),
   ];

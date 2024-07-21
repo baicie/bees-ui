@@ -1,6 +1,6 @@
-import React from 'react';
 import { Skeleton, Space, Spin } from 'antd';
 import { useLocation } from 'dumi';
+import React from 'preact/compat';
 
 const Loading: React.FC = () => {
   const { pathname } = useLocation();

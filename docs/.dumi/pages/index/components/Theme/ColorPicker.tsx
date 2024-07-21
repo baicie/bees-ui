@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { ColorPicker, Input, Space } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
+import React, { useEffect, useState } from 'preact/compat';
 
 import { PRESET_COLORS } from './colorUtil';
 

@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
 import { Col, ColorPicker, Row } from 'antd';
 import { FormattedMessage } from 'dumi';
+import React, { useMemo, useState } from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import ColorPatterns from './ColorPatterns';

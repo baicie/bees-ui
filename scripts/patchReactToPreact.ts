@@ -1,6 +1,7 @@
 import fs, { read } from 'node:fs';
 import path from 'node:path';
 import { execa } from 'execa';
+import { globSync } from 'fast-glob';
 import colors from 'picocolors';
 
 import pkg from '../package.json';
@@ -56,6 +57,25 @@ async function patchReactToPreact(packageName: string, version: string) {
       const patchJson = JSON.parse(fs.readFileSync(patch, 'utf-8')) as PackageJson;
       replaceDeps(patchJson);
       fs.writeFileSync(patch, JSON.stringify(patchJson, null, 2), 'utf-8');
+      console.log(colors.green(`Replaced dependencies in ${patch}`));
+      const allFiles = globSync('**/*.{js,ts,tsx,jsx}', {
+        cwd: patchPath,
+        ignore: ['node_modules/**/*'],
+        onlyFiles: true,
+        absolute: true,
+      });
+      for (const file of allFiles) {
+        const content = fs.readFileSync(file, 'utf-8');
+        const newContent = content
+          .replace("from 'react'", "from 'preact/compat'")
+          .replace("from 'react-dom'", "from 'preact/compat'")
+          .replace("from 'react/jsx-runtime'", "from 'preact/jsx-runtime'")
+          .replace("require('react')", "require('preact/compat')")
+          .replace("require('react-dom')", "require('preact/compat')")
+          .replace("require('react/jsx-runtime')", "require('preact/jsx-runtime')");
+        fs.writeFileSync(file, newContent, 'utf-8');
+      }
+
       await execa('pnpm', ['patch-commit', `${patchPath}`]);
     }
     console.log(colors.green(`Patched ${packageName}@${version}`));
@@ -66,27 +86,22 @@ async function patchReactToPreact(packageName: string, version: string) {
 }
 
 function replaceDeps(packageJson: PackageJson) {
-  packageJson.resolutions = packageJson.resolutions || {};
-
-  Object.entries(patchPkg).forEach(([pkgName, { version, replace, resolution }]) => {
+  Object.entries(patchPkg).forEach(([pkgName, { version, replace }]) => {
     replace.forEach((dep) => {
-      if (!packageJson.resolutions) {
-        packageJson.resolutions = {};
-      }
       if (packageJson.dependencies && packageJson.dependencies[dep]) {
+        delete packageJson.dependencies[dep];
         packageJson.dependencies[pkgName] = version;
-        packageJson.resolutions[dep] = resolution;
       } else if (packageJson.devDependencies && packageJson.devDependencies[dep]) {
+        delete packageJson.devDependencies[dep];
         packageJson.devDependencies[pkgName] = version;
-        packageJson.resolutions[dep] = resolution;
       } else if (packageJson.peerDependencies && packageJson.peerDependencies[dep]) {
-        packageJson.devDependencies = packageJson.devDependencies || {};
-        packageJson.devDependencies[pkgName] = version;
-        packageJson.resolutions[dep] = resolution;
+        delete packageJson.peerDependencies[dep];
+        packageJson.peerDependencies[pkgName] = version;
       }
     });
   });
 }
+
 main()
   .then(() => {
     console.log(colors.green('Patch completed!'));

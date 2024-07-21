@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { LiveContext } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
+import React, { useContext, useEffect, useMemo } from 'preact/compat';
 import Prism from 'prismjs';
 
 import LiveCode from './LiveCode';

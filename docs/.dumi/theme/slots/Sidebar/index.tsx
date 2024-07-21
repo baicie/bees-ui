@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
+import React, { useContext } from 'preact/compat';
 import MobileMenu from 'rc-drawer';
 
 import useMenu from '../../../hooks/useMenu';

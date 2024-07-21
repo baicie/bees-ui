@@ -1,10 +1,10 @@
-import type { FC } from 'react';
-import * as React from 'react';
 import type { TableProps } from 'antd';
 import { Table } from 'antd';
 import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
+import type { FC } from 'preact/compat';
+import * as React from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import ColorChunk from '../ColorChunk';

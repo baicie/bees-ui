@@ -1,7 +1,7 @@
-import type { MouseEvent, MouseEventHandler } from 'react';
-import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'react';
 import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
+import type { MouseEvent, MouseEventHandler } from 'preact/compat';
+import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'preact/compat';
 
 export interface LinkProps {
   to?: string | { pathname?: string; search?: string; hash?: string };

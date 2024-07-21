@@ -67,6 +67,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
       target,
       tsconfig: path.resolve(rootPath, 'tsconfig.json'),
     }),
+    // visualizer({ open: true }),
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
   console.log('External dependencies:', external);

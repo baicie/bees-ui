@@ -65,7 +65,7 @@ title: Ant Design of React
 ## 示例
 
 ```jsx
-import React from 'react';
+import React from 'preact/compat';
 import { DatePicker } from 'antd';
 
 const App = () => {

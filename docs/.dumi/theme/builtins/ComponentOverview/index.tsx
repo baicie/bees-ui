@@ -1,10 +1,10 @@
-import React, { memo, useContext, useMemo, useRef, useState } from 'react';
-import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
+import React, { memo, useContext, useMemo, useRef, useState } from 'preact/compat';
+import type { CSSProperties } from 'preact/compat';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Link from '../../common/Link';

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { message } from 'antd';
 import { useIntl } from 'dumi';
+import * as React from 'preact/compat';
 
 import CopyableIcon from './CopyableIcon';
 import type { CategoriesKeys } from './fields';

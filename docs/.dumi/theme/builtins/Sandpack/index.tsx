@@ -1,12 +1,12 @@
-import type { FC, ReactNode } from 'react';
-import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
+import type { FC, ReactNode } from 'preact/compat';
+import React, { Suspense } from 'preact/compat';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
-const indexContent = `import React from 'react';
+const indexContent = `import React from 'preact/compat';
 import { createRoot } from 'react-dom/client';
 import App from './app';
 import './index.css';

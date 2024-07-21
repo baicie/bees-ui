@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
 import { Col, Row, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
+import React, { useContext } from 'preact/compat';
 
 import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';

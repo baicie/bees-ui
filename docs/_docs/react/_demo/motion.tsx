@@ -1,5 +1,5 @@
-import React from 'react';
 import { Checkbox, Col, ConfigProvider, Radio, Row, Space, Switch } from 'antd';
+import React from 'preact/compat';
 
 export default () => {
   const [checked, setChecked] = React.useState(false);

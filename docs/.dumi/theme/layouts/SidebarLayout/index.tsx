@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react';
-import React from 'react';
 import { createStyles } from 'antd-style';
+import type { PropsWithChildren } from 'preact/compat';
+import React from 'preact/compat';
 
 import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';

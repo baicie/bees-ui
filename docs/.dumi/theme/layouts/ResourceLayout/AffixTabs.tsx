@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import throttle from 'lodash/throttle';
+import * as React from 'preact/compat';
 
 import scrollTo from '../../../utils/scrollTo';
 

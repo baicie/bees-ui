@@ -1,8 +1,8 @@
-import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
 import { EditFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
+import type { FC } from 'preact/compat';
+import React, { useEffect, useState } from 'preact/compat';
 
 import useLocale from '../../hooks/useLocale';
 import LiveEditor from '../slots/LiveEditor';

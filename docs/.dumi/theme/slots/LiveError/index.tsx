@@ -1,7 +1,7 @@
-import type { FC } from 'react';
-import React, { useContext } from 'react';
 import { Alert, theme } from 'antd';
 import { LiveContext } from 'dumi';
+import type { FC } from 'preact/compat';
+import React, { useContext } from 'preact/compat';
 
 const LiveError: FC = () => {
   const { error } = useContext(LiveContext);

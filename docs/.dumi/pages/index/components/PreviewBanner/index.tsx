@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
+import React, { Suspense } from 'preact/compat';
 
 import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';

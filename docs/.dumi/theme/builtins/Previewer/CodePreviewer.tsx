@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'preact/compat';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
@@ -238,7 +238,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
       .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
       .replace("import moment from 'moment';", '')
-      .replace("import React from 'react';", '')
+      .replace("import React from 'preact/compat';", '')
       .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
       .replace(
         /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
@@ -268,7 +268,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const riddlePrefillConfig = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     js: `${
-      /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
+      /import React(\D*)from 'preact/compat';/.test(jsx) ? '' : `import React from 'preact/compat';\n`
     }import { createRoot } from 'react-dom/client';\n${jsx.replace(
       /export default/,
       'const ComponentDemo =',
@@ -279,8 +279,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   // Reorder source code
   let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
-  let importReactContent = "import React from 'react';";
-  const importReactReg = /import React(\D*)from 'react';/;
+  let importReactContent = "import React from 'preact/compat';";
+  const importReactReg = /import React(\D*)from 'preact/compat';/;
   const matchImportReact = parsedSourceCode.match(importReactReg);
   if (matchImportReact) {
     [importReactContent] = matchImportReact;
@@ -297,7 +297,7 @@ ${parsedSourceCode}
     .replace('</style>', '')
     .replace('<style>', '');
 
-  const indexJsContent = `import React from 'react';
+  const indexJsContent = `import React from 'preact/compat';
 import { createRoot } from 'react-dom/client';
 import Demo from './demo';
 

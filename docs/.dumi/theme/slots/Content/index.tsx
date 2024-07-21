@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react';
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
@@ -7,6 +5,8 @@ import { createStyles, useTheme } from 'antd-style';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
+import type { ReactNode } from 'preact/compat';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'preact/compat';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';

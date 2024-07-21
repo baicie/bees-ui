@@ -3,10 +3,10 @@ import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import ConfigProvider from 'antd/es/config-provider';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';

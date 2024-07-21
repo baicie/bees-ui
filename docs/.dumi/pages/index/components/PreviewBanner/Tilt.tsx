@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'preact/compat';
 import VanillaTilt, { type TiltOptions } from 'vanilla-tilt';
 
 interface TiltProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
+import * as React from 'preact/compat';
 
 import * as utils from '../../utils';
 

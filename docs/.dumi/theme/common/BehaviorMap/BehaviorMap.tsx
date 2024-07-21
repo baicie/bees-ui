@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
 import G6 from '@antv/g6';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
+import React, { useEffect, useRef } from 'preact/compat';
 
 G6.registerNode('behavior-start-node', {
   draw: (cfg, group) => {

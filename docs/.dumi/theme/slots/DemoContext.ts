@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from 'preact/compat';
 
 export type DemoContextProps = {
   showDebug?: boolean;

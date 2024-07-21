@@ -1,6 +1,6 @@
-import React from 'react';
 import { Image } from 'antd';
 import classNames from 'classnames';
+import React from 'preact/compat';
 import toArray from 'rc-util/lib/Children/toArray';
 
 interface ImagePreviewProps {

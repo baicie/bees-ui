@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'preact/compat';
 import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import useLocale from '../../../hooks/useLocale';

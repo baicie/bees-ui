@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
 import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import classNames from 'classnames';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
+import React, { useContext } from 'preact/compat';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import DemoContext from '../../slots/DemoContext';

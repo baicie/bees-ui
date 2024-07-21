@@ -1,21 +1,393 @@
+diff --git a/es/Children/mapSelf.js b/es/Children/mapSelf.js
+index ebc0bbce6773407a8d362629a6d270f045cee229..69f328c95caf92c49042c1fbc255d22eb2b0c7b9 100644
+--- a/es/Children/mapSelf.js
++++ b/es/Children/mapSelf.js
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ function mirror(o) {
+   return o;
+ }
+diff --git a/es/Children/toArray.d.ts b/es/Children/toArray.d.ts
+index e0668f26a82d769c8e90a95bebaa7390283bf8d0..daf209f37aaf3bff4eb3d17f8c67a466ac33ea5a 100644
+--- a/es/Children/toArray.d.ts
++++ b/es/Children/toArray.d.ts
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ export interface Option {
+     keepEmpty?: boolean;
+ }
+diff --git a/es/Children/toArray.js b/es/Children/toArray.js
+index 8f39d9de6d7ba26c37b998d3bdac553f3f5acf5b..9ef62c1e214a71f79d55e40a948753b8f8b6c30f 100644
+--- a/es/Children/toArray.js
++++ b/es/Children/toArray.js
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ import { isFragment } from 'react-is';
+ export default function toArray(children) {
+   var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+diff --git a/es/ContainerRender.js b/es/ContainerRender.js
+index 21363ed73f385df1a6f1033e4b58e266fc2bf6bb..7feee2fdb27f0bda0ad1fc36cf799901e75854e8 100644
+--- a/es/ContainerRender.js
++++ b/es/ContainerRender.js
+@@ -4,8 +4,8 @@ import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitial
+ import _inherits from "@babel/runtime/helpers/esm/inherits";
+ import _createSuper from "@babel/runtime/helpers/esm/createSuper";
+ import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+-import React from 'react';
+-import ReactDOM from 'react-dom';
++import React from 'preact/compat';
++import ReactDOM from 'preact/compat';
+ 
+ /**
+  * @deprecated Since we do not need support React15 any more.
+diff --git a/es/Dom/addEventListener.js b/es/Dom/addEventListener.js
+index a1380679927ec558aa11b286f7ede2e5b382b20b..8790d5012ea9567bc03da4370948c68465d854e2 100644
+--- a/es/Dom/addEventListener.js
++++ b/es/Dom/addEventListener.js
+@@ -1,4 +1,4 @@
+-import ReactDOM from 'react-dom';
++import ReactDOM from 'preact/compat';
+ export default function addEventListenerWrap(target, eventType, cb, option) {
+   /* eslint camelcase: 2 */
+   var callback = ReactDOM.unstable_batchedUpdates ? function run(e) {
+diff --git a/es/Dom/findDOMNode.d.ts b/es/Dom/findDOMNode.d.ts
+index 2a55f7acc0cf31ab9aa53a187af1f62374c9da61..eaa011683447d49e759888f4d8b7c6f143159dd3 100644
+--- a/es/Dom/findDOMNode.d.ts
++++ b/es/Dom/findDOMNode.d.ts
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ export declare function isDOM(node: any): node is HTMLElement | SVGElement;
+ /**
+  * Retrieves a DOM node via a ref, and does not invoke `findDOMNode`.
+diff --git a/es/Dom/findDOMNode.js b/es/Dom/findDOMNode.js
+index f5228966f625b1549001f3d51154e8fa62f9ef59..5221eeb4cb805eb0a27fb207ffb65427192c6feb 100644
+--- a/es/Dom/findDOMNode.js
++++ b/es/Dom/findDOMNode.js
+@@ -1,6 +1,6 @@
+ import _typeof from "@babel/runtime/helpers/esm/typeof";
+-import React from 'react';
+-import ReactDOM from 'react-dom';
++import React from 'preact/compat';
++import ReactDOM from 'preact/compat';
+ export function isDOM(node) {
+   // https://developer.mozilla.org/en-US/docs/Web/API/Element
+   // Since XULElement is also subclass of Element, we only need HTMLElement and SVGElement
+diff --git a/es/Portal.d.ts b/es/Portal.d.ts
+index 5d1da73011eef01874c095f9b62a201120f1b8b2..b18c12beddbe436066312359c96a0665d9f5fa0c 100644
+--- a/es/Portal.d.ts
++++ b/es/Portal.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ export type PortalRef = {};
+ export interface PortalProps {
+     didUpdate?: (prevProps: PortalProps) => void;
+diff --git a/es/Portal.js b/es/Portal.js
+index c717c46d9ee5ceda5504c0e1c7cd5d9c0e89134c..7573f29d9df33ed93843cebfcf63630359a9ff44 100644
+--- a/es/Portal.js
++++ b/es/Portal.js
+@@ -1,5 +1,5 @@
+-import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
+-import ReactDOM from 'react-dom';
++import { useRef, useEffect, forwardRef, useImperativeHandle } from 'preact/compat';
++import ReactDOM from 'preact/compat';
+ import canUseDom from "./Dom/canUseDom";
+ var Portal = /*#__PURE__*/forwardRef(function (props, ref) {
+   var didUpdate = props.didUpdate,
+diff --git a/es/PortalWrapper.d.ts b/es/PortalWrapper.d.ts
+index e3e6a955bb724f84cbecf84360f2cc9f28dd59f0..db094ccc932b5ac0c29a869344f8d2c776ff83e6 100644
+--- a/es/PortalWrapper.d.ts
++++ b/es/PortalWrapper.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import { PortalRef } from './Portal';
+ import ScrollLocker from './Dom/scrollLocker';
+ /** @private Test usage only */
+diff --git a/es/PortalWrapper.js b/es/PortalWrapper.js
+index bf4b5e988a087fed47e1b8d113f77a9720b54082..21da11fa298b5dd9e84ad952273411c2ea85b383 100644
+--- a/es/PortalWrapper.js
++++ b/es/PortalWrapper.js
+@@ -6,7 +6,7 @@ import _createSuper from "@babel/runtime/helpers/esm/createSuper";
+ import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+ import _typeof from "@babel/runtime/helpers/esm/typeof";
+ /* eslint-disable no-underscore-dangle,react/require-default-props */
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import raf from "./raf";
+ import Portal from "./Portal";
+ import canUseDom from "./Dom/canUseDom";
+diff --git a/es/React/render.d.ts b/es/React/render.d.ts
+index 72e647fac10af5f694ddf49fa052dc47879cd623..45b510147b282a3ca70cd1c96ab4148f1c2def7a 100644
+--- a/es/React/render.d.ts
++++ b/es/React/render.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ import type { Root } from 'react-dom/client';
+ declare const MARK = "__rc_react_root__";
+ type ContainerType = (Element | DocumentFragment) & {
+diff --git a/es/React/render.js b/es/React/render.js
+index 169f01b2998a21ba42fa7b7a397ee526ad2aacb4..3ce19e554392566bf2301a5d4b7885e220cd3d57 100644
+--- a/es/React/render.js
++++ b/es/React/render.js
+@@ -2,7 +2,7 @@ import _regeneratorRuntime from "@babel/runtime/helpers/esm/regeneratorRuntime";
+ import _asyncToGenerator from "@babel/runtime/helpers/esm/asyncToGenerator";
+ import _typeof from "@babel/runtime/helpers/esm/typeof";
+ import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
+-import * as ReactDOM from 'react-dom';
++import * as ReactDOM from 'preact/compat';
+ // Let compiler not to search module usage
+ var fullClone = _objectSpread({}, ReactDOM);
+ var version = fullClone.version,
+diff --git a/es/getContainerRenderMixin.js b/es/getContainerRenderMixin.js
+index 9694d53be5994db5d2c41d1e168883e8ef7fdfa9..36d1d35b54ed88b704ab087d2183c0371069f629 100644
+--- a/es/getContainerRenderMixin.js
++++ b/es/getContainerRenderMixin.js
+@@ -1,5 +1,5 @@
+ import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
+-import ReactDOM from 'react-dom';
++import ReactDOM from 'preact/compat';
+ function defaultGetContainer() {
+   var container = document.createElement('div');
+   document.body.appendChild(container);
+diff --git a/es/hooks/useEffect.js b/es/hooks/useEffect.js
+index f7bea02f6244b9d0856a585c35d22a984457d883..c6bf69302ddae05f0c54aa8a2aa4d0de72b5ecca 100644
+--- a/es/hooks/useEffect.js
++++ b/es/hooks/useEffect.js
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ 
+ /** As `React.useEffect` but pass origin value in callback and not need care deps length change. */
+ export default function useEffect(callback, deps) {
+diff --git a/es/hooks/useEvent.js b/es/hooks/useEvent.js
+index 42d15012a4aa2223c4df3353c3b5b0081396e08e..ca461d6b8cdd97de1b8a48d4463d0ed48e00203c 100644
+--- a/es/hooks/useEvent.js
++++ b/es/hooks/useEvent.js
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export default function useEvent(callback) {
+   var fnRef = React.useRef();
+   fnRef.current = callback;
+diff --git a/es/hooks/useId.js b/es/hooks/useId.js
+index d73df8ea2d47d1da6a7291cb1c499736c226c9dc..d4cf97348616b2806411eed33d64e84ecbe39ce8 100644
+--- a/es/hooks/useId.js
++++ b/es/hooks/useId.js
+@@ -1,6 +1,6 @@
+ import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
+ import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ function getUseId() {
+   // We need fully clone React function here to avoid webpack warning React 17 do not export `useId`
+   var fullClone = _objectSpread({}, React);
+diff --git a/es/hooks/useLayoutEffect.d.ts b/es/hooks/useLayoutEffect.d.ts
+index 06de56023f15a77d3475f9fdfb8ad59010108d3c..4e01ccfbd6d555ecb1e6087021dd08458df0f0c9 100644
+--- a/es/hooks/useLayoutEffect.d.ts
++++ b/es/hooks/useLayoutEffect.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ declare const useLayoutEffect: (callback: (mount: boolean) => void | VoidFunction, deps?: React.DependencyList) => void;
+ export declare const useLayoutUpdateEffect: typeof React.useEffect;
+ export default useLayoutEffect;
+diff --git a/es/hooks/useLayoutEffect.js b/es/hooks/useLayoutEffect.js
+index d4bc1b424851b83ee43b47f3433df81d7cb56755..001ad7842483f616347f6b464d427a5803fcee3d 100644
+--- a/es/hooks/useLayoutEffect.js
++++ b/es/hooks/useLayoutEffect.js
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import canUseDom from "../Dom/canUseDom";
+ 
+ /**
+diff --git a/es/hooks/useMemo.js b/es/hooks/useMemo.js
+index c45bb369c6b25aa5ee4d8bd6484babc6155c61c5..f8144f8033e537848fbe2ca3b0d86ea4bfcd2d90 100644
+--- a/es/hooks/useMemo.js
++++ b/es/hooks/useMemo.js
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export default function useMemo(getValue, condition, shouldUpdate) {
+   var cacheRef = React.useRef({});
+   if (!('value' in cacheRef.current) || shouldUpdate(cacheRef.current.condition, condition)) {
+diff --git a/es/hooks/useMobile.js b/es/hooks/useMobile.js
+index 22956d05b2fdb3d67d8495150ce27970937f32f0..9d5631158eb9857d7fb07059d39501f8c65bb3ff 100644
+--- a/es/hooks/useMobile.js
++++ b/es/hooks/useMobile.js
+@@ -1,5 +1,5 @@
+ import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
+-import { useState } from 'react';
++import { useState } from 'preact/compat';
+ import isMobile from "../isMobile";
+ import useLayoutEffect from "./useLayoutEffect";
+ 
+diff --git a/es/hooks/useState.js b/es/hooks/useState.js
+index 6bdf52684a73a588864b7e08e44edb2449e4e752..e33ef9150792bde337b027c281c13eb03e7e99f0 100644
+--- a/es/hooks/useState.js
++++ b/es/hooks/useState.js
+@@ -1,5 +1,5 @@
+ import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ /**
+  * Same as React.useState but `setState` accept `ignoreDestroy` param to not to setState after destroyed.
+  * We do not make this auto is to avoid real memory leak.
+diff --git a/es/hooks/useSyncState.js b/es/hooks/useSyncState.js
+index 2f607b7156fd0ee93f396d1cc400b9de9c45a772..0338f134ef2a0d1c28684326e32ac0e54d0b4545 100644
+--- a/es/hooks/useSyncState.js
++++ b/es/hooks/useSyncState.js
+@@ -1,5 +1,5 @@
+ import _slicedToArray from "@babel/runtime/helpers/esm/slicedToArray";
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import useEvent from "./useEvent";
+ /**
+  * Same as React.useState but will always get latest state.
+diff --git a/es/ref.d.ts b/es/ref.d.ts
+index bd8008dec7a76261082e2bdaa9c1c380b2a61fa8..dafbaa319f95b87e4dc0bf6b9db2372dbb4144f2 100644
+--- a/es/ref.d.ts
++++ b/es/ref.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ export declare const fillRef: <T>(ref: React.Ref<T>, node: T) => void;
+ /**
+  * Merge refs into one ref function to support ref passing.
+diff --git a/es/ref.js b/es/ref.js
+index 5dfaa7ae000021256a3e4583ca8f7fdd270f8fd4..1d1ae441c550f37e6220dbe2ad4f3118fedf2591 100644
+--- a/es/ref.js
++++ b/es/ref.js
+@@ -1,5 +1,5 @@
+ import _typeof from "@babel/runtime/helpers/esm/typeof";
+-import { isValidElement, version } from 'react';
++import { isValidElement, version } from 'preact/compat';
+ import { ForwardRef, isFragment, isMemo } from 'react-is';
+ import useMemo from "./hooks/useMemo";
+ export var fillRef = function fillRef(ref, node) {
+diff --git a/es/setStyle.d.ts b/es/setStyle.d.ts
+index d8b51d86ad75d604f6606791c9d81a2df85c7056..524e5e539f89121e68856407349d4cd70f903fde 100644
+--- a/es/setStyle.d.ts
++++ b/es/setStyle.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export interface SetStyleOptions {
+     element?: HTMLElement;
+ }
+diff --git a/es/unsafeLifecyclesPolyfill.js b/es/unsafeLifecyclesPolyfill.js
+index cf3a409ba846bc11078f23d1bf6471854ca7379e..6a15e127e83461f0c822bf0bbd26e2728d566a88 100644
+--- a/es/unsafeLifecyclesPolyfill.js
++++ b/es/unsafeLifecyclesPolyfill.js
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ var unsafeLifecyclesPolyfill = function unsafeLifecyclesPolyfill(Component) {
+   var prototype = Component.prototype;
+   if (!prototype || !prototype.isReactComponent) {
+diff --git a/lib/Children/toArray.d.ts b/lib/Children/toArray.d.ts
+index e0668f26a82d769c8e90a95bebaa7390283bf8d0..daf209f37aaf3bff4eb3d17f8c67a466ac33ea5a 100644
+--- a/lib/Children/toArray.d.ts
++++ b/lib/Children/toArray.d.ts
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ export interface Option {
+     keepEmpty?: boolean;
+ }
+diff --git a/lib/Dom/findDOMNode.d.ts b/lib/Dom/findDOMNode.d.ts
+index 2a55f7acc0cf31ab9aa53a187af1f62374c9da61..eaa011683447d49e759888f4d8b7c6f143159dd3 100644
+--- a/lib/Dom/findDOMNode.d.ts
++++ b/lib/Dom/findDOMNode.d.ts
+@@ -1,4 +1,4 @@
+-import React from 'react';
++import React from 'preact/compat';
+ export declare function isDOM(node: any): node is HTMLElement | SVGElement;
+ /**
+  * Retrieves a DOM node via a ref, and does not invoke `findDOMNode`.
+diff --git a/lib/Portal.d.ts b/lib/Portal.d.ts
+index 5d1da73011eef01874c095f9b62a201120f1b8b2..b18c12beddbe436066312359c96a0665d9f5fa0c 100644
+--- a/lib/Portal.d.ts
++++ b/lib/Portal.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ export type PortalRef = {};
+ export interface PortalProps {
+     didUpdate?: (prevProps: PortalProps) => void;
+diff --git a/lib/PortalWrapper.d.ts b/lib/PortalWrapper.d.ts
+index e3e6a955bb724f84cbecf84360f2cc9f28dd59f0..db094ccc932b5ac0c29a869344f8d2c776ff83e6 100644
+--- a/lib/PortalWrapper.d.ts
++++ b/lib/PortalWrapper.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ import { PortalRef } from './Portal';
+ import ScrollLocker from './Dom/scrollLocker';
+ /** @private Test usage only */
+diff --git a/lib/React/render.d.ts b/lib/React/render.d.ts
+index 72e647fac10af5f694ddf49fa052dc47879cd623..45b510147b282a3ca70cd1c96ab4148f1c2def7a 100644
+--- a/lib/React/render.d.ts
++++ b/lib/React/render.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ import type { Root } from 'react-dom/client';
+ declare const MARK = "__rc_react_root__";
+ type ContainerType = (Element | DocumentFragment) & {
+diff --git a/lib/hooks/useLayoutEffect.d.ts b/lib/hooks/useLayoutEffect.d.ts
+index 06de56023f15a77d3475f9fdfb8ad59010108d3c..4e01ccfbd6d555ecb1e6087021dd08458df0f0c9 100644
+--- a/lib/hooks/useLayoutEffect.d.ts
++++ b/lib/hooks/useLayoutEffect.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ declare const useLayoutEffect: (callback: (mount: boolean) => void | VoidFunction, deps?: React.DependencyList) => void;
+ export declare const useLayoutUpdateEffect: typeof React.useEffect;
+ export default useLayoutEffect;
+diff --git a/lib/ref.d.ts b/lib/ref.d.ts
+index bd8008dec7a76261082e2bdaa9c1c380b2a61fa8..dafbaa319f95b87e4dc0bf6b9db2372dbb4144f2 100644
+--- a/lib/ref.d.ts
++++ b/lib/ref.d.ts
+@@ -1,4 +1,4 @@
+-import type * as React from 'react';
++import type * as React from 'preact/compat';
+ export declare const fillRef: <T>(ref: React.Ref<T>, node: T) => void;
+ /**
+  * Merge refs into one ref function to support ref passing.
+diff --git a/lib/setStyle.d.ts b/lib/setStyle.d.ts
+index d8b51d86ad75d604f6606791c9d81a2df85c7056..524e5e539f89121e68856407349d4cd70f903fde 100644
+--- a/lib/setStyle.d.ts
++++ b/lib/setStyle.d.ts
+@@ -1,4 +1,4 @@
+-import * as React from 'react';
++import * as React from 'preact/compat';
+ export interface SetStyleOptions {
+     element?: HTMLElement;
+ }
 diff --git a/package.json b/package.json
-index 73cd97bcd5fd856fb0f2bcb32855554ff4f64654..da08e725577014c694eb5a10ff3aadddcf192685 100644
+index 73cd97bcd5fd856fb0f2bcb32855554ff4f64654..cc22de3630b3e22b62c71d129058604ca33c1e65 100644
 --- a/package.json
 +++ b/package.json
-@@ -67,10 +67,15 @@
+@@ -65,12 +65,10 @@
+     "np": "^10.0.2",
+     "prettier": "^3.3.2",
      "rc-test": "^7.0.14",
-     "react": "^18.0.0",
-     "react-dom": "^18.0.0",
+-    "react": "^18.0.0",
+-    "react-dom": "^18.0.0",
 -    "typescript": "^5.3.2"
 +    "typescript": "^5.3.2",
 +    "preact": "^10.22.1"
    },
    "peerDependencies": {
-     "react": ">=16.9.0",
-     "react-dom": ">=16.9.0"
-+  },
-+  "resolutions": {
-+    "react": "preact/compat",
-+    "react-dom": "preact/compat"
+-    "react": ">=16.9.0",
+-    "react-dom": ">=16.9.0"
++    "preact": "^10.22.1"
    }
  }

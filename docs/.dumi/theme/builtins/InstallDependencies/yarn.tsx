@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 
 interface IconProps {
   className?: string;

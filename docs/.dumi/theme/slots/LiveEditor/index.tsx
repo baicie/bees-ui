@@ -1,6 +1,6 @@
-import type { FC } from 'react';
-import React from 'react';
 import DumiLiveEditor from 'dumi/theme-default/slots/LiveEditor';
+import type { FC } from 'preact/compat';
+import React from 'preact/compat';
 
 const LiveEditor: FC = () => (
   <DumiLiveEditor

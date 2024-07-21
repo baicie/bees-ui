@@ -1,10 +1,10 @@
 // 用于 color.md 中的颜色对比
-import React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 import { Space, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import classNames from 'classnames';
+import React from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 

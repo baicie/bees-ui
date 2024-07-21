@@ -1,6 +1,6 @@
-import React from 'react';
 import { PictureOutlined } from '@ant-design/icons';
 import { Image, Tooltip, Typography } from 'antd';
+import React from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 

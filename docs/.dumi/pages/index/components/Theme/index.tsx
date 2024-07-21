@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import {
   BellOutlined,
@@ -26,6 +25,7 @@ import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
+import * as React from 'preact/compat';
 
 import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';

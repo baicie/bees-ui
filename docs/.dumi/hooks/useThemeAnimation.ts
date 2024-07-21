@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'preact/compat';
 import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';

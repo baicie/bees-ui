@@ -1,7 +1,7 @@
-import * as React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { Badge, message } from 'antd';
 import classNames from 'classnames';
+import * as React from 'preact/compat';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 import type { ThemeType } from './index';

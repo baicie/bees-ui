@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react';
-import React from 'react';
 import { Helmet } from 'dumi';
+import type { PropsWithChildren } from 'preact/compat';
+import React from 'preact/compat';
 
 import Footer from '../../slots/Footer';
 

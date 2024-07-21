@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
 import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+import React, { useContext } from 'preact/compat';
 
 import SiteContext from './slots/SiteContext';
 

@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Tag, version } from 'antd';
 import { useFullSidebarData, useSidebarData } from 'dumi';
+import React, { useMemo } from 'preact/compat';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';

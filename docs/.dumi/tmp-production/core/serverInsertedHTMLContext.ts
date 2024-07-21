@@ -3,7 +3,7 @@
 // DO NOT CHANGE IT MANUALLY!
 // Use React.createContext to avoid errors from the RSC checks because
 // it can't be imported directly in Server Components:
-import React from 'react';
+import React from 'preact/compat';
 
 export type ServerInsertedHTMLHook = (callbacks: () => React.ReactNode) => void;
 // More info: https://github.com/vercel/next.js/pull/40686

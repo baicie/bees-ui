@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
 import { message } from 'antd';
+import React, { useMemo } from 'preact/compat';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 interface ColorBlockProps {

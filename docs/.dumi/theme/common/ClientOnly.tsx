@@ -1,5 +1,5 @@
-import type { FC, ReactElement, ReactNode } from 'react';
-import { useLayoutEffect, useState } from 'react';
+import type { FC, ReactElement, ReactNode } from 'preact/compat';
+import { useLayoutEffect, useState } from 'preact/compat';
 
 export type ClientOnlyProps = {
   children: ReactNode;

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Space } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import classNames from 'classnames';
+import * as React from 'preact/compat';
 
 import useLocale from '../../../../hooks/useLocale';
 

@@ -1,5 +1,5 @@
-import React from 'react';
 import { InputNumber, Slider, Space } from 'antd';
+import React from 'preact/compat';
 
 export interface RadiusPickerProps {
   id?: string;

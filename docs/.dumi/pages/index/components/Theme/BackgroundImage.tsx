@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
+import React, { useMemo, useState } from 'preact/compat';
 import { CSSMotionList } from 'rc-motion';
 
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'preact/compat';
 import type { JSONEditorPropsOptional } from 'vanilla-jsoneditor';
 import { JSONEditor, Mode } from 'vanilla-jsoneditor';
 

@@ -1,7 +1,7 @@
-import type { FC } from 'react';
-import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
+import type { FC } from 'preact/compat';
+import React, { Suspense } from 'preact/compat';
 
 import type { BehaviorMapProps } from './BehaviorMap';
 

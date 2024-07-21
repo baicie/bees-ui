@@ -1,9 +1,9 @@
-import * as React from 'react';
-import type { FC } from 'react';
-import { useContext } from 'react';
 import { Carousel, Skeleton, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
+import * as React from 'preact/compat';
+import type { FC } from 'preact/compat';
+import { useContext } from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';

@@ -1,6 +1,6 @@
-import React from 'react';
 import { generate } from '@ant-design/colors';
 import uniq from 'lodash/uniq';
+import React from 'preact/compat';
 
 import ColorBlock from './ColorBlock';
 

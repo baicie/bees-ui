@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { TinyColor, type ColorInput } from '@ctrl/tinycolor';
 import { createStyles } from 'antd-style';
+import * as React from 'preact/compat';
 
 interface ColorChunkProps {
   children?: React.ReactNode;

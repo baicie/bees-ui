@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useState } from 'react';
 import { Carousel, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
+import * as React from 'preact/compat';
+import { useState } from 'preact/compat';
 
 import { getCarouselStyle } from '../util';
 

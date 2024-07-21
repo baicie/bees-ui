@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useContext } from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
   Alert,
@@ -16,6 +15,7 @@ import {
 import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+import React, { useContext } from 'preact/compat';
 
 import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';

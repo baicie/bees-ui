@@ -1,4 +1,4 @@
-import { startTransition, useState } from 'react';
+import { startTransition, useState } from 'preact/compat';
 
 const useLayoutState: typeof useState = <S>(
   ...args: Parameters<typeof useState<S>>

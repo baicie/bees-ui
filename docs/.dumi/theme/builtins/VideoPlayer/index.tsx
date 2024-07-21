@@ -1,7 +1,7 @@
-import React from 'react';
 import { PauseCircleFilled, PlayCircleFilled } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
+import React from 'preact/compat';
 
 const useStyles = createStyles(({ cx, token }) => {
   const play = css`

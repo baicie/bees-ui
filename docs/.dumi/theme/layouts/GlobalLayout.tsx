@@ -1,4 +1,3 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   createCache,
   extractStyle,
@@ -13,6 +12,7 @@ import { theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import dayjs from 'dayjs';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
+import React, { useCallback, useEffect, useMemo } from 'preact/compat';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';

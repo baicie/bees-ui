@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react';
 import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
 import { ConfigProvider, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
+import React, { useMemo, useState } from 'preact/compat';
 
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';

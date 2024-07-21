@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Col, Row, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
+import * as React from 'preact/compat';
 
 import type { Recommendation } from './util';
 

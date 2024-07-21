@@ -1,8 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
 import { Button, message, Skeleton } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
+import React, { Suspense, useEffect } from 'preact/compat';
 
 import useLocale from '../../hooks/useLocale';
 

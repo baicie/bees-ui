@@ -1,10 +1,10 @@
-import type { ReactElement } from 'react';
-import React, { useContext, useMemo } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
 import type { MenuItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
+import type { ReactElement } from 'preact/compat';
+import React, { useContext, useMemo } from 'preact/compat';
 
 import useMenu from '../../hooks/useMenu';
 import SiteContext from '../slots/SiteContext';

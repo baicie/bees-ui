@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'preact/compat';
 
 import type { ComponentChangelogProps } from './ComponentChangelog';
 import ComponentChangelog from './ComponentChangelog';
