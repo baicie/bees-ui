@@ -1,4 +1,4 @@
-let raf = (callback: FrameRequestCallback) => setTimeout(callback, 16) as any;
+let raf = (callback: FrameRequestCallback) => +setTimeout(callback, 16);
 let caf = (num: number) => clearTimeout(num);
 
 if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
@@ -7,13 +7,14 @@ if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
 }
 
 let rafUUID = 0;
+
 const rafIds = new Map<number, number>();
 
 function cleanup(id: number) {
   rafIds.delete(id);
 }
 
-export default function wrapperRaf(callback: () => void, times = 1): number {
+const wrapperRaf = (callback: () => void, times = 1): number => {
   rafUUID += 1;
   const id = rafUUID;
 
@@ -38,10 +39,16 @@ export default function wrapperRaf(callback: () => void, times = 1): number {
   callRef(times);
 
   return id;
-}
+};
 
 wrapperRaf.cancel = (id: number) => {
   const realId = rafIds.get(id);
-  cleanup(realId);
+  cleanup(id);
   return caf(realId);
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  wrapperRaf.ids = () => rafIds;
+}
+
+export default wrapperRaf;

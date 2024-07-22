@@ -45,12 +45,12 @@ export default function useStatus(
   const [status, setStatus] = createSignal<MotionStatus>(STATUS_NONE);
   const [style, setStyle] = createSignal<JSX.CSSProperties | undefined | null>(null);
 
-  const mountedRef = { current: false };
-  const deadlineRef = { current: null } as { current: any };
+  const [mountedRef, setMountedRef] = createSignal(false);
+  const [deadlineRef, setDeadlineRef] = createSignal<number | null>(null);
 
   const getDomElement = () => getElement();
 
-  const activeRef = { current: false };
+  const [activeRef, setActiveRef] = createSignal(false);
 
   function updateMotionEndStatus() {
     setStatus(STATUS_NONE);
@@ -63,8 +63,10 @@ export default function useStatus(
     const element = getDomElement();
     if (event && !event.deadline && event.target !== element) return;
 
-    const currentActive = activeRef.current;
-    let canEnd: boolean | void = void 0;
+    const currentActive = activeRef();
+    let canEnd: boolean = false;
+    console.log('currentActive', currentActive);
+
     if (status() === STATUS_APPEAR && currentActive) {
       canEnd = onAppearEnd?.(element, event);
     } else if (status() === STATUS_ENTER && currentActive) {
@@ -125,12 +127,13 @@ export default function useStatus(
       patchMotionEvents(getDomElement());
 
       if (motionDeadline > 0) {
-        clearTimeout(deadlineRef.current);
-        deadlineRef.current = setTimeout(() => {
+        clearTimeout(deadlineRef());
+        const timer = setTimeout(() => {
           onInternalMotionEnd({
             deadline: true,
           } as MotionEvent);
-        }, motionDeadline);
+        }, motionDeadline) as unknown as number;
+        setDeadlineRef(timer);
       }
     }
 
@@ -142,12 +145,12 @@ export default function useStatus(
   });
 
   const active = isActive(step());
-  activeRef.current = active;
+  setActiveRef(active);
 
   createEffect(() => {
     setAsyncVisible(visible);
-    const isMounted = mountedRef.current;
-    mountedRef.current = true;
+    const isMounted = mountedRef();
+    setMountedRef(true);
 
     let nextStatus: MotionStatus;
 
@@ -185,21 +188,21 @@ export default function useStatus(
   });
 
   onCleanup(() => {
-    mountedRef.current = false;
-    clearTimeout(deadlineRef.current);
+    setMountedRef(false);
+    clearTimeout(deadlineRef());
   });
 
-  const firstMountChangeRef = { current: false };
+  const [firstMountChangeRef, setFirstMountChangeRef] = createSignal(false);
   createEffect(() => {
     if (asyncVisible()) {
-      firstMountChangeRef.current = true;
+      setFirstMountChangeRef(true);
     }
 
     if (asyncVisible() !== undefined && status() === STATUS_NONE) {
-      if (firstMountChangeRef.current || asyncVisible()) {
+      if (firstMountChangeRef() || asyncVisible()) {
         onVisibleChanged?.(asyncVisible());
       }
-      firstMountChangeRef.current = true;
+      setFirstMountChangeRef(true);
     }
   });
 

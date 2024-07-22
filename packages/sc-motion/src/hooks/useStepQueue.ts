@@ -39,19 +39,19 @@ const useStepQueue = (
 
   const STEP_QUEUE = prepareOnly ? SIMPLE_STEP_QUEUE : FULL_STEP_QUEUE;
 
-  createEffect(() => {
-    const currentStep = step();
-    if (currentStep !== STEP_NONE && currentStep !== STEP_ACTIVATED) {
-      const index = STEP_QUEUE.indexOf(currentStep);
+  createEffect(async () => {
+    console.log('step', step());
+
+    if (step() !== STEP_NONE && step() !== STEP_ACTIVATED) {
+      const index = STEP_QUEUE.indexOf(step());
       const nextStep = STEP_QUEUE[index + 1];
 
-      const result = callback(currentStep);
+      const result = callback(step());
 
       if (result === SkipStep) {
         // Skip when no needed
         setStep(nextStep);
       } else if (nextStep) {
-        // Do as frame for step update
         nextFrame((info) => {
           function doNext() {
             // Skip since current queue is ood
