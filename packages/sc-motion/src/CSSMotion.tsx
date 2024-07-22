@@ -104,7 +104,6 @@ function genCSSMotion(config: CSSMotionConfig) {
       leavedClassName,
       eventProps,
     } = props;
-    console.log('CSSMotion', props);
 
     const { motion: contextMotion } = useContext(MotionContext);
     const supportMotion = isSupportTransition(props, contextMotion);
@@ -148,7 +147,7 @@ function genCSSMotion(config: CSSMotionConfig) {
     let motionChildren;
     if (!children) {
       motionChildren = null;
-    } else if (status === STATUS_NONE) {
+    } else if (status() === STATUS_NONE) {
       if (mergedVisible) {
         motionChildren = children({ ...mergedProps }, setRef);
       } else if (!removeOnLeave && renderedRef() && leavedClassName) {
@@ -160,11 +159,11 @@ function genCSSMotion(config: CSSMotionConfig) {
       }
     } else {
       let statusSuffix;
-      if (statusStep === STEP_PREPARE) {
+      if (statusStep() === STEP_PREPARE) {
         statusSuffix = 'prepare';
-      } else if (isActive(statusStep)) {
+      } else if (isActive(statusStep())) {
         statusSuffix = 'active';
-      } else if (statusStep === STEP_START) {
+      } else if (statusStep() === STEP_START) {
         statusSuffix = 'start';
       }
 
@@ -173,7 +172,7 @@ function genCSSMotion(config: CSSMotionConfig) {
       motionChildren = children(
         {
           ...mergedProps,
-          className: classNames(getTransitionName(motionName, status), {
+          className: classNames(getTransitionName(motionName, status()), {
             [motionCls]: motionCls && statusSuffix,
             [motionName as string]: typeof motionName === 'string',
           }),
@@ -182,6 +181,7 @@ function genCSSMotion(config: CSSMotionConfig) {
         setRef,
       );
     }
+    console.log('motionChildren', motionChildren);
 
     return (
       <DomWrapper ref={(el: HTMLElement) => setWrapperNodeRef(el)}>{motionChildren}</DomWrapper>

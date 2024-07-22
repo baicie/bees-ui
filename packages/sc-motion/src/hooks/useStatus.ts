@@ -1,5 +1,5 @@
 import { useEvent } from '@bees-ui/sc-util';
-import { createEffect, createMemo, createSignal, JSX, onCleanup } from 'solid-js';
+import { Accessor, createEffect, createMemo, createSignal, JSX, onCleanup } from 'solid-js';
 
 import type { CSSMotionProps } from '../CSSMotion';
 import type { MotionEvent, MotionStatus, StepStatus } from '../interface';
@@ -40,7 +40,7 @@ export default function useStatus(
     onLeaveEnd,
     onVisibleChanged,
   }: CSSMotionProps,
-): [MotionStatus, StepStatus, JSX.CSSProperties, boolean] {
+): [Accessor<MotionStatus>, Accessor<StepStatus>, JSX.CSSProperties, boolean] {
   const [asyncVisible, setAsyncVisible] = createSignal<boolean>();
   const [status, setStatus] = createSignal<MotionStatus>(STATUS_NONE);
   const [style, setStyle] = createSignal<JSX.CSSProperties | undefined | null>(null);
@@ -65,7 +65,7 @@ export default function useStatus(
 
     const currentActive = activeRef();
     let canEnd: boolean = false;
-    console.log('currentActive', currentActive);
+    console.log('onInternalMotionEnd', status(), currentActive);
 
     if (status() === STATUS_APPEAR && currentActive) {
       canEnd = onAppearEnd?.(element, event);
@@ -125,7 +125,7 @@ export default function useStatus(
 
     if (step() === STEP_ACTIVE && status() !== STATUS_NONE) {
       patchMotionEvents(getDomElement());
-
+      console.log('patchMotionEvents', motionDeadline);
       if (motionDeadline > 0) {
         clearTimeout(deadlineRef());
         const timer = setTimeout(() => {
@@ -214,5 +214,5 @@ export default function useStatus(
     };
   }
 
-  return [status(), step(), mergedStyle, asyncVisible() ?? visible];
+  return [status, step, mergedStyle, asyncVisible() ?? visible];
 }
