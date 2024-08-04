@@ -173,7 +173,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       // Parent ref `white-space`
       const nextWhiteSpace =
         measureWhiteSpaceRef.current && getComputedStyle(measureWhiteSpaceRef.current).whiteSpace;
-      setParentWhiteSpace(nextWhiteSpace as any);
+      setParentWhiteSpace(nextWhiteSpace);
     } else if (needEllipsis === STATUS_MEASURE_START) {
       const isOverflow = !!needEllipsisRef.current?.isExceed();
 

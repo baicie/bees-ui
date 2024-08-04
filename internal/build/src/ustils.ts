@@ -1,7 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
+import { globSync } from 'fast-glob';
 import type { ModuleFormat } from 'rollup';
+
+import { Options } from './build';
+import { componentsPath } from './path';
 
 export const DEFAULT = [
   'src/index.ts',
@@ -73,7 +77,19 @@ export function resolveBuildConfig(root: string) {
   return Object.entries(buildConfig);
 }
 
-export function resolveInput(root: string, input: string | string[]) {
+export function resolveInput(
+  root: string,
+  input: string | string[],
+  options: Options = {},
+): string | string[] {
+  if (options.root) {
+    return globSync(`${componentsPath}/**/*.{ts,tsx,js,jsx}`, {
+      onlyFiles: true,
+      cwd: root,
+      absolute: true,
+      ignore: [`${componentsPath}/**/{demo,__tests__,design}/*.{ts,tsx,js,jsx}`, 'demo'],
+    });
+  }
   const inputPath = Array.isArray(input) ? input : [input];
   let resultPath = '';
   inputPath.forEach((_path) => {
@@ -82,7 +98,7 @@ export function resolveInput(root: string, input: string | string[]) {
       resultPath = _temp;
     }
   });
-  return resultPath;
+  return [resultPath];
 }
 
 export const isWindows = typeof process !== 'undefined' && process.platform === 'win32';
@@ -91,6 +107,10 @@ export function slash(p: string): string {
   return p.replace(windowsSlashRE, '/');
 }
 
-export function normalizePath(id: string): string {
-  return path.posix.normalize(isWindows ? slash(id) : id);
+export function normalizePath(id: string | string[]): string[] {
+  let ids = id;
+  if (!Array.isArray(id)) {
+    ids = [id];
+  }
+  return (ids as string[]).map((item) => path.posix.normalize(isWindows ? slash(item) : item));
 }

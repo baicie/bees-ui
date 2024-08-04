@@ -22,9 +22,9 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "cac": "^6.7.14",
-    "rollup": "^4.19.0",
+    "rollup": "^4.19.2",
     "rollup-plugin-esbuild": "^6.1.1",
-    "tsx": "^4.16.2",
+    "tsx": "^4.16.5",
     "vite-plugin-solid": "^2.10.2"
   }
 }

@@ -6,15 +6,17 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
   InputPluginOption,
   OutputOptions,
+  Plugin,
   RollupBuild,
   RollupOptions,
+  RollupOutput,
   WatcherOptions,
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import visualizer from 'rollup-plugin-visualizer';
 
-import { rootPath } from './path';
+import { componentsPath, rootPath } from './path';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
 
 export interface Options {
@@ -31,13 +33,22 @@ export interface Options {
   full?: boolean;
   name?: string;
   visualizer?: boolean;
+  root?: string;
 }
 
-async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
-  return Promise.all(options.map((option) => bundle.write(option)));
+async function writeBundles(
+  bundle: RollupBuild,
+  options: OutputOptions[],
+  extra: RollupOutput[] = [],
+) {
+  return Promise.all([...options.map((option) => bundle.write(option)), ...extra]);
 }
 
-async function resolveConfig(root: string, options: Options = {}): Promise<RollupOptions> {
+export async function resolveConfig(
+  root: string,
+  options: Options = {},
+  plugin: Plugin[] = [],
+): Promise<RollupOptions> {
   const {
     input = DEFAULT,
     sourcemap = false,
@@ -45,7 +56,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     minify = false,
     full = false,
   } = options;
-  const inputPath = resolveInput(root, input);
+  const inputPath = resolveInput(root, input, options);
   const watchOptions: WatcherOptions = {
     clearScreen: true,
   };
@@ -68,11 +79,12 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
       minify,
       target,
       tsconfig: path.resolve(rootPath, 'tsconfig.json'),
+      treeShaking: true,
     }),
     options.visualizer ? visualizer({ open: true }) : null,
+    ...plugin,
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
-  console.log('External dependencies:', external);
 
   return {
     input: inputPath,
@@ -84,9 +96,9 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
 }
 
 export async function build(root: string, options: Options = {}) {
-  const config = await resolveConfig(root, options);
-
-  const bundle = await rollup(config);
+  const bundleConfig = await resolveConfig(root, options);
+  const bundle = await rollup(bundleConfig);
+  // const dtsBundle = await rollup(dtsConfig);
 
   await writeBundles(
     bundle,
@@ -96,6 +108,8 @@ export async function build(root: string, options: Options = {}) {
         dir: _config.output.path,
         exports: 'named',
         sourcemap: options.sourcemap,
+        preserveModules: true,
+        preserveModulesRoot: componentsPath,
       }),
     ),
   );

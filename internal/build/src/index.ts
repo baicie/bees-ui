@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import cac from 'cac';
 
-import { build, watchFuc } from './build';
+import { watchFuc } from './build';
 import { dts } from './dts';
+import { compile } from './gulp';
 
 const cli = cac('bee');
 cli.command('[root]', 'Build the project').action(() => {
@@ -20,11 +21,18 @@ cli
   .option('-d, --dts', 'output path')
   .option('-n, --name', 'output path')
   .option('-v, --visualizer', 'output path')
+  .option('-r, --root', 'output path')
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
-    else await build(root, args);
-    if (args.dts) await dts(root, args);
+    // else await build(root, args);
+    if (args.dts) {
+      if (args.root) {
+        await compile();
+      } else {
+        await dts(root, args);
+      }
+    }
   });
 
 cli.help();

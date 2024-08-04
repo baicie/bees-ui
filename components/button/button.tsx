@@ -75,12 +75,10 @@ function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigTyp
   };
 }
 
-export const InternalCompoundedButton = React.forwardRef<
+const InternalCompoundedButton = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps
 >((props, ref) => {
-  console.log('InternalCompoundedButton', props, ref);
-
   const {
     loading = false,
     prefixCls: customizePrefixCls,
@@ -232,7 +230,7 @@ export const InternalCompoundedButton = React.forwardRef<
     button?.className,
   );
 
-  const fullStyle = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
   const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
   const iconStyle: React.CSSProperties = {

@@ -1,12 +1,12 @@
-import fs, { read } from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 import { execa } from 'execa';
 import { globSync } from 'fast-glob';
 import colors from 'picocolors';
 
 import pkg from '../package.json';
+import { rootPath } from './path';
 
-const rootPath = path.resolve(__dirname, '..');
 const packageJsonPath = path.resolve(rootPath, 'package.json');
 const patchPkg = {
   clsx: {

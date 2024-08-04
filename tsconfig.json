@@ -1,11 +1,23 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "preact",
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "antd": ["components/index.ts"],
+      "antd/es/*": ["components/*"],
+      "antd/lib/*": ["components/*"],
+      "antd/locale/*": ["components/locale/*"],
+      "classnames": ["node_modules/clsx"]
+    },
+    "strict": true,
+    "strictNullChecks": true,
     "module": "esnext",
     "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
@@ -13,12 +25,8 @@
     "lib": ["dom", "es2017"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
-    }
+    "resolvePackageJsonExports": true
   },
-  "include": ["packages", "internal", "icons", "components"]
+  "include": [".dumirc.ts", "**/*"],
+  "exclude": ["node_modules", "lib", "es"]
 }

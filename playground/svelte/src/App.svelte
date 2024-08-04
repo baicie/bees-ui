@@ -1,5 +1,4 @@
-<script lang="ts">
-import '@bees-ui/button';
+<script lang="ts"> 
 </script>
 
 <main>

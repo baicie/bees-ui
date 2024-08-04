@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 
@@ -17,7 +18,7 @@ const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((pro
 
   return (
     <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
-      <div className={iconClassName} />
+      <LoadingOutlined className={iconClassName} />
     </IconWrapper>
   );
 });
