@@ -16,17 +16,17 @@ export const DEFAULT = [
   'src/index.js',
 ];
 
-const ignore = ['preact'];
+const ignore = ['react', 'react-dom', 'classnames'];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
-
-  return [
+  const deps = [
     ...Object.keys(manifest.dependencies ?? []),
     ...Object.keys(manifest.peerDependencies ?? []),
   ]
     .filter((item) => !item.startsWith('@types/'))
     .filter((item) => !ignore.includes(item));
+  return [/@ant-design\/icons\//, ...deps];
 }
 
 export const target = 'es2018';

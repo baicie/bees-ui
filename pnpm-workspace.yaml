@@ -2,6 +2,5 @@ packages:
   - 'packages/*'
   - 'playground/*'
   - 'internal/*'
-  - components
   - antd
   - docs

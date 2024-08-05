@@ -36,6 +36,7 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "devDependencies": {
+    "@bees-ui/antd": "workspace:^",
     "@bees-ui/internal-build": "workspace:^",
     "@bees-ui/register": "workspace:^",
     "@biomejs/biome": "^1.8.3",

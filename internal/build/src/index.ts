@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import cac from 'cac';
 
-import { watchFuc } from './build';
+import { build, watchFuc } from './build';
 import { dts } from './dts';
 import { compile } from './gulp';
 
@@ -26,7 +26,7 @@ cli
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
-    // else await build(root, args);
+    else await build(root, args);
     if (args.dts) {
       if (args.root) {
         await compile(root, args);

@@ -6,7 +6,7 @@ import assign from 'object-assign';
 import * as rimraf from 'rimraf';
 
 import { Options } from './build';
-import { rootPath } from './path';
+import { antdPath } from './path';
 
 const tsDefaultReporter = ts.reporter.defaultReporter();
 async function getTsConfig(tsconfigPath: string): Promise<any> {
@@ -32,6 +32,8 @@ async function getTsConfig(tsconfigPath: string): Promise<any> {
 }
 
 export async function compile(root: string, options: Options = {}) {
+  console.log('compile...', root);
+
   const distPath = path.resolve(root, 'dist');
   const typesPath = path.resolve(distPath, 'types');
   const tsconfigPath = path.resolve(root, 'tsconfig.json');
@@ -46,11 +48,10 @@ export async function compile(root: string, options: Options = {}) {
   const source = [
     'components/**/*.tsx',
     'components/**/*.ts',
-    // 'components/typings/**/*.d.ts',
+    'typings/**/*.d.ts',
     '!components/**/__tests__/**',
     '!components/**/demo/**',
     '!components/**/design/**',
-    '!components/node_modules/**',
   ];
 
   // allow jsx file in components/xxx/
@@ -58,7 +59,7 @@ export async function compile(root: string, options: Options = {}) {
     source.unshift('components/**/*.jsx');
   }
 
-  const sourceStream = gulp.src(source, { cwd: rootPath });
+  const sourceStream = gulp.src(source, { cwd: antdPath });
 
   const tsResult = sourceStream.pipe(
     ts(

@@ -33,6 +33,7 @@
     "progress-stream": "^2.0.0",
     "rimraf": "^6.0.1",
     "rollup": "^4.19.2",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-visualizer": "^5.12.0",
     "tsx": "^4.16.5",

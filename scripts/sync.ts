@@ -2,7 +2,14 @@ import { exec } from 'node:child_process';
 import path from 'node:path';
 import type { Project } from '@pnpm/find-workspace-packages';
 import consola from 'consola';
-import { copySync, readJSONSync, removeSync, writeFileSync, writeJSONSync } from 'fs-extra';
+import {
+  copySync,
+  ensureDirSync,
+  readJSONSync,
+  removeSync,
+  writeFileSync,
+  writeJSONSync,
+} from 'fs-extra';
 import color from 'picocolors';
 
 import { download } from './download';
@@ -23,35 +30,41 @@ const version = (readJSONSync(rootPackagePath) as Package).version;
 const copyPath: CopyPath[] = [
   {
     form: 'package.json',
-    to: './antd/package.json',
+    to: 'package.json',
     cb(from, to) {
       const content: Package = readJSONSync(from);
-      content.name = '@bees-ui/ant';
+      content.name = '@bees-ui/antd';
       content.version = version;
-      if (!content.scripts) {
-        content.scripts = {};
-      }
+      content.main = 'dist/lib/index.js';
+      content.module = 'dist/es/index.js';
+      content.types = 'dist/types/index.d.ts';
+      content.typings = content.types;
+      content.scripts = {};
       content.scripts['bees-build'] =
         'cross-env NODE_OPTIONS=--max_old_space_size=4096 bee build --sourcemap --full --root -d';
       // content.scripts['bees-dev'] = 'bee build --sourcemap --full --root -d -w';
       writeJSONSync(to, content, { spaces: 2 });
     },
   },
+  {
+    form: 'components',
+    to: 'components',
+  },
+  {
+    form: 'typings',
+    to: 'typings',
+  },
+  {
+    form: 'tsconfig.json',
+    to: 'tsconfig.json',
+  },
 ];
 const antRootPath = path.resolve(swapPath, 'ant-design');
-const ignore = ['.dumi', 'docs', 'tests', 'scripts', '.git'];
 function copy() {
-  copySync(antRootPath, targetPath, {
-    filter: (src) => {
-      if (ignore.includes(path.basename(src))) {
-        return false;
-      }
-      return true;
-    },
-  });
+  ensureDirSync(targetPath);
   for (const { form, to, cb } of copyPath) {
     const _form = path.resolve(antRootPath, form);
-    const _to = path.resolve(rootPath, to);
+    const _to = path.resolve(targetPath, to);
     if (cb) {
       cb(_form, _to);
     } else copySync(_form, _to);

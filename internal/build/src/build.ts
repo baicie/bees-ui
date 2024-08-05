@@ -3,6 +3,7 @@ import path from 'node:path';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import { emptyDirSync } from 'fs-extra';
 import type {
   InputPluginOption,
   OutputOptions,
@@ -86,7 +87,6 @@ export async function resolveConfig(
     ...plugin,
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
-
   return {
     input: inputPath,
     plugins,
@@ -97,9 +97,10 @@ export async function resolveConfig(
 }
 
 export async function build(root: string, options: Options = {}) {
+  const distPath = path.resolve(root, 'dist');
+  emptyDirSync(distPath);
   const bundleConfig = await resolveConfig(root, options);
   const bundle = await rollup(bundleConfig);
-  // const dtsBundle = await rollup(dtsConfig);
 
   await writeBundles(
     bundle,
