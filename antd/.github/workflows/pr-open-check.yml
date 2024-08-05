@@ -1,0 +1,52 @@
+name: PR Open Check
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  refuse:
+    permissions:
+      issues: write  # for actions-cool/pr-welcome to create, update & react on issues
+      pull-requests: write  # for actions-cool/pr-welcome to request reviewer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/pr-welcome@v1
+        with:
+          refuse-issue-label: '🎱 Collaborate PR only'
+          need-creator-authority: 'write'
+          comment: |
+            Hi @${{ github.event.pull_request.user.login }}. The issue mentioned in this PR needs to be confirmed with the designer or core team. Thank you for your contribution! 😊
+
+            你好 @${{ github.event.pull_request.user.login }}。这个 PR 提及的 issue 需要和设计师或核心团队进行确认！感谢您的贡献！😊
+          close: false
+          reviewers: |
+            MadCcc
+            zombieJ
+
+  check-changelog:
+    permissions:
+      pull-requests: write  # for actions-cool/pr-check-fill to create or update PR comments
+    runs-on: ubuntu-latest
+    steps:
+      - name: check fill
+        uses: actions-cool/pr-check-fill@v1
+        with:
+          filter-start: '|'
+          require-include: '🇺🇸 English, 🇨🇳 Chinese, 🇺🇸 英文, 🇨🇳 中文'
+          comment-body: |
+            - 🚨 @${{ github.event.pull_request.user.login }}, Please fill changelog in the PR
+              - Use a developer-oriented tone
+              - Describe the impact on developers, rather than your solution
+              - Refer to: https://ant.design/changelog#501
+
+            - 🚨 @${{ github.event.pull_request.user.login }}, 请填写 PR 中的 changelog
+              - 使用面向开发者的角度撰写 changelog
+              - 描述用户第一现场的问题，对开发者有哪些影响，而非你的解决方式
+              - 参考：https://ant.design/changelog-cn#501
+
+            ![](https://github.com/ant-design/ant-design/assets/507615/14c767db-e40f-42a1-9aab-553037eb1ab6)
+          skip-title-start: 'docs, chore, test, ci'

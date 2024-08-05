@@ -1,15 +1,15 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import gulp from 'gulp';
 import ts from 'gulp-typescript';
-import minimist from 'minimist';
 import assign from 'object-assign';
-import { sync } from 'rimraf';
+import * as rimraf from 'rimraf';
 
-import { tsconfigPath, typesPath } from './path';
+import { Options } from './build';
+import { rootPath } from './path';
 
 const tsDefaultReporter = ts.reporter.defaultReporter();
-const argv = minimist(process.argv.slice(2));
-async function getTsConfig(): Promise<any> {
+async function getTsConfig(tsconfigPath: string): Promise<any> {
   let my = {
     compilerOptions: {},
   };
@@ -31,9 +31,14 @@ async function getTsConfig(): Promise<any> {
   );
 }
 
-export async function compile() {
-  sync(typesPath);
-  const tsConfig = await getTsConfig();
+export async function compile(root: string, options: Options = {}) {
+  const distPath = path.resolve(root, 'dist');
+  const typesPath = path.resolve(distPath, 'types');
+  const tsconfigPath = path.resolve(root, 'tsconfig.json');
+
+  rimraf.sync(typesPath);
+
+  const tsConfig = await getTsConfig(tsconfigPath);
 
   let error = 0;
 
@@ -41,10 +46,11 @@ export async function compile() {
   const source = [
     'components/**/*.tsx',
     'components/**/*.ts',
-    'typings/**/*.d.ts',
+    // 'components/typings/**/*.d.ts',
     '!components/**/__tests__/**',
     '!components/**/demo/**',
     '!components/**/design/**',
+    '!components/node_modules/**',
   ];
 
   // allow jsx file in components/xxx/
@@ -52,22 +58,28 @@ export async function compile() {
     source.unshift('components/**/*.jsx');
   }
 
-  const sourceStream = gulp.src(source);
+  const sourceStream = gulp.src(source, { cwd: rootPath });
 
   const tsResult = sourceStream.pipe(
-    ts(tsConfig, {
-      error(e) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        tsDefaultReporter.error(e);
-        error = 1;
+    ts(
+      {
+        ...tsConfig,
+        noEmitOnError: false,
       },
-      finish: tsDefaultReporter.finish,
-    }),
+      {
+        error(e) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          tsDefaultReporter.error(e);
+          error = 1;
+        },
+        finish: tsDefaultReporter.finish,
+      },
+    ),
   );
 
   function check() {
-    if (error && !argv['ignore-error']) {
+    if (error && !options['ignore-error']) {
       process.exit(1);
     }
   }

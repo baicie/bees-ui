@@ -22,13 +22,14 @@ cli
   .option('-n, --name', 'output path')
   .option('-v, --visualizer', 'output path')
   .option('-r, --root', 'output path')
+  .option('--ignore-error', 'ignore ts error')
   .action(async (args) => {
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
     // else await build(root, args);
     if (args.dts) {
       if (args.root) {
-        await compile();
+        await compile(root, args);
       } else {
         await dts(root, args);
       }

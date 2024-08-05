@@ -34,6 +34,7 @@ export interface Options {
   name?: string;
   visualizer?: boolean;
   root?: string;
+  'ignore-error'?: boolean;
 }
 
 async function writeBundles(

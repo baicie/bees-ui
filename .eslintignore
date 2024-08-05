@@ -19,3 +19,4 @@ scripts/previewEditor/**/*
 jest-stare
 .eslintrc.js
 .eslintcache
+antd

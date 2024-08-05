@@ -3,10 +3,10 @@ import AdmZip from 'adm-zip';
 import chalk from 'chalk';
 import consola from 'consola';
 import fs from 'fs-extra';
-import gitClone from 'git-clone';
 import type { Ora } from 'ora';
 import ora from 'ora';
 import request from 'request';
+import simpleGit from 'simple-git';
 
 export interface FileStat {
   name: string;
@@ -16,24 +16,41 @@ export interface FileStat {
 
 // tempPath templates/baicie-temp /temp.zip
 export async function download(url: string, tempPath: string) {
-  const spinner = ora(`正在从 ${url} 拉取远程模板...`).start();
+  const spinner = ora(`clone form ${url} fetch files...`).start();
   const zipPath = path.join(tempPath, 'temp.zip');
 
   return new Promise<FileStat[]>((resolve) => {
     if (url.endsWith('.git')) {
       const name = path.basename(url).replace('.git', '');
+      const targetPath = path.resolve(tempPath, name);
+      const branchName = 'master';
+      if (!fs.existsSync(targetPath)) {
+        const git = simpleGit();
+        git.clone(url, targetPath, ['--branch', branchName], async (error) => {
+          if (error) {
+            consola.log(error);
+            spinner.color = 'red';
+            spinner.fail(chalk.red('fetch remote repository failed!'));
+            await fs.remove(tempPath);
+            return resolve([]);
+          }
 
-      gitClone(url, path.join(tempPath, name), {}, async (error: unknown) => {
-        if (error) {
-          consola.log(error);
-          spinner.color = 'red';
-          spinner.fail(chalk.red('拉取远程模板仓库失败！'));
-          await fs.remove(tempPath);
-          return resolve([]);
-        }
+          resolve(defaultFile(tempPath, spinner));
+        });
+      } else {
+        const git = simpleGit(targetPath);
+        git.pull('origin', branchName, [], async (error) => {
+          if (error) {
+            consola.log(error);
+            spinner.color = 'red';
+            spinner.fail(chalk.red('pull remote repository failed!'));
+            await fs.remove(tempPath);
+            return resolve([]);
+          }
 
-        resolve(defaultFile(tempPath, spinner));
-      });
+          resolve(defaultFile(tempPath, spinner));
+        });
+      }
     } else {
       request(url)
         .pipe(fs.createWriteStream(zipPath))
@@ -45,9 +62,9 @@ export async function download(url: string, tempPath: string) {
 
           resolve(defaultFile(tempPath, spinner));
         })
-        .on('error', async (err) => {
+        .on('error', async (err: any) => {
           spinner.color = 'red';
-          spinner.fail(chalk.red(`拉取远程模板仓库失败！\n${err}`));
+          spinner.fail(chalk.red(`fetch remote repository failed \n${err}`));
           await fs.remove(tempPath);
           return resolve([]);
         });
@@ -81,7 +98,7 @@ function defaultFile(folder: string, spinner: Ora) {
   }
 
   spinner.color = 'green';
-  spinner.succeed(`${chalk.green('拉取远程模板仓库成功！')}`);
+  spinner.succeed(`${chalk.green('fetch remote repository success!')}`);
 
   return files;
 }
