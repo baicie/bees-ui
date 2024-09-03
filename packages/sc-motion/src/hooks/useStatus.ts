@@ -152,15 +152,13 @@ export default function useStatus(
     const isMounted = mountedRef();
     setMountedRef(true);
 
-    let nextStatus: MotionStatus;
+    let nextStatus: MotionStatus | undefined;
 
     if (!isMounted && visible && motionAppear) {
       nextStatus = STATUS_APPEAR;
-    }
-    if (isMounted && visible && motionEnter) {
+    } else if (isMounted && visible && motionEnter) {
       nextStatus = STATUS_ENTER;
-    }
-    if (
+    } else if (
       (isMounted && !visible && motionLeave) ||
       (!isMounted && motionLeaveImmediately && !visible && motionLeave)
     ) {
@@ -178,10 +176,12 @@ export default function useStatus(
   });
 
   createEffect(() => {
+    const currentStatus = status();
+
     if (
-      (status() === STATUS_APPEAR && !motionAppear) ||
-      (status() === STATUS_ENTER && !motionEnter) ||
-      (status() === STATUS_LEAVE && !motionLeave)
+      (currentStatus === STATUS_APPEAR && !motionAppear) ||
+      (currentStatus === STATUS_ENTER && !motionEnter) ||
+      (currentStatus === STATUS_LEAVE && !motionLeave)
     ) {
       setStatus(STATUS_NONE);
     }

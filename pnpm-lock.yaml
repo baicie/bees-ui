@@ -431,6 +431,9 @@ importers:
       solid-js:
         specifier: ^1.8.11
         version: 1.8.18
+      solid-transition-group:
+        specifier: ^0.2.3
+        version: 0.2.3(solid-js@1.8.18)
 
   packages/core:
     dependencies:
@@ -479,7 +482,7 @@ importers:
     devDependencies:
       '@umijs/fabric':
         specifier: ^4.0.1
-        version: 4.0.1(postcss@8.4.33)
+        version: 4.0.1(postcss@8.4.44)
       solid-js:
         specifier: ^1.8.12
         version: 1.8.18
@@ -3271,6 +3274,21 @@ packages:
 
   '@sketch-hq/sketch-file-format-ts@6.5.0':
     resolution: {integrity: sha512-shaGl4ttFDpHjYBoMaZpciOtsi/lKvJ3VfcBYk6+PjjbFs6H5GxPAyhbiSqy3Vmx30aos284pd88QzD3rE6iag==}
+
+  '@solid-primitives/refs@1.0.8':
+    resolution: {integrity: sha512-+jIsWG8/nYvhaCoG2Vg6CJOLgTmPKFbaCrNQKWfChalgUf9WrVxWw0CdJb3yX15n5lUcQ0jBo6qYtuVVmBLpBw==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/transition-group@1.0.5':
+    resolution: {integrity: sha512-G3FuqvL13kQ55WzWPX2ewiXdZ/1iboiX53195sq7bbkDbXqP6TYKiadwEdsaDogW5rPnPYAym3+xnsNplQJRKQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/utils@6.2.3':
+    resolution: {integrity: sha512-CqAwKb2T5Vi72+rhebSsqNZ9o67buYRdEJrIFzRXz3U59QqezuuxPsyzTSVCacwS5Pf109VRsgCJQoxKRoECZQ==}
+    peerDependencies:
+      solid-js: ^1.6.12
 
   '@stackblitz/sdk@1.11.0':
     resolution: {integrity: sha512-DFQGANNkEZRzFk1/rDP6TcFdM82ycHE+zfl9C/M/jXlH68jiqHWHFMQURLELoD8koxvu/eW5uhg94NSAZlYrUQ==}
@@ -10900,6 +10918,12 @@ packages:
     peerDependencies:
       solid-js: ^1.3
 
+  solid-transition-group@0.2.3:
+    resolution: {integrity: sha512-iB72c9N5Kz9ykRqIXl0lQohOau4t0dhel9kjwFvx81UZJbVwaChMuBuyhiZmK24b8aKEK0w3uFM96ZxzcyZGdg==}
+    engines: {node: '>=18.0.0', pnpm: '>=8.6.0'}
+    peerDependencies:
+      solid-js: ^1.6.12
+
   sonic-boom@2.8.0:
     resolution: {integrity: sha512-kuonw1YOYYNOve5iHdSahXPOK49GqwA+LZhI6Wz/l0rP57iKyXXIHaRagOBHAPmGwJC6od2Z9zgvZ5loSgMlVg==}
 
@@ -14999,7 +15023,7 @@ snapshots:
   '@eslint/config-array@0.17.0':
     dependencies:
       '@eslint/object-schema': 2.1.4
-      debug: 4.3.5(supports-color@5.5.0)
+      debug: 4.3.6
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -15035,7 +15059,7 @@ snapshots:
   '@eslint/eslintrc@3.1.0':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.5(supports-color@5.5.0)
+      debug: 4.3.6
       espree: 10.1.0
       globals: 14.0.0
       ignore: 5.3.1
@@ -15913,30 +15937,43 @@ snapshots:
 
   '@sketch-hq/sketch-file-format-ts@6.5.0': {}
 
+  '@solid-primitives/refs@1.0.8(solid-js@1.8.18)':
+    dependencies:
+      '@solid-primitives/utils': 6.2.3(solid-js@1.8.18)
+      solid-js: 1.8.18
+
+  '@solid-primitives/transition-group@1.0.5(solid-js@1.8.18)':
+    dependencies:
+      solid-js: 1.8.18
+
+  '@solid-primitives/utils@6.2.3(solid-js@1.8.18)':
+    dependencies:
+      solid-js: 1.8.18
+
   '@stackblitz/sdk@1.11.0': {}
 
   '@stitches/core@1.2.8': {}
 
-  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)':
     dependencies:
       '@babel/core': 7.24.8
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
 
-  '@stylelint/postcss-css-in-js@0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.39)':
+  '@stylelint/postcss-css-in-js@0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.39)':
     dependencies:
       '@babel/core': 7.24.8
       postcss: 8.4.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
 
-  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)':
     dependencies:
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       remark: 13.0.0
       unist-util-find-all-after: 3.0.2
     transitivePeerDependencies:
@@ -16966,45 +17003,6 @@ snapshots:
       - postcss-markdown
       - supports-color
 
-  '@umijs/fabric@4.0.1(postcss@8.4.33)':
-    dependencies:
-      '@babel/core': 7.23.7
-      '@babel/eslint-parser': 7.23.3(@babel/core@7.23.7)(eslint@8.57.0)
-      '@babel/eslint-plugin': 7.23.5(@babel/eslint-parser@7.23.3(@babel/core@7.23.7)(eslint@8.57.0))(eslint@8.57.0)
-      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.7)
-      '@babel/plugin-proposal-decorators': 7.23.7(@babel/core@7.23.7)
-      '@babel/preset-env': 7.23.8(@babel/core@7.23.7)
-      '@babel/preset-react': 7.23.3(@babel/core@7.23.7)
-      '@babel/preset-typescript': 7.23.3(@babel/core@7.23.7)
-      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.5.3)
-      chalk: 4.1.2
-      eslint: 8.57.0
-      eslint-config-prettier: 8.10.0(eslint@8.57.0)
-      eslint-formatter-pretty: 4.1.0
-      eslint-plugin-jest: 27.6.3(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
-      eslint-plugin-react: 7.33.2(eslint@8.57.0)
-      eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
-      eslint-plugin-unicorn: 47.0.0(eslint@8.57.0)
-      fast-glob: 3.3.2
-      os-locale: 5.0.0
-      postcss-less: 6.0.0(postcss@8.4.33)
-      prettier: 2.8.8
-      prettier-plugin-organize-imports: 3.2.4(prettier@2.8.8)(typescript@5.5.3)
-      prettier-plugin-two-style-order: 1.0.1(prettier@2.8.8)
-      stylelint: 15.11.0(typescript@5.5.3)
-      stylelint-config-css-modules: 4.4.0(stylelint@15.11.0(typescript@5.5.3))
-      stylelint-config-prettier: 9.0.5(stylelint@15.11.0(typescript@5.5.3))
-      stylelint-config-standard: 33.0.0(stylelint@15.11.0(typescript@5.5.3))
-      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@15.11.0(typescript@5.5.3))
-      typescript: 5.5.3
-    transitivePeerDependencies:
-      - '@volar/vue-language-plugin-pug'
-      - '@volar/vue-typescript'
-      - jest
-      - postcss
-      - supports-color
-
   '@umijs/fabric@4.0.1(postcss@8.4.39)':
     dependencies:
       '@babel/core': 7.23.7
@@ -17044,6 +17042,45 @@ snapshots:
       - postcss
       - supports-color
 
+  '@umijs/fabric@4.0.1(postcss@8.4.44)':
+    dependencies:
+      '@babel/core': 7.23.7
+      '@babel/eslint-parser': 7.23.3(@babel/core@7.23.7)(eslint@8.57.0)
+      '@babel/eslint-plugin': 7.23.5(@babel/eslint-parser@7.23.3(@babel/core@7.23.7)(eslint@8.57.0))(eslint@8.57.0)
+      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.7)
+      '@babel/plugin-proposal-decorators': 7.23.7(@babel/core@7.23.7)
+      '@babel/preset-env': 7.23.8(@babel/core@7.23.7)
+      '@babel/preset-react': 7.23.3(@babel/core@7.23.7)
+      '@babel/preset-typescript': 7.23.3(@babel/core@7.23.7)
+      '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.57.0)(typescript@5.5.3)
+      chalk: 4.1.2
+      eslint: 8.57.0
+      eslint-config-prettier: 8.10.0(eslint@8.57.0)
+      eslint-formatter-pretty: 4.1.0
+      eslint-plugin-jest: 27.6.3(@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
+      eslint-plugin-react: 7.33.2(eslint@8.57.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
+      eslint-plugin-unicorn: 47.0.0(eslint@8.57.0)
+      fast-glob: 3.3.2
+      os-locale: 5.0.0
+      postcss-less: 6.0.0(postcss@8.4.44)
+      prettier: 2.8.8
+      prettier-plugin-organize-imports: 3.2.4(prettier@2.8.8)(typescript@5.5.3)
+      prettier-plugin-two-style-order: 1.0.1(prettier@2.8.8)
+      stylelint: 15.11.0(typescript@5.5.3)
+      stylelint-config-css-modules: 4.4.0(stylelint@15.11.0(typescript@5.5.3))
+      stylelint-config-prettier: 9.0.5(stylelint@15.11.0(typescript@5.5.3))
+      stylelint-config-standard: 33.0.0(stylelint@15.11.0(typescript@5.5.3))
+      stylelint-declaration-block-no-ignored-properties: 2.8.0(stylelint@15.11.0(typescript@5.5.3))
+      typescript: 5.5.3
+    transitivePeerDependencies:
+      - '@volar/vue-language-plugin-pug'
+      - '@volar/vue-typescript'
+      - jest
+      - postcss
+      - supports-color
+
   '@umijs/history@5.3.1':
     dependencies:
       '@babel/runtime': 7.24.8
@@ -17053,7 +17090,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.23.6
       '@babel/eslint-parser': 7.23.3(@babel/core@7.23.6)(eslint@7.32.0)
-      '@stylelint/postcss-css-in-js': 0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.39)
+      '@stylelint/postcss-css-in-js': 0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.39)
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@4.9.5))(eslint@7.32.0)(typescript@4.9.5)
       '@typescript-eslint/parser': 5.62.0(eslint@7.32.0)(typescript@4.9.5)
       '@umijs/babel-preset-umi': 4.3.6
@@ -20514,7 +20551,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.3
-      debug: 4.3.5(supports-color@5.5.0)
+      debug: 4.3.6
       escape-string-regexp: 4.0.0
       eslint-scope: 8.0.2
       eslint-visitor-keys: 4.0.0
@@ -24147,7 +24184,7 @@ snapshots:
     dependencies:
       htmlparser2: 3.10.1
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
 
   postcss-image-set-function@4.0.7(postcss@8.4.39):
     dependencies:
@@ -24172,13 +24209,13 @@ snapshots:
     dependencies:
       postcss: 8.4.39
 
-  postcss-less@6.0.0(postcss@8.4.33):
-    dependencies:
-      postcss: 8.4.33
-
   postcss-less@6.0.0(postcss@8.4.39):
     dependencies:
       postcss: 8.4.39
+
+  postcss-less@6.0.0(postcss@8.4.44):
+    dependencies:
+      postcss: 8.4.44
 
   postcss-load-config@6.0.1(jiti@1.21.0)(postcss@8.4.39)(tsx@4.19.0)(yaml@2.5.0):
     dependencies:
@@ -24451,7 +24488,7 @@ snapshots:
       postcss-value-parser: 4.2.0
       svgo: 3.2.0
 
-  postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39):
+  postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39):
     dependencies:
       postcss: 7.0.39
     optionalDependencies:
@@ -25985,6 +26022,12 @@ snapshots:
       '@babel/types': 7.24.0
       solid-js: 1.8.22
 
+  solid-transition-group@0.2.3(solid-js@1.8.18):
+    dependencies:
+      '@solid-primitives/refs': 1.0.8(solid-js@1.8.18)
+      '@solid-primitives/transition-group': 1.0.5(solid-js@1.8.18)
+      solid-js: 1.8.18
+
   sonic-boom@2.8.0:
     dependencies:
       atomic-sleep: 1.0.0
@@ -26404,8 +26447,8 @@ snapshots:
 
   stylelint@13.13.1:
     dependencies:
-      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
-      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
+      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)
+      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)
       autoprefixer: 9.8.8
       balanced-match: 2.0.0
       chalk: 4.1.2
@@ -26439,7 +26482,7 @@ snapshots:
       postcss-sass: 0.4.4
       postcss-scss: 2.1.1
       postcss-selector-parser: 6.0.15
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       slash: 3.0.0

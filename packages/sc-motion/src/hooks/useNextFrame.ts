@@ -16,6 +16,8 @@ const useNextFrame = (): [
   }
 
   function nextFrame(callback: (info: { isCanceled: () => boolean }) => void, delay = 2) {
+    console.log('nextFrame', delay);
+
     cancelNextFrame();
     const nextFrameId = raf(() => {
       if (delay <= 1) {

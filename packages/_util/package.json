@@ -28,6 +28,7 @@
     "@bees-ui/core": "workspace:^",
     "@bees-ui/sc-motion": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "solid-js": "^1.8.11"
+    "solid-js": "^1.8.11",
+    "solid-transition-group": "^0.2.3"
   }
 }

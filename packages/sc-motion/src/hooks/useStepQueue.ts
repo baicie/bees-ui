@@ -40,33 +40,36 @@ const useStepQueue = (
   const STEP_QUEUE = prepareOnly ? SIMPLE_STEP_QUEUE : FULL_STEP_QUEUE;
 
   createEffect(async () => {
-    console.log('step', step());
+    const current = step();
+    console.log('step', current);
 
-    if (step() !== STEP_NONE && step() !== STEP_ACTIVATED) {
-      const index = STEP_QUEUE.indexOf(step());
+    if (current !== STEP_NONE && current !== STEP_ACTIVATED) {
+      const index = STEP_QUEUE.indexOf(current);
       const nextStep = STEP_QUEUE[index + 1];
 
-      const result = callback(step());
+      const result = callback(current);
 
       if (result === SkipStep) {
+        console.log('skip', current);
+
         // Skip when no needed
         setStep(nextStep);
       } else if (nextStep) {
-        nextFrame((info) => {
-          function doNext() {
-            // Skip since current queue is ood
-            if (info.isCanceled()) return;
+        console.log('next', current);
 
-            setStep(nextStep);
-          }
+        function doNext() {
+          // Skip since current queue is ood
+          // if (info.isCanceled()) return;
 
-          if (result === true) {
-            doNext();
-          } else {
-            // Only promise should be async
-            Promise.resolve(result).then(doNext);
-          }
-        });
+          setStep(nextStep);
+        }
+
+        if (result === true) {
+          doNext();
+        } else {
+          // Only promise should be async
+          Promise.resolve(result).then(doNext);
+        }
       }
     }
   });

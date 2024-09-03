@@ -3,6 +3,7 @@ import { raf } from '@bees-ui/sc-util';
 import classNames from 'clsx';
 import { createSignal, onCleanup, onMount } from 'solid-js';
 import { render } from 'solid-js/web';
+import { Transition } from 'solid-transition-group';
 
 import { ShowWaveEffect, TARGET_CLS } from './interface';
 import { getTargetWaveColor } from './util';
@@ -105,37 +106,27 @@ const WaveEffect = (props: WaveEffectProps) => {
   //   return null;
   // }
 
-  const isSmallComponent =
-    (component === 'Checkbox' || component === 'Radio') && target?.classList.contains(TARGET_CLS);
-
   return (
-    <CSSMotion
-      visible
-      motionAppear
-      motionName="wave-motion"
-      motionDeadline={5000}
-      onAppearEnd={(_, event) => {
-        if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
-          const holder = divRef?.parentElement;
-          render(null, holder);
-          holder?.remove();
-        }
-        return false;
+    <Transition
+      appear
+      name="wave-motion"
+      onBeforeEnter={(el) => el.classList.add('wave-motion-appear')}
+      onEnter={(el, done) => {
+        el.classList.add('wave-motion-appear-active');
+        done();
+      }}
+      onAfterEnter={(el) => {
+        el.classList.remove('wave-motion-appear', 'wave-motion-appear-active');
       }}
     >
-      {({ className: motionClassName }, ref) => (
-        <div
-          ref={(el) => {
-            console.log('el', el);
-
-            divRef = el;
-            ref(el);
-          }}
-          class={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
-          style={waveStyle()}
-        />
-      )}
-    </CSSMotion>
+      <div
+        ref={divRef}
+        class={props.className}
+        style={waveStyle()}
+        // onTransitionend={onTransitionend}
+        // onAnimationEnd={}
+      />
+    </Transition>
   );
 };
 

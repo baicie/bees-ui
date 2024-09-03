@@ -104,6 +104,7 @@ function genCSSMotion(config: CSSMotionConfig) {
       leavedClassName,
       eventProps,
     } = props;
+    console.log('CSSMotion', props);
 
     const { motion: contextMotion } = useContext(MotionContext);
     const supportMotion = isSupportTransition(props, contextMotion);
