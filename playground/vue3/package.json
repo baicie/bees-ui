@@ -13,12 +13,12 @@
     "@bees-ui/button": "workspace:^",
     "ant-design-vue": "^4.2.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "vue": "^3.4.33"
+    "vue": "^3.4.38"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.4",
-    "vue-tsc": "^2.0.26"
+    "@vitejs/plugin-vue": "^5.1.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vue-tsc": "^2.1.4"
   }
 }
