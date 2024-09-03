@@ -110,22 +110,11 @@ const WaveEffect = (props: WaveEffectProps) => {
     <Transition
       appear
       name="wave-motion"
-      onBeforeEnter={(el) => el.classList.add('wave-motion-appear')}
-      onEnter={(el, done) => {
-        el.classList.add('wave-motion-appear-active');
-        done();
-      }}
-      onAfterEnter={(el) => {
-        el.classList.remove('wave-motion-appear', 'wave-motion-appear-active');
-      }}
+      enterClass="wave-motion-appear"
+      enterActiveClass="wave-motion-appear"
+      enterToClass="wave-motion-appear wave-motion-appear-active"
     >
-      <div
-        ref={divRef}
-        class={props.className}
-        style={waveStyle()}
-        // onTransitionend={onTransitionend}
-        // onAnimationEnd={}
-      />
+      <div ref={divRef} class={props.className} style={waveStyle()} />
     </Transition>
   );
 };
