@@ -26,8 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "@bees-ui/core": "workspace:^",
-    "@bees-ui/sc-motion": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
+    "@solid-primitives/refs": "^1.0.8",
     "solid-js": "^1.8.11",
     "solid-transition-group": "^0.2.3"
   }

@@ -292,8 +292,8 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
       disabled={mergedDisabled}
       ref={buttonRef as HTMLButtonElement}
     >
-      {options.slots.icon}
-      {options.slots.default}
+      {options?.slots.icon}
+      {options?.slots.default}
       {/* {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />} */}
     </button>
   );

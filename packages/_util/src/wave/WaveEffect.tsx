@@ -1,36 +1,35 @@
-import CSSMotion from '@bees-ui/sc-motion';
 import { raf } from '@bees-ui/sc-util';
-import classNames from 'clsx';
-import { createSignal, onCleanup, onMount } from 'solid-js';
+import { createEffect, createMemo, createSignal, onCleanup } from 'solid-js';
 import { render } from 'solid-js/web';
 import { Transition } from 'solid-transition-group';
 
-import { ShowWaveEffect, TARGET_CLS } from './interface';
+import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
 }
 
-export interface WaveEffectProps {
+interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
 }
 
+// FIXME: enabled changed to true, but the wave effect is not shown
 const WaveEffect = (props: WaveEffectProps) => {
-  const { className, target, component } = props;
+  const { target } = props;
   let divRef: HTMLDivElement;
 
-  const [color, setWaveColor] = createSignal(null);
-  const [borderRadius, setBorderRadius] = createSignal([]);
+  const [color, setWaveColor] = createSignal<string | null>(null);
+  const [borderRadius, setBorderRadius] = createSignal<number[]>([]);
   const [left, setLeft] = createSignal(0);
   const [top, setTop] = createSignal(0);
   const [width, setWidth] = createSignal(0);
   const [height, setHeight] = createSignal(0);
-  const [enabled, setEnabled] = createSignal(false);
+  const [_, setEnabled] = createSignal(false);
 
-  const waveStyle = () => {
+  const waveStyle = createMemo(() => {
     const style: Record<string, string> = {
       left: `${left()}px`,
       top: `${top()}px`,
@@ -46,7 +45,7 @@ const WaveEffect = (props: WaveEffectProps) => {
     }
 
     return style;
-  };
+  });
 
   function syncPos() {
     const nodeStyle = getComputedStyle(target);
@@ -81,10 +80,13 @@ const WaveEffect = (props: WaveEffectProps) => {
     );
   }
 
-  onMount(() => {
+  createEffect(() => {
     if (target) {
+      // We need delay to check position here
+      // since UI may change after click
       const id = raf(() => {
         syncPos();
+
         setEnabled(true);
       });
 
@@ -92,6 +94,7 @@ const WaveEffect = (props: WaveEffectProps) => {
       let resizeObserver: ResizeObserver;
       if (typeof ResizeObserver !== 'undefined') {
         resizeObserver = new ResizeObserver(syncPos);
+
         resizeObserver.observe(target);
       }
 
@@ -101,10 +104,6 @@ const WaveEffect = (props: WaveEffectProps) => {
       });
     }
   });
-
-  // if (!enabled()) {
-  //   return null;
-  // }
 
   return (
     <Transition
@@ -123,7 +122,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 
@@ -133,7 +132,6 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.left = '0px';
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
-  console.log('holder', holder);
 
   render(() => <WaveEffect {...info} target={target} />, holder);
 };
