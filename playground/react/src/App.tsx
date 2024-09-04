@@ -13,13 +13,7 @@ function App() {
 
   return (
     <div>
-      <button
-        onClick={() => {
-          setfirst('start');
-        }}
-      >
-        button
-      </button>
+      <my-web-component propA=""></my-web-component>
     </div>
   );
 }

@@ -8,7 +8,8 @@ const handleClick = () => {
 </script>
 
 <template>
-  <bees-button type="primary" @click="handleClick"> Let's have some different text! </bees-button>
+  <!-- <bees-button type="primary" @click="handleClick"> Let's have some different text! </bees-button> -->
+  <my-web-component></my-web-component>
 </template>
 
 <style scoped>
