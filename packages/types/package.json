@@ -13,9 +13,7 @@
       "types": "./src/solid-js.d.ts"
     }
   },
-  "files": [
-    "src"
-  ],
+  "files": ["src"],
   "scripts": {},
   "keywords": [],
   "author": "",
