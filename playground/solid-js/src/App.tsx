@@ -1,5 +1,6 @@
 import { createEffect, createSignal } from 'solid-js';
 
+import '@bees-ui/button';
 import './App.css';
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
     setState('start');
   });
 
-  return <button onclick={() => setState('start')}>button</button>;
+  return (
+    <div>
+      <button></button>
+    </div>
+  );
 }
 
 export default App;

@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import '@bees-ui/button';
 import '@bees-ui/affix';
-
 const handleClick = () => {
   console.log('handleClick');
 };
 </script>
 
 <template>
-  <!-- <bees-button type="primary" @click="handleClick"> Let's have some different text! </bees-button> -->
-  <my-web-component></my-web-component>
+  <bees-button type='primary' @click="handleClick"> Let's have some different text! </bees-button>
 </template>
 
 <style scoped>

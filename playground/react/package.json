@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@bees-ui/button": "workspace:^",
-    "antd": "^5.20.4",
+    "antd": "^5.20.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@bees-ui/types": "workspace:^",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
@@ -24,6 +25,6 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2"
+    "vite": "^5.4.3"
   }
 }

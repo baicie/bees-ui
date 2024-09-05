@@ -14,8 +14,9 @@
     "solid-js": "^1.8.7"
   },
   "devDependencies": {
+    "@bees-ui/types": "workspace:^",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2",
+    "vite": "^5.4.3",
     "vite-plugin-solid": "^2.10.2"
   }
 }

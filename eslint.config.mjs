@@ -214,4 +214,11 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
     },
   },
+  {
+    name: 'disables/playground',
+    files: ['playground/**/*.{ts,tsx,mts,cts,js,jsx}'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
 );

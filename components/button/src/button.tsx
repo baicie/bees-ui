@@ -33,7 +33,7 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
   styles?: { icon: JSX.CSSProperties };
-  style: JSX.CSSProperties;
+  style?: JSX.CSSProperties;
 }
 
 type MergedHTMLAttributes = Omit<

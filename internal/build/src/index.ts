@@ -13,14 +13,17 @@ cli
   .command('build', 'build mode')
   .option('-w, --watch', 'Production mode')
   .option('-c, --config', 'Production mode')
-  .option('-i, --input', 'input path')
+  .option('-i, --input <input...>', 'input path', { type: [] })
   .option('-m, --minify', 'output path')
   .option('-f, --full', 'output path')
   .option('-s, --sourcemap', 'output path')
+  .option('-d, --dts', 'only dts')
   .action(async (args) => {
     const root = process.cwd();
-    if (args.watch) await watchFuc(root, args);
-    else await build(root, args);
+    if (!args.dts) {
+      if (args.watch) await watchFuc(root, args);
+      else await build(root, args);
+    }
     await dts(root, args);
   });
 

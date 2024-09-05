@@ -15,7 +15,7 @@ export async function dts(root: string, options: Options = {}) {
   const inputPath = resolveInput(root, input);
 
   await build({
-    entry: [normalizePath(inputPath)],
+    entry: inputPath.map(normalizePath),
     dts: {
       only: true,
     },

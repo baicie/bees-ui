@@ -58,13 +58,13 @@ export function resolveBuildConfig(root: string) {
   return Object.entries(buildConfig);
 }
 
-export function resolveInput(root: string, input: string | string[]) {
+export function resolveInput(root: string, input: string | string[]): string[] {
   const inputPath = Array.isArray(input) ? input : [input];
-  let resultPath = '';
+  const resultPath: string[] = [];
   inputPath.forEach((_path) => {
     const _temp = path.resolve(root, _path);
     if (fs.existsSync(_temp)) {
-      resultPath = _temp;
+      resultPath.push(_temp);
     }
   });
   return resultPath;

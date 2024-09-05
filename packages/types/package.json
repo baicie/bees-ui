@@ -1,0 +1,43 @@
+{
+  "name": "@bees-ui/types",
+  "version": "0.0.0",
+  "description": "types",
+  "exports": {
+    "./vue": {
+      "types": "./src/vue.d.ts"
+    },
+    "./react": {
+      "types": "./src/react.d.ts"
+    },
+    "./solid-js": {
+      "types": "./src/solid-js.d.ts"
+    }
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "@bees-ui/button": "workspace:^",
+    "react": "^18.3.1",
+    "solid-js": "^1.8.22",
+    "vue": "^3.5.1"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "solid-js": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    },
+    "@bees-ui/button": {
+      "optional": true
+    }
+  }
+}

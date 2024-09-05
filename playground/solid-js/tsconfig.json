@@ -19,7 +19,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["vite/client", "@bees-ui/types/solid-js"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

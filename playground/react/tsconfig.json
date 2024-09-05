@@ -18,7 +18,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "types": ["vite/client", "@bees-ui/types/react"]
   },
   "include": ["src", "custom-web-components.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
