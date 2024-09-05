@@ -11,7 +11,11 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+  recommendedConfig: undefined,
+  allConfig: undefined,
+});
 
 export default tseslint.config(
   {
@@ -188,6 +192,22 @@ export default tseslint.config(
       ],
       'regexp/no-contradiction-with-assertion': 'error',
       'regexp/use-ignore-case': 'off',
+    },
+  },
+
+  // tests
+  {
+    name: 'tests',
+    files: ['**/__tests__/**/*.?([cm])[jt]s?(x)', 'tests/**/*.?([cm])[jt]s?(x)'],
+    languageOptions: {
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2022,
+      },
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      },
     },
   },
 
