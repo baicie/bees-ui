@@ -6,7 +6,6 @@
 // import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 // import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 // import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
-import { ComponentToken as WaveToken } from '@bees-ui/_util/wave/style';
 import type { AffixComponentToken, ButtonComponentToken } from '@bees-ui/sc-type';
 
 interface WaveToken {}
