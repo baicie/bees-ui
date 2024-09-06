@@ -5,9 +5,10 @@ import { ShowWaveEffect } from '@bees-ui/_util/src/wave/interface';
 import { AliasToken, MappingAlgorithm, WarningContextProps } from '@bees-ui/core';
 import { OverrideToken } from '@bees-ui/core/src/theme/interface';
 import { createContext } from 'solid-js';
+import type { JSX } from 'solid-js';
 
 import type { ButtonProps } from './button/src';
-import { ShowWaveEffect } from './wave/interface';
+import { FlexProps } from './flex/src/interface';
 
 export const defaultPrefixCls = 'bees';
 const defaultIconPrefixCls = 'anticon';
@@ -49,7 +50,7 @@ export interface ThemeConfig {
 
 export interface ComponentStyleConfig {
   className?: string;
-  style?: React.CSSProperties;
+  style?: JSX.CSSProperties;
 }
 
 // export interface TableConfig extends ComponentStyleConfig {
@@ -96,7 +97,7 @@ export type ButtonConfig = ComponentStyleConfig &
 // export type DrawerConfig = ComponentStyleConfig &
 //   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
-// export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
+export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
 // export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
@@ -214,7 +215,7 @@ export interface ConfigConsumerProps {
   // datePicker?: DatePickerConfig;
   // rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;
-  // flex?: FlexConfig;
+  flex?: FlexConfig;
   wave?: WaveConfig;
   warning?: WarningContextProps;
 }

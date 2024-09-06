@@ -29,7 +29,6 @@ export interface BaseButtonProps {
   ghost?: boolean;
   danger?: boolean;
   block?: boolean;
-  children?: JSX.Element;
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
   styles?: { icon: JSX.CSSProperties };
