@@ -18,7 +18,7 @@ export interface Options {
   /**
    * @description
    */
-  input?: string;
+  input?: string | string[];
   sourcemap?: boolean;
   dts?: boolean;
   dtsDir?: string;

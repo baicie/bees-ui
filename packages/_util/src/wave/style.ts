@@ -1,8 +1,5 @@
 import { FullToken, genComponentStyleHook, GenerateStyle } from '@bees-ui/core';
 
-// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
-export interface ComponentToken {}
-
 export interface WaveToken extends FullToken<'Wave'> {}
 
 const genWaveStyle: GenerateStyle<WaveToken> = (token) => {

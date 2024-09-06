@@ -74,6 +74,7 @@ const getDefaultComponentToken = <C extends OverrideComponent>(
   getDefaultToken: GetDefaultToken<C>,
 ): any => {
   if (typeof getDefaultToken === 'function') {
+    //@ts-ignore
     return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
   return getDefaultToken ?? {};

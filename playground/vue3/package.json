@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "build-play": "vue-tsc && vite build",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,12 +13,13 @@
     "@bees-ui/button": "workspace:^",
     "ant-design-vue": "^4.2.3",
     "rollup-plugin-visualizer": "^5.12.0",
-    "vue": "^3.4.31"
+    "vue": "^3.5.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vue-tsc": "^2.0.26"
+    "@bees-ui/types": "workspace:^",
+    "@vitejs/plugin-vue": "^5.1.3",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3",
+    "vue-tsc": "^2.1.6"
   }
 }

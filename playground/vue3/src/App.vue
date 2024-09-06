@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import '@bees-ui/button';
+import { BeesButton } from '@bees-ui/button';
 import '@bees-ui/affix';
-
+BeesButton()
 const handleClick = () => {
   console.log('handleClick');
 };
 </script>
 
 <template>
-  <solid-affix>affix</solid-affix>
-  <solid-button type="primary" @click="handleClick"> Let's have some different text! </solid-button>
-  <solid-button type="primary" @click="handleClick"> Let's have some different text! </solid-button>
+  <bees-button type='primary' @click="handleClick"> Let's have some different text! </bees-button>
 </template>
 
 <style scoped>

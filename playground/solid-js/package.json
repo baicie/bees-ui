@@ -4,18 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "build-play": "tsc && vite build",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@bees-ui/button": "workspace:^",
     "@bees-ui/sc-icons": "workspace:^",
-    "solid-js": "^1.8.7"
+    "solid-js": "^1.8.22"
   },
   "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
+    "@bees-ui/types": "workspace:^",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3",
     "vite-plugin-solid": "^2.10.2"
   }
 }

@@ -1,4 +1,3 @@
-// Style as inline component
 import {
   genCompactItemStyle,
   genCompactItemVerticalStyle,

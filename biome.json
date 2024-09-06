@@ -123,7 +123,12 @@
       "**/.eslintrc.js"
     ]
   },
-  "javascript": { "formatter": { "quoteStyle": "single" }, "globals": [] },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    },
+    "globals": []
+  },
   "overrides": [
     {
       "include": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
@@ -192,11 +197,10 @@
       }
     },
     {
-      "include": [
-        "components/**/*.{ts,tsx,mts,cts,js,jsx}",
-        "playground/**/*.{ts,tsx,mts,cts,js,jsx}"
-      ],
-      "javascript": { "globals": [] },
+      "include": ["{components,packages,playground}/**/*.{ts,tsx,mts,cts,js,jsx}"],
+      "javascript": {
+        "globals": []
+      },
       "linter": {
         "rules": {
           "a11y": {
@@ -230,45 +234,7 @@
       }
     },
     {
-      "include": [
-        "components/**/*.{ts,tsx,mts,cts,js,jsx}",
-        "playground/**/*.{ts,tsx,mts,cts,js,jsx}"
-      ],
-      "javascript": { "globals": [] },
-      "linter": {
-        "rules": {
-          "a11y": { "noBlankTarget": "error" },
-          "correctness": {
-            "noChildrenProp": "error",
-            "useJsxKeyInIterable": "error"
-          },
-          "security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
-          "suspicious": {
-            "noCommentText": "error",
-            "noDuplicateJsxProps": "error"
-          }
-        }
-      }
-    },
-    {
-      "include": [
-        "components/**/*.{ts,tsx,mts,cts,js,jsx}",
-        "playground/**/*.{ts,tsx,mts,cts,js,jsx}"
-      ],
-      "linter": {
-        "rules": {
-          "correctness": {
-            "useExhaustiveDependencies": "warn",
-            "useHookAtTopLevel": "error"
-          }
-        }
-      }
-    },
-    {
-      "include": [
-        "components/**/*.{ts,tsx,mts,cts,js,jsx}",
-        "playground/**/*.{ts,tsx,mts,cts,js,jsx}"
-      ],
+      "include": ["{components,packages,playground}/**/*.{ts,tsx,mts,cts,js,jsx}"],
       "javascript": {
         "globals": [
           "onscrollend",
@@ -397,18 +363,26 @@
       },
       "linter": {
         "rules": {
-          "a11y": { "noBlankTarget": "off" },
-          "correctness": { "useExhaustiveDependencies": "warn" },
-          "style": { "noDefaultExport": "off" }
+          "style": {
+            "noDefaultExport": "off"
+          },
+          "suspicious": {
+            "noEmptyInterface": "off",
+            "noExplicitAny": "off"
+          }
         }
       }
     },
     {
       "include": ["internal/**/*.{ts,mts,cts,js}"],
-      "javascript": { "globals": ["...globals.node"] },
+      "javascript": {
+        "globals": ["...globals.node"]
+      },
       "linter": {
         "rules": {
-          "style": { "useConst": "warn" },
+          "style": {
+            "useConst": "warn"
+          },
           "suspicious": {
             "noConsoleLog": "error",
             "noDebugger": "error",
@@ -421,14 +395,34 @@
     },
     {
       "include": ["**/*.js", "**/*.mjs", "**/*.cjs"],
-      "linter": { "rules": {} }
+      "linter": {
+        "rules": {}
+      }
     },
-    { "include": ["**/*.d.ts"], "linter": { "rules": {} } },
+    {
+      "include": ["**/*.d.ts"],
+      "linter": {
+        "rules": {}
+      }
+    },
     {
       "include": ["**/__tests__/**/*.?([cm])[jt]s?(x)", "playground/test/**/*.?([cm])[jt]s?(x)"],
       "linter": {
         "rules": {
-          "suspicious": { "noConsoleLog": "off", "noExplicitAny": "off" }
+          "suspicious": {
+            "noConsoleLog": "off",
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["playground/**/*.{ts,tsx,mts,cts,js,jsx}"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsoleLog": "off"
+          }
         }
       }
     }

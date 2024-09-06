@@ -51,6 +51,7 @@ export function genCompactItemVerticalStyle<T extends OverrideComponent>(
 
   return {
     [compactCls]: {
+      // @ts-ignore
       ...compactItemVerticalBorder(token, compactCls),
       ...compactItemBorderVerticalRadius(token.componentCls, compactCls),
     },

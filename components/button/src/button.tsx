@@ -33,7 +33,7 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: { icon: string };
   styles?: { icon: JSX.CSSProperties };
-  style: JSX.CSSProperties;
+  style?: JSX.CSSProperties;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -292,8 +292,8 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
       disabled={mergedDisabled}
       ref={buttonRef as HTMLButtonElement}
     >
-      {options.slots.icon}
-      {options.slots.default}
+      {options?.slots.icon}
+      {options?.slots.default}
       {/* {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />} */}
     </button>
   );

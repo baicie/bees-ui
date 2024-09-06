@@ -14,7 +14,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -24,9 +26,9 @@
     "@bees-ui/sc-register": "workspace:^"
   },
   "peerDependencies": {
-    "solid-js": "^1.8.18"
+    "solid-js": "^1.8.22"
   },
   "devDependencies": {
-    "solid-js": "^1.8.18"
+    "solid-js": "^1.8.22"
   }
 }

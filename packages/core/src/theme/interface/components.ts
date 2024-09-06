@@ -9,6 +9,8 @@
 import { ComponentToken as WaveToken } from '@bees-ui/_util/wave/style';
 import type { AffixComponentToken, ButtonComponentToken } from '@bees-ui/sc-type';
 
+interface WaveToken {}
+
 // import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 // import type { ComponentToken as CardComponentToken } from '../../card/style';
 // import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
