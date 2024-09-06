@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import '@bees-ui/button';
+import { BeesButton } from '@bees-ui/button';
 import '@bees-ui/affix';
+BeesButton()
 const handleClick = () => {
   console.log('handleClick');
 };

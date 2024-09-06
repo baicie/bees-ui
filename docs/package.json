@@ -19,7 +19,7 @@
     "@ant-design/cssinjs": "1.21.1",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/icons": "^5.4.0",
-    "@codesandbox/sandpack-react": "^2.19.2",
+    "@codesandbox/sandpack-react": "^2.19.3",
     "@ctrl/tinycolor": "^4.1.0",
     "@emotion/react": "^11.13.3",
     "@emotion/server": "^11.11.0",

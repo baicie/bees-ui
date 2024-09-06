@@ -4,5 +4,14 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), visualizer({ open: true }) as any],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith('bees-'),
+        },
+      },
+    }),
+    visualizer({ open: true }) as any,
+  ],
 });

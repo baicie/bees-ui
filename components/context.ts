@@ -1,12 +1,12 @@
 // context-> button -> config-provider
 // context-> config-provider
 // all in one component
+import { ShowWaveEffect } from '@bees-ui/_util/src/wave/interface';
 import { AliasToken, MappingAlgorithm, WarningContextProps } from '@bees-ui/core';
 import { OverrideToken } from '@bees-ui/core/src/theme/interface';
 import { createContext } from 'solid-js';
 
-import { ButtonProps } from '../button/src';
-import { ShowWaveEffect } from './wave/interface';
+import type { ButtonProps } from './button/src';
 
 export const defaultPrefixCls = 'bees';
 const defaultIconPrefixCls = 'anticon';

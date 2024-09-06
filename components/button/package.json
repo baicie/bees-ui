@@ -13,7 +13,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -29,6 +31,7 @@
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "solid-js": "^1.8.11"
+    "solid-element": "^1.8.1",
+    "solid-js": "^1.8.22"
   }
 }
