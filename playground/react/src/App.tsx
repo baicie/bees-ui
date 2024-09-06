@@ -13,7 +13,7 @@ function App() {
   }, [first]);
 
   return (
-    <bees-flex justify={'space-between'} align={'center'} vertical>
+    <bees-flex justify={'space-between'} align={'center'} vertical gap="large">
       <bees-button
         type="primary"
         onClick={() => {

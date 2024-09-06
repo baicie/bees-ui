@@ -12,7 +12,6 @@ export const beesFlexProps: FlexProps = {
   align: 'stretch',
   flex: '0 1 auto',
   gap: 0,
-  children: undefined,
   component: 'div',
   className: undefined,
   style: {},

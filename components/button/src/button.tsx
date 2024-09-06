@@ -39,7 +39,7 @@ type MergedHTMLAttributes = Omit<
   JSX.HTMLAttributes<HTMLElement> &
     JSX.ButtonHTMLAttributes<HTMLElement> &
     JSX.AnchorHTMLAttributes<HTMLElement>,
-  'type' | 'style'
+  'type' | 'style' | 'children'
 >;
 
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
@@ -85,7 +85,6 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
     'disabled',
     'className',
     'rootClassName',
-    'children',
     'icon',
     'iconPosition',
     'ghost',
@@ -107,7 +106,6 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
     disabled: customDisabled,
     className,
     rootClassName,
-    children,
     icon,
     iconPosition = 'start',
     ghost = false,
@@ -117,7 +115,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
     style: customStyle = {},
     autoInsertSpace,
   } = local;
-
+  const children = options?.slots.default;
   const mergedType = type || 'default';
 
   const { getPrefixCls, direction, button } = useContext(ConfigContext);

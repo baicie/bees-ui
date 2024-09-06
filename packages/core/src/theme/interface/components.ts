@@ -1,15 +1,12 @@
-// import type { ComponentToken as WaveToken } from '../../_util/wave/style';
-// import type { ComponentToken as AlertComponentToken } from '../../alert/style';
-// import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
-// import type { ComponentToken as AppComponentToken } from '../../app/style';
-// import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
-// import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
-// import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
-// import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
-import type { AffixComponentToken, ButtonComponentToken } from '@bees-ui/sc-type';
+import type {
+  AffixComponentToken,
+  ButtonComponentToken,
+  InputComponentToken,
+} from '@bees-ui/token';
 
 interface WaveToken {}
 interface FlexComponentToken {}
+interface InputNumberComponentToken {}
 
 export interface ComponentTokenMap {
   Affix?: AffixComponentToken;
@@ -37,8 +34,8 @@ export interface ComponentTokenMap {
   // Form?: FormComponentToken;
   // Grid?: GridComponentToken;
   // Image?: ImageComponentToken;
-  // Input?: InputComponentToken;
-  // InputNumber?: InputNumberComponentToken;
+  Input?: InputComponentToken;
+  InputNumber?: InputNumberComponentToken;
   // Layout?: LayoutComponentToken;
   // List?: ListComponentToken;
   // Mentions?: MentionsComponentToken;

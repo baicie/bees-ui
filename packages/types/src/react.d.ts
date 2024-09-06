@@ -4,8 +4,8 @@ import type { FlexProps } from '@bees-ui/flex';
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'bees-button': ButtonProps;
-      'bees-flex': FlexProps;
+      'bees-button': React.HTMLAttributes<HTMLElement> & ButtonProps;
+      'bees-flex': React.HTMLAttributes<HTMLElement> & FlexProps;
     }
   }
 }

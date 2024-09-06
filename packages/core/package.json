@@ -27,8 +27,8 @@
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@bees-ui/sc-cssinjs": "workspace:^",
-    "@bees-ui/sc-type": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
+    "@bees-ui/token": "workspace:^",
     "@ctrl/tinycolor": "^4.1.0",
     "clsx": "^2.1.1",
     "solid-js": "^1.8.22"

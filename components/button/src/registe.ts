@@ -14,7 +14,6 @@ export const beesButtonProps: ButtonProps = {
   disabled: undefined,
   className: undefined,
   rootClassName: undefined,
-  children: undefined,
   icon: undefined,
   ghost: false,
   block: false,

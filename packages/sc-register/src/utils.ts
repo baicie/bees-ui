@@ -5,6 +5,9 @@ export interface PropDefinition<T> {
   reflect: boolean;
   parse?: boolean;
 }
+
+type ICustomElementSlot = HTMLSlotElement | HTMLElement[];
+
 export interface ICustomElement {
   [prop: string]: any;
   __initialized?: boolean;
@@ -12,7 +15,10 @@ export interface ICustomElement {
   __releaseCallbacks: any[];
   __propertyChangedCallbacks: any[];
   __updating: { [prop: string]: any };
-  _slot: { [key: string]: HTMLSlotElement | HTMLElement[] };
+  _slot: {
+    default: ICustomElementSlot;
+    [key: string]: ICustomElementSlot;
+  };
   props: { [prop: string]: any };
   lookupProp(attrName: string): string | undefined;
   addReleaseCallback(fn: () => void): void;
@@ -21,7 +27,7 @@ export interface ICustomElement {
 export type UpdateableElement<T> = HTMLElement & ICustomElement & T;
 export interface ComponentOptions {
   element: ICustomElement;
-  slots: ICustomElement['_slot'];
+  slots?: ICustomElement['_slot'];
 }
 export interface ConstructableComponent<T> {
   new (props: T, options: ComponentOptions): unknown;

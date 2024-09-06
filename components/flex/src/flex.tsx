@@ -3,6 +3,7 @@ import { omit } from '@bees-ui/sc-util';
 import clsx from 'clsx';
 import { splitProps, useContext } from 'solid-js';
 import type { JSX } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
 import { ConfigContext } from '../../context';
 import type { FlexProps } from './interface';
@@ -17,7 +18,6 @@ const Flex = (props: FlexProps, options: any) => {
     'style',
     'flex',
     'gap',
-    'children',
     'vertical',
     'component',
   ]);
@@ -29,11 +29,9 @@ const Flex = (props: FlexProps, options: any) => {
     style,
     flex,
     gap,
-    children,
     vertical = false,
     component: Component = 'div',
   } = local;
-  console.log('vertical', vertical);
 
   const { flex: ctxFlex, direction: ctxDirection, getPrefixCls } = useContext(ConfigContext);
 
@@ -69,9 +67,14 @@ const Flex = (props: FlexProps, options: any) => {
   }
 
   return wrapCSSVar(
-    <div class={mergedCls} style={mergedStyle} {...omit(others, ['justify', 'wrap', 'align'])}>
+    <Dynamic
+      component={Component}
+      class={mergedCls}
+      style={mergedStyle}
+      {...omit(others, ['justify', 'wrap', 'align'])}
+    >
       {options.slots.default}
-    </div>,
+    </Dynamic>,
   );
 };
 
