@@ -7,6 +7,7 @@ import { OverrideToken } from '@bees-ui/core/src/theme/interface';
 import { createContext } from 'solid-js';
 
 import type { ButtonProps } from './button/src';
+import { ShowWaveEffect } from './wave/interface';
 
 export const defaultPrefixCls = 'bees';
 const defaultIconPrefixCls = 'anticon';

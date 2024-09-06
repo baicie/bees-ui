@@ -1,7 +1,7 @@
 {
-  "name": "@bees-ui/_util",
+  "name": "@bees-ui/sc-motion",
   "version": "0.0.0",
-  "description": "",
+  "description": "Common Utils For SolidJs Component Copy From rc-motion",
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
@@ -25,10 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bees-ui/core": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "@solid-primitives/refs": "^1.0.8",
-    "solid-js": "^1.8.22",
-    "solid-transition-group": "^0.2.3"
+    "clsx": "^2.1.1"
   }
 }

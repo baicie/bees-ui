@@ -62,7 +62,7 @@
     "eslint-plugin-lodash": "^8.0.0",
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-n": "^17.10.2",
-    "eslint-plugin-regexp": "^2.6.0",
+    "eslint-plugin-regexp": "^2.6.0
     "eslint-plugin-solid": "^0.14.3",
     "eslint-plugin-unicorn": "^55.0.0",
     "fs-extra": "^11.2.0",
