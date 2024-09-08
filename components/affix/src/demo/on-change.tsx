@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Affix, Button } from 'antd';
 
 const App: React.FC = () => (

@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import { Input, Space } from 'antd';
 

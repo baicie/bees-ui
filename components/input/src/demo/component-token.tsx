@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { ConfigProvider, Input } from 'antd';
 
 const App: React.FC = () => (

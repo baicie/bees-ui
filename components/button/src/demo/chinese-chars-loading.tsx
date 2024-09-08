@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button, Flex } from 'antd';
 

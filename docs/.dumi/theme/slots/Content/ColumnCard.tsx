@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { RightOutlined, YuqueOutlined, ZhihuOutlined } from '@ant-design/icons';
 import { Button, Card, Divider } from 'antd';
 import { createStyles } from 'antd-style';

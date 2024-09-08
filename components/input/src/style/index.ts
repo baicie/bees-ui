@@ -1,12 +1,12 @@
 import {
   clearFix,
   genCompactItemStyle,
-  GenerateStyle,
+  type GenerateStyle,
   genStyleHooks,
   mergeToken,
   resetComponent,
 } from '@bees-ui/core';
-import { CSSObject, unit } from '@bees-ui/sc-cssinjs';
+import { type CSSObject, unit } from '@bees-ui/sc-cssinjs';
 
 import type { InputToken } from './token';
 import { initComponentToken, initInputToken } from './token';

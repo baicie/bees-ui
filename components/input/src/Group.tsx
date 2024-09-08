@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { useContext, useMemo } from 'react';
 import classNames from 'clsx';
 

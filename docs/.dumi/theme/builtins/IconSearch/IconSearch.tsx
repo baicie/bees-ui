@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
-import React, { useCallback, useMemo, useState } from 'react';
+import type React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import type { SegmentedProps } from 'antd';
 import { Affix, Empty, Input, Segmented } from 'antd';
@@ -81,7 +82,7 @@ const IconSearch: React.FC = () => {
         if (searchKey) {
           const matchKey = searchKey
             // eslint-disable-next-line prefer-regex-literals
-            .replace(new RegExp(`^<([a-zA-Z]*)\\s/>$`, 'gi'), (_, name) => name)
+            .replace(/^<([a-zA-Z]*)\s\/>$/gi, (_, name) => name)
             .replace(/(Filled|Outlined|TwoTone)$/, '')
             .toLowerCase();
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));

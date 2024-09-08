@@ -1,6 +1,6 @@
 import type { InputStatus } from '@bees-ui/_util';
-import { SizeType, useSize } from '@bees-ui/config-provider/src';
-import { ConfigContext, Variant } from '@bees-ui/context';
+import { type SizeType, useSize } from '@bees-ui/config-provider/src';
+import { ConfigContext, type Variant } from '@bees-ui/context';
 import { devUseWarning } from '@bees-ui/core/src';
 import classNames from 'clsx';
 import { createEffect, createMemo, createSignal, useContext } from 'solid-js';

@@ -1,7 +1,7 @@
 import { devUseWarning } from '@bees-ui/core';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import classNames from 'clsx';
-import { createMemo, JSX, Show, splitProps, useContext } from 'solid-js';
+import { createMemo, type JSX, Show, splitProps, useContext } from 'solid-js';
 
 import { ConfigContext } from '../../context';
 import useStyle from './style';

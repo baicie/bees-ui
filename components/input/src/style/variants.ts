@@ -1,5 +1,5 @@
 import { mergeToken } from '@bees-ui/core';
-import { CSSObject, unit } from '@bees-ui/sc-cssinjs';
+import { type CSSObject, unit } from '@bees-ui/sc-cssinjs';
 
 import type { InputToken } from './token';
 

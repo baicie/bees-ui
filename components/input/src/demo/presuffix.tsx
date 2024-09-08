@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { Input, Tooltip } from 'antd';
 

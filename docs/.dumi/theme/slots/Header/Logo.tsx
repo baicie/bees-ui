@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 

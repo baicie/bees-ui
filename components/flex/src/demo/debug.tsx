@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
+import type React from 'react';
 import { Flex } from 'antd';
 
 const App: React.FC = () => (

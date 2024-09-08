@@ -52,6 +52,7 @@
         "useAsConstAssertion": "error",
         "useConsistentArrayType": "error",
         "useForOf": "error",
+        "useImportType": "error",
         "useShorthandFunctionType": "error"
       },
       "suspicious": {
@@ -120,15 +121,11 @@
       "**/*.d.ts",
       "scripts/previewEditor/**/*",
       "**/jest-stare",
-      "**/.eslintrc.js"
+      "**/.eslintrc.js",
+      "docs"
     ]
   },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single"
-    },
-    "globals": []
-  },
+  "javascript": { "formatter": { "quoteStyle": "single" }, "globals": [] },
   "overrides": [
     {
       "include": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
@@ -198,9 +195,7 @@
     },
     {
       "include": ["{components,packages,playground}/**/*.{ts,tsx,mts,cts,js,jsx}"],
-      "javascript": {
-        "globals": []
-      },
+      "javascript": { "globals": [] },
       "linter": {
         "rules": {
           "a11y": {
@@ -363,26 +358,17 @@
       },
       "linter": {
         "rules": {
-          "style": {
-            "noDefaultExport": "off"
-          },
-          "suspicious": {
-            "noEmptyInterface": "off",
-            "noExplicitAny": "off"
-          }
+          "style": { "noDefaultExport": "off" },
+          "suspicious": { "noEmptyInterface": "off", "noExplicitAny": "off" }
         }
       }
     },
     {
       "include": ["internal/**/*.{ts,mts,cts,js}"],
-      "javascript": {
-        "globals": ["...globals.node"]
-      },
+      "javascript": { "globals": ["...globals.node"] },
       "linter": {
         "rules": {
-          "style": {
-            "useConst": "warn"
-          },
+          "style": { "useConst": "warn" },
           "suspicious": {
             "noConsoleLog": "error",
             "noDebugger": "error",
@@ -394,37 +380,25 @@
       }
     },
     {
-      "include": ["**/*.js", "**/*.mjs", "**/*.cjs"],
-      "linter": {
-        "rules": {}
-      }
+      "include": ["**/__tests__/**/*.?([cm])[jt]s?(x)", "tests/**/*.?([cm])[jt]s?(x)"],
+      "javascript": { "globals": ["exports"] }
     },
     {
-      "include": ["**/*.d.ts"],
-      "linter": {
-        "rules": {}
-      }
+      "include": ["**/*.js", "**/*.mjs", "**/*.cjs"],
+      "linter": { "rules": {} }
     },
+    { "include": ["**/*.d.ts"], "linter": { "rules": {} } },
     {
       "include": ["**/__tests__/**/*.?([cm])[jt]s?(x)", "playground/test/**/*.?([cm])[jt]s?(x)"],
       "linter": {
         "rules": {
-          "suspicious": {
-            "noConsoleLog": "off",
-            "noExplicitAny": "off"
-          }
+          "suspicious": { "noConsoleLog": "off", "noExplicitAny": "off" }
         }
       }
     },
     {
       "include": ["playground/**/*.{ts,tsx,mts,cts,js,jsx}"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noConsoleLog": "off"
-          }
-        }
-      }
+      "linter": { "rules": { "suspicious": { "noConsoleLog": "off" } } }
     }
   ]
 }

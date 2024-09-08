@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { BeesButton } from '@bees-ui/button';
 import '@bees-ui/affix';
-BeesButton()
+BeesButton();
 const handleClick = () => {
   console.log('handleClick');
 };

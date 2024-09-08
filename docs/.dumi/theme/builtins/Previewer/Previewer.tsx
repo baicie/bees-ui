@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import type { IPreviewerProps } from 'dumi';
 import { LiveProvider, useTabMeta } from 'dumi';
 

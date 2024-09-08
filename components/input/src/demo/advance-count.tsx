@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Flex, Input, Typography } from 'antd';
 import { runes } from 'runes2';
 

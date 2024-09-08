@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Flex, Tooltip } from 'antd';
 

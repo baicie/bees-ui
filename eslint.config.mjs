@@ -44,7 +44,7 @@ export default tseslint.config(
       '**/vitest.config.e2e.ts',
       'scripts',
       'coverage',
-      'packages',
+      'docs',
     ],
   },
 
@@ -93,6 +93,7 @@ export default tseslint.config(
       'no-empty': 'off',
       '@typescript-eslint/no-empty-function': 'off',
       'n/no-extraneous-import': 'off',
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
 
@@ -115,6 +116,7 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-empty-interface': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
+      'jsx-a11y/click-events-have-key-events': 'off',
     },
     settings: {},
   },

@@ -1,4 +1,4 @@
-import { SizeType } from '@bees-ui/core';
+import type { SizeType } from '@bees-ui/core';
 
 import DisabledContext from './DisabledContext';
 import useSize from './hooks/useSize';

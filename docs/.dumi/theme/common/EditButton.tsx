@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import { createStyles } from 'antd-style';

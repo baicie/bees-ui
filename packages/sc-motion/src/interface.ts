@@ -33,16 +33,11 @@ export type MotionEvent = (TransitionEvent | AnimationEvent) & {
   deadline?: boolean;
 };
 
-export type MotionPrepareEventHandler = (
-  element: HTMLElement,
-) => Promise<any> | void;
+export type MotionPrepareEventHandler = (element: HTMLElement) => Promise<any> | void;
 
 export type MotionEventHandler = (
   element: HTMLElement,
   event: MotionEvent,
 ) => React.CSSProperties | void;
 
-export type MotionEndEventHandler = (
-  element: HTMLElement,
-  event: MotionEvent,
-) => boolean | void;
+export type MotionEndEventHandler = (element: HTMLElement, event: MotionEvent) => boolean | void;

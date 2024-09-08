@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+import type React from 'react';
+import { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Tag, version } from 'antd';
 import { useFullSidebarData, useSidebarData } from 'dumi';

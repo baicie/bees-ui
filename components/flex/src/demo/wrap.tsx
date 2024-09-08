@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Button, Flex } from 'antd';
 
 const Demo: React.FC = () => (

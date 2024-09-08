@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { useState } from 'react';
 import { Carousel, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';

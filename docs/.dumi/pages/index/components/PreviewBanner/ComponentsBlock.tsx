@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { AntDesignOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import {
   Alert,

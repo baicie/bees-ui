@@ -1,4 +1,4 @@
-import { GenerateStyle, genStyleHooks, mergeToken } from '@bees-ui/core';
+import { type GenerateStyle, genStyleHooks, mergeToken } from '@bees-ui/core';
 
 import type { InputToken } from './token';
 import { initComponentToken, initInputToken } from './token';

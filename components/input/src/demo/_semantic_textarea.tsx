@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Input } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';

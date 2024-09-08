@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { Button, Input } from 'antd';
 
 const { TextArea } = Input;

@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown, Flex } from 'antd';
 

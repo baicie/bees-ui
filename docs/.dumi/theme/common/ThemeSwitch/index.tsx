@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 import { useTheme } from 'antd-style';

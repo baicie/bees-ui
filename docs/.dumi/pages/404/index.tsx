@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import type React from 'react';
+import { useEffect } from 'react';
 import { HomeOutlined } from '@ant-design/icons';
 import { Button, Result } from 'antd';
 import { Link, useLocation } from 'dumi';
