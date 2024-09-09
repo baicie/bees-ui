@@ -32,7 +32,9 @@ describe('Input.Count', () => {
         maxLength={5}
       />
     ));
-    expect(container.querySelector('.rc-input-show-count-suffix')?.textContent).toEqual('👨‍👩‍👧‍👦_11_5');
+    expect(container.querySelector('.rc-input-show-count-suffix')?.textContent).toEqual(
+      '👨‍👩‍👧‍👦_11_5',
+    );
   });
 
   it('exceedFormatter', () => {

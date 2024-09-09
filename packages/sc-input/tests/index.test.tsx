@@ -31,9 +31,7 @@ describe('Input', () => {
   it('should trigger onKeydown and onPressEnter', () => {
     const onKeyDown = jest.fn();
     const onPressEnter = jest.fn();
-    const { container } = render(
-      <Input onKeyDown={onKeyDown} onPressEnter={onPressEnter} />,
-    );
+    const { container } = render(<Input onKeyDown={onKeyDown} onPressEnter={onPressEnter} />);
     const inputEl = container.querySelector('input')!;
     fireEvent.keyDown(inputEl, { key: 'Enter' });
     expect(onKeyDown).toHaveBeenCalled();
@@ -45,11 +43,7 @@ describe('Input', () => {
     const onPressEnter = jest.fn();
     const onKeyUp = jest.fn();
     const { container } = render(
-      <Input
-        onKeyDown={onKeyDown}
-        onPressEnter={onPressEnter}
-        onKeyUp={onKeyUp}
-      />,
+      <Input onKeyDown={onKeyDown} onPressEnter={onPressEnter} onKeyUp={onKeyUp} />,
     );
     const inputEl = container.querySelector('input')!;
     fireEvent.keyDown(inputEl, { key: 'Enter' });
@@ -89,9 +83,7 @@ describe('Input', () => {
 
   it('should focus input after clear', async () => {
     const user = userEvent.setup();
-    const { container } = render(
-      <Input prefixCls="rc-input" allowClear defaultValue="111" />,
-    );
+    const { container } = render(<Input prefixCls="rc-input" allowClear defaultValue="111" />);
     await user.click(container.querySelector('.rc-input-clear-icon')!);
     expect(document.activeElement).toBe(container.querySelector('input'));
   });
@@ -122,9 +114,7 @@ describe('should support showCount', () => {
       <Input prefixCls="rc-input" maxLength={5} showCount value="12345" />,
     );
     expect(container.querySelector('input')?.value).toBe('12345');
-    expect(
-      container.querySelector('.rc-input-show-count-suffix')?.innerHTML,
-    ).toBe('5 / 5');
+    expect(container.querySelector('.rc-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
   });
 
   it('control exceed maxLength', () => {
@@ -132,9 +122,7 @@ describe('should support showCount', () => {
       <Input prefixCls="rc-input" maxLength={5} showCount value="12345678" />,
     );
     expect(container.querySelector('input')?.value).toBe('12345678');
-    expect(
-      container.querySelector('.rc-input-show-count-suffix')?.innerHTML,
-    ).toBe('8 / 5');
+    expect(container.querySelector('.rc-input-show-count-suffix')?.innerHTML).toBe('8 / 5');
   });
 
   it('count formatter', () => {
@@ -143,16 +131,13 @@ describe('should support showCount', () => {
         prefixCls="rc-input"
         maxLength={5}
         showCount={{
-          formatter: ({ value, count, maxLength }) =>
-            `${value}, ${count}, ${maxLength}`,
+          formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
         }}
         value="12345"
       />,
     );
     expect(container.querySelector('input')?.value).toBe('12345');
-    expect(
-      container.querySelector('.rc-input-show-count-suffix')?.innerHTML,
-    ).toBe('12345, 5, 5');
+    expect(container.querySelector('.rc-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
   });
 });
 
@@ -170,29 +155,22 @@ describe('Input allowClear', () => {
 
   it('should not show icon if value is undefined or empty string', () => {
     const containers = [undefined, ''].map(
-      (val) =>
-        render(<Input prefixCls="rc-input" allowClear value={val} />).container,
+      (val) => render(<Input prefixCls="rc-input" allowClear value={val} />).container,
     );
     containers.forEach((container) => {
       expect(container.querySelector('input')?.value).toEqual('');
-      expect(
-        container.querySelector('.rc-input-clear-icon-hidden'),
-      ).toBeTruthy();
+      expect(container.querySelector('.rc-input-clear-icon-hidden')).toBeTruthy();
       expect(container).toMatchSnapshot();
     });
   });
 
   it('should not show icon if defaultValue is undefined or empty string', () => {
     const containers = [undefined, ''].map(
-      (val) =>
-        render(<Input prefixCls="rc-input" allowClear defaultValue={val} />)
-          .container,
+      (val) => render(<Input prefixCls="rc-input" allowClear defaultValue={val} />).container,
     );
     containers.forEach((container) => {
       expect(container.querySelector('input')?.value).toEqual('');
-      expect(
-        container.querySelector('.rc-input-clear-icon-hidden'),
-      ).toBeTruthy();
+      expect(container.querySelector('.rc-input-clear-icon-hidden')).toBeTruthy();
       expect(container).toMatchSnapshot();
     });
   });
@@ -205,12 +183,7 @@ describe('Input allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const { container } = render(
-      <Input
-        prefixCls="rc-input"
-        allowClear
-        defaultValue="111"
-        onChange={onChange}
-      />,
+      <Input prefixCls="rc-input" allowClear defaultValue="111" onChange={onChange} />,
     );
     fireEvent.click(container.querySelector('.rc-input-clear-icon')!);
     expect(argumentEventObject).toHaveProperty('type', 'click');
@@ -237,16 +210,9 @@ describe('Input allowClear', () => {
   ['disabled', 'readOnly'].forEach((prop) => {
     it(`should not support allowClear when it is ${prop}`, () => {
       const { container } = render(
-        <Input
-          prefixCls="rc-input"
-          allowClear
-          defaultValue="111"
-          {...{ [prop]: true }}
-        />,
+        <Input prefixCls="rc-input" allowClear defaultValue="111" {...{ [prop]: true }} />,
       );
-      expect(
-        container.querySelector('.rc-input-clear-icon-hidden'),
-      ).toBeTruthy();
+      expect(container.querySelector('.rc-input-clear-icon-hidden')).toBeTruthy();
     });
   });
 
@@ -330,9 +296,7 @@ describe('Input allowClear', () => {
 describe('Input ref', () => {
   it('focus and blur should work', () => {
     const ref = React.createRef<InputRef>();
-    const { container } = render(
-      <Input ref={ref} defaultValue="light" prefixCls="rc-input" />,
-    );
+    const { container } = render(<Input ref={ref} defaultValue="light" prefixCls="rc-input" />);
     const inputEl = container.querySelector('input')!;
     ref.current?.focus();
     expect(document.activeElement).toBe(inputEl);
@@ -361,12 +325,7 @@ describe('Input ref', () => {
       const ref = React.createRef<InputRef>();
       render(<Input ref={ref} defaultValue="light" prefixCls="rc-input" />);
       ref.current?.setSelectionRange(0, 0);
-      expect(setSelectionRange).toHaveBeenCalledWith(
-        expect.anything(),
-        0,
-        0,
-        undefined,
-      );
+      expect(setSelectionRange).toHaveBeenCalledWith(expect.anything(), 0, 0, undefined);
       inputSpy.mockRestore();
     });
 
@@ -416,12 +375,8 @@ describe('Input ref', () => {
   it('support onClear', () => {
     const onClear = jest.fn();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(
-      <Input onClear={onClear} defaultValue="test" allowClear />,
-    );
-    fireEvent.click(
-      container.querySelector<HTMLSpanElement>('.rc-input-clear-icon')!,
-    );
+    const { container } = render(<Input onClear={onClear} defaultValue="test" allowClear />);
+    fireEvent.click(container.querySelector<HTMLSpanElement>('.rc-input-clear-icon')!);
     expect(onClear).toHaveBeenCalled();
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
@@ -432,9 +387,7 @@ describe('resolveChange should work', () => {
   const onChange = jest.fn();
   const { container } = render(
     <textarea
-      onCompositionEnd={(e) =>
-        resolveOnChange(e.currentTarget, e, onChange, 'triggerValue')
-      }
+      onCompositionEnd={(e) => resolveOnChange(e.currentTarget, e, onChange, 'triggerValue')}
     />,
   );
   fireEvent.compositionEnd(container.querySelector('textarea')!);

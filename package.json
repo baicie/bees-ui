@@ -32,7 +32,7 @@
   "keywords": [],
   "author": "baicie",
   "license": "MIT",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "engines": {
     "node": "^18.0.0 || >=20.0.0"
   },
@@ -95,9 +95,6 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": [
-      "biome format --write .",
-      "biome lint ."
-    ]
+    "*": ["biome format --write .", "biome lint ."]
   }
 }

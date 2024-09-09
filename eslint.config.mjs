@@ -59,7 +59,6 @@ export default tseslint.config(
         ...globals.es2022,
       },
       parserOptions: {
-        projectService: true,
         allowImportExportEverywhere: true,
         cacheLifetime: {
           glob: 'Infinity',
@@ -242,6 +241,13 @@ export default tseslint.config(
   {
     name: 'disables/playground',
     files: ['playground/**/*.{ts,tsx,mts,cts,js,jsx}'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+  {
+    name: 'disables/demo',
+    files: ['components/**/demo/*.{ts,tsx,mts,cts,js,jsx}'],
     rules: {
       'no-console': 'off',
     },

@@ -52,17 +52,11 @@ describe('Input.Focus', () => {
   });
 
   it('disabled should reset focus', () => {
-    const { container, rerender } = render(
-      <Input prefixCls="rc-input" allowClear />,
-    );
+    const { container, rerender } = render(<Input prefixCls="rc-input" allowClear />);
     fireEvent.focus(container.querySelector('input')!);
-    expect(
-      container.querySelector('.rc-input-affix-wrapper-focused'),
-    ).toBeTruthy();
+    expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeTruthy();
 
     rerender(<Input prefixCls="rc-input" allowClear disabled />);
-    expect(
-      container.querySelector('.rc-input-affix-wrapper-focused'),
-    ).toBeFalsy();
+    expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeFalsy();
   });
 });
