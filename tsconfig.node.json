@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM"],
+    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
@@ -12,6 +17,8 @@
     "internal",
     "eslint.config.mjs",
     "playground/*/*.ts",
-    "tests/**/*.ts"
+    "tests/**/*.ts",
+    "packages/**/*.ts",
+    "packages/**/*.tsx"
   ]
 }

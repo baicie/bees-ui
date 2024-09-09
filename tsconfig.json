@@ -10,7 +10,7 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "target": "es6",
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
     "resolvePackageJsonExports": true,
@@ -20,5 +20,7 @@
       "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
     }
   },
-  "include": ["packages", "internal", "icons", "components"]
+  "include": ["packages", "internal", "icons", "components"],
+  "exclude": ["packages/**/*.test.ts", "packages/**/*.test.tsx"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
