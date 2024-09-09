@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/button",
+  "name": "@bees-ui/sc-{{name}}",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -25,12 +25,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bees-ui/_util": "workspace:^",
-    "@bees-ui/config-provider": "workspace:^",
-    "@bees-ui/core": "workspace:^",
-    "@bees-ui/sc-cssinjs": "workspace:^",
-    "@bees-ui/sc-element": "workspace:^",
-    "@bees-ui/sc-util": "workspace:^",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "solid-js": "^1.8.22"
+  },
+  "peerDependencies": {
     "solid-js": "^1.8.22"
   }
 }

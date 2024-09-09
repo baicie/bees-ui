@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "module": "esnext",
@@ -8,7 +9,6 @@
     "experimentalDecorators": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "noImplicitAny": true,
     "target": "es6",
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
@@ -16,10 +16,7 @@
     "resolvePackageJsonExports": true,
 
     "baseUrl": ".",
-    "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
-    }
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
-  "include": ["packages", "internal", "components"],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
+  "include": ["packages", "internal/sc-template", "internal/coms-template", "components"]
 }

@@ -7,7 +7,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "bees": "./index.js"
+    "bee": "./index.js"
   },
   "scripts": {
     "stub": "pnpm unbuild --stub",
@@ -17,11 +17,14 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
+    "@pnpm/find-workspace-packages": "^6.0.9",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/mustache": "^4.2.5",
     "cac": "^6.7.14",
+    "mustache": "^4.2.0",
     "rollup": "^4.21.2",
     "rollup-plugin-esbuild": "^6.1.1",
     "tsx": "^4.19.0",

@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM"],
-    "downlevelIteration": true,
-    "allowSyntheticDefaultImports": true,
-    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "vite.config.ts",
-    "internal",
+    "internal/**/*.ts",
     "eslint.config.mjs",
     "playground/*/*.ts",
-    "tests/**/*.ts",
-    "packages/**/*.ts",
-    "packages/**/*.tsx"
+    "tests/**/*.ts"
   ]
 }

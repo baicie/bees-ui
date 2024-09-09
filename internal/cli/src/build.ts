@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
@@ -17,7 +18,7 @@ export interface Options {
   /**
    * @description
    */
-  input?: string;
+  input?: string | string[];
   sourcemap?: boolean;
   dts?: boolean;
   dtsDir?: string;

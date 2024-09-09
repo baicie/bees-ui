@@ -59,6 +59,7 @@ export default tseslint.config(
         ...globals.es2022,
       },
       parserOptions: {
+        projectService: true,
         allowImportExportEverywhere: true,
         cacheLifetime: {
           glob: 'Infinity',
@@ -71,6 +72,7 @@ export default tseslint.config(
           'docs/tsconfig.json',
           'tsconfig.json',
           'tsconfig.node.json',
+          'tsconfig.test.json',
         ],
         tsconfigRootDir: __dirname,
         warnOnUnsupportedTypeScriptVersion: false,

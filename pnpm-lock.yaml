@@ -8,9 +8,9 @@ importers:
 
   .:
     devDependencies:
-      '@bees-ui/internal-build':
+      '@bees-ui/internal-cli':
         specifier: workspace:^
-        version: link:internal/build
+        version: link:internal/cli
       '@biomejs/biome':
         specifier: ^1.8.3
         version: 1.8.3
@@ -212,9 +212,6 @@ importers:
       '@bees-ui/sc-util':
         specifier: workspace:^
         version: link:../../packages/sc-util
-      solid-element:
-        specifier: ^1.8.1
-        version: 1.8.1(solid-js@1.8.22)
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
@@ -441,7 +438,7 @@ importers:
         specifier: ^1.8.1
         version: 1.8.1
 
-  internal/build:
+  internal/cli:
     devDependencies:
       '@pnpm/find-workspace-packages':
         specifier: ^6.0.9
@@ -455,9 +452,15 @@ importers:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
         version: 15.2.3(rollup@4.21.2)
+      '@types/mustache':
+        specifier: ^4.2.5
+        version: 4.2.5
       cac:
         specifier: ^6.7.14
         version: 6.7.14
+      mustache:
+        specifier: ^4.2.0
+        version: 4.2.0
       rollup:
         specifier: ^4.21.2
         version: 4.21.2
@@ -471,32 +474,39 @@ importers:
         specifier: ^2.10.2
         version: 2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.8.22)(vite@5.4.3(@types/node@22.5.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.78.0)(sugarss@2.0.0)(terser@5.31.6))
 
-  internal/cli:
+  internal/coms-template:
     dependencies:
-      '@rollup/plugin-alias':
-        specifier: ^5.1.0
-        version: 5.1.0(rollup@4.21.2)
-      '@rollup/plugin-commonjs':
-        specifier: ^26.0.1
-        version: 26.0.1(rollup@4.21.2)
-      '@rollup/plugin-node-resolve':
-        specifier: ^15.2.3
-        version: 15.2.3(rollup@4.21.2)
-      cac:
-        specifier: ^6.7.14
-        version: 6.7.14
-      rollup:
-        specifier: ^4.21.2
-        version: 4.21.2
-      rollup-plugin-esbuild:
-        specifier: ^6.1.1
-        version: 6.1.1(esbuild@0.23.1)(rollup@4.21.2)
-      tsx:
-        specifier: ^4.19.0
-        version: 4.19.0
-      vite-plugin-solid:
-        specifier: ^2.10.2
-        version: 2.10.2(@testing-library/jest-dom@6.5.0)(solid-js@1.8.22)(vite@5.4.3(@types/node@22.5.4)(less@4.2.0)(lightningcss@1.22.1)(sass@1.78.0)(sugarss@2.0.0)(terser@5.31.6))
+      '@bees-ui/_util':
+        specifier: workspace:^
+        version: link:../../packages/_util
+      '@bees-ui/config-provider':
+        specifier: workspace:^
+        version: link:../../components/config-provider
+      '@bees-ui/core':
+        specifier: workspace:^
+        version: link:../../packages/core
+      '@bees-ui/sc-cssinjs':
+        specifier: workspace:^
+        version: link:../../packages/sc-cssinjs
+      '@bees-ui/sc-element':
+        specifier: workspace:^
+        version: link:../../packages/sc-element
+      '@bees-ui/sc-util':
+        specifier: workspace:^
+        version: link:../../packages/sc-util
+      solid-js:
+        specifier: ^1.8.22
+        version: 1.8.22
+
+  internal/sc-template:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
+      solid-js:
+        specifier: ^1.8.22
+        version: 1.8.22
 
   packages/_util:
     dependencies:
@@ -536,6 +546,16 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      solid-js:
+        specifier: ^1.8.22
+        version: 1.8.22
+
+  packages/sc-button:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
@@ -601,9 +621,6 @@ importers:
 
   packages/sc-input:
     dependencies:
-      '@bees-ui/sc-util':
-        specifier: workspace:^
-        version: link:../sc-util
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -611,15 +628,6 @@ importers:
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
-
-  packages/sc-motion:
-    dependencies:
-      '@bees-ui/sc-util':
-        specifier: workspace:^
-        version: link:../sc-util
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
 
   packages/sc-register: {}
 
@@ -637,6 +645,8 @@ importers:
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
+
+  packages/sc-switch: {}
 
   packages/sc-util:
     devDependencies:
@@ -3741,6 +3751,9 @@ packages:
 
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
+
+  '@types/mustache@4.2.5':
+    resolution: {integrity: sha512-PLwiVvTBg59tGFL/8VpcGvqOu3L4OuveNvPi0EYbWchRdEVP++yRUXJPFl+CApKEq13017/4Nf7aQ5lTtHUNsA==}
 
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
@@ -8658,6 +8671,10 @@ packages:
 
   multipipe@1.0.2:
     resolution: {integrity: sha512-6uiC9OvY71vzSGX8lZvSqscE7ft9nPupJ8fMjrCNRAUy2LREUW42UL+V/NTrogr6rFgRydUrCX4ZitfpSNkSCQ==}
+
+  mustache@4.2.0:
+    resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
+    hasBin: true
 
   mute-stream@0.0.7:
     resolution: {integrity: sha512-r65nCZhrbXXb6dXOACihYApHw2Q6pV0M3V0PSxd74N0+D8nzAdEAITq2oAjA1jVnKI+tGvEBUpqiMh0+rW6zDQ==}
@@ -15119,26 +15136,26 @@ snapshots:
 
   '@stitches/core@1.2.8': {}
 
-  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-css-in-js@0.37.3(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)':
     dependencies:
       '@babel/core': 7.25.2
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
 
-  '@stylelint/postcss-css-in-js@0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.45)':
+  '@stylelint/postcss-css-in-js@0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.45)':
     dependencies:
       '@babel/core': 7.25.2
       postcss: 8.4.45
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
 
-  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)':
+  '@stylelint/postcss-markdown@0.36.2(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)':
     dependencies:
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       remark: 13.0.0
       unist-util-find-all-after: 3.0.2
     transitivePeerDependencies:
@@ -15555,6 +15572,8 @@ snapshots:
   '@types/minimist@1.2.5': {}
 
   '@types/ms@0.7.34': {}
+
+  '@types/mustache@4.2.5': {}
 
   '@types/node@17.0.45': {}
 
@@ -16146,7 +16165,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.23.6
       '@babel/eslint-parser': 7.23.3(@babel/core@7.23.6)(eslint@7.32.0)
-      '@stylelint/postcss-css-in-js': 0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.45)
+      '@stylelint/postcss-css-in-js': 0.38.0(postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@8.4.45)
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@4.9.5))(eslint@7.32.0)(typescript@4.9.5)
       '@typescript-eslint/parser': 5.62.0(eslint@7.32.0)(typescript@4.9.5)
       '@umijs/babel-preset-umi': 4.3.19
@@ -22343,6 +22362,8 @@ snapshots:
       duplexer2: 0.1.4
       object-assign: 4.1.1
 
+  mustache@4.2.0: {}
+
   mute-stream@0.0.7: {}
 
   mz@2.7.0:
@@ -23136,7 +23157,7 @@ snapshots:
     dependencies:
       htmlparser2: 3.10.1
       postcss: 7.0.39
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
 
   postcss-image-set-function@4.0.7(postcss@8.4.45):
     dependencies:
@@ -23437,7 +23458,7 @@ snapshots:
       postcss-value-parser: 4.2.0
       svgo: 3.3.2
 
-  postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39):
+  postcss-syntax@0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39):
     dependencies:
       postcss: 7.0.39
     optionalDependencies:
@@ -25339,8 +25360,8 @@ snapshots:
 
   stylelint@13.13.1:
     dependencies:
-      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
-      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39))(postcss@7.0.39)
+      '@stylelint/postcss-css-in-js': 0.37.3(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)
+      '@stylelint/postcss-markdown': 0.36.2(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39)
       autoprefixer: 9.8.8
       balanced-match: 2.0.0
       chalk: 4.1.2
@@ -25374,7 +25395,7 @@ snapshots:
       postcss-sass: 0.4.4
       postcss-scss: 2.1.1
       postcss-selector-parser: 6.1.2
-      postcss-syntax: 0.36.2(postcss-html@0.36.0(postcss-syntax@0.36.2(postcss@7.0.39))(postcss@7.0.39))(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
       slash: 3.0.0

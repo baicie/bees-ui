@@ -26,7 +26,8 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "update-version": "tsx scripts/update-version.ts",
     "publish-script": "tsx scripts/publish-script.ts",
-    "update": "ncu -uws -x eslint && ncu -u -x eslint"
+    "update": "ncu -uws -x eslint && ncu -u -x eslint",
+    "temp": "pnpm bee template"
   },
   "keywords": [],
   "author": "baicie",
@@ -36,7 +37,7 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "devDependencies": {
-    "@bees-ui/internal-build": "workspace:^",
+    "@bees-ui/internal-cli": "workspace:^",
     "@biomejs/biome": "^1.8.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@pnpm/find-workspace-packages": "^6.0.9",
