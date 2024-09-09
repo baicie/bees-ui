@@ -3,7 +3,6 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 import allIconDefs from '@ant-design/icons-svg';
 import type { IconDefinition } from '@ant-design/icons-svg/es/types';
-// eslint-disable-next-line lodash/import-scope
 import { template } from 'lodash';
 
 const writeFile = promisify(fs.writeFile);
@@ -16,7 +15,7 @@ function walk<T>(fn: (iconDef: IconDefinitionWithIdentifier) => Promise<T>) {
   return Promise.all(
     // 便利所有svg文件 svgIdentifier为唯一标识大驼峰命名
     Object.keys(allIconDefs).map((svgIdentifier) => {
-      const iconDef = (allIconDefs as { [id: string]: IconDefinition })[svgIdentifier];
+      const iconDef = (allIconDefs as Record<string, IconDefinition>)[svgIdentifier];
       // 为每一个svg文件生成组件
       return fn({ svgIdentifier, ...iconDef });
     }),
@@ -28,6 +27,7 @@ async function generateIcons() {
   try {
     // 查看文件是否可以访问 第一次见
     await promisify(fs.access)(iconsDir);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     // 文件不存在就在创建一个
     await promisify(fs.mkdir)(iconsDir);

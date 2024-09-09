@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { createEffect, createSignal, splitProps } from 'solid-js';
+import { createEffect, createMemo, createSignal, splitProps } from 'solid-js';
 import type { JSX } from 'solid-js';
 
 import BaseInput from './BaseInput';
@@ -32,6 +32,7 @@ const Input = (props: InputProps) => {
     'onCompositionStart',
     'onCompositionEnd',
     'hidden',
+    'value',
   ]);
 
   const prefixCls = local.prefixCls || 'rc-input';
@@ -43,9 +44,11 @@ const Input = (props: InputProps) => {
   // let holderRef;
 
   // ====================== Value =======================
-  const [value, setValue] = createSignal(props.value ?? props.defaultValue ?? '');
+  const [value, setValue] = createSignal(props.defaultValue ?? props.value ?? '');
 
-  const formatValue = value === undefined || value === null ? '' : String(value);
+  const formatValue = createMemo(() =>
+    value() === undefined || value() === null ? '' : String(value()),
+  );
 
   // =================== Select Range ===================
   const [selection, setSelection] = createSignal(null);
@@ -53,7 +56,7 @@ const Input = (props: InputProps) => {
   // ====================== Count =======================
   const countConfig = useCount(local.count, local.showCount);
   const mergedMax = countConfig().max || (local.maxLength as number);
-  const valueLength = () => countConfig().strategy(formatValue);
+  const valueLength = () => countConfig().strategy(formatValue());
 
   const isOutOfRange = () => !!mergedMax && valueLength() > mergedMax;
 
@@ -67,6 +70,27 @@ const Input = (props: InputProps) => {
   // const blur = () => {
   //   inputRef?.blur();
   // };
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  props.ref?.({
+    focus,
+    blur: () => {
+      inputRef?.blur();
+    },
+    setSelectionRange: (
+      start: number,
+      end: number,
+      direction?: 'forward' | 'backward' | 'none',
+    ) => {
+      inputRef?.setSelectionRange(start, end, direction);
+    },
+    select: () => {
+      inputRef?.select();
+    },
+    input: inputRef,
+    nativeElement: inputRef,
+  });
 
   // Watch for disabled state
   createEffect(() => {
@@ -168,12 +192,12 @@ const Input = (props: InputProps) => {
 
   const getInputElement = () => {
     return (
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       <input
-        autocomplete={local.autoComplete}
         {...rest}
+        value={formatValue()}
+        autocomplete={local.autoComplete}
         onChange={onInternalChange}
+        onInput={onInternalChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onKeyDown={handleKeyDown}
@@ -204,7 +228,7 @@ const Input = (props: InputProps) => {
     if (local.suffix || countConfig().show) {
       const dataCount = countConfig().showFormatter
         ? countConfig().showFormatter({
-            value: formatValue,
+            value: formatValue(),
             count: valueLength(),
             maxLength: mergedMax,
           })
@@ -237,7 +261,7 @@ const Input = (props: InputProps) => {
       prefixCls={prefixCls}
       className={clsx(local.className, isOutOfRange() && `${prefixCls}-out-of-range`)}
       handleReset={handleReset}
-      value={formatValue}
+      value={formatValue()}
       focused={focused()}
       triggerFocus={focus}
       suffix={getSuffix()}

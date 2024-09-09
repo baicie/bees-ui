@@ -3,7 +3,7 @@ import type { JSX } from 'solid-js';
 import type { InputFocusOptions } from './utils/commonUtils';
 
 export interface CommonInputProps {
-  prefix?: JSX.Element;
+  prefix?: string;
   suffix?: JSX.Element;
   addonBefore?: JSX.Element;
   addonAfter?: JSX.Element;
@@ -53,7 +53,7 @@ export interface BaseInputProps extends CommonInputProps {
     wrapper?: 'span' | 'div';
     groupAddon?: 'span' | 'div';
   };
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 export type ShowCountFormatter = (args: {

@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import { children, Show, splitProps } from 'solid-js';
+import { children, createComponent, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import type { BaseInputProps } from './interface';
-import { cloneChildren, hasAddon, hasPrefixSuffix } from './utils/commonUtils';
+import { hasAddon, hasPrefixSuffix } from './utils/commonUtils';
 
 const BaseInput = (props: BaseInputProps) => {
   const [local] = splitProps(props, [
@@ -48,10 +48,7 @@ const BaseInput = (props: BaseInputProps) => {
 
   const hasAffix = hasPrefixSuffix(local);
 
-  let element = cloneChildren(inputElement, {
-    value: local.value,
-    class: clsx(!hasAffix && local.classNames?.variant) || null,
-  });
+  let element = createComponent(inputElement, {});
 
   // ================== Prefix & Suffix ================== //
   if (hasAffix) {
@@ -110,7 +107,7 @@ const BaseInput = (props: BaseInputProps) => {
           </span>
         </Show>
 
-        {element}
+        {inputElement()}
 
         <Show when={local.suffix || local.allowClear}>
           <span
