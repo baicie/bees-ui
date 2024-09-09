@@ -762,7 +762,7 @@ importers:
         specifier: workspace:^
         version: link:../../packages/sc-switch
       solid-js:
-        specifier: ^1.8.20
+        specifier: ^1.8.22
         version: 1.8.22
     devDependencies:
       less:

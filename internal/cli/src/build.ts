@@ -56,6 +56,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
       minify,
     }),
   ] as unknown as InputPluginOption[];
+  console.log('external', full ? [] : await generateExternal(root));
 
   return {
     input: inputPath,

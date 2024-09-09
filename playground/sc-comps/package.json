@@ -11,7 +11,7 @@
   "dependencies": {
     "@bees-ui/sc-input": "workspace:^",
     "@bees-ui/sc-switch": "workspace:^",
-    "solid-js": "^1.8.20"
+    "solid-js": "^1.8.22"
   },
   "devDependencies": {
     "less": "^4.2.0",

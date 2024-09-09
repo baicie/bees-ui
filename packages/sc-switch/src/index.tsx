@@ -1,6 +1,4 @@
-import classNames from 'clsx';
-import { createMemo, createSignal, mergeProps, splitProps } from 'solid-js';
-import type { JSX } from 'solid-js';
+import { createEffect, type JSX } from 'solid-js';
 
 export type SwitchChangeEventHandler = (
   checked: boolean,
@@ -25,54 +23,17 @@ interface SwitchProps
   loadingIcon?: JSX.Element;
   style?: JSX.CSSProperties;
   title?: string;
+  nums?: number;
 }
 
 const Switch = (props: SwitchProps) => {
-  props = mergeProps({ prefixCls: 'rc-switch', defaultChecked: false }, props);
-  const [_, rest] = splitProps(props, ['onChange']);
-  const [innerChecked, setInnerChecked] = createSignal(props.defaultChecked);
-  console.log('innerChecked', props.disabled);
-
-  const triggerChange = (newChecked: boolean, event: MouseEvent | KeyboardEvent) => {
-    if (!props.disabled) {
-      setInnerChecked(newChecked);
-      props.onChange?.(newChecked, event);
-    }
-  };
-
-  const onInternalKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      triggerChange(false, e);
-    } else if (e.key === 'ArrowRight') {
-      triggerChange(true, e);
-    }
-    props.onKeyDown?.(e);
-  };
-
-  const onInternalClick = (e: MouseEvent) => {
-    const ret = !innerChecked();
-    triggerChange(ret, e);
-    props.onClick?.(ret, e);
-  };
-
-  const switchClassName = createMemo(() =>
-    classNames(props.prefixCls, props.className, {
-      [`${props.prefixCls}-checked`]: innerChecked(),
-      [`${props.prefixCls}-disabled`]: props.disabled,
-    }),
-  );
-
+  createEffect(() => {
+    console.log('props', props.nums);
+  });
   return (
-    <button
-      {...rest}
-      type="button"
-      role="switch"
-      aria-checked={innerChecked()}
-      disabled={props.disabled}
-      class={switchClassName()}
-      onKeyDown={onInternalKeyDown}
-      onClick={onInternalClick}
-    >
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-expect-error
+    <button {...props} type="button">
       {props.loadingIcon}
       <span class={`${props.prefixCls}-inner`}>
         <span class={`${props.prefixCls}-inner-checked`}>{props.checkedChildren}</span>

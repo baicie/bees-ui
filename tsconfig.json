@@ -13,13 +13,8 @@
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
-    }
+    "resolvePackageJsonExports": true
   },
-  "include": ["packages", "internal", "components"],
+  "include": ["packages/**/*.ts", "internal", "components"],
   "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
 }
