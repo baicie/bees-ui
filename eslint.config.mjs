@@ -45,6 +45,7 @@ export default tseslint.config(
       'scripts',
       'coverage',
       'docs',
+      'playground',
     ],
   },
 
@@ -90,11 +91,10 @@ export default tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
-      'no-console': 'error',
-      'no-empty': 'off',
-      '@typescript-eslint/no-empty-function': 'off',
+      'no-console': 'off',
       'n/no-extraneous-import': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
 
@@ -114,10 +114,10 @@ export default tseslint.config(
       '@typescript-eslint/internal/prefer-ast-types-enum': 'off',
       'import/no-default-export': 'off',
       '@typescript-eslint/consistent-type-definitions': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-empty-interface': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
       'jsx-a11y/click-events-have-key-events': 'off',
+      'no-console': 'error',
     },
     settings: {},
   },
@@ -143,7 +143,6 @@ export default tseslint.config(
       'n/hashbang': 'error',
       eqeqeq: ['warn', 'always', { null: 'never' }],
       'no-debugger': ['error'],
-      'no-console': 'error',
       'no-empty': ['warn', { allowEmptyCatch: true }],
       'no-process-exit': 'off',
       'no-useless-escape': 'off',
@@ -175,7 +174,6 @@ export default tseslint.config(
       '@typescript-eslint/interface-name-prefix': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
       'import-x/no-nodejs-modules': [
         'error',
         {
@@ -215,6 +213,7 @@ export default tseslint.config(
     },
   },
 
+  // js
   {
     name: 'disables/js',
     files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
@@ -222,6 +221,8 @@ export default tseslint.config(
       'typescript-eslint/explicit-module-boundary-types': 'off',
     },
   },
+
+  // dts
   {
     name: 'disables/dts',
     files: ['**/*.d.ts'],
@@ -229,27 +230,27 @@ export default tseslint.config(
       'typescript-eslint/triple-slash-reference': 'off',
     },
   },
+
+  // test
   {
     name: 'disables/test',
     files: ['**/__tests__/**/*.?([cm])[jt]s?(x)', 'playground/test/**/*.?([cm])[jt]s?(x)'],
     rules: {
-      'no-console': 'off',
+      'no-empty': 'off',
+      'no-empty-function': 'off',
+      'no-empty-static-block': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
       'typescript-eslint/ban-ts-comment': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
   {
     name: 'disables/playground',
     files: ['playground/**/*.{ts,tsx,mts,cts,js,jsx}'],
-    rules: {
-      'no-console': 'off',
-    },
+    rules: {},
   },
   {
     name: 'disables/demo',
     files: ['components/**/demo/*.{ts,tsx,mts,cts,js,jsx}'],
-    rules: {
-      'no-console': 'off',
-    },
+    rules: {},
   },
 );

@@ -13,5 +13,5 @@ export interface FlexProps<P = AnyObject>
   gap?: JSX.CSSProperties['gap'] | SizeType;
   component?: CustomComponent<P>;
   className?: string;
-  style?: any;
+  style?: JSX.CSSProperties;
 }

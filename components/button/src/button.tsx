@@ -2,6 +2,7 @@ import { Wave } from '@bees-ui/_util';
 import { useSize } from '@bees-ui/config-provider';
 import type { CSSProperties, SizeType } from '@bees-ui/core';
 import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
+import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
 import { createSignal, onCleanup, onMount, splitProps, useContext, type JSX } from 'solid-js';
 
@@ -73,7 +74,7 @@ function isArray(value: unknown) {
   return value instanceof Array;
 }
 
-const InternalCompoundedButton = (props: ButtonProps, options: any) => {
+const InternalCompoundedButton = (props: ButtonProps, options: ComponentOptions) => {
   const [local, rest] = splitProps(props, [
     'loading',
     'prefixCls',
@@ -215,7 +216,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
 
   const iconType = innerLoading() ? 'loading' : icon;
 
-  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
+  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: unknown }, ['navigate']);
 
   const classes = clsx(
     prefixCls,
@@ -225,7 +226,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
+      [`${prefixCls}-icon-only`]: !children && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
       [`${prefixCls}-loading`]: innerLoading(),
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar() && mergedInsertSpace && !innerLoading(),
@@ -256,7 +257,7 @@ const InternalCompoundedButton = (props: ButtonProps, options: any) => {
       <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading()} />
     );
 
-  const kids = children || children === 0 ? children : null;
+  const kids = children ? children : null;
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(

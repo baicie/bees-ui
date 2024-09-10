@@ -5,5 +5,5 @@ try {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('./dist/index.cjs');
 } catch (error) {
-  console.log(error);
+  console.error(error);
 }

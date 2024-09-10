@@ -1,4 +1,5 @@
 import { isPresetSize } from '@bees-ui/_util';
+import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
 import clsx from 'clsx';
 import { splitProps, useContext } from 'solid-js';
@@ -10,7 +11,7 @@ import type { FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';
 
-const Flex = (props: FlexProps, options: any) => {
+const Flex = (props: FlexProps, options: ComponentOptions) => {
   const [local, others] = splitProps(props, [
     'prefixCls',
     'rootClassName',
