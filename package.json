@@ -11,7 +11,7 @@
     "fix": "biome lint --write .",
     "lint": "biome lint .",
     "typecheck": "echo typecheck",
-    "clean": "turbo run clean && rimraf node_modules .turbo --turbo",
+    "clean": "turbo run clean && rimraf node_modules .turbo",
     "stub": "turbo run stub",
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -95,6 +95,9 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": ["biome format --write .", "biome lint ."]
+    "*": [
+      "biome format --write .",
+      "biome lint ."
+    ]
   }
 }

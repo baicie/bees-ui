@@ -1,15 +1,27 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
+import type { Project } from '@pnpm/find-workspace-packages';
 import type { ModuleFormat } from 'rollup';
 
 export const DEFAULT = ['src/index.ts', 'src/index.tsx'];
+
+type Deps = Project['manifest']['dependencies'];
+
+function hasSolidjs(deps: Deps = {}, peer: Deps = {}) {
+  const has =
+    Object.keys(deps).some((dep) => dep === 'solid-js') ||
+    Object.keys(peer).some((dep) => dep === 'solid-js');
+  return has ? ['solid-js/web', 'solid-js/store'] : [];
+}
+
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
   return [
     ...Object.keys(manifest.dependencies ?? []),
     ...Object.keys(manifest.peerDependencies ?? []),
+    ...hasSolidjs(manifest.dependencies, manifest.peerDependencies),
   ];
 }
 

@@ -9,12 +9,12 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
+    "target": "ES2018",
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
     "resolvePackageJsonExports": true
   },
-  "include": ["packages/**/*.ts", "internal", "components"],
+  "include": ["packages", "components"],
   "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
 }

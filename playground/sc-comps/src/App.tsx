@@ -49,7 +49,6 @@ function App() {
       <Switch
         onChange={onChange}
         disabled={disabled()}
-        nums={count()}
         checkedChildren="开"
         unCheckedChildren="关"
       />

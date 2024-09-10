@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "target": "es6",
+    "target": "ES2018",
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
@@ -18,5 +18,5 @@
     "baseUrl": ".",
     "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
-  "include": ["packages", "internal/sc-template", "internal/coms-template", "components"]
+  "include": ["packages/**/*.test.ts", "components/**/*.test.ts"]
 }

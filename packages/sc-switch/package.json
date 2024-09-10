@@ -13,11 +13,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -v",
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },

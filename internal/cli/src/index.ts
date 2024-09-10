@@ -20,6 +20,7 @@ cli
   .option('-f, --full', 'output path')
   .option('-s, --sourcemap', 'output path')
   .option('-d, --dts', 'only dts')
+  .option('-v, --visualizer', 'visualizer')
   .action(async (args) => {
     const root = process.cwd();
     if (!args.dts) {

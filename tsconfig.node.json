@@ -5,11 +5,12 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ESNext", "DOM"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2018"
   },
   "include": [
     "vite.config.ts",
-    "internal/**/*.ts",
+    "internal",
     "eslint.config.mjs",
     "playground/*/*.ts",
     "tests/**/*.ts"
