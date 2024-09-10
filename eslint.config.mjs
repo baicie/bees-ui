@@ -94,7 +94,7 @@ export default tseslint.config(
       'no-console': 'off',
       'n/no-extraneous-import': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 

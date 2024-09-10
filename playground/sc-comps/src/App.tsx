@@ -27,9 +27,6 @@ function App() {
     console.log('disabled changed', disabled());
   });
 
-  onMount(() => {
-    ref?.focus();
-  });
   return (
     <>
       <Count nums={count()} />
@@ -51,6 +48,8 @@ function App() {
         disabled={disabled()}
         checkedChildren="开"
         unCheckedChildren="关"
+        onFocus={() => console.log('focus')}
+        autofocus
       />
       <div style={{ 'margin-left': '20px' }}>
         <button type="button" onClick={toggle}>

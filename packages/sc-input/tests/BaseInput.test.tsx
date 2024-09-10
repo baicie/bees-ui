@@ -251,28 +251,28 @@ describe('BaseInput', () => {
 
   describe('ref', () => {
     it('prefix', () => {
-      let holderRef: any = null;
+      let holderRef: HTMLElement | null = null;
       const { container } = render(() => (
         <BaseInput prefixCls="rc-input" prefix="prefix" ref={(el) => (holderRef = el)}>
           <input />
         </BaseInput>
       ));
-      expect(holderRef?.nativeElement).toBe(container.querySelector('.rc-input-affix-wrapper'));
+      expect(holderRef).toBe(container.querySelector('.rc-input-affix-wrapper'));
     });
 
     it('addon', () => {
-      let holderRef: any = null;
+      let holderRef: HTMLElement | null = null;
       const { container } = render(() => (
         <BaseInput prefixCls="rc-input" addonAfter="after" ref={(el) => (holderRef = el)}>
           <input />
         </BaseInput>
       ));
 
-      expect(holderRef?.nativeElement).toBe(container.querySelector('.rc-input-group-wrapper'));
+      expect(holderRef).toBe(container.querySelector('.rc-input-group-wrapper'));
     });
 
     it('mix', () => {
-      let holderRef: any = null;
+      let holderRef: HTMLElement | null = null;
       const { container } = render(() => (
         <BaseInput
           prefixCls="rc-input"
@@ -284,7 +284,7 @@ describe('BaseInput', () => {
         </BaseInput>
       ));
 
-      expect(holderRef?.nativeElement).toBe(container.querySelector('.rc-input-group-wrapper'));
+      expect(holderRef).toBe(container.querySelector('.rc-input-group-wrapper'));
     });
 
     it('support onClear', () => {

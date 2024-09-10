@@ -18,5 +18,12 @@
     "baseUrl": ".",
     "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
-  "include": ["packages/**/*.test.ts", "components/**/*.test.ts"]
+  "include": [
+    "packages",
+    "components",
+    "packages/**/*.test.ts",
+    "packages/**/*.test.tsx",
+    "components/**/*.test.ts",
+    "components/**/*.test.tsx"
+  ]
 }

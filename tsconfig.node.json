@@ -10,7 +10,7 @@
     "target": "ES2018"
   },
   "include": [
-    "vite.config.ts",
+    "vitest.workspace.mts",
     "internal",
     "eslint.config.mjs",
     "playground/*/*.ts",

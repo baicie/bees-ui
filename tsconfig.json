@@ -13,8 +13,16 @@
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true
+    "resolvePackageJsonExports": true,
+
+    "types": ["vitest/globals"]
   },
   "include": ["packages", "components"],
+  "exclude": [
+    "packages/**/*.test.ts",
+    "packages/**/*.test.tsx",
+    "components/**/*.test.ts",
+    "components/**/*.test.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
 }
