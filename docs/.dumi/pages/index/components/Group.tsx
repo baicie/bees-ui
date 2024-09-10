@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import { useContext } from 'react';
 import { Typography } from 'antd';
 import { useTheme } from 'antd-style';

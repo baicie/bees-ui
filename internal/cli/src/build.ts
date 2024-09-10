@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import type {
@@ -9,6 +10,7 @@ import type {
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
+import visualizer from 'rollup-plugin-visualizer';
 import solidPlugin from 'vite-plugin-solid';
 
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
@@ -17,7 +19,7 @@ export interface Options {
   /**
    * @description
    */
-  input?: string;
+  input?: string | string[];
   sourcemap?: boolean;
   dts?: boolean;
   dtsDir?: string;
@@ -25,6 +27,7 @@ export interface Options {
   watch?: boolean;
   minify?: boolean;
   full?: boolean;
+  visualizer?: boolean;
 }
 
 async function writeBundles(bundle: RollupBuild, options: OutputOptions[]) {
@@ -56,11 +59,24 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
     }),
   ] as unknown as InputPluginOption[];
 
+  if (options.visualizer) {
+    plugins.push(
+      visualizer({
+        open: true,
+        gzipSize: true,
+        brotliSize: true,
+        sourcemap,
+      }) as any,
+    );
+  }
+  const external = full ? [] : await generateExternal(root);
+  console.log('external', external);
+
   return {
     input: inputPath,
     plugins,
     treeshake: true,
-    external: full ? [] : await generateExternal(root),
+    external,
     watch: watch ? watchOptions : false,
   };
 }

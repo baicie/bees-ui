@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { generate } from '@ant-design/colors';
 import uniq from 'lodash/uniq';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';

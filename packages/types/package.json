@@ -20,6 +20,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@bees-ui/button": "workspace:^",
+    "@bees-ui/flex": "workspace:^",
     "react": "^18.3.1",
     "solid-js": "^1.8.22",
     "vue": "^3.5.1"
@@ -35,6 +36,9 @@
       "optional": true
     },
     "@bees-ui/button": {
+      "optional": true
+    },
+    "@bees-ui/flex": {
       "optional": true
     }
   }

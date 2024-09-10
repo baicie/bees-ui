@@ -4,8 +4,10 @@
     "skipLibCheck": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM"],
+    "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
+    "target": "ES2018"
   },
   "include": [
     "vite.config.ts",

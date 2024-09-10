@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';

@@ -3,7 +3,7 @@ import { build } from 'tsup';
 
 import type { Options } from './build';
 import { rootPath } from './path';
-import { DEFAULT, resolveInput, target } from './ustils';
+import { DEFAULT, normalizePath, resolveInput, target } from './ustils';
 
 export async function dts(root: string, options: Options = {}) {
   const {
@@ -15,7 +15,7 @@ export async function dts(root: string, options: Options = {}) {
   const inputPath = resolveInput(root, input);
 
   await build({
-    entry: [inputPath],
+    entry: inputPath.map(normalizePath),
     dts: {
       only: true,
     },
@@ -23,5 +23,6 @@ export async function dts(root: string, options: Options = {}) {
     tsconfig,
     target,
     watch,
+    clean: true,
   });
 }

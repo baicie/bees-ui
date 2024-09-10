@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import type React from 'react';
+import { useContext, useLayoutEffect, useMemo, useState } from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';

@@ -13,20 +13,14 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "generate": "pnpm rimraf src/icons && pnpm tsx scripts/generate.ts --target=icon"
   },
-  "keywords": [
-    "icon",
-    "ant-design-icons",
-    "solidjs"
-  ],
+  "keywords": ["icon", "ant-design-icons", "solidjs"],
   "author": "",
   "license": "MIT",
   "dependencies": {

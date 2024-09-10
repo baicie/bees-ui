@@ -1,4 +1,5 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import type React from 'react';
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';

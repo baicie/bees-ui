@@ -80,7 +80,7 @@ const WaveEffect = (props: WaveEffectProps) => {
     );
   }
 
-createEffect(() => {
+  createEffect(() => {
     if (target) {
       // We need delay to check position here
       // since UI may change after click
@@ -120,7 +120,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 

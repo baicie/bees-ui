@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import type React from 'react';
+import { useContext } from 'react';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';

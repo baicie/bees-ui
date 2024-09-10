@@ -1,5 +1,6 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
-import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'react';
+import type React from 'react';
+import { forwardRef, useLayoutEffect, useMemo, useTransition } from 'react';
 import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
 

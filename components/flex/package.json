@@ -1,0 +1,35 @@
+{
+  "name": "@bees-ui/flex",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@bees-ui/_util": "workspace:^",
+    "@bees-ui/config-provider": "workspace:^",
+    "@bees-ui/core": "workspace:^",
+    "@bees-ui/sc-cssinjs": "workspace:^",
+    "@bees-ui/sc-element": "workspace:^",
+    "@bees-ui/sc-util": "workspace:^",
+    "solid-element": "^1.8.1",
+    "solid-js": "^1.8.22"
+  }
+}

@@ -1,4 +1,5 @@
-import React, { memo, useContext, useMemo, useRef, useState } from 'react';
+import type React from 'react';
+import { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';

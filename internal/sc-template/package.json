@@ -1,0 +1,34 @@
+{
+  "name": "@bees-ui/sc-{{name}}",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "solid-js": "^1.8.22"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.22"
+  }
+}

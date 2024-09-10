@@ -1,0 +1,22 @@
+{
+  "name": "sc-comps",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@bees-ui/sc-input": "workspace:^",
+    "@bees-ui/sc-switch": "workspace:^",
+    "solid-js": "^1.8.22"
+  },
+  "devDependencies": {
+    "less": "^4.2.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}

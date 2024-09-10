@@ -27,7 +27,7 @@ export function createElementType<T>(
     __releaseCallbacks: any[];
     __propertyChangedCallbacks: any[];
     __updating: { [prop: string]: any };
-    _slot: { [key: string]: HTMLSlotElement | HTMLElement[] };
+    _slot: ICustomElement['_slot'];
     props: { [prop: string]: any };
 
     static get observedAttributes() {
@@ -41,7 +41,9 @@ export function createElementType<T>(
       this.__releaseCallbacks = [];
       this.__propertyChangedCallbacks = [];
       this.__updating = {};
-      this._slot = {};
+      this._slot = {
+        default: [],
+      };
       this.props = {};
     }
 
@@ -50,7 +52,9 @@ export function createElementType<T>(
       this.__releaseCallbacks = [];
       this.__propertyChangedCallbacks = [];
       this.__updating = {};
-      this._slot = {};
+      this._slot = {
+        default: [],
+      };
       this.props = initializeProps(this as any, propDefinition);
       const props = propValues<T>(this.props as PropsDefinition<T>),
         ComponentType = this.Component as Function | { new (...args: any[]): any },
@@ -112,7 +116,9 @@ export function createElementType<T>(
     }
 
     getLightSlots() {
-      const slots: ICustomElement['_slot'] = {};
+      const slots: ICustomElement['_slot'] = {
+        default: [],
+      };
       const queryNamedSlots = this.querySelectorAll('[slot]') as NodeListOf<HTMLSlotElement>;
       for (const candidate of Array.from(queryNamedSlots)) {
         if (!this.isOwnSlot(candidate)) continue;

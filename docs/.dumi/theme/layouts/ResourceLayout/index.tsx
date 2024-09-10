@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import React from 'react';
+import type React from 'react';
 import { ConfigProvider, Layout, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import { FormattedMessage, useRouteMeta } from 'dumi';

@@ -83,4 +83,5 @@ function customElement<T extends object>(
   return register<T>(tag, props as PropsDefinitionInput<T>)(withSolid(ComponentType!));
 }
 
+export type { ComponentOptions };
 export { withSolid, customElement };

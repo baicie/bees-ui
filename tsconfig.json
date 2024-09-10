@@ -9,16 +9,12 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
-    "lib": ["dom", "es2017"],
+    "target": "ES2018",
+    "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
-    }
+    "resolvePackageJsonExports": true
   },
-  "include": ["packages", "internal", "icons", "components"]
+  "include": ["packages", "components"],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
 }

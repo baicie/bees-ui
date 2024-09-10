@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Skeleton, Space, Spin } from 'antd';
 import { useLocation } from 'dumi';
 

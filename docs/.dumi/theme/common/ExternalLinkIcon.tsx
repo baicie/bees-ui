@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import Icon from '@ant-design/icons';
 
 const SVGIcon: React.FC<{ color?: string }> = ({ color = 'currentColor' }) => (

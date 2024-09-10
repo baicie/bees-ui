@@ -5,6 +5,9 @@ export interface PropDefinition<T> {
   reflect: boolean;
   parse?: boolean;
 }
+
+type ICustomElementSlot = HTMLSlotElement | HTMLElement[];
+
 export interface ICustomElement {
   [prop: string]: any;
   __initialized?: boolean;
@@ -12,7 +15,10 @@ export interface ICustomElement {
   __releaseCallbacks: any[];
   __propertyChangedCallbacks: any[];
   __updating: { [prop: string]: any };
-  _slot: { [key: string]: HTMLSlotElement | HTMLElement[] };
+  _slot: {
+    default: ICustomElementSlot;
+    [key: string]: ICustomElementSlot;
+  };
   props: { [prop: string]: any };
   lookupProp(attrName: string): string | undefined;
   addReleaseCallback(fn: () => void): void;
@@ -21,7 +27,7 @@ export interface ICustomElement {
 export type UpdateableElement<T> = HTMLElement & ICustomElement & T;
 export interface ComponentOptions {
   element: ICustomElement;
-  slots: ICustomElement['_slot'];
+  slots?: ICustomElement['_slot'];
 }
 export interface ConstructableComponent<T> {
   new (props: T, options: ComponentOptions): unknown;
@@ -39,28 +45,34 @@ export type ComponentType<T> = FunctionComponent<T> | ConstructableComponent<T>;
 
 function cloneProps<T>(props: PropsDefinition<T>) {
   const propKeys = Object.keys(props) as Array<keyof PropsDefinition<T>>;
-  return propKeys.reduce((memo, k) => {
-    const prop = props[k];
-    memo[k] = Object.assign({}, prop);
-    if (isObject(prop.value) && !isFunction(prop.value) && !Array.isArray(prop.value))
-      memo[k].value = Object.assign({}, prop.value);
-    if (Array.isArray(prop.value)) memo[k].value = prop.value.slice(0) as unknown as T[keyof T];
-    return memo;
-  }, {} as PropsDefinition<T>);
+  return propKeys.reduce(
+    (memo, k) => {
+      const prop = props[k];
+      memo[k] = Object.assign({}, prop);
+      if (isObject(prop.value) && !isFunction(prop.value) && !Array.isArray(prop.value))
+        memo[k].value = Object.assign({}, prop.value);
+      if (Array.isArray(prop.value)) memo[k].value = prop.value.slice(0) as unknown as T[keyof T];
+      return memo;
+    },
+    {} as PropsDefinition<T>,
+  );
 }
 
 export function normalizePropDefs<T>(props: PropsDefinitionInput<T>): PropsDefinition<T> {
   if (!props) return {} as PropsDefinition<T>;
   const propKeys = Object.keys(props) as Array<keyof PropsDefinition<T>>;
-  return propKeys.reduce((memo, k) => {
-    const v = props[k];
-    memo[k] = !(isObject(v) && 'value' in (v as object))
-      ? ({ value: v } as unknown as PropDefinition<T[keyof T]>)
-      : (v as PropDefinition<T[keyof T]>);
-    memo[k].attribute || (memo[k].attribute = toAttribute(k as string));
-    memo[k].parse = 'parse' in memo[k] ? memo[k].parse : typeof memo[k].value !== 'string';
-    return memo;
-  }, {} as PropsDefinition<T>);
+  return propKeys.reduce(
+    (memo, k) => {
+      const v = props[k];
+      memo[k] = !(isObject(v) && 'value' in (v as object))
+        ? ({ value: v } as unknown as PropDefinition<T[keyof T]>)
+        : (v as PropDefinition<T[keyof T]>);
+      memo[k].attribute || (memo[k].attribute = toAttribute(k as string));
+      memo[k].parse = 'parse' in memo[k] ? memo[k].parse : typeof memo[k].value !== 'string';
+      return memo;
+    },
+    {} as PropsDefinition<T>,
+  );
 }
 
 export function propValues<T>(props: PropsDefinition<T>) {

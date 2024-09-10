@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 import type { GetProps } from 'antd';
