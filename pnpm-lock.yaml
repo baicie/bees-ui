@@ -642,6 +642,16 @@ importers:
         specifier: ^1.8.22
         version: 1.8.22
 
+  packages/sc-virtual-list:
+    dependencies:
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+    devDependencies:
+      solid-js:
+        specifier: ^1.8.22
+        version: 1.8.22
+
   packages/token:
     devDependencies:
       solid-js:
