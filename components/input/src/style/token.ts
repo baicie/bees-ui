@@ -1,5 +1,5 @@
-import { type AliasToken, type FullToken, mergeToken } from '@bees-ui/core';
-import type { InputComponentToken } from '@bees-ui/token';
+import { mergeToken, type AliasToken, type FullToken } from '@bees-ui/core';
+import type { InputComponentToken } from '@bees-ui/props';
 
 export interface SharedInputToken {
   inputAffixPadding: number;

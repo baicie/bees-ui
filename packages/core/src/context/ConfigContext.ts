@@ -1,4 +1,4 @@
-import type { CSSProperties } from '@bees-ui/token';
+import type { CSSProperties } from '@bees-ui/props';
 import { createContext } from 'solid-js';
 
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';

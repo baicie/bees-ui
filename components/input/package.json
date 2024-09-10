@@ -17,7 +17,6 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
@@ -31,7 +30,7 @@
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "@bees-ui/token": "workspace:^",
+    "@bees-ui/props": "workspace:^",
     "solid-element": "^1.8.1",
     "solid-js": "^1.8.22"
   }

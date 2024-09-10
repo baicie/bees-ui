@@ -13,7 +13,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -26,7 +28,7 @@
     "@ant-design/colors": "^7.1.0",
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "@bees-ui/token": "workspace:^",
+    "@bees-ui/props": "workspace:^",
     "@ctrl/tinycolor": "^4.1.0",
     "clsx": "^2.1.1",
     "solid-js": "^1.8.22"

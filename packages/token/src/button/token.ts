@@ -1,4 +1,4 @@
-import type { CSSProperties } from './index';
+import type { CSSProperties } from '../index';
 
 export interface ButtonComponentToken {
   /**

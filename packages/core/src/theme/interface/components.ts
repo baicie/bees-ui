@@ -2,7 +2,7 @@ import type {
   AffixComponentToken,
   ButtonComponentToken,
   InputComponentToken,
-} from '@bees-ui/token';
+} from '@bees-ui/props';
 
 interface WaveToken {}
 interface FlexComponentToken {}

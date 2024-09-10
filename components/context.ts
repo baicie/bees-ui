@@ -60,7 +60,7 @@ export interface ComponentStyleConfig {
 // }
 
 export interface ImageConfig extends ComponentStyleConfig {
-  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+  preview?: Partial<Record<'closeIcon', JSX.Element>>;
 }
 
 // export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;

@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/token",
+  "name": "@bees-ui/props",
   "version": "0.0.0",
   "description": "Common Utils For SolidJs Component Copy From rc-tuil",
   "main": "./dist/lib/index.js",
@@ -13,7 +13,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap --dts",
     "dev": "pnpm bee build --watch --sourcemap --dts",

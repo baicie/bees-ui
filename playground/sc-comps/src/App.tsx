@@ -7,7 +7,7 @@ import { Count } from './count';
 import './index.less';
 import './App.css';
 
-import { createEffect, createSignal, onMount } from 'solid-js';
+import { createEffect, createSignal } from 'solid-js';
 
 const onChange: SwitchChangeEventHandler = (value, event) => {
   console.log(`switch checked: ${value}`, event);
@@ -17,7 +17,6 @@ function App() {
   const [disabled, setDisabled] = createSignal(false);
   const [value, setValue] = createSignal('');
   const [count, setCount] = createSignal(1);
-  let ref: HTMLInputElement | null = null;
 
   const toggle = () => {
     setDisabled((prev) => !prev);
@@ -34,9 +33,6 @@ function App() {
       <button onclick={() => setCount((prev) => prev - 1)}>-</button>
 
       <Input
-        ref={(el) => {
-          ref = el;
-        }}
         allowClear
         placeholder="sc-input"
         value={value()}
