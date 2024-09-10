@@ -72,7 +72,6 @@ export default tseslint.config(
           'docs/tsconfig.json',
           'tsconfig.json',
           'tsconfig.node.json',
-          'tsconfig.test.json',
         ],
         tsconfigRootDir: __dirname,
         warnOnUnsupportedTypeScriptVersion: false,

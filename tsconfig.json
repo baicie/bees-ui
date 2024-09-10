@@ -15,14 +15,8 @@
     "stripInternal": true,
     "resolvePackageJsonExports": true,
 
-    "types": ["vitest/globals"]
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["packages", "components"],
-  "exclude": [
-    "packages/**/*.test.ts",
-    "packages/**/*.test.tsx",
-    "components/**/*.test.ts",
-    "components/**/*.test.tsx"
-  ],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
