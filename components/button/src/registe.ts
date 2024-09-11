@@ -1,7 +1,7 @@
+import type { ButtonProps } from '@bees-ui/props';
 import { customElement } from '@bees-ui/sc-element';
 
 import SolidButton from './button';
-import type { ButtonProps } from './button';
 
 export const beesButtonProps: ButtonProps = {
   loading: false,

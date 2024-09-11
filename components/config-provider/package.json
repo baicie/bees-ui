@@ -13,7 +13,9 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -24,7 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "@bees-ui/core": "workspace:^",
-    "solid-element": "^1.8.1",
+    "@bees-ui/props": "workspace:^",
+    "@bees-ui/sc-element": "workspace:^",
     "solid-js": "^1.8.22"
   }
 }

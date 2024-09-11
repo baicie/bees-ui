@@ -1,14 +1,7 @@
-import type { CSSProperties, SizeType } from '@bees-ui/core';
+import type { SizeType } from '@bees-ui/core';
 import { clsx, ConfigContext, devUseWarning, useToken } from '@bees-ui/core';
-import { createContext, useContext, type JSXElement } from 'solid-js';
-
-export interface ButtonGroupProps {
-  size?: SizeType;
-  style?: CSSProperties;
-  className?: string;
-  prefixCls?: string;
-  children?: JSXElement;
-}
+import type { ButtonGroupProps } from '@bees-ui/props';
+import { createContext, useContext } from 'solid-js';
 
 export const GroupSizeContext = createContext<SizeType>(undefined);
 
@@ -52,7 +45,6 @@ const ButtonGroup = (props: ButtonGroupProps) => {
 
   return (
     <GroupSizeContext.Provider value={size}>
-      {/* @ts-ignore */}
       <div {...others} class={classes} />
     </GroupSizeContext.Provider>
   );

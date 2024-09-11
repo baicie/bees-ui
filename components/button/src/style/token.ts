@@ -2,8 +2,8 @@ import type { CSSProperties, FullToken, GenStyleFn, GetDefaultToken } from '@bee
 import { getLineHeight, mergeToken } from '@bees-ui/core';
 
 export interface ButtonToken extends FullToken<'Button'> {
-  buttonPaddingHorizontal: CSSProperties['paddingInline'];
-  buttonPaddingVertical: CSSProperties['paddingBlock'];
+  buttonPaddingHorizontal: CSSProperties['padding-inline'];
+  buttonPaddingVertical: CSSProperties['padding-block'];
   buttonIconOnlyFontSize: number;
 }
 
@@ -40,9 +40,9 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultGhostColor: token.colorBgContainer,
     ghostBg: 'transparent',
     defaultGhostBorderColor: token.colorBgContainer,
-    paddingInline: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineSM: 8 - token.lineWidth,
+    paddingInline: `${token.paddingContentHorizontal - token.lineWidth}px`,
+    paddingInlineLG: `${token.paddingContentHorizontal - token.lineWidth}px`,
+    paddingInlineSM: `${8 - token.lineWidth}px`,
     onlyIconSize: token.fontSizeLG,
     onlyIconSizeSM: token.fontSizeLG - 2,
     onlyIconSizeLG: token.fontSizeLG + 2,
@@ -59,17 +59,17 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     contentLineHeight,
     contentLineHeightSM,
     contentLineHeightLG,
-    paddingBlock: Math.max(
+    paddingBlock: `${Math.max(
       (token.controlHeight - contentFontSize * contentLineHeight) / 2 - token.lineWidth,
       0,
-    ),
-    paddingBlockSM: Math.max(
+    )}px`,
+    paddingBlockSM: `${Math.max(
       (token.controlHeightSM - contentFontSizeSM * contentLineHeightSM) / 2 - token.lineWidth,
       0,
-    ),
-    paddingBlockLG: Math.max(
+    )}px`,
+    paddingBlockLG: `${Math.max(
       (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
-    ),
+    )}px`,
   };
 };
