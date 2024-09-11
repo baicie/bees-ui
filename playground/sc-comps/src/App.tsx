@@ -1,22 +1,19 @@
-import Input from '@bees-ui/sc-input';
+import { BaseInput } from '@bees-ui/sc-input';
 import type { SwitchChangeEventHandler } from '@bees-ui/sc-switch';
 import Switch from '@bees-ui/sc-switch';
-
-import { Count } from './count';
 
 import './index.less';
 import './App.css';
 
-import { createEffect, createSignal } from 'solid-js';
+import { createEffect, createSignal, onMount } from 'solid-js';
 
 const onChange: SwitchChangeEventHandler = (value, event) => {
   console.log(`switch checked: ${value}`, event);
 };
 
 function App() {
+  let holderRef: HTMLElement | null = null;
   const [disabled, setDisabled] = createSignal(false);
-  const [value, setValue] = createSignal('');
-  const [count, setCount] = createSignal(1);
 
   const toggle = () => {
     setDisabled((prev) => !prev);
@@ -26,18 +23,24 @@ function App() {
     console.log('disabled changed', disabled());
   });
 
+  onMount(() => {
+    console.log('onMount', holderRef);
+  });
+
   return (
     <>
-      <Count nums={count()} />
-      <button onclick={() => setCount((prev) => prev + 1)}>+</button>
-      <button onclick={() => setCount((prev) => prev - 1)}>-</button>
+      <BaseInput
+        prefixCls="rc-input"
+        suffix="suffix"
+        addonAfter="after"
+        ref={(el: HTMLElement) => {
+          console.log('ref', el);
 
-      <Input
-        allowClear={{ clearIcon: 'clear' }}
-        placeholder="sc-input"
-        value={value()}
-        onChange={(e) => setValue(e.currentTarget.value)}
-      ></Input>
+          holderRef = el;
+        }}
+      >
+        <input />
+      </BaseInput>
 
       <Switch
         onChange={onChange}

@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@solidjs/testing-library';
+import { fireEvent, render } from '@bees-ui/testing-library';
 import type { Mock } from 'vitest';
 
 import Input from '../src';
@@ -57,13 +57,11 @@ describe('Input.Focus', () => {
   });
 
   it('disabled should reset focus', () => {
-    const { container, unmount } = render(() => <Input allowClear />);
+    const { container, renderer } = render(() => <Input allowClear />);
     fireEvent.focus(container.querySelector('input')!);
     expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeTruthy();
 
-    unmount();
-
-    render(() => <Input allowClear disabled />);
+    renderer(() => <Input allowClear disabled />);
     expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeFalsy();
   });
 });

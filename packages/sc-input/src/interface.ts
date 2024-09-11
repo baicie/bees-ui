@@ -54,6 +54,7 @@ export interface BaseInputProps extends CommonInputProps {
     groupAddon?: 'span' | 'div';
   };
   children?: JSX.Element;
+  ref?: JSX.InputHTMLAttributes<HTMLDivElement>['ref'];
 }
 
 export type ShowCountFormatter = (args: {

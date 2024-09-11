@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@solidjs/testing-library';
+import { fireEvent, render } from '@bees-ui/testing-library';
 import { createSignal } from 'solid-js';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -87,20 +87,20 @@ describe('Input', () => {
 
   it('not block input when `value` is undefined', () => {
     const [value, setValue] = createSignal('');
-    const { container, unmount } = render(() => (
+    const { container, renderer } = render(() => (
       <Input value={value()} onInput={(e) => setValue(e.currentTarget.value)} />
     ));
     const inputEl = container.querySelector('input')!;
     fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
     expect(inputEl.value).toEqual('Bamboo');
-    unmount();
+
     // Controlled
-    render(() => <Input value="Light" onInput={(e) => setValue(e.currentTarget.value)} />);
+    renderer(() => <Input value="Light" onInput={(e) => setValue(e.currentTarget.value)} />);
     fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
     expect(inputEl.value).toEqual('Light');
-    unmount();
+
     // Uncontrolled
-    render(() => <Input value={undefined} onInput={(e) => setValue(e.currentTarget.value)} />);
+    renderer(() => <Input value={undefined} onInput={(e) => setValue(e.currentTarget.value)} />);
     expect(inputEl.value).toEqual('');
     fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
     expect(inputEl.value).toEqual('Bamboo');

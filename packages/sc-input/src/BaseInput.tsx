@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { children, createComponent, Show, splitProps } from 'solid-js';
+import { children, createComponent, onMount, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import type { BaseInputProps } from './interface';
@@ -29,6 +29,7 @@ const BaseInput = (props: BaseInputProps) => {
     'styles',
     'components',
     'onClear',
+    'ref',
   ]);
 
   const AffixWrapperComponent = local.components?.affixWrapper || 'span';
@@ -38,7 +39,10 @@ const BaseInput = (props: BaseInputProps) => {
 
   const inputElement = children(() => local.children);
 
-  const containerRef: HTMLDivElement | null = null;
+  // eslint-disable-next-line prefer-const
+  let containerRef: HTMLDivElement | null = null;
+  // eslint-disable-next-line prefer-const
+  let groupRef: HTMLDivElement | null = null;
 
   const onInputClick = (e: MouseEvent) => {
     if (containerRef?.contains(e.target as Element)) {
@@ -107,7 +111,7 @@ const BaseInput = (props: BaseInputProps) => {
           </span>
         </Show>
 
-        {inputElement()}
+        {element}
 
         <Show when={local.suffix || local.allowClear}>
           <span
@@ -125,6 +129,9 @@ const BaseInput = (props: BaseInputProps) => {
   // ================== Addon ================== //
   if (hasAddon(local)) {
     const wrapperCls = `${local.prefixCls}-group`;
+    const addonCls = `${wrapperCls}-addon`;
+    const groupWrapperCls = `${wrapperCls}-wrapper`;
+
     const mergedWrapperClassName = clsx(
       `${local.prefixCls}-wrapper`,
       wrapperCls,
@@ -132,25 +139,26 @@ const BaseInput = (props: BaseInputProps) => {
       local.classNames?.wrapper,
     );
 
+    const mergedGroupClassName = clsx(
+      groupWrapperCls,
+      {
+        [`${groupWrapperCls}-disabled`]: local.disabled,
+      },
+      local.classes?.group,
+      local.classNames?.groupWrapper,
+    );
+
     element = (
-      <Dynamic
-        component={GroupWrapperComponent}
-        class={clsx(
-          `${wrapperCls}-wrapper`,
-          { [`${wrapperCls}-disabled`]: local.disabled },
-          local.classes?.group,
-          local.classNames?.groupWrapper,
-        )}
-      >
+      <Dynamic component={GroupWrapperComponent} class={mergedGroupClassName} ref={groupRef}>
         <Dynamic component={WrapperComponent} class={mergedWrapperClassName}>
           {local.addonBefore && (
-            <Dynamic component={GroupAddonComponent} class={`${wrapperCls}-addon`}>
+            <Dynamic component={GroupAddonComponent} class={addonCls}>
               {local.addonBefore}
             </Dynamic>
           )}
           {element}
           {local.addonAfter && (
-            <Dynamic component={GroupAddonComponent} class={`${wrapperCls}-addon`}>
+            <Dynamic component={GroupAddonComponent} class={addonCls}>
               {local.addonAfter}
             </Dynamic>
           )}
@@ -158,6 +166,12 @@ const BaseInput = (props: BaseInputProps) => {
       </Dynamic>
     );
   }
+
+  onMount(() => {
+    if (typeof local.ref === 'function') {
+      local.ref(groupRef || containerRef);
+    }
+  });
 
   return element;
 };
