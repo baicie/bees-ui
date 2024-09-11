@@ -13,9 +13,7 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist"

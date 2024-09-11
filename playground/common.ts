@@ -4,7 +4,7 @@ import { defineConfig, type PluginOption } from 'vite';
 export const common = defineConfig({
   plugins: [
     visualizer({
-      open: true,
+      open: false,
     }) as unknown as PluginOption,
   ],
 });

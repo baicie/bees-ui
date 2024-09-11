@@ -1,4 +1,4 @@
-import type { CSSProperties } from '@bees-ui/core';
+import type { BaseButtonProps, ButtonProps, ButtonType, CSSProperties } from '@bees-ui/core';
 import {
   clsx,
   ConfigContext,
@@ -8,7 +8,6 @@ import {
   useSize,
   Wave,
 } from '@bees-ui/core';
-import type { BaseButtonProps, ButtonProps, ButtonType } from '@bees-ui/props';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
 import { createSignal, onCleanup, onMount, splitProps, useContext } from 'solid-js';

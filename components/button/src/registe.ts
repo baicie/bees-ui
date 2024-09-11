@@ -1,4 +1,4 @@
-import type { ButtonProps } from '@bees-ui/props';
+import type { ButtonProps } from '@bees-ui/core';
 import { customElement } from '@bees-ui/sc-element';
 
 import SolidButton from './button';

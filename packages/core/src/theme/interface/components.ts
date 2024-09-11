@@ -1,8 +1,4 @@
-import type {
-  AffixComponentToken,
-  ButtonComponentToken,
-  InputComponentToken,
-} from '@bees-ui/props';
+import type { AffixComponentToken, ButtonComponentToken, InputComponentToken } from '../../types';
 
 interface WaveToken {}
 interface FlexComponentToken {}

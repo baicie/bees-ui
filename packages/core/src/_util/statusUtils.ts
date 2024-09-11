@@ -1,5 +1,6 @@
-import type { ValidateStatus } from '@bees-ui/props';
 import classNames from 'clsx';
+
+import type { ValidateStatus } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InputStatuses = ['warning', 'error', ''] as const;

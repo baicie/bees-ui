@@ -1,8 +1,8 @@
-import type { SizeType } from '@bees-ui/props';
 import classNames from 'clsx';
 import type { Component, JSX, JSXElement } from 'solid-js';
 import { createContext, createMemo, useContext } from 'solid-js';
 
+import type { SizeType } from '../types';
 import type { DirectionType } from './context';
 
 export interface SpaceCompactItemContextType {

@@ -1,8 +1,8 @@
 import { BeesButton } from './registe';
 
 export type { SizeType as ButtonSize } from '@bees-ui/core';
-export type { ButtonProps } from '@bees-ui/props';
-export type { ButtonGroupProps } from '@bees-ui/props';
+export type { ButtonProps } from '@bees-ui/core';
+export type { ButtonGroupProps } from '@bees-ui/core';
 
 export * from './buttonHelpers';
 

@@ -1,4 +1,4 @@
-import type { BaseButtonProps, ButtonType } from '@bees-ui/props';
+import type { BaseButtonProps, ButtonType } from '@bees-ui/core';
 import type { JSX } from 'solid-js';
 
 import type { LegacyButtonType } from './button';

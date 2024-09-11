@@ -1,4 +1,4 @@
-import type { CSSProperties } from '.';
+import type { CSSProperties } from '../base';
 
 export interface DividerComponentToken {
   /**

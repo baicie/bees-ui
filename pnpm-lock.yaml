@@ -176,9 +176,6 @@ importers:
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
-      '@bees-ui/props':
-        specifier: workspace:^
-        version: link:../../packages/props
       '@bees-ui/sc-cssinjs':
         specifier: workspace:^
         version: link:../../packages/sc-cssinjs
@@ -239,9 +236,6 @@ importers:
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
-      '@bees-ui/props':
-        specifier: workspace:^
-        version: link:../../packages/props
       '@bees-ui/sc-cssinjs':
         specifier: workspace:^
         version: link:../../packages/sc-cssinjs
@@ -467,9 +461,6 @@ importers:
       '@ant-design/colors':
         specifier: ^7.1.0
         version: 7.1.0
-      '@bees-ui/props':
-        specifier: workspace:^
-        version: link:../props
       '@bees-ui/sc-cssinjs':
         specifier: workspace:^
         version: link:../sc-cssinjs
@@ -488,12 +479,6 @@ importers:
       solid-transition-group:
         specifier: ^0.2.3
         version: 0.2.3(solid-js@1.8.22)
-
-  packages/props:
-    devDependencies:
-      solid-js:
-        specifier: ^1.8.22
-        version: 1.8.22
 
   packages/sc-cssinjs:
     dependencies:

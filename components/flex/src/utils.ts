@@ -1,10 +1,10 @@
+import type { FlexProps } from '@bees-ui/core';
 import classNames from 'clsx';
+import type { JSX } from 'solid-js';
 
-import type { FlexProps } from './interface';
+export const flexWrapValues: JSX.CSSProperties['flex-wrap'][] = ['wrap', 'nowrap', 'wrap-reverse'];
 
-export const flexWrapValues: React.CSSProperties['flexWrap'][] = ['wrap', 'nowrap', 'wrap-reverse'];
-
-export const justifyContentValues: React.CSSProperties['justifyContent'][] = [
+export const justifyContentValues: JSX.CSSProperties['justify-content'][] = [
   'flex-start',
   'flex-end',
   'start',
@@ -19,7 +19,7 @@ export const justifyContentValues: React.CSSProperties['justifyContent'][] = [
   'right',
 ];
 
-export const alignItemsValues: React.CSSProperties['alignItems'][] = [
+export const alignItemsValues: JSX.CSSProperties['align-items'][] = [
   'center',
   'start',
   'end',

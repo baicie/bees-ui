@@ -1,7 +1,6 @@
 import type { JSX } from 'solid-js';
 
-import type { SizeType } from '../base';
-import type { CSSProperties } from '../index';
+import type { CSSProperties, SizeType } from '../base';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './types';
 
 export interface BaseButtonProps {

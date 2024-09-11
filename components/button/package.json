@@ -13,9 +13,7 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -26,7 +24,6 @@
   "license": "MIT",
   "dependencies": {
     "@bees-ui/core": "workspace:^",
-    "@bees-ui/props": "workspace:^",
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",

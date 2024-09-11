@@ -96,9 +96,6 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": [
-      "biome format --write .",
-      "biome lint ."
-    ]
+    "*": ["biome format --write .", "biome lint ."]
   }
 }
