@@ -15,7 +15,7 @@ const IconWrapper: Component<IconWrapperProps> = (props) => {
   const iconWrapperCls = clsx(`${prefixCls}-icon`, className);
 
   return (
-    <span class={iconWrapperCls} style={style as any}>
+    <span class={iconWrapperCls} style={style}>
       {children}
     </span>
   );
