@@ -7,3 +7,4 @@ export type { AffixComponentToken } from './affix';
 export type { ComponentOptions } from './util';
 export type { InputComponentToken } from './input';
 export type { FlexComponentToken } from './flex';
+export * from './base';

@@ -1,4 +1,4 @@
-import { SizeType } from '@bees-ui/core';
+import type { SizeType } from '../config-provider';
 
 export function isPresetSize(size?: SizeType | string | number): size is SizeType {
   return ['small', 'middle', 'large'].includes(size as string);

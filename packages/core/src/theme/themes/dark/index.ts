@@ -15,7 +15,6 @@ import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
 
 const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
   const colorPalettes = Object.keys(defaultPresetColors)
-    // @ts-ignore
     .map((colorKey: keyof PresetColorType) => {
       const colors = generate(token[colorKey], { theme: 'dark' });
 

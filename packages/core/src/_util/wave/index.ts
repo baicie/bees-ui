@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { onCleanup, onMount, useContext } from 'solid-js';
 import { mergeProps } from 'solid-js/web';
 
-import { ConfigContext } from '../../../../components/context';
+import { ConfigContext } from '../../config-provider';
 import useStyle from './style';
 import useWave from './useWave';
 

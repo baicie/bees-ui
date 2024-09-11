@@ -1,9 +1,10 @@
-import { useToken } from '@bees-ui/core';
 import { raf, useEvent } from '@bees-ui/sc-util';
 import { onCleanup, useContext } from 'solid-js';
 
-import { ConfigContext } from '../../../../components/context';
-import { ShowWave, TARGET_CLS } from './interface';
+import { ConfigContext } from '../../config-provider';
+import useToken from '../../theme/useToken';
+import type { ShowWave } from './interface';
+import { TARGET_CLS } from './interface';
 import showWaveEffect from './WaveEffect';
 
 const useWave = (

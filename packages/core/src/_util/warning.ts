@@ -1,6 +1,7 @@
 import { resetWarned as rcResetWarned, warningOnce } from '@bees-ui/sc-util';
 import { createContext, useContext } from 'solid-js';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export function noop() {}
 
 let deprecatedWarnList: Record<string, string[]> | null = null;
@@ -17,7 +18,6 @@ if (process.env.NODE_ENV !== 'production') {
   warning = (valid, component, message) => {
     warningOnce(valid, `[antd: ${component}] ${message}`);
 
-    // StrictMode will inject console which will not throw warning in React 17.
     if (process.env.NODE_ENV === 'test') {
       resetWarned();
     }
@@ -26,11 +26,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 type BaseTypeWarning = (
   valid: boolean,
-  /**
-   * - deprecated: Some API will be removed in future but still support now.
-   * - usage: Some API usage is not correct.
-   * - breaking: Breaking change like API is removed.
-   */
   type: 'deprecated' | 'usage' | 'breaking',
   message?: string,
 ) => void;
@@ -46,9 +41,8 @@ export interface WarningContextProps {
 export const WarningContext = createContext<WarningContextProps>({});
 
 /**
- * This is a hook but we not named as `useWarning`
- * since this is only used in development.
- * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
+ * This hook is used only in development mode.
+ * Always wrap this in `if (import.meta.env.MODE !== 'production')` condition.
  */
 export const devUseWarning: (component: string) => TypeWarning =
   process.env.NODE_ENV !== 'production'
@@ -69,11 +63,10 @@ export const devUseWarning: (component: string) => TypeWarning =
                 deprecatedWarnList[component].push(message || '');
               }
 
-              // Warning for the first time
               if (!existWarning) {
                 // eslint-disable-next-line no-console
                 console.warn(
-                  '[antd] There exists deprecated usage in your code:',
+                  '[😁] There exists deprecated usage in your code:',
                   deprecatedWarnList,
                 );
               }
@@ -96,9 +89,12 @@ export const devUseWarning: (component: string) => TypeWarning =
         return typeWarning;
       }
     : () => {
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
         const noopWarning: TypeWarning = () => {};
 
         noopWarning.deprecated = noop;
 
         return noopWarning;
       };
+
+export default warning;

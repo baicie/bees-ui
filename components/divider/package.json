@@ -24,8 +24,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bees-ui/_util": "workspace:^",
-    "@bees-ui/config-provider": "workspace:^",
     "@bees-ui/core": "workspace:^",
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",

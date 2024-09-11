@@ -173,12 +173,6 @@ importers:
 
   components/button:
     dependencies:
-      '@bees-ui/_util':
-        specifier: workspace:^
-        version: link:../../packages/_util
-      '@bees-ui/config-provider':
-        specifier: workspace:^
-        version: link:../config-provider
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -198,29 +192,8 @@ importers:
         specifier: ^1.8.22
         version: 1.8.22
 
-  components/config-provider:
-    dependencies:
-      '@bees-ui/core':
-        specifier: workspace:^
-        version: link:../../packages/core
-      '@bees-ui/props':
-        specifier: workspace:^
-        version: link:../../packages/props
-      '@bees-ui/sc-element':
-        specifier: workspace:^
-        version: link:../../packages/sc-element
-      solid-js:
-        specifier: ^1.8.22
-        version: 1.8.22
-
   components/divider:
     dependencies:
-      '@bees-ui/_util':
-        specifier: workspace:^
-        version: link:../../packages/_util
-      '@bees-ui/config-provider':
-        specifier: workspace:^
-        version: link:../config-provider
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -242,12 +215,6 @@ importers:
 
   components/flex:
     dependencies:
-      '@bees-ui/_util':
-        specifier: workspace:^
-        version: link:../../packages/_util
-      '@bees-ui/config-provider':
-        specifier: workspace:^
-        version: link:../config-provider
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -269,12 +236,6 @@ importers:
 
   components/input:
     dependencies:
-      '@bees-ui/_util':
-        specifier: workspace:^
-        version: link:../../packages/_util
-      '@bees-ui/config-provider':
-        specifier: workspace:^
-        version: link:../config-provider
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -467,12 +428,6 @@ importers:
 
   internal/coms-template:
     dependencies:
-      '@bees-ui/_util':
-        specifier: workspace:^
-        version: link:../../packages/_util
-      '@bees-ui/config-provider':
-        specifier: workspace:^
-        version: link:../../components/config-provider
       '@bees-ui/core':
         specifier: workspace:^
         version: link:../../packages/core
@@ -507,24 +462,6 @@ importers:
         specifier: ^1.8.22
         version: 1.8.22
 
-  packages/_util:
-    dependencies:
-      '@bees-ui/core':
-        specifier: workspace:^
-        version: link:../core
-      '@bees-ui/sc-util':
-        specifier: workspace:^
-        version: link:../sc-util
-      '@solid-primitives/refs':
-        specifier: ^1.0.8
-        version: 1.0.8(solid-js@1.8.22)
-      solid-js:
-        specifier: ^1.8.22
-        version: 1.8.22
-      solid-transition-group:
-        specifier: ^0.2.3
-        version: 0.2.3(solid-js@1.8.22)
-
   packages/core:
     dependencies:
       '@ant-design/colors':
@@ -548,6 +485,9 @@ importers:
       solid-js:
         specifier: ^1.8.22
         version: 1.8.22
+      solid-transition-group:
+        specifier: ^0.2.3
+        version: 0.2.3(solid-js@1.8.22)
 
   packages/props:
     devDependencies:

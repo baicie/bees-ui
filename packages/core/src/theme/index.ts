@@ -1,5 +1,5 @@
 import getDesignToken from './getDesignToken';
-import type { GlobalToken, MappingAlgorithm } from './interface';
+import type { GlobalToken, MappingAlgorithm, OverrideToken } from './interface';
 import { defaultConfig, useToken as useInternalToken } from './internal';
 import compactAlgorithm from './themes/compact';
 import darkAlgorithm from './themes/dark';
@@ -16,7 +16,7 @@ function useToken() {
   return { theme, token, hashId };
 }
 
-export type { GlobalToken, MappingAlgorithm, GenStyleFn, SubStyleComponentProps };
+export type { GlobalToken, MappingAlgorithm, GenStyleFn, SubStyleComponentProps, OverrideToken };
 
 export default {
   /** @private Test Usage. Do not use in production. */

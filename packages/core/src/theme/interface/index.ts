@@ -1,7 +1,7 @@
 import type { CSSInterpolation, DerivativeFunc } from '@bees-ui/sc-cssinjs';
 import type { JSXElement } from 'solid-js';
 
-import type { AnyObject } from '../../util/type';
+import type { AnyObject } from '../../_util/type';
 import type { AliasToken } from './alias';
 import type { ComponentTokenMap } from './components';
 import type { MapToken } from './maps';

@@ -1,4 +1,4 @@
-import type { AnyObject } from '../../util/type';
+import type { AnyObject } from '../../_util/type';
 
 declare const CSSINJS_STATISTIC: any;
 
@@ -47,6 +47,7 @@ export const statistic: Record<
 export const _statistic_build_: typeof statistic = {};
 
 /* istanbul ignore next */
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 function noop() {}
 
 /** Statistic token usage case. Should use `merge` function if you do not want spread record. */

@@ -7,6 +7,7 @@ import useMemo from './hooks/useMemo';
 import isEqual from './isEqual';
 import omit from './omit';
 import raf from './raf';
+import warningOnce from './warning';
 
 export * from './Dom/dynamicCSS';
 export * from './warning';
@@ -26,4 +27,5 @@ export {
   raf,
   toArray,
   findDOMNode,
+  warningOnce,
 };

@@ -1,4 +1,6 @@
-import { FullToken, genComponentStyleHook, GenerateStyle } from '@bees-ui/core';
+import type { GenerateStyle } from '../../theme/interface';
+import type { FullToken } from '../../theme/internal';
+import { genComponentStyleHook } from '../../theme/internal';
 
 export interface WaveToken extends FullToken<'Wave'> {}
 

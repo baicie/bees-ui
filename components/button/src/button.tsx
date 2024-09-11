@@ -1,13 +1,18 @@
-import { Wave } from '@bees-ui/_util';
-import { useSize } from '@bees-ui/config-provider';
 import type { CSSProperties } from '@bees-ui/core';
-import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
+import {
+  clsx,
+  ConfigContext,
+  devUseWarning,
+  DisabledContext,
+  useCompactItemContext,
+  useSize,
+  Wave,
+} from '@bees-ui/core';
 import type { BaseButtonProps, ButtonProps, ButtonType } from '@bees-ui/props';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
 import { createSignal, onCleanup, onMount, splitProps, useContext } from 'solid-js';
 
-import { ConfigContext } from '../../context';
 import { GroupSizeContext } from './button-group';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
 import IconWrapper from './IconWrapper';

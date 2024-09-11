@@ -10,7 +10,7 @@ function unit(value: string | number) {
 }
 
 export default class CSSCalculator extends AbstractCalculator {
-  result: string = '';
+  result = '';
 
   lowPriority?: boolean;
 

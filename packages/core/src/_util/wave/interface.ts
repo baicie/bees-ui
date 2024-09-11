@@ -1,6 +1,5 @@
-import { GlobalToken } from '@bees-ui/core';
-
-import { defaultPrefixCls } from '../../../../components/context';
+import { defaultPrefixCls } from '../../config-provider/context';
+import type { GlobalToken } from '../../theme';
 
 export const TARGET_CLS = `${defaultPrefixCls}-wave-target`;
 
