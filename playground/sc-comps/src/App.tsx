@@ -33,7 +33,7 @@ function App() {
       <button onclick={() => setCount((prev) => prev - 1)}>-</button>
 
       <Input
-        allowClear
+        allowClear={{ clearIcon: 'clear' }}
         placeholder="sc-input"
         value={value()}
         onChange={(e) => setValue(e.currentTarget.value)}

@@ -12,6 +12,9 @@ export const vitestCommonConfig = defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: path.resolve(testPath, 'setup.ts'),
+    deps: {
+      inline: [/solid-js/],
+    },
   },
   resolve: {
     conditions: ['development', 'browser'],

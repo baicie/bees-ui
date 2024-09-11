@@ -39,6 +39,7 @@
   "devDependencies": {
     "@bees-ui/internal-cli": "workspace:^",
     "@bees-ui/path": "workspace:^",
+    "@bees-ui/testing-library": "workspace:^",
     "@biomejs/biome": "^1.8.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@pnpm/find-workspace-packages": "^6.0.9",
@@ -96,6 +97,9 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": ["biome format --write .", "biome lint ."]
+    "*": [
+      "biome format --write .",
+      "biome lint ."
+    ]
   }
 }

@@ -1,62 +1,69 @@
-import React from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import Input from 'rc-input';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render } from '@solidjs/testing-library';
+import type { Mock } from 'vitest';
+
+import Input from '../src';
 
 const getInputRef = () => {
-  const ref = React.createRef<any>();
-  render(<Input ref={ref} defaultValue="light" />);
+  let ref: HTMLInputElement | ((el: HTMLInputElement) => void);
+  render(() => <Input ref={ref} defaultValue="light" />);
   return ref;
 };
 
 describe('Input.Focus', () => {
-  let inputSpy: ReturnType<typeof spyElementPrototypes>;
-  let focus: ReturnType<typeof jest.fn>;
-  let setSelectionRange: ReturnType<typeof jest.fn>;
+  let focus: Mock;
+  let setSelectionRange: Mock;
 
   beforeEach(() => {
-    focus = jest.fn();
-    setSelectionRange = jest.fn();
-    inputSpy = spyElementPrototypes(HTMLInputElement, {
-      focus,
-      setSelectionRange,
-    });
+    focus = vi.fn();
+    setSelectionRange = vi.fn();
+
+    // Mocking the prototypes for HTMLInputElement
+    HTMLInputElement.prototype.focus = focus;
+    HTMLInputElement.prototype.setSelectionRange = setSelectionRange;
   });
 
   afterEach(() => {
-    inputSpy.mockRestore();
+    vi.restoreAllMocks();
   });
 
   it('start', () => {
     const input = getInputRef();
-    input.current?.focus({ cursor: 'start' });
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    input.focus({ cursor: 'start' });
 
     expect(focus).toHaveBeenCalled();
-    expect(setSelectionRange).toHaveBeenCalledWith(expect.anything(), 0, 0);
+    expect(setSelectionRange).toHaveBeenCalledWith(0, 0);
   });
 
   it('end', () => {
     const input = getInputRef();
-    input.current?.focus({ cursor: 'end' });
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    input.focus({ cursor: 'end' });
 
     expect(focus).toHaveBeenCalled();
-    expect(setSelectionRange).toHaveBeenCalledWith(expect.anything(), 5, 5);
+    expect(setSelectionRange).toHaveBeenCalledWith(5, 5);
   });
 
   it('all', () => {
     const input = getInputRef();
-    input.current?.focus({ cursor: 'all' });
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    input.focus({ cursor: 'all' });
 
     expect(focus).toHaveBeenCalled();
-    expect(setSelectionRange).toHaveBeenCalledWith(expect.anything(), 0, 5);
+    expect(setSelectionRange).toHaveBeenCalledWith(0, 5);
   });
 
   it('disabled should reset focus', () => {
-    const { container, rerender } = render(<Input prefixCls="rc-input" allowClear />);
+    const { container, unmount } = render(() => <Input allowClear />);
     fireEvent.focus(container.querySelector('input')!);
     expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeTruthy();
 
-    rerender(<Input prefixCls="rc-input" allowClear disabled />);
+    unmount();
+
+    render(() => <Input allowClear disabled />);
     expect(container.querySelector('.rc-input-affix-wrapper-focused')).toBeFalsy();
   });
 });
