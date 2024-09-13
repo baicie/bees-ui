@@ -1,4 +1,5 @@
-import type { ButtonProps, DividerProps } from '@bees-ui/core';
+import type { ButtonProps } from '@bees-ui/button';
+import type { DividerProps } from '@bees-ui/divider';
 import type { DefineComponent } from 'vue';
 
 declare module 'vue' {

@@ -1,24 +1,13 @@
 <script setup lang="ts">
-import BeesDividers from '@bees-ui/divider';
-BeesDividers()
-
+import BeesButton2 from '@bees-ui/button';
+BeesButton2();
+const handleClick = () => {
+  console.log('handleClick');
+};
 </script>
 
 <template>
-  <!-- <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
-    probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-  <bees-divider /> -->
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
-    probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
-  <bees-divider dashed />
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
-    probare, quae sunt a te dicta? Refert tamen, quo modo.
-  </p>
+  <bees-button type='primary' @click="handleClick"> Let's have some different text! </bees-button>
 </template>
 
 <style scoped>
