@@ -13,8 +13,14 @@
     "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true
+    "resolvePackageJsonExports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
+    },
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["packages", "components"],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.test.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

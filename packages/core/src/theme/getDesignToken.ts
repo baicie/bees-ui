@@ -1,6 +1,6 @@
 import { createTheme, getComputedToken } from '@bees-ui/sc-cssinjs';
 
-import type { ThemeConfig } from './index';
+import type { ThemeConfig } from '../config-provider/context';
 import type { AliasToken } from './interface';
 import defaultDerivative from './themes/default';
 import seedToken from './themes/seed';

@@ -13,11 +13,8 @@
       "types": "./dist/types/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist"
   },
@@ -25,13 +22,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bees-ui/_util": "workspace:^",
-    "@bees-ui/config-provider": "workspace:^",
     "@bees-ui/core": "workspace:^",
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
-    "@bees-ui/token": "workspace:^",
     "solid-element": "^1.8.1",
     "solid-js": "^1.8.22"
   }

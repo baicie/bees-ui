@@ -1,8 +1,9 @@
 import type {
   AffixComponentToken,
   ButtonComponentToken,
+  DividerComponentToken,
   InputComponentToken,
-} from '@bees-ui/token';
+} from '../../types';
 
 interface WaveToken {}
 interface FlexComponentToken {}
@@ -25,7 +26,7 @@ export interface ComponentTokenMap {
   // Collapse?: CollapseComponentToken;
   // DatePicker?: DatePickerComponentToken;
   // Descriptions?: DescriptionsComponentToken;
-  // Divider?: DividerComponentToken;
+  Divider?: DividerComponentToken;
   // Drawer?: DrawerComponentToken;
   // Dropdown?: DropdownComponentToken;
   // Empty?: EmptyComponentToken;

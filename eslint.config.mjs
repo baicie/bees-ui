@@ -13,8 +13,6 @@ import tseslint from 'typescript-eslint';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  recommendedConfig: undefined,
-  allConfig: undefined,
 });
 
 export default tseslint.config(
@@ -46,6 +44,8 @@ export default tseslint.config(
       'coverage',
       'docs',
       'playground',
+      'internal/solid-testing-library',
+      '.turbo',
     ],
   },
 
@@ -72,7 +72,6 @@ export default tseslint.config(
           'docs/tsconfig.json',
           'tsconfig.json',
           'tsconfig.node.json',
-          'tsconfig.test.json',
         ],
         tsconfigRootDir: __dirname,
         warnOnUnsupportedTypeScriptVersion: false,
@@ -94,7 +93,7 @@ export default tseslint.config(
       'no-console': 'off',
       'n/no-extraneous-import': 'off',
       '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 

@@ -1,6 +1,5 @@
 import { createElementType } from './element';
-import {
-  normalizePropDefs,
+import type {
   ComponentOptions as uComponentOptions,
   ComponentType as uComponentType,
   ConstructableComponent as uConstructableComponent,
@@ -9,6 +8,7 @@ import {
   PropDefinition as uPropDefinition,
   PropsDefinitionInput as uPropsDefinitionInput,
 } from './utils';
+import { normalizePropDefs } from './utils';
 
 export type ComponentOptions = uComponentOptions;
 export type ComponentType<T> = uComponentType<T>;

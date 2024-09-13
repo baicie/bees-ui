@@ -1,10 +1,10 @@
-import {
+import type {
   ComponentOptions,
   ComponentType,
   ConstructableComponent,
   FunctionComponent,
-  isConstructor,
 } from './utils';
+import { isConstructor } from './utils';
 
 export function createMixin(mixinFn: (options: ComponentOptions) => ComponentOptions) {
   return (ComponentType: ComponentType<any>) =>

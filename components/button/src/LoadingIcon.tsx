@@ -11,7 +11,7 @@ type InnerLoadingIconProps = {
   className?: string;
   style?: CSSProperties;
   iconClassName?: string;
-  ref?: any;
+  ref?: unknown;
 };
 
 const InnerLoadingIcon: Component<InnerLoadingIconProps> = (props) => {

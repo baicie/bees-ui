@@ -15,9 +15,10 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -v",
+    "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
-    "clean": "pnpm rimraf node_modules .turbo dist"
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "test": "pnpm vitest"
   },
   "keywords": [],
   "author": "",

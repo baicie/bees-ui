@@ -19,6 +19,8 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
+    "@bees-ui/core": "workspace:^",
+    "@bees-ui/divider": "workspace:^",
     "@bees-ui/button": "workspace:^",
     "@bees-ui/flex": "workspace:^",
     "react": "^18.3.1",
@@ -33,6 +35,12 @@
       "optional": true
     },
     "vue": {
+      "optional": true
+    },
+    "@bees-ui/core": {
+      "optional": true
+    },
+    "@bees-ui/divider": {
       "optional": true
     },
     "@bees-ui/button": {

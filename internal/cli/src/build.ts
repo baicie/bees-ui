@@ -66,7 +66,7 @@ async function resolveConfig(root: string, options: Options = {}): Promise<Rollu
         gzipSize: true,
         brotliSize: true,
         sourcemap,
-      }) as any,
+      }),
     );
   }
   const external = full ? [] : await generateExternal(root);

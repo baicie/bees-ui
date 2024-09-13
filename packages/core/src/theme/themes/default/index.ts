@@ -17,7 +17,6 @@ import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
 
 export default function derivative(token: SeedToken): MapToken {
   const colorPalettes = Object.keys(defaultPresetColors)
-    // @ts-ignore
     .map((colorKey: keyof PresetColorType) => {
       const colors = generate(token[colorKey]);
 

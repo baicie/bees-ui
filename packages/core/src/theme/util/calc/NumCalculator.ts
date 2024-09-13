@@ -1,7 +1,7 @@
 import AbstractCalculator from './calculator';
 
 export default class NumCalculator extends AbstractCalculator {
-  result: number = 0;
+  result = 0;
 
   constructor(num: number | string | AbstractCalculator) {
     super();

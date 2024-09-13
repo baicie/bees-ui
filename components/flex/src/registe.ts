@@ -1,7 +1,7 @@
+import type { FlexProps } from '@bees-ui/core';
 import { customElement } from '@bees-ui/sc-element';
 
 import SolidFlex from './flex';
-import type { FlexProps } from './interface';
 
 export const beesFlexProps: FlexProps = {
   prefixCls: undefined,

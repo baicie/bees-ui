@@ -25,10 +25,11 @@
     "@types/mustache": "^4.2.5",
     "cac": "^6.7.14",
     "mustache": "^4.2.0",
-    "rollup": "^4.21.2",
+    "rollup": "^4.21.3",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-visualizer": "^5.12.0",
-    "tsx": "^4.19.0",
+    "tsx": "^4.19.1",
+    "unbuild": "^2.0.0",
     "vite-plugin-solid": "^2.10.2"
   }
 }

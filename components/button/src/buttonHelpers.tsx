@@ -1,6 +1,7 @@
+import type { BaseButtonProps, ButtonType } from '@bees-ui/core';
 import type { JSX } from 'solid-js';
 
-import type { BaseButtonProps, LegacyButtonType } from './button';
+import type { LegacyButtonType } from './button';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -14,7 +15,7 @@ export function convertLegacyProps(
   return { type };
 }
 
-export function isString(str: any): str is string {
+export function isString(str: unknown): str is string {
   return typeof str === 'string';
 }
 
@@ -25,12 +26,3 @@ export function isUnBorderedButtonType(type?: ButtonType) {
 export function isFragment(child: JSX.Element) {
   return child && typeof child === 'object';
 }
-
-const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
-export type ButtonType = (typeof ButtonTypes)[number];
-
-const ButtonShapes = ['default', 'circle', 'round'] as const;
-export type ButtonShape = (typeof ButtonShapes)[number];
-
-const ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];

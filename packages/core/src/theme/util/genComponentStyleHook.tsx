@@ -4,7 +4,7 @@ import { warning } from '@bees-ui/sc-util';
 import type { Component, JSXElement } from 'solid-js';
 import { useContext } from 'solid-js';
 
-import { ConfigContext } from '../../context';
+import { ConfigContext } from '../../config-provider';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
   AliasToken,
@@ -74,7 +74,6 @@ const getDefaultComponentToken = <C extends OverrideComponent>(
   getDefaultToken: GetDefaultToken<C>,
 ): any => {
   if (typeof getDefaultToken === 'function') {
-    //@ts-ignore
     return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
   return getDefaultToken ?? {};
@@ -168,7 +167,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
       theme,
       token,
       hashId,
-      nonce: () => csp?.nonce!,
+      nonce: () => csp?.nonce,
       clientOnly: options.clientOnly,
 
       // antd is always at top of styles
@@ -319,7 +318,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
       {
         path: [component],
         prefix: cssVar.prefix,
-        key: cssVar?.key!,
+        key: cssVar?.key,
         unitless: {
           ...unitless,
           ...compUnitless,

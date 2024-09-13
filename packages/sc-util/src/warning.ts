@@ -30,7 +30,6 @@ export const preMessage = (fn: preMessageFn) => {
 export function warning(valid: boolean, message: string) {
   if (process.env.NODE_ENV !== 'production' && !valid && console !== undefined) {
     const finalMessage = preWarningFns.reduce(
-      // @ts-ignore
       (msg, preMessageFn) => preMessageFn(msg ?? '', 'warning'),
       message,
     );
@@ -45,7 +44,6 @@ export function warning(valid: boolean, message: string) {
 export function note(valid: boolean, message: string) {
   if (process.env.NODE_ENV !== 'production' && !valid && console !== undefined) {
     const finalMessage = preWarningFns.reduce(
-      // @ts-ignore
       (msg, preMessageFn) => preMessageFn(msg ?? '', 'note'),
       message,
     );

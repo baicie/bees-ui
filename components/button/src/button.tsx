@@ -1,53 +1,24 @@
-import { Wave } from '@bees-ui/_util';
-import { useSize } from '@bees-ui/config-provider';
-import type { CSSProperties, SizeType } from '@bees-ui/core';
-import { clsx, devUseWarning, DisabledContext, useCompactItemContext } from '@bees-ui/core';
+import type { BaseButtonProps, ButtonProps, ButtonType, CSSProperties } from '@bees-ui/core';
+import {
+  clsx,
+  ConfigContext,
+  devUseWarning,
+  DisabledContext,
+  useCompactItemContext,
+  useSize,
+  Wave,
+} from '@bees-ui/core';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
-import { createSignal, onCleanup, onMount, splitProps, useContext, type JSX } from 'solid-js';
+import { createSignal, onCleanup, onMount, splitProps, useContext } from 'solid-js';
 
-import { ConfigContext } from '../../context';
 import { GroupSizeContext } from './button-group';
-import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 
 export type LegacyButtonType = ButtonType | 'danger';
-
-export interface BaseButtonProps {
-  type?: ButtonType;
-  icon?: JSX.Element;
-  iconPosition?: 'start' | 'end';
-  shape?: ButtonShape;
-  size?: SizeType;
-  disabled?: boolean;
-  loading?: boolean | { delay?: number };
-  prefixCls?: string;
-  className?: string;
-  rootClassName?: string;
-  ghost?: boolean;
-  danger?: boolean;
-  block?: boolean;
-  [key: `data-${string}`]: string;
-  classNames?: { icon: string };
-  styles?: { icon: JSX.CSSProperties };
-  style?: JSX.CSSProperties;
-}
-
-type MergedHTMLAttributes = Omit<
-  JSX.HTMLAttributes<HTMLElement> &
-    JSX.ButtonHTMLAttributes<HTMLElement> &
-    JSX.AnchorHTMLAttributes<HTMLElement>,
-  'type' | 'style' | 'children'
->;
-
-export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
-  href?: string;
-  htmlType?: ButtonHTMLType;
-  autoInsertSpace?: boolean;
-}
 
 type LoadingConfigType = {
   loading: boolean;

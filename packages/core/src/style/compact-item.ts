@@ -96,7 +96,6 @@ export function genCompactItemStyle<T extends OverrideComponent>(
 
   return {
     [compactCls]: {
-      // @ts-ignore
       ...compactItemBorder(token, compactCls, options),
       ...compactItemBorderRadius(componentCls, compactCls, options),
     },

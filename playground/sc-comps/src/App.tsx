@@ -1,8 +1,6 @@
-import Input from '@bees-ui/sc-input';
+import { BaseInput } from '@bees-ui/sc-input';
 import type { SwitchChangeEventHandler } from '@bees-ui/sc-switch';
 import Switch from '@bees-ui/sc-switch';
-
-import { Count } from './count';
 
 import './index.less';
 import './App.css';
@@ -14,10 +12,8 @@ const onChange: SwitchChangeEventHandler = (value, event) => {
 };
 
 function App() {
+  let holderRef: HTMLElement | null = null;
   const [disabled, setDisabled] = createSignal(false);
-  const [value, setValue] = createSignal('');
-  const [count, setCount] = createSignal(1);
-  let ref: HTMLInputElement | null = null;
 
   const toggle = () => {
     setDisabled((prev) => !prev);
@@ -28,29 +24,31 @@ function App() {
   });
 
   onMount(() => {
-    ref?.focus();
+    console.log('onMount', holderRef);
   });
+
   return (
     <>
-      <Count nums={count()} />
-      <button onclick={() => setCount((prev) => prev + 1)}>+</button>
-      <button onclick={() => setCount((prev) => prev - 1)}>-</button>
+      <BaseInput
+        prefixCls="rc-input"
+        suffix="suffix"
+        addonAfter="after"
+        ref={(el: HTMLElement) => {
+          console.log('ref', el);
 
-      <Input
-        ref={(el) => {
-          ref = el;
+          holderRef = el;
         }}
-        allowClear
-        placeholder="sc-input"
-        value={value()}
-        onChange={(e) => setValue(e.currentTarget.value)}
-      ></Input>
+      >
+        <input />
+      </BaseInput>
 
       <Switch
         onChange={onChange}
         disabled={disabled()}
         checkedChildren="开"
         unCheckedChildren="关"
+        onFocus={() => console.log('focus')}
+        autofocus
       />
       <div style={{ 'margin-left': '20px' }}>
         <button type="button" onClick={toggle}>

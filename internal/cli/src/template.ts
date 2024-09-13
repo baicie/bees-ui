@@ -24,7 +24,7 @@ export function createTemplate(options: TemplateOptions) {
 function copyAndReplaceTemplate(
   srcDir: string,
   destDir: string,
-  templateData: Record<string, any>,
+  templateData: Record<string, unknown>,
   ignoreList: string[] = ['node_modules'],
 ) {
   if (!fs.existsSync(destDir)) {

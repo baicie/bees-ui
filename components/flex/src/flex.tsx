@@ -1,4 +1,5 @@
-import { isPresetSize } from '@bees-ui/_util';
+import type { FlexProps } from '@bees-ui/core';
+import { ConfigContext, isPresetSize } from '@bees-ui/core';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import { omit } from '@bees-ui/sc-util';
 import clsx from 'clsx';
@@ -6,8 +7,6 @@ import { splitProps, useContext } from 'solid-js';
 import type { JSX } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { ConfigContext } from '../../context';
-import type { FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';
 

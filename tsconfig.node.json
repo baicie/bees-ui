@@ -9,11 +9,6 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2018"
   },
-  "include": [
-    "vite.config.ts",
-    "internal",
-    "eslint.config.mjs",
-    "playground/*/*.ts",
-    "tests/**/*.ts"
-  ]
+  "include": ["vitest.workspace.mts", "internal", "eslint.config.mjs", "tests/**/*.ts"],
+  "exclude": ["internal/solid-testing-library"]
 }

@@ -14,12 +14,12 @@ export interface ICustomElement {
   __released: boolean;
   __releaseCallbacks: any[];
   __propertyChangedCallbacks: any[];
-  __updating: { [prop: string]: any };
+  __updating: Record<string, any>;
   _slot: {
     default: ICustomElementSlot;
     [key: string]: ICustomElementSlot;
   };
-  props: { [prop: string]: any };
+  props: Record<string, any>;
   lookupProp(attrName: string): string | undefined;
   addReleaseCallback(fn: () => void): void;
   addPropertyChangedCallback(fn: (name: string, value: any) => void): void;
@@ -29,12 +29,8 @@ export interface ComponentOptions {
   element: ICustomElement;
   slots?: ICustomElement['_slot'];
 }
-export interface ConstructableComponent<T> {
-  new (props: T, options: ComponentOptions): unknown;
-}
-export interface FunctionComponent<T> {
-  (props: T, options: ComponentOptions): unknown;
-}
+export type ConstructableComponent<T> = new (props: T, options: ComponentOptions) => unknown;
+export type FunctionComponent<T> = (props: T, options: ComponentOptions) => unknown;
 export type PropsDefinitionInput<T> = {
   [P in keyof T]: PropDefinition<T[P]> | T[P];
 };
@@ -44,7 +40,7 @@ export type PropsDefinition<T> = {
 export type ComponentType<T> = FunctionComponent<T> | ConstructableComponent<T>;
 
 function cloneProps<T>(props: PropsDefinition<T>) {
-  const propKeys = Object.keys(props) as Array<keyof PropsDefinition<T>>;
+  const propKeys = Object.keys(props) as (keyof PropsDefinition<T>)[];
   return propKeys.reduce(
     (memo, k) => {
       const prop = props[k];
@@ -60,13 +56,14 @@ function cloneProps<T>(props: PropsDefinition<T>) {
 
 export function normalizePropDefs<T>(props: PropsDefinitionInput<T>): PropsDefinition<T> {
   if (!props) return {} as PropsDefinition<T>;
-  const propKeys = Object.keys(props) as Array<keyof PropsDefinition<T>>;
+  const propKeys = Object.keys(props) as (keyof PropsDefinition<T>)[];
   return propKeys.reduce(
     (memo, k) => {
       const v = props[k];
       memo[k] = !(isObject(v) && 'value' in (v as object))
         ? ({ value: v } as unknown as PropDefinition<T[keyof T]>)
         : (v as PropDefinition<T[keyof T]>);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       memo[k].attribute || (memo[k].attribute = toAttribute(k as string));
       memo[k].parse = 'parse' in memo[k] ? memo[k].parse : typeof memo[k].value !== 'string';
       return memo;
@@ -76,7 +73,7 @@ export function normalizePropDefs<T>(props: PropsDefinitionInput<T>): PropsDefin
 }
 
 export function propValues<T>(props: PropsDefinition<T>) {
-  const propKeys = Object.keys(props) as Array<keyof PropsDefinition<T>>;
+  const propKeys = Object.keys(props) as (keyof PropsDefinition<T>)[];
   return propKeys.reduce((memo, k) => {
     memo[k] = props[k].value;
     return memo;
@@ -88,13 +85,18 @@ export function initializeProps<T>(
   propDefinition: PropsDefinition<T>,
 ) {
   const props = cloneProps(propDefinition),
-    propKeys = Object.keys(propDefinition) as Array<keyof PropsDefinition<T>>;
+    propKeys = Object.keys(propDefinition) as (keyof PropsDefinition<T>)[];
   propKeys.forEach((key) => {
     const prop = props[key],
       attr = element.getAttribute(prop.attribute),
       value = element[key];
-    if (attr) prop.value = prop.parse ? parseAttributeValue(attr) : attr;
-    if (value != null) prop.value = Array.isArray(value) ? value.slice(0) : value;
+    if (attr !== null) {
+      prop.value = prop.parse ? (attr === '' ? true : parseAttributeValue(attr)) : attr;
+    }
+    if (value != null) {
+      prop.value = Array.isArray(value) ? value.slice(0) : value;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     prop.reflect && reflect(element, prop.attribute, prop.value, !!prop.parse);
     Object.defineProperty(element, key, {
       get() {
@@ -103,6 +105,7 @@ export function initializeProps<T>(
       set(val) {
         const oldValue = prop.value;
         prop.value = val;
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         prop.reflect && reflect(this, prop.attribute, prop.value, !!prop.parse);
         for (let i = 0, l = this.__propertyChangedCallbacks.length; i < l; i++) {
           this.__propertyChangedCallbacks[i](key, val, oldValue);
@@ -119,6 +122,7 @@ export function parseAttributeValue(value: string) {
   if (!value) return;
   try {
     return JSON.parse(value);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     return value;
   }
@@ -146,6 +150,7 @@ export function toAttribute(propName: string) {
 }
 
 export function toProperty(attr: string) {
+  // eslint-disable-next-line regexp/no-unused-capturing-group
   return attr.toLowerCase().replace(/(-)([a-z])/g, (test) => test.toUpperCase().replace('-', ''));
 }
 
@@ -157,6 +162,7 @@ export function isFunction(val: any) {
   return Object.prototype.toString.call(val) === '[object Function]';
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function isConstructor(f: Function) {
   return typeof f === 'function' && f.toString().indexOf('class') === 0;
 }

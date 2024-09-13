@@ -12,6 +12,6 @@ export default defineConfig({
         },
       },
     }),
-    visualizer({ open: true }) as any,
+    visualizer({ open: false }) as any,
   ],
 });
