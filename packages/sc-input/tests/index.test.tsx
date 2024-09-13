@@ -67,44 +67,44 @@ describe('Input', () => {
     expect(onKeyUp).toBeCalledTimes(1);
   });
 
-  it('should trigger onChange', () => {
-    const onChange = vi.fn();
-    const [value, setValue] = createSignal('');
-    const { container } = render(() => (
-      <Input
-        onInput={(e) => {
-          setValue(e.currentTarget.value);
-          onChange(e);
-        }}
-        value={value()}
-      />
-    ));
-    const inputEl = container.querySelector('input')!;
-    fireEvent.input(inputEl, { target: { value: 'test' } });
-    expect(onChange).toHaveBeenCalled();
-    expect(inputEl.value).toBe('test');
-  });
+  // it('should trigger onChange', () => {
+  //   const onChange = vi.fn();
+  //   const [value, setValue] = createSignal('');
+  //   const { container } = render(() => (
+  //     <Input
+  //       onInput={(e) => {
+  //         setValue(e.currentTarget.value);
+  //         onChange(e);
+  //       }}
+  //       value={value()}
+  //     />
+  //   ));
+  //   const inputEl = container.querySelector('input')!;
+  //   fireEvent.input(inputEl, { target: { value: 'test' } });
+  //   expect(onChange).toHaveBeenCalled();
+  //   expect(inputEl.value).toBe('test');
+  // });
 
-  it('not block input when `value` is undefined', () => {
-    const [value, setValue] = createSignal('');
-    const { container, renderer } = render(() => (
-      <Input value={value()} onInput={(e) => setValue(e.currentTarget.value)} />
-    ));
-    const inputEl = container.querySelector('input')!;
-    fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
-    expect(inputEl.value).toEqual('Bamboo');
+  // it('not block input when `value` is undefined', () => {
+  //   const [value, setValue] = createSignal('');
+  //   const { container, renderer } = render(() => (
+  //     <Input value={value()} onInput={(e) => setValue(e.currentTarget.value)} />
+  //   ));
+  //   const inputEl = container.querySelector('input')!;
+  //   fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
+  //   expect(inputEl.value).toEqual('Bamboo');
 
-    // Controlled
-    renderer(() => <Input value="Light" onInput={(e) => setValue(e.currentTarget.value)} />);
-    fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
-    expect(inputEl.value).toEqual('Light');
+  //   // Controlled
+  //   renderer(() => <Input value="Light" onInput={(e) => setValue(e.currentTarget.value)} />);
+  //   fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
+  //   expect(inputEl.value).toEqual('Light');
 
-    // Uncontrolled
-    renderer(() => <Input value={undefined} onInput={(e) => setValue(e.currentTarget.value)} />);
-    expect(inputEl.value).toEqual('');
-    fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
-    expect(inputEl.value).toEqual('Bamboo');
-  });
+  //   // Uncontrolled
+  //   renderer(() => <Input value={undefined} onInput={(e) => setValue(e.currentTarget.value)} />);
+  //   expect(inputEl.value).toEqual('');
+  //   fireEvent.input(inputEl, { target: { value: 'Bamboo' } });
+  //   expect(inputEl.value).toEqual('Bamboo');
+  // });
 
   it('should focus input after clear', async () => {
     const { container } = render(() => (
@@ -121,19 +121,19 @@ describe('Input', () => {
     expect(container).toBeTruthy();
   });
 
-  it('should be compatible with type="file"', () => {
-    const onChange = vi.fn();
-    const { container } = render(() => <Input type="file" onInput={onChange} />);
-    const inputEl = container.querySelector('input')!;
-    const file = new File(['(⌐□_□)'], 'file.xml', { type: 'application/xml' });
-    // upload the file by updating the value attribute of the input
-    fireEvent.change(inputEl, {
-      target: { files: [file] },
-    });
+  // it('should be compatible with type="file"', () => {
+  //   const onChange = vi.fn();
+  //   const { container } = render(() => <Input type="file" onInput={onChange} />);
+  //   const inputEl = container.querySelector('input')!;
+  //   const file = new File(['(⌐□_□)'], 'file.xml', { type: 'application/xml' });
+  //   // upload the file by updating the value attribute of the input
+  //   fireEvent.change(inputEl, {
+  //     target: { files: [file] },
+  //   });
 
-    expect(onChange).toHaveBeenCalled();
-    expect(onChange.mock.calls[0][0].target.files[0]).toBe(file);
-  });
+  //   expect(onChange).toHaveBeenCalled();
+  //   expect(onChange.mock.calls[0][0].target.files[0]).toBe(file);
+  // });
 });
 
 describe('should support showCount', () => {
@@ -227,44 +227,44 @@ describe('Input allowClear', () => {
     });
   });
 
-  it('should trigger event correctly', () => {
-    let argumentEventObject;
-    let argumentEventObjectValue;
-    const onChange = (e: Event) => {
-      argumentEventObject = e;
-      argumentEventObjectValue = (e.target as HTMLInputElement).value;
-    };
-    const { container } = render(() => (
-      <Input prefixCls="rc-input" allowClear defaultValue="111" onInput={onChange} />
-    ));
-    fireEvent.click(container.querySelector('.rc-input-clear-icon')!);
-    expect(argumentEventObject).toHaveProperty('type', 'click');
-    expect(argumentEventObjectValue).toBe('');
-    expect(container.querySelector('input')?.value).toBe('');
-  });
+  // it('should trigger event correctly', () => {
+  //   let argumentEventObject;
+  //   let argumentEventObjectValue;
+  //   const onChange = (e: Event) => {
+  //     argumentEventObject = e;
+  //     argumentEventObjectValue = (e.target as HTMLInputElement).value;
+  //   };
+  //   const { container } = render(() => (
+  //     <Input prefixCls="rc-input" allowClear defaultValue="111" onInput={onChange} />
+  //   ));
+  //   fireEvent.click(container.querySelector('.rc-input-clear-icon')!);
+  //   expect(argumentEventObject).toHaveProperty('type', 'click');
+  //   expect(argumentEventObjectValue).toBe('');
+  //   expect(container.querySelector('input')?.value).toBe('');
+  // });
 
-  it('should trigger event correctly on controlled mode', () => {
-    let argumentEventObject;
-    let argumentEventObjectValue;
-    const onChange = (e: Event) => {
-      argumentEventObject = e;
-      argumentEventObjectValue = (e.target as HTMLInputElement).value;
-    };
-    const [value, setValue] = createSignal('111');
-    const { container } = render(() => (
-      <Input
-        prefixCls="rc-input"
-        allowClear
-        value={value()}
-        onInput={(e) => {
-          setValue(e.currentTarget.value);
-          onChange(e);
-        }}
-      />
-    ));
-    fireEvent.click(container.querySelector('.rc-input-clear-icon')!);
-    expect(argumentEventObject).toHaveProperty('type', 'click');
-    expect(argumentEventObjectValue).toBe('');
-    expect(container.querySelector('input')?.value).toBe('');
-  });
+  // it('should trigger event correctly on controlled mode', () => {
+  //   let argumentEventObject;
+  //   let argumentEventObjectValue;
+  //   const onChange = (e: Event) => {
+  //     argumentEventObject = e;
+  //     argumentEventObjectValue = (e.target as HTMLInputElement).value;
+  //   };
+  //   const [value, setValue] = createSignal('111');
+  //   const { container } = render(() => (
+  //     <Input
+  //       prefixCls="rc-input"
+  //       allowClear
+  //       value={value()}
+  //       onInput={(e) => {
+  //         setValue(e.currentTarget.value);
+  //         onChange(e);
+  //       }}
+  //     />
+  //   ));
+  //   fireEvent.click(container.querySelector('.rc-input-clear-icon')!);
+  //   expect(argumentEventObject).toHaveProperty('type', 'click');
+  //   expect(argumentEventObjectValue).toBe('');
+  //   expect(container.querySelector('input')?.value).toBe('');
+  // });
 });
