@@ -5,7 +5,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100,
-    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "./turbo/*"]
+    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*", "./.turbo/*"]
   },
   "linter": {
     "rules": {
