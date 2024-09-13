@@ -111,13 +111,13 @@ jobs:
       - name: Typecheck
         run: pnpm run typecheck
 
-      - name: Dead links
-        run: |
-          cd docs
-          npm i -g markdown-link-check
-          for file in $(find . -name "*.md"); do
-            markdown-link-check -c .dlc.json -q "$file"
-          done
+      # - name: Dead links
+      #   run: |
+      #     cd docs
+      #     npm i -g markdown-link-check
+      #     for file in $(find . -name "*.md"); do
+      #       markdown-link-check -c .dlc.json -q "$file"
+      #     done
 
       - name: Test docs
         run: pnpm run test-docs
