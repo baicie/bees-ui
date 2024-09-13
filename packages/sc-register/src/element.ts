@@ -1,12 +1,14 @@
-import {
+import type {
   ConstructableComponent,
-  findSlotParent,
   FunctionComponent,
   ICustomElement,
+  PropsDefinition,
+} from './utils';
+import {
+  findSlotParent,
   initializeProps,
   isConstructor,
   parseAttributeValue,
-  PropsDefinition,
   propValues,
 } from './utils';
 
@@ -19,16 +21,16 @@ export function createElementType<T>(
   BaseElement: typeof HTMLElement,
   propDefinition: PropsDefinition<T>,
 ) {
-  const propKeys = Object.keys(propDefinition) as Array<keyof PropsDefinition<T>>;
+  const propKeys = Object.keys(propDefinition) as (keyof PropsDefinition<T>)[];
   return class CustomElement extends BaseElement implements ICustomElement {
     [prop: string]: any;
     __initialized?: boolean;
     __released: boolean;
     __releaseCallbacks: any[];
     __propertyChangedCallbacks: any[];
-    __updating: { [prop: string]: any };
+    __updating: Record<string, any>;
     _slot: ICustomElement['_slot'];
-    props: { [prop: string]: any };
+    props: Record<string, any>;
 
     static get observedAttributes() {
       return propKeys.map((k) => propDefinition[k].attribute);
@@ -57,9 +59,11 @@ export function createElementType<T>(
       };
       this.props = initializeProps(this as any, propDefinition);
       const props = propValues<T>(this.props as PropsDefinition<T>),
-        ComponentType = this.Component as Function | { new (...args: any[]): any },
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+        ComponentType = this.Component as Function | (new (...args: any[]) => any),
         outerElement = currentElement;
       try {
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         currentElement = this;
         this._slot = this.getLightSlots();
 
@@ -132,7 +136,7 @@ export function createElementType<T>(
     }
 
     isOwnSlot(slot: Element) {
-      let slotParent = findSlotParent(slot);
+      const slotParent = findSlotParent(slot);
       if (slotParent === null) return false;
       return slotParent === this;
     }

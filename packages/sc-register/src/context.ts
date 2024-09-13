@@ -5,6 +5,7 @@ const EC = Symbol('element-context');
 
 interface Context {
   id: symbol;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   initFn: Function;
 }
 type WalkableNode = Node & {
@@ -20,12 +21,14 @@ function lookupContext(element: WalkableNode, context: Context): any {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function createContext(initFn: Function): Context {
   return { id: Symbol('context'), initFn };
 }
 
 // Direct
 export function provide(context: Context, value: any, element: WalkableNode = getCurrentElement()) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   element[EC] || (element[EC] = {});
   return (element[EC][context.id] = context.initFn ? context.initFn(value) : value);
 }

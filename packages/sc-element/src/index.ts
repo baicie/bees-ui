@@ -1,12 +1,11 @@
-import {
+import type {
   ComponentOptions,
   FunctionComponent,
-  getCurrentElement,
   ICustomElement,
   ComponentType as mComponentType,
   PropsDefinitionInput,
-  register,
 } from '@bees-ui/sc-register';
+import { getCurrentElement, register } from '@bees-ui/sc-register';
 import { createRoot, createSignal } from 'solid-js';
 import { insert } from 'solid-js/web';
 
@@ -16,15 +15,16 @@ export type ComponentType<T> = mComponentType<T>;
 function createProps<T extends object>(raw: T) {
   const keys = Object.keys(raw) as (keyof T)[];
   const props = {};
-  for (let i = 0; i < keys.length; i++) {
-    const [get, set] = createSignal(raw[keys[i]]);
-    Object.defineProperty(props, keys[i], {
+  for (const key of keys) {
+    const [get, set] = createSignal(raw[key]);
+    Object.defineProperty(props, key, {
       get,
       set(v) {
         set(() => v);
       },
     });
   }
+
   return props as T;
 }
 
@@ -47,7 +47,7 @@ function withSolid<T extends object>(ComponentType: ComponentType<T>): Component
     const { element } = options as {
       element: ICustomElement & { _$owner?: any };
     };
-    return createRoot((dispose: Function) => {
+    return createRoot((dispose) => {
       const props = createProps<T>(rawProps);
 
       element.addPropertyChangedCallback((key: string, val: any) => (props[key as keyof T] = val));

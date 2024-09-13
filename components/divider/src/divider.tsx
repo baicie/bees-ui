@@ -1,25 +1,12 @@
-import { devUseWarning } from '@bees-ui/core';
+import type { DividerProps } from '@bees-ui/core';
+import { ConfigContext, devUseWarning } from '@bees-ui/core';
 import type { ComponentOptions } from '@bees-ui/sc-element';
 import classNames from 'clsx';
-import { createMemo, type JSX, Show, splitProps, useContext } from 'solid-js';
+import { createMemo, Show, splitProps, useContext, type JSX } from 'solid-js';
 
-import { ConfigContext } from '../../context';
 import useStyle from './style';
 
-export interface DividerProps {
-  prefixCls?: string;
-  type?: 'horizontal' | 'vertical';
-  orientation?: 'left' | 'right' | 'center';
-  orientationMargin?: string | number;
-  className?: string;
-  rootClassName?: string;
-  dashed?: boolean;
-  variant?: 'dashed' | 'dotted' | 'solid';
-  style?: JSX.CSSProperties;
-  plain?: boolean;
-}
-
-const Divider = (props: DividerProps, options: ComponentOptions) => {
+export const SolidDivider = (props: DividerProps, options: ComponentOptions) => {
   const { getPrefixCls, direction, divider } = useContext(ConfigContext);
   const [local, restProps] = splitProps(props, [
     'prefixCls',
@@ -44,8 +31,8 @@ const Divider = (props: DividerProps, options: ComponentOptions) => {
   const classString = classNames(
     prefixCls,
     divider?.className,
-    hashId(),
-    cssVarCls(),
+    hashId,
+    cssVarCls,
     `${prefixCls}-${local.type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
@@ -101,5 +88,3 @@ const Divider = (props: DividerProps, options: ComponentOptions) => {
     </div>,
   );
 };
-
-export default Divider;
