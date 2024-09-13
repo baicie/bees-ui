@@ -1,10 +1,10 @@
-import "@testing-library/jest-dom/vitest";
-import { onCleanup, render as soildRender } from "solid-js";
-import { cleanup, render } from "..";
+import '@testing-library/jest-dom/vitest';
+import { onCleanup, render as soildRender } from 'solid-js';
+import { cleanup, render } from '..';
 
-test("cleans up the document", () => {
+test('cleans up the document', () => {
   const spy = vi.fn();
-  const divId = "my-div";
+  const divId = 'my-div';
 
   function Test() {
     onCleanup(() => {
@@ -16,12 +16,11 @@ test("cleans up the document", () => {
 
   render(() => <Test />);
   cleanup();
-  expect(document.body.innerHTML).toBe("");
+  expect(document.body.innerHTML).toBe('');
   expect(spy).toHaveBeenCalledTimes(1);
 });
 
-test("cleanup does not error when an element is not a child", () => {
-  render(() => <div />, { container: document.createElement("div") });
+test('cleanup does not error when an element is not a child', () => {
+  render(() => <div />, { container: document.createElement('div') });
   cleanup();
 });
-

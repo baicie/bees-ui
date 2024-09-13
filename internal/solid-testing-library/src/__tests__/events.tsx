@@ -1,133 +1,133 @@
-import { Dynamic } from "solid-js/web";
-import { render, fireEvent } from "..";
-import userEvent from "@testing-library/user-event";
-import type { Mock } from "vitest";
+import { Dynamic } from 'solid-js/web';
+import { render, fireEvent } from '..';
+import userEvent from '@testing-library/user-event';
+import type { Mock } from 'vitest';
 
 const eventTypes = [
   {
-    type: "Clipboard",
-    events: ["copy", "paste"],
-    elementType: "input"
+    type: 'Clipboard',
+    events: ['copy', 'paste'],
+    elementType: 'input',
   },
   {
-    type: "Composition",
-    events: ["compositionEnd", "compositionStart", "compositionUpdate"],
-    elementType: "input"
+    type: 'Composition',
+    events: ['compositionEnd', 'compositionStart', 'compositionUpdate'],
+    elementType: 'input',
   },
   {
-    type: "Keyboard",
-    events: ["keyDown", "keyPress", "keyUp"],
-    elementType: "input",
-    init: { keyCode: 13 }
+    type: 'Keyboard',
+    events: ['keyDown', 'keyPress', 'keyUp'],
+    elementType: 'input',
+    init: { keyCode: 13 },
   },
   {
-    type: "Focus",
-    events: ["focus", "blur"],
-    elementType: "input"
+    type: 'Focus',
+    events: ['focus', 'blur'],
+    elementType: 'input',
   },
   {
-    type: "Form",
-    events: ["focus", "blur"],
-    elementType: "input"
+    type: 'Form',
+    events: ['focus', 'blur'],
+    elementType: 'input',
   },
   {
-    type: "Focus",
-    events: ["input", "invalid"],
-    elementType: "input"
+    type: 'Focus',
+    events: ['input', 'invalid'],
+    elementType: 'input',
   },
   {
-    type: "Focus",
-    events: ["submit"],
-    elementType: "form"
+    type: 'Focus',
+    events: ['submit'],
+    elementType: 'form',
   },
   {
-    type: "Mouse",
+    type: 'Mouse',
     events: [
-      "click",
-      "contextMenu",
-      "dblClick",
-      "drag",
-      "dragEnd",
-      "dragEnter",
-      "dragExit",
-      "dragLeave",
-      "dragOver",
-      "dragStart",
-      "drop",
-      "mouseDown",
-      "mouseEnter",
-      "mouseLeave",
-      "mouseMove",
-      "mouseOut",
-      "mouseOver",
-      "mouseUp"
+      'click',
+      'contextMenu',
+      'dblClick',
+      'drag',
+      'dragEnd',
+      'dragEnter',
+      'dragExit',
+      'dragLeave',
+      'dragOver',
+      'dragStart',
+      'drop',
+      'mouseDown',
+      'mouseEnter',
+      'mouseLeave',
+      'mouseMove',
+      'mouseOut',
+      'mouseOver',
+      'mouseUp',
     ],
-    elementType: "button"
+    elementType: 'button',
   },
   {
-    type: "Selection",
-    events: ["select"],
-    elementType: "input"
+    type: 'Selection',
+    events: ['select'],
+    elementType: 'input',
   },
   {
-    type: "Touch",
-    events: ["touchCancel", "touchEnd", "touchMove", "touchStart"],
-    elementType: "button"
+    type: 'Touch',
+    events: ['touchCancel', 'touchEnd', 'touchMove', 'touchStart'],
+    elementType: 'button',
   },
   {
-    type: "UI",
-    events: ["scroll"],
-    elementType: "div"
+    type: 'UI',
+    events: ['scroll'],
+    elementType: 'div',
   },
   {
-    type: "Wheel",
-    events: ["wheel"],
-    elementType: "div"
+    type: 'Wheel',
+    events: ['wheel'],
+    elementType: 'div',
   },
   {
-    type: "Media",
+    type: 'Media',
     events: [
-      "abort",
-      "canPlay",
-      "canPlayThrough",
-      "durationChange",
-      "emptied",
-      "encrypted",
-      "ended",
-      "error",
-      "loadedData",
-      "loadedMetadata",
-      "loadStart",
-      "pause",
-      "play",
-      "playing",
-      "progress",
-      "rateChange",
-      "seeked",
-      "seeking",
-      "stalled",
-      "suspend",
-      "timeUpdate",
-      "volumeChange",
-      "waiting"
+      'abort',
+      'canPlay',
+      'canPlayThrough',
+      'durationChange',
+      'emptied',
+      'encrypted',
+      'ended',
+      'error',
+      'loadedData',
+      'loadedMetadata',
+      'loadStart',
+      'pause',
+      'play',
+      'playing',
+      'progress',
+      'rateChange',
+      'seeked',
+      'seeking',
+      'stalled',
+      'suspend',
+      'timeUpdate',
+      'volumeChange',
+      'waiting',
     ],
-    elementType: "video"
+    elementType: 'video',
   },
   {
-    type: "Image",
-    events: ["load", "error"],
-    elementType: "img"
+    type: 'Image',
+    events: ['load', 'error'],
+    elementType: 'img',
   },
   {
-    type: "Animation",
-    events: ["animationStart", "animationEnd", "animationIteration"],
-    elementType: "div"
+    type: 'Animation',
+    events: ['animationStart', 'animationEnd', 'animationIteration'],
+    elementType: 'div',
   },
   {
-    type: "Transition",
-    events: ["transitionEnd"],
-    elementType: "div"
-  }
+    type: 'Transition',
+    events: ['transitionEnd'],
+    elementType: 'div',
+  },
 ];
 
 function event(el: HTMLElement, name: string, spy: Mock) {
@@ -136,7 +136,7 @@ function event(el: HTMLElement, name: string, spy: Mock) {
 
 eventTypes.forEach(({ type, events, elementType, init }) => {
   describe(`${type} Events`, () => {
-    events.forEach(eventName => {
+    events.forEach((eventName) => {
       const eventProp = eventName.toLowerCase();
 
       it(`triggers ${eventProp}`, () => {
@@ -155,28 +155,28 @@ eventTypes.forEach(({ type, events, elementType, init }) => {
   });
 });
 
-test("onInput works", async () => {
+test('onInput works', async () => {
   const handler = vi.fn();
 
   const {
-    container: { firstChild: input }
+    container: { firstChild: input },
   } = render(() => <input type="text" onInput={handler} />);
 
-  await userEvent.type(input! as Element, "a");
+  await userEvent.type(input! as Element, 'a');
 
   expect(handler).toHaveBeenCalledTimes(1);
 });
 
-test("calling `fireEvent` directly works too", () => {
+test('calling `fireEvent` directly works too', () => {
   const handleEvent = vi.fn();
 
   const {
-    container: { firstChild: button }
+    container: { firstChild: button },
   } = render(() => <button onClick={handleEvent} />);
 
-  const event = new MouseEvent("click", {
+  const event = new MouseEvent('click', {
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   });
 
   fireEvent(button!, event);

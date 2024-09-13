@@ -1,6 +1,6 @@
-import userEvent from "@testing-library/user-event";
-import { createSignal, onCleanup } from "solid-js";
-import { screen, render } from "..";
+import userEvent from '@testing-library/user-event';
+import { createSignal, onCleanup } from 'solid-js';
+import { screen, render } from '..';
 
 function StopWatch() {
   const [lapse, setLapse] = createSignal(0);
@@ -28,27 +28,27 @@ function StopWatch() {
   return (
     <div>
       <span>{lapse()}ms</span>
-      <button onClick={handleRunClick}>{running() ? "Stop" : "Start"}</button>
+      <button onClick={handleRunClick}>{running() ? 'Stop' : 'Start'}</button>
       <button onClick={handleClearClick}>Clear</button>
     </div>
   );
 }
 
-const wait = (time: number) => new Promise(resolve => setTimeout(resolve, time));
+const wait = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
 
-test("unmounts a component", async () => {
-  vi.spyOn(console, "error").mockImplementation(() => {});
+test('unmounts a component', async () => {
+  vi.spyOn(console, 'error').mockImplementation(() => {});
 
   const { unmount, container } = render(() => <StopWatch />);
 
-  userEvent.click(screen.getByText("Start") as Element);
+  userEvent.click(screen.getByText('Start') as Element);
 
   unmount();
 
   // Hey there reader! You don't need to have an assertion like this one
   // this is just me making sure that the unmount function works.
   // You don't need to do this in your apps. Just rely on the fact that this works.
-  expect(container.innerHTML).toBe("");
+  expect(container.innerHTML).toBe('');
 
   // Just wait to see if the interval is cleared or not.
   // If it's not, then we'll call setState on an unmounted component and get an error.

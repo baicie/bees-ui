@@ -41,29 +41,35 @@ export type ComponentType<T> = FunctionComponent<T> | ConstructableComponent<T>;
 
 function cloneProps<T>(props: PropsDefinition<T>) {
   const propKeys = Object.keys(props) as (keyof PropsDefinition<T>)[];
-  return propKeys.reduce((memo, k) => {
-    const prop = props[k];
-    memo[k] = Object.assign({}, prop);
-    if (isObject(prop.value) && !isFunction(prop.value) && !Array.isArray(prop.value))
-      memo[k].value = Object.assign({}, prop.value);
-    if (Array.isArray(prop.value)) memo[k].value = prop.value.slice(0) as unknown as T[keyof T];
-    return memo;
-  }, {} as PropsDefinition<T>);
+  return propKeys.reduce(
+    (memo, k) => {
+      const prop = props[k];
+      memo[k] = Object.assign({}, prop);
+      if (isObject(prop.value) && !isFunction(prop.value) && !Array.isArray(prop.value))
+        memo[k].value = Object.assign({}, prop.value);
+      if (Array.isArray(prop.value)) memo[k].value = prop.value.slice(0) as unknown as T[keyof T];
+      return memo;
+    },
+    {} as PropsDefinition<T>,
+  );
 }
 
 export function normalizePropDefs<T>(props: PropsDefinitionInput<T>): PropsDefinition<T> {
   if (!props) return {} as PropsDefinition<T>;
   const propKeys = Object.keys(props) as (keyof PropsDefinition<T>)[];
-  return propKeys.reduce((memo, k) => {
-    const v = props[k];
-    memo[k] = !(isObject(v) && 'value' in (v as object))
-      ? ({ value: v } as unknown as PropDefinition<T[keyof T]>)
-      : (v as PropDefinition<T[keyof T]>);
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    memo[k].attribute || (memo[k].attribute = toAttribute(k as string));
-    memo[k].parse = 'parse' in memo[k] ? memo[k].parse : typeof memo[k].value !== 'string';
-    return memo;
-  }, {} as PropsDefinition<T>);
+  return propKeys.reduce(
+    (memo, k) => {
+      const v = props[k];
+      memo[k] = !(isObject(v) && 'value' in (v as object))
+        ? ({ value: v } as unknown as PropDefinition<T[keyof T]>)
+        : (v as PropDefinition<T[keyof T]>);
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      memo[k].attribute || (memo[k].attribute = toAttribute(k as string));
+      memo[k].parse = 'parse' in memo[k] ? memo[k].parse : typeof memo[k].value !== 'string';
+      return memo;
+    },
+    {} as PropsDefinition<T>,
+  );
 }
 
 export function propValues<T>(props: PropsDefinition<T>) {

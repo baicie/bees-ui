@@ -13,4 +13,3 @@ test('check if auto-cleanup threw an error', () => {
   expect(errors).toEqual([]);
   globalThis.removeEventListener('error', handler);
 });
-
