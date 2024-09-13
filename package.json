@@ -8,6 +8,7 @@
     "postinstall": "simple-git-hooks && pnpm run stub",
     "biome": "biome migrate eslint --write --include-inspired",
     "format": "biome format --write .",
+    "format-check": "biome format .",
     "fix": "biome lint --write .",
     "lint": "biome lint .",
     "typecheck": "echo typecheck",
@@ -96,6 +97,9 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": ["biome format --write .", "biome lint ."]
+    "*": [
+      "biome format --write .",
+      "biome lint ."
+    ]
   }
 }
