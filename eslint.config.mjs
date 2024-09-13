@@ -13,8 +13,6 @@ import tseslint from 'typescript-eslint';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-  recommendedConfig: undefined,
-  allConfig: undefined,
 });
 
 export default tseslint.config(
@@ -47,6 +45,7 @@ export default tseslint.config(
       'docs',
       'playground',
       'internal/solid-testing-library',
+      '.turbo',
     ],
   },
 
