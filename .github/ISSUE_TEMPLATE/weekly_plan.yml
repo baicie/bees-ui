@@ -1,97 +1,41 @@
 name: Weekly Plan
 description: Track tasks and goals for the week
-title: "Weekly Plan: Week of [YYYY-MM-DD]"
-labels:
-  - weekly-plan
-assignees: []
+labels: [pending triage]
 
 body:
   - type: markdown
     attributes:
       value: |
-        ## Weekly Goals
-
-  - type: checkboxes
-    id: primary_goals
-    attributes:
-      label: "Primary Goals"
-      description: "Set your primary goals for the week."
-      options:
-        - label: "Primary Goal 1: Description of the first primary goal."
-        - label: "Primary Goal 2: Description of the second primary goal."
-        - label: "Primary Goal 3: Description of the third primary goal."
-
-  - type: markdown
-    attributes:
-      value: |
-        ## Tasks by Day
-
-  - type: checkboxes
-    id: monday_tasks
-    attributes:
-      label: "Monday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: tuesday_tasks
-    attributes:
-      label: "Tuesday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: wednesday_tasks
-    attributes:
-      label: "Wednesday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: thursday_tasks
-    attributes:
-      label: "Thursday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: friday_tasks
-    attributes:
-      label: "Friday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: saturday_tasks
-    attributes:
-      label: "Saturday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
-
-  - type: checkboxes
-    id: sunday_tasks
-    attributes:
-      label: "Sunday"
-      options:
-        - label: "Task 1: Description"
-        - label: "Task 2: Description"
+        ## Weekly Plan
+        Please fill out the following template to track your tasks and goals for the week.
 
   - type: textarea
-    id: notes
+    id: week-of
     attributes:
-      label: "Notes"
-      description: "Add any additional notes or blockers here."
-      placeholder: "Type here..."
+      label: Week of
+      description: The week you are planning for
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
 
-  - type: markdown
+  - type: textarea
+    id: goals
     attributes:
-      value: |
-        ## Retrospective (End of the Week)
-        - What went well?
-        - What can be improved?
+      label: Goals
+      description: List your goals for the week
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: List your tasks for the week
+    validations:
+      required: true
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers
+      description: List any blockers you have
