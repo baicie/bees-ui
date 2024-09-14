@@ -1,0 +1,18 @@
+name: Weekly Issue Creation
+
+name: Weekly Issue Creation
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a new issue
+        uses: peter-evans/create-issue-from-file@v4
+        with:
+          title: "Weekly Plan: Week of $(date +'%Y-%m-%d')"
+          content-filepath: .github/ISSUE_TEMPLATE/weekly_plan.md
+          labels: weekly-plan
