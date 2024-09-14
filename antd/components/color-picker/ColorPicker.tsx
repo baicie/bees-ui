@@ -14,6 +14,7 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
+import { useCompactItemContext } from '../space/Compact';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
@@ -107,7 +108,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
   };
 
-  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, pickColor) => {
+  const onInternalChange: ColorPickerPanelProps['onChange'] = (data, changeFromPickerDrag) => {
     let color: AggregationColor = generateColor(data as AggregationColor);
 
     // ignore alpha color
@@ -124,7 +125,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     }
 
     // Only for drag-and-drop color picking
-    if (!pickColor) {
+    if (!changeFromPickerDrag) {
       onInternalChangeComplete(color);
     }
   };
@@ -166,8 +167,12 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
+  // ==================== Compact ====================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
   // ===================== Style =====================
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
@@ -178,6 +183,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
+    compactItemClassnames,
     colorPicker?.className,
     mergedRootCls,
     className,

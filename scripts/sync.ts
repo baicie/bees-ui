@@ -1,16 +1,6 @@
-import { exec } from 'node:child_process';
 import path from 'node:path';
 import type { Project } from '@pnpm/find-workspace-packages';
-import consola from 'consola';
-import {
-  copySync,
-  ensureDirSync,
-  readJSONSync,
-  removeSync,
-  writeFileSync,
-  writeJSONSync,
-} from 'fs-extra';
-import color from 'picocolors';
+import { copy, ensureDirSync, readJSONSync, writeFileSync, writeJSONSync } from 'fs-extra';
 
 import { download } from './download';
 import { rootPath } from './path';
@@ -60,14 +50,14 @@ const copyPath: CopyPath[] = [
   },
 ];
 const antRootPath = path.resolve(swapPath, 'ant-design');
-function copy() {
+async function copyFiles() {
   ensureDirSync(targetPath);
   for (const { form, to, cb } of copyPath) {
     const _form = path.resolve(antRootPath, form);
     const _to = path.resolve(targetPath, to);
     if (cb) {
       cb(_form, _to);
-    } else copySync(_form, _to);
+    } else await copy(_form, _to, { overwrite: true });
   }
 }
 
@@ -77,30 +67,30 @@ function writeVersion() {
   writeFileSync(versionPath, content, { encoding: 'utf-8' });
 }
 
-function installDeps(command: string) {
-  const child = exec(command, { cwd: targetPath }, (error) => {
-    if (error) {
-      consola.error(error);
-    }
-    consola.log(color.green('install success'));
-  });
+// function installDeps(command: string) {
+//   const child = exec(command, { cwd: targetPath }, (error) => {
+//     if (error) {
+//       consola.error(error);
+//     }
+//     consola.log(color.green('install success'));
+//   });
 
-  // 输出
-  child.stdout!.on('data', (data) => {
-    consola.log(data.replace(/\n$/, ''));
-  });
+//   // 输出
+//   child.stdout!.on('data', (data) => {
+//     consola.log(data.replace(/\n$/, ''));
+//   });
 
-  // 输出 错误信息
-  child.stderr!.on('data', (data) => {
-    consola.log(color.red(data));
-  });
-}
+//   // 输出 错误信息
+//   child.stderr!.on('data', (data) => {
+//     consola.log(color.red(data));
+//   });
+// }
 
 async function main() {
-  removeSync(targetPath);
+  // removeSync(targetPath);
   await download(antd, swapPath);
-  copy();
+  copyFiles();
   writeVersion();
-  installDeps('pnpm i --ignore-scripts');
+  // installDeps('pnpm i --ignore-scripts');
 }
 main().catch(console.error);
