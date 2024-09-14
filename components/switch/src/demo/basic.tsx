@@ -1,4 +1,4 @@
-import React from 'react';
+import type React from 'react';
 import { Switch } from 'antd';
 
 const onChange = (checked: boolean) => {
