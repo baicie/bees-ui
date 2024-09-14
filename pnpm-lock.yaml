@@ -255,6 +255,30 @@ importers:
         specifier: ^1.8.22
         version: 1.8.22
 
+  components/switch:
+    dependencies:
+      '@bees-ui/core':
+        specifier: workspace:^
+        version: link:../../packages/core
+      '@bees-ui/sc-cssinjs':
+        specifier: workspace:^
+        version: link:../../packages/sc-cssinjs
+      '@bees-ui/sc-element':
+        specifier: workspace:^
+        version: link:../../packages/sc-element
+      '@bees-ui/sc-icons':
+        specifier: workspace:^
+        version: link:../../packages/sc-icons
+      '@bees-ui/sc-switch':
+        specifier: workspace:^
+        version: link:../../packages/sc-switch
+      '@bees-ui/sc-util':
+        specifier: workspace:^
+        version: link:../../packages/sc-util
+      solid-js:
+        specifier: ^1.8.22
+        version: 1.8.22
+
   docs:
     devDependencies:
       '@ant-design/colors':
@@ -652,6 +676,9 @@ importers:
       '@bees-ui/flex':
         specifier: workspace:^
         version: link:../../components/flex
+      '@bees-ui/switch':
+        specifier: workspace:^
+        version: link:../../components/switch
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -725,6 +752,9 @@ importers:
       '@bees-ui/flex':
         specifier: workspace:^
         version: link:../../components/flex
+      '@bees-ui/switch':
+        specifier: workspace:^
+        version: link:../../components/switch
       antd:
         specifier: ^5.20.6
         version: 5.20.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

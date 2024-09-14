@@ -23,6 +23,7 @@
     "@bees-ui/divider": "workspace:^",
     "@bees-ui/button": "workspace:^",
     "@bees-ui/flex": "workspace:^",
+    "@bees-ui/switch": "workspace:^",
     "react": "^18.3.1",
     "solid-js": "^1.8.22",
     "vue": "^3.5.1"
@@ -47,6 +48,9 @@
       "optional": true
     },
     "@bees-ui/flex": {
+      "optional": true
+    },
+    "@bees-ui/switch": {
       "optional": true
     }
   }

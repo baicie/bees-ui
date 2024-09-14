@@ -13,6 +13,7 @@
     "@bees-ui/button": "workspace:^",
     "@bees-ui/divider": "workspace:^",
     "@bees-ui/flex": "workspace:^",
+    "@bees-ui/switch": "workspace:^",
     "antd": "^5.20.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
