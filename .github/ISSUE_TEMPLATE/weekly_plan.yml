@@ -16,7 +16,7 @@ body:
       description: The week you are planning for
       placeholder: YYYY-MM-DD
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: goals
@@ -24,7 +24,7 @@ body:
       label: Goals
       description: List your goals for the week
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: tasks
