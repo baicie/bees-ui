@@ -3,6 +3,7 @@ import type {
   ButtonComponentToken,
   DividerComponentToken,
   InputComponentToken,
+  SwitchComponentToken,
 } from '../../types';
 
 interface WaveToken {}
@@ -53,7 +54,7 @@ export interface ComponentTokenMap {
   // Slider?: SliderComponentToken;
   // Spin?: SpinComponentToken;
   // Statistic?: StatisticComponentToken;
-  // Switch?: SwitchComponentToken;
+  Switch?: SwitchComponentToken;
   // Tag?: TagComponentToken;
   // Tree?: TreeComponentToken;
   // TreeSelect?: TreeSelectComponentToken;

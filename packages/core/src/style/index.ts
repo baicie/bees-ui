@@ -141,3 +141,5 @@ export const genFocusStyle = (token: DerivativeToken): CSSObject => ({
 
 export * from './compact-item';
 export * from './compact-item-vertical';
+
+export { TinyColor } from '@ctrl/tinycolor';

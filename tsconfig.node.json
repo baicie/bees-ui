@@ -7,7 +7,8 @@
     "lib": ["ESNext", "DOM"],
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2018"
+    "target": "ES2018",
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["vitest.workspace.mts", "internal", "eslint.config.mjs", "tests/**/*.ts"],
   "exclude": ["internal/solid-testing-library"]

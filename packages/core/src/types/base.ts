@@ -7,3 +7,4 @@ const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as co
 export type ValidateStatus = (typeof ValidateStatuses)[number];
 
 export type CSSProperties = JSX.CSSProperties;
+export type SolidNode = JSX.Element;

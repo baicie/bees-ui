@@ -1,5 +1,5 @@
 {
-  "name": "@bees-ui/{{name}}",
+  "name": "@bees-ui/switch",
   "version": "0.0.0",
   "description": "",
   "main": "./dist/lib/index.js",
@@ -18,7 +18,7 @@
     "build": "pnpm bee build --minify --sourcemap",
     "dev": "pnpm bee build --watch --sourcemap",
     "clean": "pnpm rimraf node_modules .turbo dist",
-    "test": "pnpm vitest"
+    "test": "pnpm "
   },
   "keywords": [],
   "author": "",
@@ -27,6 +27,8 @@
     "@bees-ui/core": "workspace:^",
     "@bees-ui/sc-cssinjs": "workspace:^",
     "@bees-ui/sc-element": "workspace:^",
+    "@bees-ui/sc-icons": "workspace:^",
+    "@bees-ui/sc-switch": "workspace:^",
     "@bees-ui/sc-util": "workspace:^",
     "solid-js": "^1.8.22"
   }

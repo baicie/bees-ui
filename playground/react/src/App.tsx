@@ -1,10 +1,12 @@
 import BeesButton from '@bees-ui/button';
 import BeesDivider from '@bees-ui/divider';
 import BeesFlex from '@bees-ui/flex';
+import { BeesSwitch } from '@bees-ui/switch';
 import { useLayoutEffect, useState } from 'react';
 
 BeesButton();
 BeesFlex();
+BeesSwitch();
 BeesDivider();
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
 
   return (
     <>
+      <bees-switch></bees-switch>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
