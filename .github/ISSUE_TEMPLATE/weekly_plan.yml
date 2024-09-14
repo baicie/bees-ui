@@ -3,8 +3,7 @@ description: Track tasks and goals for the week
 title: "Weekly Plan: Week of [YYYY-MM-DD]"
 labels:
   - weekly-plan
-assignees:
-  - ''
+assignees: []
 
 body:
   - type: markdown
@@ -83,9 +82,16 @@ body:
         - label: "Task 1: Description"
         - label: "Task 2: Description"
 
-  - type: input
+  - type: textarea
     id: notes
     attributes:
       label: "Notes"
       description: "Add any additional notes or blockers here."
-      placeholder​⬤
+      placeholder: "Type here..."
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Retrospective (End of the Week)
+        - What went well?
+        - What can be improved?
