@@ -1,11 +1,13 @@
-name: Weekly Issue Creation
+name: Weekly Plan Management
 
 on:
   schedule:
     - cron: '0 0 * * 1'
+    - cron: '59 23 * * 0'
 
 jobs:
-  create-issue:
+  create-weekly-issue:
+    if: github.event.schedule == '0 0 * * 1'
     runs-on: ubuntu-latest
     steps:
       - name: Create a new issue
@@ -14,3 +16,28 @@ jobs:
           title: "Weekly Plan: Week of $(date +'%Y-%m-%d')"
           content-filepath: .github/ISSUE_TEMPLATE/weekly_plan.md
           labels: weekly-plan
+
+  close-weekly-issues:
+    if: github.event.schedule == '59 23 * * 0'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close Weekly Plan Issues
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issues = await github.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'weekly-plan',
+              state: 'open',
+            });
+
+            for (const issue of issues.data) {
+              await github.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+              console.log(`Closed issue: ${issue.number}`);
+            }
