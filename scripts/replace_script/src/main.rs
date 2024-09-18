@@ -1,16 +1,23 @@
-use std::collections::HashSet;
-use std::path::{Path, PathBuf};
-use std::{env, fs};
-
+use colored::*;
+use core::str;
+use git2::build::RepoBuilder;
 use git2::Repository;
 use regex::Regex;
 use serde_json::Value;
+use std::collections::HashSet;
+use std::io::Error;
+use std::path::PathBuf;
+use std::process::Command;
+use std::{env, fs};
 
 lazy_static::lazy_static! {
   static ref RE: Regex = Regex::new(r"^(@ant-design/.*|@rc-component/.*|rc-.*)$").unwrap();
 }
 lazy_static::lazy_static! {
   static ref RE_REACT: Regex = Regex::new(r"^(react|@react.*|@.*react.*)$").unwrap();
+}
+lazy_static::lazy_static! {
+  static ref RE_REACT_DOM: Regex = Regex::new(r"^(react-dom|@react-dom.*|@.*react-dom.*)$").unwrap();
 }
 
 #[tokio::main]
@@ -28,7 +35,7 @@ async fn main() {
 
     let swap_dir = current_dir.join("swap");
     let packages_dir = current_dir.join("packages");
-    let ignore_folders = ["node_modules", "dist", ".git", ".github"];
+    let ignore_folders = ["node_modules", "dist", ".github"];
 
     while !deps.is_empty() {
         let name = deps.iter().next().cloned().unwrap();
@@ -48,7 +55,7 @@ async fn iteration_deps(
     let repo_url = get_npm_package_clone_url(name).await.unwrap().unwrap();
     let clone_dir = swap_dir.join(name);
     // clone repo
-    clone_repo(&repo_url, &clone_dir, ignore_folders).unwrap();
+    clone_repo(&repo_url, &clone_dir).unwrap();
     // replace deps and copy to packages
     replace_deps(&name, &clone_dir, &packages_dir, ignore_folders, deps);
 }
@@ -61,12 +68,13 @@ fn replace_deps(
     deps: &mut HashSet<String>,
 ) {
     scan_deps(clone_dir, deps);
-    replace_package_json(clone_dir);
+    // replace_package_json(clone_dir);
+    println!("replace deps: {:?}", deps);
 
-    // copy to packages
-    let package_name = clone_dir.file_name().unwrap().to_str().unwrap();
-    let dest = packages_dir.join(package_name);
-    fs::copy(clone_dir, dest).unwrap();
+    // // copy to packages
+    // let package_name = clone_dir.file_name().unwrap().to_str().unwrap();
+    // let dest = packages_dir.join(package_name);
+    // fs::copy(clone_dir, dest).unwrap();
 }
 
 fn replace_file_content(path: &PathBuf) {
@@ -201,22 +209,98 @@ fn scan_deps(path: &PathBuf, deps: &mut HashSet<String>) {
     }
 }
 
-fn clone_repo(
-    url: &String,
-    clone_dir: &PathBuf,
-    ignore_folders: &[&str],
-) -> Result<(), git2::Error> {
-    // git clone
-    Repository::clone(url, clone_dir)?;
+fn clone_repo(url: &String, clone_dir: &PathBuf) -> Result<(), git2::Error> {
+    // 获取远程仓库的主分支
+    println!(
+        "{} for {}",
+        "Fetching repository information...".yellow(),
+        url.green()
+    );
+    let branch = get_default_branch(url).unwrap();
+    println!(
+        "Cloning repository from {}/{} to {:?}",
+        url.green(),
+        branch.yellow(),
+        clone_dir.to_string_lossy().cyan()
+    );
+    // 判断目录是否已经存在并且是一个 Git 仓库
+    if clone_dir.exists() && clone_dir.join(".git").exists() {
+        println!(
+            "{}",
+            "Repository already exists. Fetching updates...".yellow()
+        );
 
-    // 遍历并删除指定的文件夹
-    for folder in ignore_folders {
-        let path = Path::new(clone_dir).join(folder);
-        if path.exists() {
-            let _ = fs::remove_dir_all(&path);
+        // 打开已有的仓库并执行更新
+        let repo = Repository::open(clone_dir)?;
+
+        // 拉取最新的代码
+        let mut remote = repo.find_remote("origin")?;
+        remote.fetch(&[&branch], None, None)?;
+
+        // 检查出最新的分支
+        let (object, reference) = repo.revparse_ext(&format!("origin/{}", branch))?;
+        repo.checkout_tree(&object, None)?;
+
+        // 更新HEAD指针到最新的分支
+        if let Some(r) = reference {
+            repo.set_head(r.name().unwrap())?;
+        } else {
+            repo.set_head_detached(object.id())?;
         }
+
+        println!("{}", "Repository updated successfully.".green());
+    } else {
+        // 如果不存在则克隆
+        if clone_dir.exists() {
+            let _ = fs::remove_dir_all(clone_dir).unwrap(); // 如果目录存在但不是Git仓库，删除它
+        }
+        println!("{}", "Cloning repository...".yellow());
+
+        // 执行克隆操作
+        let mut builder = RepoBuilder::new();
+        builder.branch(&branch);
+        builder.clone(url, clone_dir)?;
+
+        println!("{}", "Repository cloned successfully.".green());
     }
+
     Ok(())
+}
+
+// 获取远程仓库的默认分支
+
+fn get_default_branch(url: &str) -> Result<String, Error> {
+    let output = Command::new("git")
+        .args(&["ls-remote", "--symref", url, "HEAD"])
+        .output()?;
+
+    if !output.status.success() {
+        return Err(Error::new(
+            std::io::ErrorKind::Other,
+            format!("Git command failed with status: {:?}", output.status),
+        ));
+    }
+
+    let output_str = str::from_utf8(&output.stdout).expect("Invalid UTF-8 output");
+
+    // 查找行中的 "ref: refs/heads/" 部分
+    if let Some(line) = output_str
+        .lines()
+        .find(|line| line.contains("ref: refs/heads/"))
+    {
+        let branch_name = line
+            .split_whitespace()
+            .nth(1) // 提取分支名称部分
+            .ok_or_else(|| Error::new(std::io::ErrorKind::Other, "Branch name not found"))?
+            .strip_prefix("refs/heads/")
+            .ok_or_else(|| Error::new(std::io::ErrorKind::Other, "Invalid branch format"))?;
+        Ok(branch_name.to_string())
+    } else {
+        Err(Error::new(
+            std::io::ErrorKind::NotFound,
+            "Default branch not found",
+        ))
+    }
 }
 
 async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, String> {
@@ -235,7 +319,9 @@ async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, Stri
 
     // 获取仓库地址
     if let Some(repository) = package_info["repository"]["url"].as_str() {
-        let url = repository.replace("git+", "");
+        let url = repository
+            .replace("git+", "")
+            .replace("ssh://git@", "https://");
         Ok(Some(url))
     } else {
         Ok(None) // 没有找到仓库地址
