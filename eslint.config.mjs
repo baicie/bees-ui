@@ -46,6 +46,7 @@ export default tseslint.config(
       'coverage',
       'packages',
       'antd',
+      'swap',
     ],
   },
 

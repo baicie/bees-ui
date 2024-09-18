@@ -1,22 +1,24 @@
 import path from 'node:path';
-import { rollup } from 'rollup';
-import { dts as dtsPlugin } from 'rollup-plugin-dts';
+import { build } from 'tsup';
 
-import { Options, resolveConfig } from './build';
-import { componentsPath, rootPath, typesPath } from './path';
+import type { Options } from './build';
+import { rootPath } from './path';
+import { DEFAULT, normalizePath, resolveInput, resolveTsConfig, target } from './ustils';
 
 export async function dts(root: string, options: Options = {}) {
-  const bundleConfig = await resolveConfig(root, options, [
-    dtsPlugin({
-      tsconfig: path.resolve(rootPath, 'tsconfig.json'),
-    }),
-  ]);
-  const bundle = await rollup(bundleConfig);
-  bundle.write({
-    dir: typesPath,
-    format: 'esm',
-    preserveModules: true,
-    preserveModulesRoot: componentsPath,
-    exports: 'named',
+  const { input = DEFAULT, watch = false, tsconfig = resolveTsConfig(root, rootPath) } = options;
+  const outputPath = path.resolve(root, 'dist/types');
+  const inputPath = resolveInput(root, input);
+
+  await build({
+    entry: inputPath.map(normalizePath),
+    dts: {
+      only: true,
+    },
+    outDir: outputPath,
+    tsconfig,
+    target,
+    watch,
+    clean: true,
   });
 }

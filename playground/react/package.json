@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@bees-ui/antd": "workspace:^",
+    "@bees-ui/rc-util": "workspace:^",
+    "@bees-ui/test": "workspace:^",
     "antd": "^5.19.4",
     "preact": "^10.23.1",
     "react": "^18.3.1",

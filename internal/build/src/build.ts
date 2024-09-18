@@ -58,7 +58,7 @@ export async function resolveConfig(
     minify = false,
     full = false,
   } = options;
-  const inputPath = resolveInput(root, input, options);
+  const inputPath = resolveInput(root, input);
   const watchOptions: WatcherOptions = {
     clearScreen: true,
   };
@@ -87,6 +87,8 @@ export async function resolveConfig(
     ...plugin,
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
+  console.log('external', external);
+
   return {
     input: inputPath,
     plugins,

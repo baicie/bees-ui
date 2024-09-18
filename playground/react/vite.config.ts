@@ -11,12 +11,7 @@ const __dirname = path.dirname(__filename);
 // https://vitejs.dev/config/
 const config = defineConfig({
   plugins: [react()],
-  resolve:{
-    alias:{
-      'react-dom': path.resolve(__dirname, 'node_modules/preact/compat'), 
-      react: path.resolve(__dirname, 'node_modules/preact/compat'),
-    }
-  }
+  resolve: {},
 });
 
 export default mergeConfig(config, common);

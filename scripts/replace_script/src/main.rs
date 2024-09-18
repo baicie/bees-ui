@@ -1,9 +1,17 @@
 use std::collections::HashSet;
-use std::path::PathBuf;
-use std::{env, fs, iter};
+use std::path::{Path, PathBuf};
+use std::{env, fs};
 
+use git2::Repository;
 use regex::Regex;
 use serde_json::Value;
+
+lazy_static::lazy_static! {
+  static ref RE: Regex = Regex::new(r"^(@ant-design/.*|@rc-component/.*|rc-.*)$").unwrap();
+}
+lazy_static::lazy_static! {
+  static ref RE_REACT: Regex = Regex::new(r"^(react|@react.*|@.*react.*)$").unwrap();
+}
 
 #[tokio::main]
 async fn main() {
@@ -20,24 +28,133 @@ async fn main() {
 
     let swap_dir = current_dir.join("swap");
     let packages_dir = current_dir.join("packages");
-    let antd_dir = current_dir.join("antd");
+    let ignore_folders = ["node_modules", "dist", ".git", ".github"];
 
     while !deps.is_empty() {
         let name = deps.iter().next().cloned().unwrap();
-        iteration_deps(&name);
+        iteration_deps(&name, &swap_dir, &packages_dir, &ignore_folders, &mut deps).await;
         deps.remove(&name);
     }
 }
 
-fn iteration_deps(name: &String) {
+async fn iteration_deps(
+    name: &String,
+    swap_dir: &PathBuf,
+    packages_dir: &PathBuf,
+    ignore_folders: &[&str],
+    deps: &mut HashSet<String>,
+) {
     //get repo url
-    let repo_url =
+    let repo_url = get_npm_package_clone_url(name).await.unwrap().unwrap();
+    let clone_dir = swap_dir.join(name);
     // clone repo
-    // replace deps
+    clone_repo(&repo_url, &clone_dir, ignore_folders).unwrap();
+    // replace deps and copy to packages
+    replace_deps(&name, &clone_dir, &packages_dir, ignore_folders, deps);
 }
 
-fn clone_repo(url: &String) {
-    // git clone
+fn replace_deps(
+    name: &String,
+    clone_dir: &PathBuf,
+    packages_dir: &PathBuf,
+    ignore_folders: &[&str],
+    deps: &mut HashSet<String>,
+) {
+    scan_deps(clone_dir, deps);
+    replace_package_json(clone_dir);
+
+    // copy to packages
+    let package_name = clone_dir.file_name().unwrap().to_str().unwrap();
+    let dest = packages_dir.join(package_name);
+    fs::copy(clone_dir, dest).unwrap();
+}
+
+fn replace_file_content(path: &PathBuf) {
+    let content = match fs::read_to_string(path) {
+        Ok(content) => content,
+        Err(e) => {
+            eprintln!("Error reading file: {:?}", e);
+            return;
+        }
+    };
+
+    let new_content = content.replace("@ant-design", "@bees-ui");
+    fs::write(path, new_content).unwrap();
+}
+
+fn replace_package_json(path: &PathBuf) {
+    let package_json_path = path.join("package.json");
+    if !package_json_path.exists() {
+        return;
+    }
+    let package_json = match fs::read_to_string(&package_json_path) {
+        Ok(content) => content,
+        Err(e) => {
+            eprintln!("Error reading package.json: {:?}", e);
+            return;
+        }
+    };
+    let mut package_json: serde_json::Value = match serde_json::from_str(&package_json) {
+        Ok(value) => value,
+        Err(e) => {
+            eprintln!("Error parsing package.json: {:?}", e);
+            return;
+        }
+    };
+
+    let name = package_json["name"].as_str().unwrap();
+    let new_name = format!("@bees-ui/{}", name);
+
+    // 修改 name 字段
+    if let Some(obj) = package_json.as_object_mut() {
+        obj.insert("name".to_string(), Value::String(new_name.to_string()));
+    } else {
+        return;
+    }
+
+    // 将修改后的 JSON 数据写回到文件
+    let updated_content = match serde_json::to_string_pretty(&package_json) {
+        Ok(content) => content,
+        Err(e) => {
+            return;
+        }
+    };
+
+    fs::write(&package_json_path, updated_content).unwrap();
+}
+
+fn replace_dependencies(deps: Option<&mut Value>) {
+    if let Some(deps) = deps {
+        if let Some(deps_map) = deps.as_object_mut() {
+            let mut keys_to_update = Vec::new();
+            let mut keys_to_preact = Vec::new();
+
+            // 找出符合正则表达式的包名
+            for key in deps_map.keys() {
+                if RE.is_match(key) {
+                    keys_to_update.push(key.clone());
+                }
+            }
+
+            for key in deps_map.keys() {
+                if RE_REACT.is_match(key) {
+                    keys_to_preact.push(key.clone());
+                }
+            }
+
+            // 替换包名
+            for key in keys_to_update {
+                deps_map.remove(&key).unwrap();
+                let new_key = format!("@bees-ui/{}", key);
+                deps_map.insert(new_key, Value::String("workspace:^".to_string()));
+            }
+
+            for key in keys_to_preact {
+                let value = deps_map.remove(&key).unwrap();
+                deps_map.insert("preact".to_string(), value);
+            }
+        }
+    }
 }
 
 fn scan_deps(path: &PathBuf, deps: &mut HashSet<String>) {
@@ -63,16 +180,44 @@ fn scan_deps(path: &PathBuf, deps: &mut HashSet<String>) {
         Some(deps) => deps,
         None => return,
     };
-    let re = Regex::new(r"^(@ant-design/.*|@rc-component/.*|rc-.*)$").unwrap();
+    let peer_dependencies = match package_json.get("peerDependencies") {
+        Some(deps) => deps,
+        None => return,
+    };
+
+    let name = package_json["name"].as_str().unwrap();
 
     for (key, _) in dependencies.as_object().unwrap() {
-        if re.is_match(key) {
+        if RE.is_match(key) {
             deps.insert(key.clone());
+        }
+    }
+
+    for (key, _) in peer_dependencies.as_object().unwrap() {
+        if RE_REACT.is_match(key) {
+            deps.insert(name.to_string());
+            break;
         }
     }
 }
 
-// fn clone_replace_deps() {}
+fn clone_repo(
+    url: &String,
+    clone_dir: &PathBuf,
+    ignore_folders: &[&str],
+) -> Result<(), git2::Error> {
+    // git clone
+    Repository::clone(url, clone_dir)?;
+
+    // 遍历并删除指定的文件夹
+    for folder in ignore_folders {
+        let path = Path::new(clone_dir).join(folder);
+        if path.exists() {
+            let _ = fs::remove_dir_all(&path);
+        }
+    }
+    Ok(())
+}
 
 async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, String> {
     let url = format!("https://registry.npmjs.org/{}", name);
