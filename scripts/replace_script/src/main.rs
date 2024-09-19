@@ -1,26 +1,50 @@
 use colored::*;
 use core::str;
-use git2::build::RepoBuilder;
+use git2::Config as GitConfig;
 use git2::Repository;
 use regex::Regex;
+use serde_json::json;
 use serde_json::Value;
 use std::collections::HashMap;
 use std::io::Error;
 use std::path::PathBuf;
-use std::process::Command;
+use std::sync::{Arc, Mutex};
 use std::{env, fs};
 
 lazy_static::lazy_static! {
   static ref RE: Regex = Regex::new(r"^(@ant-design/.*|@rc-component/.*|rc-.*)$").unwrap();
-}
-lazy_static::lazy_static! {
   static ref RE_REACT: Regex = Regex::new(r"^(?:react|react-dom|@react.*|@.*react.*|@react-dom.*|@.*react-dom.*)$").unwrap();
+  static ref RE_TRY: u32 = 10;
+  static ref version: String = "^17.0.2".to_string();
+}
+
+#[derive(Debug, Clone)]
+struct Deps {
+    cloned: bool,
+    name: String,
+    re_try: u32,
+}
+
+impl Deps {
+    fn new(name: String) -> Self {
+        Deps {
+            cloned: false,
+            name,
+            re_try: 0,
+        }
+    }
 }
 
 #[tokio::main]
 async fn main() {
-    let mut deps: HashMap<String, bool> = HashMap::new();
-    deps.insert("antd".to_string(), false);
+    env::set_var("http_proxy", "http://127.0.0.1:7890");
+    env::set_var("https_proxy", "http://127.0.0.1:7890");
+
+    let mut deps: HashMap<String, Deps> = HashMap::new();
+    let init = Deps::new("antd".to_string());
+    deps.insert(init.name.clone(), init);
+    let deps = Arc::new(Mutex::new(deps));
+
     // 获取当前工作目录
     let current_dir: PathBuf = match env::current_dir() {
         Ok(path) => path,
@@ -34,17 +58,73 @@ async fn main() {
     let packages_dir = current_dir.join("packages");
     let ignore_folders = [];
 
-    while deps.values().any(|&v| v == false) {
-        let name = deps.iter().next().unwrap().0.clone();
-        let value = deps.iter().next().unwrap().1.clone();
-        println!("name: {}, value: {}", name.red(), value);
-        if value {
-            continue;
-        }
-        iteration_deps(&name, &swap_dir, &packages_dir, &ignore_folders, &mut deps).await;
-        if let Some(value) = deps.get_mut(&name) {
-            *value = true;
-        }
+    let index = Arc::new(Mutex::new(1));
+
+    while {
+        let deps = deps.lock().unwrap();
+        deps.values().any(|v| !v.cloned)
+    } {
+        let dep_item = {
+            let deps = deps.lock().unwrap();
+            deps.iter()
+                .find(|(_, v)| !v.cloned && v.re_try <= *RE_TRY)
+                .map(|(k, v)| (k.clone(), v.clone()))
+                .unwrap()
+        };
+
+        println!(
+            "{}",
+            "==============================================================".blue()
+        );
+        println!(
+            "{}",
+            format!(
+                "Processing: {}, size: {}, re_try: {}, current index: {}",
+                dep_item.0,
+                deps.lock().unwrap().len(),
+                dep_item.1.re_try,
+                *index.lock().unwrap()
+            )
+            .yellow()
+        );
+
+        let deps_clone = Arc::clone(&deps);
+        let swap_dir_clone = swap_dir.clone();
+        let packages_dir_clone = packages_dir.clone();
+        let ignore_folders_clone = ignore_folders.clone();
+        let index_clone = Arc::clone(&index);
+        // 调用处理函数
+        let handle = tokio::spawn(async move {
+            match iteration_deps(
+                &dep_item.0,
+                &swap_dir_clone,
+                &packages_dir_clone,
+                &ignore_folders_clone,
+                &deps_clone,
+            )
+            .await
+            {
+                Ok(_) => {
+                    let mut deps = deps_clone.lock().unwrap();
+                    if let Some(value) = deps.get_mut(&dep_item.0) {
+                        value.cloned = true;
+                    }
+                    let mut index_guard = index_clone.lock().unwrap();
+                    *index_guard += 1;
+                }
+                Err(e) => {
+                    let mut deps = deps_clone.lock().unwrap();
+                    if let Some(value) = deps.get_mut(&dep_item.0) {
+                        value.re_try += 1;
+                    }
+                    eprintln!(
+                        "{}",
+                        format!("Error processing {}: {:?}", dep_item.0, e).red()
+                    );
+                }
+            }
+        });
+        handle.await.unwrap();
     }
 }
 
@@ -53,48 +133,30 @@ async fn iteration_deps(
     swap_dir: &PathBuf,
     packages_dir: &PathBuf,
     ignore_folders: &[&str],
-    deps: &mut HashMap<String, bool>,
-) {
+    deps: &Arc<Mutex<HashMap<String, Deps>>>,
+) -> Result<String, Error> {
     //get repo url
     let repo_url = get_npm_package_clone_url(name).await.unwrap().unwrap();
     let clone_dir = swap_dir.join(name);
     // clone repo
-    clone_repo(&repo_url, &clone_dir).unwrap();
-    // replace deps and copy to packages
-    replace_deps(&name, &clone_dir, &packages_dir, ignore_folders, deps);
+    match clone_repo(&repo_url, &clone_dir) {
+        Ok(_) => {
+            scan_deps(&clone_dir, deps, name);
+            replace_package_json(&name, &clone_dir, &swap_dir, &packages_dir, ignore_folders);
+            Ok(String::new())
+        }
+        Err(e) => Err(Error::new(std::io::ErrorKind::Other, e.message())),
+    }
 }
 
-fn replace_deps(
+fn replace_package_json(
     name: &String,
-    clone_dir: &PathBuf,
+    path: &PathBuf,
+    swap_dir: &PathBuf,
     packages_dir: &PathBuf,
     ignore_folders: &[&str],
-    deps: &mut HashMap<String, bool>,
 ) {
-    scan_deps(clone_dir, deps);
-    // replace_package_json(clone_dir);
-    println!("replace deps: {:?}", deps.len());
-
-    // // copy to packages
-    // let package_name = clone_dir.file_name().unwrap().to_str().unwrap();
-    // let dest = packages_dir.join(package_name);
-    // fs::copy(clone_dir, dest).unwrap();
-}
-
-fn replace_file_content(path: &PathBuf) {
-    let content = match fs::read_to_string(path) {
-        Ok(content) => content,
-        Err(e) => {
-            eprintln!("Error reading file: {:?}", e);
-            return;
-        }
-    };
-
-    let new_content = content.replace("@ant-design", "@bees-ui");
-    fs::write(path, new_content).unwrap();
-}
-
-fn replace_package_json(path: &PathBuf) {
+    println!("{}", format!("Scanning dependencies in: {:?}", path).blue());
     let package_json_path = path.join("package.json");
     if !package_json_path.exists() {
         return;
@@ -113,67 +175,84 @@ fn replace_package_json(path: &PathBuf) {
             return;
         }
     };
-
-    let name = package_json["name"].as_str().unwrap();
+    // edit name
     let new_name = format!("@bees-ui/{}", name);
-
-    // 修改 name 字段
     if let Some(obj) = package_json.as_object_mut() {
         obj.insert("name".to_string(), Value::String(new_name.to_string()));
-    } else {
-        return;
+        obj.insert("version".to_string(), Value::String("0.0.0".to_string()));
+        obj.insert(
+            "description".to_string(),
+            Value::String("copy from antd".to_string()),
+        );
+        obj.insert("files".to_string(), Value::Array(vec!["dist".into()]));
+        obj.insert(
+            "exports".to_string(),
+            json!({
+                ".": {
+                    "default": "./dist/es/index.js",
+                    "require": "./dist/lib/index.js",
+                    "import": "./dist/es/index.js",
+                    "types": "./dist/types/index.d.ts"
+                }
+            }),
+        );
     }
-
-    // 将修改后的 JSON 数据写回到文件
-    let updated_content = match serde_json::to_string_pretty(&package_json) {
-        Ok(content) => content,
-        Err(e) => {
-            return;
+    // edit main module types
+    if let Some(obj) = package_json.as_object_mut() {
+        obj.insert(
+            "main".to_string(),
+            Value::String(format!("./dist/lib/index.js")),
+        );
+        obj.insert(
+            "module".to_string(),
+            Value::String(format!("./dist/es/index.js")),
+        );
+        obj.insert(
+            "types".to_string(),
+            Value::String(format!("./dist/types/index.d.ts")),
+        );
+    }
+    // edit script build
+    if let Some(obj) = package_json.as_object_mut() {
+        let script = obj
+            .entry("scripts".to_string())
+            .or_insert_with(|| Value::Object(serde_json::Map::new()));
+        if let Some(scripts) = script.as_object_mut() {
+            scripts.insert(
+                "build".to_string(),
+                Value::String("pnpm bee build --minify --sourcemap".to_string()),
+            );
+            scripts.insert(
+                "dev".to_string(),
+                Value::String("pnpm bee build --watch --sourcemap".to_string()),
+            );
+            scripts.insert(
+                "clean".to_string(),
+                Value::String("pnpm rimraf node_modules .turbo dist".to_string()),
+            );
+            // scripts.insert("test".to_string(), Value::String("pnpm vitest".to_string()));
         }
-    };
-
-    fs::write(&package_json_path, updated_content).unwrap();
+    }
+    // no edit dependencies
+    // edit peerDependencies
+    if let Some(obj) = package_json.as_object_mut() {
+        obj.insert(
+            "peerDependencies".to_string(),
+            json!({
+              "preact": version,
+            }),
+        );
+    }
 }
 
-fn replace_dependencies(deps: Option<&mut Value>) {
-    if let Some(deps) = deps {
-        if let Some(deps_map) = deps.as_object_mut() {
-            let mut keys_to_update = Vec::new();
-            let mut keys_to_preact = Vec::new();
+fn scan_deps(path: &PathBuf, deps: &Arc<Mutex<HashMap<String, Deps>>>, pkg_name: &String) {
+    println!("{}", format!("Scanning dependencies in: {:?}", path).cyan());
 
-            // 找出符合正则表达式的包名
-            for key in deps_map.keys() {
-                if RE.is_match(key) {
-                    keys_to_update.push(key.clone());
-                }
-            }
-
-            for key in deps_map.keys() {
-                if RE_REACT.is_match(key) {
-                    keys_to_preact.push(key.clone());
-                }
-            }
-
-            // 替换包名
-            for key in keys_to_update {
-                deps_map.remove(&key).unwrap();
-                let new_key = format!("@bees-ui/{}", key);
-                deps_map.insert(new_key, Value::String("workspace:^".to_string()));
-            }
-
-            for key in keys_to_preact {
-                let value = deps_map.remove(&key).unwrap();
-                deps_map.insert("preact".to_string(), value);
-            }
-        }
-    }
-}
-
-fn scan_deps(path: &PathBuf, deps: &mut HashMap<String, bool>) {
     let package_json_path = path.join("package.json");
     if !package_json_path.exists() {
         return;
     }
+
     let package_json = match fs::read_to_string(&package_json_path) {
         Ok(content) => content,
         Err(e) => {
@@ -181,6 +260,7 @@ fn scan_deps(path: &PathBuf, deps: &mut HashMap<String, bool>) {
             return;
         }
     };
+
     let package_json: serde_json::Value = match serde_json::from_str(&package_json) {
         Ok(value) => value,
         Err(e) => {
@@ -188,126 +268,76 @@ fn scan_deps(path: &PathBuf, deps: &mut HashMap<String, bool>) {
             return;
         }
     };
-    let dependencies = match package_json.get("dependencies") {
-        Some(deps) => deps,
-        None => &Value::Object(serde_json::Map::new()),
-    };
 
-    let peer_dependencies = match package_json.get("peerDependencies") {
-        Some(deps) => deps,
-        None => &Value::Object(serde_json::Map::new()),
-    };
+    let default_dependencies = Value::Object(serde_json::Map::new());
+    let dependencies = package_json
+        .get("dependencies")
+        .unwrap_or(&default_dependencies);
+    let peer_dependencies = package_json
+        .get("peerDependencies")
+        .unwrap_or(&default_dependencies);
 
-    let name = package_json["name"].as_str().unwrap();
+    let name = package_json["name"].as_str().unwrap_or(pkg_name);
+
+    // Lock the `deps` HashMap before accessing it
+    let mut deps_lock = deps.lock().unwrap();
 
     if let Some(deps_map) = dependencies.as_object() {
         for (key, _) in deps_map {
-            if RE.is_match(key) {
-                deps.insert(key.clone(), false);
+            if RE.is_match(key) && !deps_lock.contains_key(key) {
+                println!("{}", format!("Found dependency: {}", key).purple());
+                let item = Deps::new(key.clone());
+                deps_lock.insert(item.name.clone(), item);
             }
         }
     }
 
-    for (key, _) in peer_dependencies.as_object().unwrap() {
-        if RE_REACT.is_match(key) && !deps.contains_key(name) {
-            deps.insert(name.to_string(), false);
-            break;
+    if let Some(peer_deps_map) = peer_dependencies.as_object() {
+        for (key, _) in peer_deps_map {
+            if RE_REACT.is_match(key) && deps_lock.contains_key(name) {
+                println!("{}", format!("Found peer dependency: {}", key).purple());
+                let item = Deps::new(name.to_string());
+                deps_lock.insert(item.name.clone(), item);
+                break; // If the condition is met, break the loop
+            }
         }
     }
 }
 
 fn clone_repo(url: &String, clone_dir: &PathBuf) -> Result<(), git2::Error> {
     // 获取远程仓库的主分支
+
+    let mut config = GitConfig::open_default().unwrap();
+    config.set_str("http.proxy", "http://127.0.0.1:7890")?;
+
     println!(
-        "{} for {}",
-        "Fetching repository information...".green(),
-        url.green()
-    );
-    let branch = get_default_branch(url).unwrap();
-    println!(
-        "Cloning repository from {}/{} to {:?}",
-        url.yellow(),
-        branch.yellow(),
-        clone_dir
+        "{}",
+        format!("Cloning repository from {}  to {:?}", url, clone_dir).bright_cyan()
     );
     // 判断目录是否已经存在并且是一个 Git 仓库
     if clone_dir.exists() && clone_dir.join(".git").exists() {
-        println!(
-            "{}",
-            "Repository already exists. Fetching updates...".yellow()
-        );
-
         // 打开已有的仓库并执行更新
+        println!("{}", "Repository exists, updating...".cyan());
         let repo = Repository::open(clone_dir)?;
 
         // 拉取最新的代码
         let mut remote = repo.find_remote("origin")?;
-        remote.fetch(&[&branch], None, None)?;
-
-        // 检查出最新的分支
-        let (object, reference) = repo.revparse_ext(&format!("origin/{}", branch))?;
-        repo.checkout_tree(&object, None)?;
-
-        // 更新HEAD指针到最新的分支
-        if let Some(r) = reference {
-            repo.set_head(r.name().unwrap())?;
-        } else {
-            repo.set_head_detached(object.id())?;
-        }
-
-        println!("{}", "Repository updated successfully.".green());
+        remote.fetch(&["HEAD"], None, None)?;
     } else {
         // 如果不存在则克隆
+        println!(
+            "{}",
+            format!("Repository does not exist, cloning...").cyan()
+        );
         if clone_dir.exists() {
             let _ = fs::remove_dir_all(clone_dir).unwrap(); // 如果目录存在但不是Git仓库，删除它
         }
-        println!("{}", "Cloning repository...".yellow());
-
         // 执行克隆操作
-        let mut builder = RepoBuilder::new();
-        builder.branch(&branch);
-        builder.clone(url, clone_dir)?;
-
-        println!("{}", "Repository cloned successfully.".green());
+        Repository::clone(url, clone_dir)?;
     }
+    println!("{}", "Repository updated successfully.".green());
 
     Ok(())
-}
-
-// 获取远程仓库的默认分支
-
-fn get_default_branch(url: &str) -> Result<String, Error> {
-    let output = Command::new("git")
-        .args(&["ls-remote", "--symref", url, "HEAD"])
-        .output()?;
-
-    if !output.status.success() {
-        return Err(Error::new(
-            std::io::ErrorKind::Other,
-            format!("Git command failed with status: {:?}", output.status),
-        ));
-    }
-
-    let output_str = str::from_utf8(&output.stdout).expect("Invalid UTF-8 output");
-
-    // 查找行中的 "ref: refs/heads/" 部分
-    if let Some(line) = output_str
-        .lines()
-        .find(|line| line.contains("ref: refs/heads/"))
-    {
-        let branch_name = line
-            .split_whitespace()
-            .nth(1) // 提取分支名称部分
-            .ok_or_else(|| Error::new(std::io::ErrorKind::Other, "Branch name not found"))?
-            .strip_prefix("refs/heads/")
-            .ok_or_else(|| Error::new(std::io::ErrorKind::Other, "Invalid branch format"))?;
-        Ok(branch_name.to_string())
-    } else {
-        Err(Error::new(
-            std::io::ErrorKind::NotFound,
-            "Default branch not found",
-        ))
-    }
 }
 
 async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, String> {
@@ -328,8 +358,9 @@ async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, Stri
     if let Some(repository) = package_info["repository"]["url"].as_str() {
         let url = repository
             .replace("git+", "")
-            .replace("ssh://git@", "https://");
-        Ok(Some(url))
+            .replace("ssh://git@", "https://")
+            .replace("#master", "");
+        Ok(Some(url.trim().to_string()))
     } else {
         Ok(None) // 没有找到仓库地址
     }
