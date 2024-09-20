@@ -1,0 +1,47 @@
+.storybook
+*.iml
+*.log
+.idea/
+.ipr
+.iws
+*~
+~*
+*.diff
+*.patch
+*.bak
+.DS_Store
+Thumbs.db
+.project
+.*proj
+.svn/
+*.swp
+*.swo
+*.pyc
+*.pyo
+.build
+node_modules
+.cache
+assets/**/*.css
+build
+lib
+es
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+coverage/
+.doc
+
+# umi
+.umi
+.umi-production
+.umi-test
+.env.local
+
+# vscode
+.vscode
+
+# dumi
+.dumi/tmp
+.dumi/tmp-production
+
+bun.lockb

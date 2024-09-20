@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cascader.Basic should not show title when title is falsy 1`] = `
+<ul
+  class="rc-cascader-menu"
+  role="menu"
+>
+  <li
+    aria-checked="false"
+    class="rc-cascader-menu-item"
+    data-path-key="1"
+    role="menuitemcheckbox"
+    title=""
+  >
+    <div
+      class="rc-cascader-menu-item-content"
+    >
+      1
+    </div>
+  </li>
+  <li
+    aria-checked="false"
+    class="rc-cascader-menu-item"
+    data-path-key="2"
+    role="menuitemcheckbox"
+    title="2"
+  >
+    <div
+      class="rc-cascader-menu-item-content"
+    >
+      2
+    </div>
+  </li>
+  <li
+    aria-checked="false"
+    class="rc-cascader-menu-item"
+    data-path-key="3"
+    role="menuitemcheckbox"
+    title="3"
+  >
+    <div
+      class="rc-cascader-menu-item-content"
+    >
+      3
+    </div>
+  </li>
+  <li
+    aria-checked="false"
+    class="rc-cascader-menu-item"
+    data-path-key="4"
+    role="menuitemcheckbox"
+    title="title"
+  >
+    <div
+      class="rc-cascader-menu-item-content"
+    >
+      4
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Cascader.Basic should render custom dropdown correctly 1`] = `
+<div
+  class="rc-cascader-dropdown rc-cascader-dropdown-placement-bottomLeft"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+>
+  <div>
+    <div
+      class="custom-dropdown"
+    >
+      <div
+        class="rc-cascader-menus"
+      >
+        <ul
+          class="rc-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="rc-cascader-menu-item rc-cascader-menu-item-expand"
+            data-path-key="fj"
+            role="menuitemcheckbox"
+            title="福建"
+          >
+            <div
+              class="rc-cascader-menu-item-content"
+            >
+              福建
+            </div>
+            <div
+              class="rc-cascader-menu-item-expand-icon"
+            >
+              &gt;
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="rc-cascader-menu-item rc-cascader-menu-item-expand"
+            data-path-key="zj"
+            role="menuitemcheckbox"
+            title="浙江"
+          >
+            <div
+              class="rc-cascader-menu-item-content"
+            >
+              浙江
+            </div>
+            <div
+              class="rc-cascader-menu-item-expand-icon"
+            >
+              &gt;
+            </div>
+          </li>
+          <li
+            aria-checked="false"
+            class="rc-cascader-menu-item rc-cascader-menu-item-expand"
+            data-path-key="bj"
+            role="menuitemcheckbox"
+            title="北京"
+          >
+            <div
+              class="rc-cascader-menu-item-content"
+            >
+              北京
+            </div>
+            <div
+              class="rc-cascader-menu-item-expand-icon"
+            >
+              &gt;
+            </div>
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <span
+        class="custom-dropdown-content"
+      >
+        Hello, DropdownRender
+      </span>
+    </div>
+  </div>
+</div>
+`;

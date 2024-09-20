@@ -1,0 +1,73 @@
+{
+  "author": "",
+  "bugs": {
+    "url": "http://github.com/react-component/context/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/util": "workspace:^"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/warning": "^3.0.0",
+    "@umijs/fabric": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "dumi": "^2.0.15",
+    "eslint": "^8.54.0",
+    "eslint-plugin-jest": "^28.2.0",
+    "eslint-plugin-unicorn": "^52.0.0",
+    "father": "^4.0.0",
+    "np": "^10.0.4",
+    "rc-test": "^7.0.14",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.0.2"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/context",
+  "keywords": [
+    "react",
+    "react-component",
+    "context"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/context",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/context.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "father test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ docs/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test",
+    "tsc": "tsc --noEmit"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

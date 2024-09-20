@@ -1,0 +1,98 @@
+{
+  "author": "yiminghe@gmail.com",
+  "bugs": {
+    "url": "http://github.com/react-component/tabs/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@bees-ui/dropdown": "workspace:^",
+    "@bees-ui/menu": "workspace:^",
+    "@bees-ui/motion": "workspace:^",
+    "@bees-ui/resize-observer": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "2.x"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@rc-component/trigger": "^2.0.0",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^15.0.2",
+    "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^29.4.0",
+    "@types/keyv": "4.2.0",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.0.11",
+    "@umijs/fabric": "^4.0.1",
+    "coveralls": "^3.0.6",
+    "cross-env": "^7.0.2",
+    "dumi": "^2.0.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-unicorn": "^53.0.0",
+    "fastclick": "~1.0.6",
+    "father": "^4.0.0",
+    "gh-pages": "^6.1.0",
+    "history": "^5.3.0",
+    "immutability-helper": "^3.0.1",
+    "less": "^4.1.3",
+    "np": "^10.0.2",
+    "preact-compat": "^3.16.0",
+    "rc-test": "^7.0.14",
+    "react": "^18.0.0",
+    "react-dnd": "^10.0.0",
+    "react-dnd-html5-backend": "^10.0.0",
+    "react-dom": "^18.0.0",
+    "react-sticky": "^6.0.3",
+    "sortablejs": "^1.7.0",
+    "typescript": "^5.3.2"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/tabs",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-tabs"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/tabs",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/tabs.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && npm run compile:style",
+    "compile:style": "lessc --js assets/index.less assets/index.css",
+    "coverage": "father test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:deploy": "gh-pages -d .doc",
+    "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepublishOnly": "npm run lint && npm run test && npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

@@ -1,0 +1,93 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/select/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/motion": "workspace:^",
+    "@bees-ui/overflow": "workspace:^",
+    "@bees-ui/trigger": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "@bees-ui/virtual-list": "workspace:^",
+    "classnames": "2.x"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.2",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.6",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "babel-jest": "^29.6.1",
+    "cross-env": "^7.0.0",
+    "dumi": "^2.2.13",
+    "eslint": "^8.55.0",
+    "eslint-plugin-jest": "^28.8.1",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "father": "^4.0.0",
+    "husky": "^9.1.5",
+    "jsonp": "^0.2.1",
+    "less": "^4.2.0",
+    "lint-staged": "^15.2.9",
+    "np": "^10.0.7",
+    "prettier": "^3.1.1",
+    "querystring": "^0.2.1",
+    "rc-dialog": "^9.0.0",
+    "rc-test": "^7.0.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/select",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-select",
+    "select"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/select",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/select.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && lessc assets/index.less assets/index.css",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ docs/ tests/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepare": "husky && dumi setup",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "prettier": "prettier --write --ignore-unknown .",
+    "start": "dumi dev",
+    "test": "rc-test",
+    "tsc": "tsc --noEmit"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

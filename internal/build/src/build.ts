@@ -16,9 +16,10 @@ import type {
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import visualizer from 'rollup-plugin-visualizer';
-
+import deps from './deps';
 import { componentsPath, rootPath } from './path';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
+import babel from '@rollup/plugin-babel';
 
 export interface Options {
   /**
@@ -63,13 +64,19 @@ export async function resolveConfig(
     clearScreen: true,
   };
   const plugins = [
+    babel({
+      babelHelpers: 'runtime',
+      presets: ['@babel/preset-react'],
+      exclude: 'node_modules/**',
+    }),
     alias({
       entries: [
         { find: 'react', replacement: 'preact/compat' },
         { find: 'react-dom/test-utils', replacement: 'preact/test-utils' },
         { find: 'react-dom', replacement: 'preact/compat' },
         { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
-        { find: 'classnames', replacement: 'clsx' },
+        // { find: 'classnames', replacement: 'clsx' },
+        ...deps
       ],
     }),
     nodeResolve({
@@ -82,6 +89,12 @@ export async function resolveConfig(
       target,
       tsconfig: path.resolve(rootPath, 'tsconfig.json'),
       treeShaking: true,
+      loaders: {
+        '.js': 'jsx',
+        '.jsx': 'jsx',
+        '.ts': 'ts',
+        '.tsx': 'tsx',
+      }
     }),
     options.visualizer ? visualizer({ open: true }) : null,
     ...plugin,

@@ -1,0 +1,88 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/progress/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.2.6"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@testing-library/react": "^12.1.5",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^29.4.0",
+    "@types/keyv": "3.1.4",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.3",
+    "@umijs/fabric": "^3.0.0",
+    "cheerio": "1.0.0-rc.12",
+    "cross-env": "^7.0.0",
+    "dumi": "^2.0.0",
+    "enzyme": "^3.1.1",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.1.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "father": "^4.0.0",
+    "glob": "^8.0.1",
+    "np": "^10.0.1",
+    "prettier": "^3.1.1",
+    "rc-test": "^7.0.15",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "typescript": "^5.0.0"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/progress",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-progress",
+    "progress"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/progress",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/progress.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "father test --coverage",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d dist",
+    "gh-pages": "npm run now-build && father doc deploy",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js",
+    "now-build": "npm run docs:build",
+    "prepare": "dumi setup",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "start": "dumi dev",
+    "test": "rc-test",
+    "tsc": "tsc --noEmit"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

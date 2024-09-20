@@ -1,0 +1,92 @@
+{
+  "author": "smith3816@gmail.com",
+  "bugs": {
+    "url": "https://github.com/react-component/field-form/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.18.0",
+    "@bees-ui/async-validator": "workspace:^",
+    "@bees-ui/util": "workspace:^"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.2.5",
+    "@types/lodash": "^4.14.135",
+    "@types/node": "^22.0.2",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/fabric": "^4.0.1",
+    "dumi": "^2.0.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "father": "^4.0.0",
+    "gh-pages": "^6.1.0",
+    "jest": "^29.0.0",
+    "np": "^10.0.2",
+    "prettier": "^3.1.0",
+    "rc-test": "^7.0.15",
+    "react": "^18.0.0",
+    "react-dnd": "^8.0.3",
+    "react-dnd-html5-backend": "^8.0.3",
+    "react-dom": "^18.0.0",
+    "react-redux": "^9.0.4",
+    "redux": "^5.0.0",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/react-component/field-form",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-form",
+    "form"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/field-form",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-component/field-form.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "lint": "eslint src/ --ext .tsx,.ts",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit",
+    "now-build": "npm run docs:build",
+    "prepublishOnly": "npm run compile && np --no-cleanup --yolo --no-publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "start": "dumi dev",
+    "test": "rc-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "types": "./dist/types/index.d.ts",
+  "typings": "es/index.d.ts",
+  "version": "0.0.0"
+}

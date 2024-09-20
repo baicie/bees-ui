@@ -1,0 +1,106 @@
+{
+  "author": "yiminghe@gmail.com",
+  "bugs": {
+    "url": "http://github.com/react-component/dialog/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/motion": "workspace:^",
+    "@bees-ui/portal": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.2.6"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.1",
+    "@testing-library/jest-dom": "^6.1.6",
+    "@testing-library/react": "^12.0.0",
+    "@types/enzyme": "^3.10.7",
+    "@types/jest": "^29.4.0",
+    "@types/keyv": "3.1.4",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@umijs/fabric": "^3.0.0",
+    "bootstrap": "^4.3.1",
+    "cheerio": "1.0.0-rc.12",
+    "cross-env": "^7.0.0",
+    "dumi": "^2.1.3",
+    "enzyme": "^3.1.1",
+    "enzyme-adapter-react-16": "^1.0.1",
+    "enzyme-to-json": "^3.1.2",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.20.6",
+    "father": "^4.1.5",
+    "gh-pages": "^6.1.1",
+    "glob": "^11.0.0",
+    "husky": "^8.0.3",
+    "less": "^4.1.3",
+    "lint-staged": "^15.2.0",
+    "np": "^10.0.5",
+    "prettier": "^3.2.1",
+    "rc-drawer": "^7.0.0",
+    "rc-select": "^14.11.0",
+    "rc-test": "^7.0.14",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-draggable": "^4.4.3",
+    "typescript": "^5.4.3"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/dialog",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-dialog",
+    "dialog",
+    "ui"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/dialog",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/dialog.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && lessc assets/index.less assets/index.css && lessc assets/bootstrap.less assets/bootstrap.css",
+    "coverage": "rc-test --coverage",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d dist",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit",
+    "now-build": "npm run docs:build",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

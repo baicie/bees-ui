@@ -1,0 +1,44 @@
+{
+  "description": "copy from antd",
+  "devDependencies": {
+    "lerna": "^3.4.0"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/icons",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "private": true,
+  "repository": "git@github.com:ant-design/ant-design-icons.git",
+  "scripts": {
+    "angular:ci": "lerna run --scope @ant-design/icons-angular-workspace ci",
+    "bootstrap": "lerna bootstrap",
+    "bootstrap:china": "lerna bootstrap --registry=https://registry.npmmirror.com",
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "icons:build": "lerna run --scope @ant-design/icons-svg build",
+    "icons:generate": "lerna run --scope @ant-design/icons-svg generate",
+    "icons:test": "lerna run --scope @ant-design/icons-svg test",
+    "lint": "lerna run lint",
+    "react-native:ci": "lerna run --scope @ant-design/icons-react-native ci",
+    "react:ci": "lerna run --scope @ant-design/icons ci",
+    "rn:generate": "lerna run --scope @ant-design/icons-react-native generate",
+    "vue:ci": "lerna run --scope @ant-design/icons-vue ci"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

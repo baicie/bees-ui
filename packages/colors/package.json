@@ -1,0 +1,63 @@
+{
+  "author": "afc163 <afc163@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design-colors/issues"
+  },
+  "dependencies": {
+    "@ctrl/tinycolor": "^3.6.1"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "@types/node": "^20.14.9",
+    "@umijs/fabric": "^3.0.0",
+    "eslint": "^7.32.0",
+    "father": "^4.4.4",
+    "jest": "^26.6.3",
+    "np": "^7.7.0",
+    "prettier": "^2.8.8",
+    "ts-jest": "^26.5.6",
+    "tsx": "^4.16.0",
+    "typescript": "^4.9.5",
+    "vitest": "^1.6.0"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ant-design/ant-design-colors#readme",
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/colors",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ant-design/ant-design-colors.git"
+  },
+  "scripts": {
+    "bench": "vitest bench",
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "npm test -- --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src --ext .ts",
+    "prepare": "tsx generate-presets",
+    "prepublishOnly": "npm run compile && np --no-cleanup --no-publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "jest"
+  },
+  "types": "./dist/types/index.d.ts",
+  "typings": "es/index.d.ts",
+  "version": "0.0.0"
+}

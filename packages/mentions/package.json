@@ -1,0 +1,90 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/mentions/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.5",
+    "@bees-ui/input": "workspace:^",
+    "@bees-ui/menu": "workspace:^",
+    "@bees-ui/textarea": "workspace:^",
+    "@bees-ui/trigger": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.2.6"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@types/classnames": "^2.2.6",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@types/warning": "^3.0.0",
+    "@umijs/fabric": "^3.0.0",
+    "dumi": "^2.0.18",
+    "eslint": "^7.0.0",
+    "father": "^4.0.0",
+    "gh-pages": "^5.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.7",
+    "np": "^10.0.0",
+    "prettier": "^3.3.2",
+    "rc-test": "^7.0.14",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.0.4"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/mentions",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-mentions",
+    "mentions"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/mentions",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/mentions.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d .doc",
+    "gh-pages": "npm run docs:build && npm run docs:deploy",
+    "lint": "eslint src/ --ext .tsx,.ts",
+    "postpublish": "npm run gh-pages",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

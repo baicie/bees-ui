@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "stripInternal": true,
+    "declarationMap": true,
+    "experimentalDecorators": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "importHelpers": true,
+    "newLine": "lf",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "./dist/icons",
+    "rootDir": ".",
+    "sourceMap": true,
+    "inlineSources": true,
+    "target": "ES2022",
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "types": [],
+    "baseUrl": ".",
+    "useDefineForClassFields": false
+  },
+  "files": [
+    "public_api.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  },
+  "bazelOptions": {
+    "suppressTsconfigOverrideWarnings": true
+  }
+}

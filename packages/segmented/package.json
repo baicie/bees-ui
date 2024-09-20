@@ -1,0 +1,99 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/segmented/issues"
+  },
+  "cnpm": {
+    "mode": "npm"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.1",
+    "@bees-ui/motion": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.2.1"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.2.1",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^29.2.4",
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^16.9.0",
+    "@umijs/fabric": "^3.0.0",
+    "@umijs/test": "^4.0.36",
+    "coveralls": "^3.0.6",
+    "cross-env": "^7.0.3",
+    "cssstyle": "^2.3.0",
+    "dumi": "^2.1.2",
+    "eslint": "^7.0.0",
+    "father": "^4.1.1",
+    "gh-pages": "^3.1.0",
+    "husky": "^8.0.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "less": "^3.10.3",
+    "np": "^7.0.0",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^3.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.0"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://react-component.github.io/segmented",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-segmented",
+    "react-segmented-controls",
+    "segmented controls",
+    "antd",
+    "ant-design"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/segmented",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/segmented.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && lessc assets/index.less assets/index.css",
+    "coverage": "jest --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d .doc",
+    "gh-pages": "GH_PAGES=1 npm run docs:build && npm run docs:deploy",
+    "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish && npm run gh-pages",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "pretty-quick": "pretty-quick",
+    "start": "dumi dev",
+    "test": "jest",
+    "type:check": "tsc --noEmit"
+  },
+  "tnpm": {
+    "mode": "npm"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

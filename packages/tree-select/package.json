@@ -1,0 +1,89 @@
+{
+  "author": "smith3816@gmail.com",
+  "bugs": {
+    "url": "https://github.com/react-component/tree-select/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/select": "workspace:^",
+    "@bees-ui/tree": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "2.x"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@rc-component/trigger": "^1.5.0",
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.9.0",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^18.2.19",
+    "@types/warning": "^3.0.0",
+    "@umijs/fabric": "^4.0.1",
+    "cheerio": "1.0.0-rc.12",
+    "cross-env": "^7.0.2",
+    "dumi": "^2.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.4.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-unicorn": "^52.0.0",
+    "father": "^4.0.0",
+    "glob": "^7.1.6",
+    "np": "^10.0.5",
+    "prettier": "^3.1.1",
+    "rc-dialog": "^7.5.7",
+    "rc-field-form": "^2.0.0",
+    "rc-test": "^7.0.4",
+    "rc-virtual-list": "^3.0.0",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "typescript": "^5.0.0"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/react-component/tree-select",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-tree-select",
+    "tree-select"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/tree-select",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-component/tree-select.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ examples/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepare": "dumi setup",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish --any-branch",
+    "prettier": "prettier '{src,tests}/**/*.{ts,tsx}' 'tests/**/*.js' --write",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

@@ -1,0 +1,77 @@
+{
+  "author": {
+    "email": "i@guoyunhe.me",
+    "name": "Guo Yunhe",
+    "url": "https://guoyunhe.me/"
+  },
+  "bugs": {
+    "url": "https://github.com/ant-design/fast-color/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.7"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@ctrl/tinycolor": "^4.1.0",
+    "@rc-component/father-plugin": "^1.0.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.1.0",
+    "@umijs/fabric": "^4.0.1",
+    "color2k": "^2.0.3",
+    "cross-env": "^7.0.3",
+    "dumi": "^2.3.8",
+    "eslint": "^8.57.0",
+    "father": "^4.4.4",
+    "np": "^10.0.5",
+    "rc-test": "^7.0.15",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ant-design/fast-color",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-trigger",
+    "trigger"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/fast-color",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/fast-color.git"
+  },
+  "scripts": {
+    "bench": "vitest bench",
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ tests/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

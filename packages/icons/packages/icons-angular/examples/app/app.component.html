@@ -1,0 +1,24 @@
+<h1>&#64;ant-design/icons-angular</h1>
+
+<h2>Ant Design Icons</h2>
+
+<p>
+  With 3 themes&nbsp;
+  <select [(ngModel)]="currentTheme" (change)="changeIcons()">
+    <option value='fill'>fill</option>
+    <option value='outline'>outline</option>
+    <option value='twotone'>twotone</option>
+  </select>
+</p>
+
+<ng-container *ngFor="let name of icons;">
+  <span antIcon [type]="name" [theme]="currentTheme"></span>
+</ng-container>
+
+<!-- To test `share` dynamic importing.  -->
+
+<ng-container *ngIf="currentTheme === 'fill'">
+  <h2>With Namespace</h2>
+  <span antIcon [type]="'animal:panda'"></span>
+  <span antIcon [type]="'animal:panda'"></span>
+</ng-container>

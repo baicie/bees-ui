@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs.Basic Normal 1`] = `
+<div
+  class="rc-tabs rc-tabs-top"
+>
+  <div
+    class="rc-tabs-nav"
+    role="tablist"
+  >
+    <div
+      class="rc-tabs-nav-wrap rc-tabs-nav-wrap-ping-right"
+    >
+      <div
+        class="rc-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="rc-tabs-tab"
+          data-node-key="light"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-light"
+            aria-selected="false"
+            class="rc-tabs-tab-btn"
+            id="rc-tabs-test-tab-light"
+            role="tab"
+            tabindex="0"
+          >
+            light
+          </div>
+        </div>
+        <div
+          class="rc-tabs-tab rc-tabs-tab-active"
+          data-node-key="bamboo"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-bamboo"
+            aria-selected="true"
+            class="rc-tabs-tab-btn"
+            id="rc-tabs-test-tab-bamboo"
+            role="tab"
+            tabindex="0"
+          >
+            bamboo
+          </div>
+        </div>
+        <div
+          class="rc-tabs-tab"
+          data-node-key="cute"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-cute"
+            aria-selected="false"
+            class="rc-tabs-tab-btn"
+            id="rc-tabs-test-tab-cute"
+            role="tab"
+            tabindex="0"
+          >
+            cute
+          </div>
+        </div>
+        <div
+          class="rc-tabs-ink-bar rc-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-tabs-nav-operations rc-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="rc-tabs-test-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="rc-tabs-nav-more"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
+        tabindex="-1"
+        type="button"
+      >
+        More
+      </button>
+    </div>
+  </div>
+  <div
+    class="rc-tabs-content-holder"
+  >
+    <div
+      class="rc-tabs-content rc-tabs-content-top"
+    >
+      <div
+        aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-bamboo"
+        class="rc-tabs-tabpane rc-tabs-tabpane-active"
+        id="rc-tabs-test-panel-bamboo"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Bamboo
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs.Basic Skip invalidate children 1`] = `
+<div
+  class="rc-tabs rc-tabs-top"
+>
+  <div
+    class="rc-tabs-nav"
+    role="tablist"
+  >
+    <div
+      class="rc-tabs-nav-wrap"
+    >
+      <div
+        class="rc-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="rc-tabs-tab rc-tabs-tab-active"
+          data-node-key="light"
+        >
+          <div
+            aria-controls="rc-tabs-test-panel-light"
+            aria-selected="true"
+            class="rc-tabs-tab-btn"
+            id="rc-tabs-test-tab-light"
+            role="tab"
+            tabindex="0"
+          >
+            light
+          </div>
+        </div>
+        <div
+          class="rc-tabs-ink-bar rc-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-tabs-nav-operations rc-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="rc-tabs-test-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-hidden="true"
+        class="rc-tabs-nav-more"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
+        tabindex="-1"
+        type="button"
+      >
+        More
+      </button>
+    </div>
+  </div>
+  <div
+    class="rc-tabs-content-holder"
+  >
+    <div
+      class="rc-tabs-content rc-tabs-content-top"
+    >
+      <div
+        aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-light"
+        class="rc-tabs-tabpane rc-tabs-tabpane-active"
+        id="rc-tabs-test-panel-light"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Light
+      </div>
+    </div>
+  </div>
+</div>
+`;

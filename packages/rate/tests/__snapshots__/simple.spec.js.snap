@@ -1,0 +1,526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rate allowHalf render works 1`] = `
+<ul
+  class="rc-rate custom"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-half rc-rate-star-active"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate allowHalf render works in RTL 1`] = `
+<ul
+  class="rc-rate custom rc-rate-rtl"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-half rc-rate-star-active"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate allowHalf render works more than half  1`] = `
+<ul
+  class="rc-rate custom"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-half rc-rate-star-active"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate full render works 1`] = `
+<ul
+  class="rc-rate custom"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate full render works in RTL 1`] = `
+<ul
+  class="rc-rate custom rc-rate-rtl"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        ★
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        ★
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate full render works with character function 1`] = `
+<ul
+  class="rc-rate"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        1
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        1
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        2
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        2
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        3
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        3
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`rate full render works with character node 1`] = `
+<ul
+  class="rc-rate"
+  role="radiogroup"
+  tabindex="0"
+>
+  <li
+    class="rc-rate-star rc-rate-star-full"
+  >
+    <div
+      aria-checked="true"
+      aria-posinset="1"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        1
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        1
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="2"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        1
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        1
+      </div>
+    </div>
+  </li>
+  <li
+    class="rc-rate-star rc-rate-star-zero"
+  >
+    <div
+      aria-checked="false"
+      aria-posinset="3"
+      aria-setsize="3"
+      role="radio"
+      tabindex="0"
+    >
+      <div
+        class="rc-rate-star-first"
+      >
+        1
+      </div>
+      <div
+        class="rc-rate-star-second"
+      >
+        1
+      </div>
+    </div>
+  </li>
+</ul>
+`;

@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseInput addon should render properly 1`] = `
+<div>
+  <div>
+    <span
+      class="rc-input-group-wrapper"
+    >
+      <span
+        class="rc-input-wrapper rc-input-group"
+      >
+        <span
+          class="rc-input-group-addon"
+        >
+          addonBefore
+        </span>
+        <input
+          value=""
+        />
+      </span>
+    </span>
+    <br />
+    <br />
+    <span
+      class="rc-input-group-wrapper"
+    >
+      <span
+        class="rc-input-wrapper rc-input-group"
+      >
+        <input
+          value=""
+        />
+        <span
+          class="rc-input-group-addon"
+        >
+          addonAfter
+        </span>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`BaseInput prefix and suffix should render properly 1`] = `
+<div>
+  <div>
+    <span
+      class="rc-input-affix-wrapper"
+    >
+      <span
+        class="rc-input-prefix"
+      >
+        prefix
+      </span>
+      <input
+        value=""
+      />
+    </span>
+    <br />
+    <br />
+    <span
+      class="rc-input-affix-wrapper"
+    >
+      <input
+        value=""
+      />
+      <span
+        class="rc-input-suffix"
+      >
+        suffix
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`BaseInput should correct render with prefix and addon 1`] = `
+<div>
+  <span
+    class="rc-input-group-wrapper"
+  >
+    <span
+      class="rc-input-wrapper rc-input-group"
+    >
+      <span
+        class="rc-input-group-addon"
+      >
+        addon
+      </span>
+      <span
+        class="rc-input-affix-wrapper"
+      >
+        <span
+          class="rc-input-prefix"
+        >
+          prefix
+        </span>
+        <input
+          value=""
+        />
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`BaseInput should render perfectly 1`] = `
+<div>
+  <input
+    value=""
+  />
+</div>
+`;
+
+exports[`BaseInput support use div as basic element 1`] = `
+<div>
+  <div
+    class="rc-input-group-wrapper"
+  >
+    <div
+      class="rc-input-wrapper rc-input-group"
+    >
+      <div
+        class="rc-input-group-addon"
+      >
+        addon
+      </div>
+      <div
+        class="rc-input-affix-wrapper"
+      >
+        <span
+          class="rc-input-prefix"
+        >
+          prefix
+        </span>
+        <input
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

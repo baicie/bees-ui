@@ -1,0 +1,86 @@
+{
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/react-component/qrcode/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.7",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.3.2"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@ant-design/tools": "^18.0.2",
+    "@rc-component/father-plugin": "^1.0.0",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^16.0.0",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^22.5.1",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.11",
+    "@umijs/fabric": "^4.0.1",
+    "cross-env": "^7.0.1",
+    "dumi": "^2.1.0",
+    "eslint": "^8.51.0",
+    "father": "^4.0.0",
+    "jest-canvas-mock": "^2.5.2",
+    "less": "^4.2.0",
+    "np": "^10.0.5",
+    "rc-test": "^7.0.13",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "regenerator-runtime": "^0.14.0",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.1.6",
+    "umi-test": "^1.9.7"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/react-component/qrcode",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-qrcode",
+    "qrcode"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/qrcode",
+  "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-component/qrcode.git"
+  },
+  "scripts": {
+    "bakpublishOnly": "npm run compile && np --yolo --no-publish",
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && lessc assets/index.less assets/index.css",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "prepublishOnly": "npm run compile",
+    "start": "dumi dev",
+    "test": "umi-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

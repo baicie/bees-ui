@@ -1,0 +1,85 @@
+{
+  "author": "wangning4567@163.com",
+  "bugs": {
+    "url": "https://github.com/react-component/tour/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.18.0",
+    "@bees-ui/portal": "workspace:^",
+    "@bees-ui/trigger": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "^2.3.2"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^15.0.0",
+    "@types/jest": "^29.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/fabric": "^2.5.2",
+    "cheerio": "1.0.0-rc.12",
+    "dumi": "^2.1.2",
+    "eslint": "^7.18.0",
+    "father": "^4.0.0-rc.8",
+    "gh-pages": "^3.1.0",
+    "np": "^5.0.3",
+    "prettier": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.0.0",
+    "umi-test": "^1.9.7"
+  },
+  "engines": {
+    "node": ">=8.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/react-component/tour",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-tour"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/tour",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-component/tour.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "lint": "eslint src/ --ext .tsx,.ts",
+    "lint:tsc": "tsc -p tsconfig.json --noEmit",
+    "now-build": "npm run docs:build",
+    "prepare": "dumi setup",
+    "prepublishOnly": "npm run compile && np --no-cleanup --yolo --no-publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "start": "dumi dev",
+    "test": "umi-test",
+    "watch": "father dev"
+  },
+  "types": "./dist/types/index.d.ts",
+  "typings": "es/index.d.ts",
+  "version": "0.0.0"
+}

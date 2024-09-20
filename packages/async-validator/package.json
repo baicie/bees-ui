@@ -1,0 +1,88 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/async-validator/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.4"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.2",
+    "@types/jest": "^29.5.12",
+    "@types/react": "18.x",
+    "@types/react-dom": "18.x",
+    "@umijs/fabric": "^4.0.1",
+    "dumi": "^2.2.17",
+    "eslint": "^8.0.0",
+    "father": "^4.4.0",
+    "gh-pages": "^6.1.1",
+    "lint-staged": "^15.2.2",
+    "np": "^10.0.3",
+    "prettier": "^3.2.5",
+    "rc-test": "^7.0.15",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "5.x"
+  },
+  "engines": {
+    "node": ">=14.x"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/async-validator",
+  "keywords": [
+    "async-validator",
+    "form"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{tsx,js,jsx,ts,json}": [
+      "prettier --write"
+    ]
+  },
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/async-validator",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/async-validator.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d .docs-dist",
+    "gh-pages": "npm run docs:build && npm run docs:deploy",
+    "lint": "eslint src --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run docs:build",
+    "postpublish": "npm run gh-pages",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "prettier": "prettier . --write",
+    "start": "dumi dev",
+    "test": "rc-test",
+    "tsc": "tsc --noEmit"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

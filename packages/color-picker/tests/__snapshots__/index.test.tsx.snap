@@ -1,0 +1,424 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ColorPicker > Should component onChange work on no control mode 1`] = `
+<div>
+  <div
+    class="rc-color-picker-panel"
+  >
+    <div
+      class="rc-color-picker-select"
+    >
+      <div
+        class="rc-color-picker-palette"
+        style="position: relative;"
+      >
+        <div
+          style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+        >
+          <div
+            class="rc-color-picker-handler"
+            style="background-color: rgb(22, 119, 255);"
+          />
+        </div>
+        <div
+          class="rc-color-picker-saturation"
+          style="background-color: rgb(0, 0, 0);"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-color-picker-slider-container"
+    >
+      <div
+        class="rc-color-picker-slider-group"
+      >
+        <div
+          class="rc-color-picker-slider rc-color-picker-slider-hue"
+        >
+          <div
+            class="rc-color-picker-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 59.72222222222222%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="rc-color-picker-handler rc-color-picker-handler-sm"
+                style="background-color: rgb(0, 106, 255);"
+              />
+            </div>
+            <div
+              class="rc-color-picker-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-color-picker-slider rc-color-picker-slider-alpha"
+        >
+          <div
+            class="rc-color-picker-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 100%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="rc-color-picker-handler rc-color-picker-handler-sm"
+                style="background-color: rgb(22, 119, 255);"
+              />
+            </div>
+            <div
+              class="rc-color-picker-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-color-picker-color-block"
+      >
+        <div
+          class="rc-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should component render correct 1`] = `
+<div>
+  <div
+    class="rc-color-picker-panel"
+  >
+    <div
+      class="rc-color-picker-select"
+    >
+      <div
+        class="rc-color-picker-palette"
+        style="position: relative;"
+      >
+        <div
+          style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+        >
+          <div
+            class="rc-color-picker-handler"
+            style="background-color: rgb(22, 119, 255);"
+          />
+        </div>
+        <div
+          class="rc-color-picker-saturation"
+          style="background-color: rgb(0, 0, 0);"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-color-picker-slider-container"
+    >
+      <div
+        class="rc-color-picker-slider-group"
+      >
+        <div
+          class="rc-color-picker-slider rc-color-picker-slider-hue"
+        >
+          <div
+            class="rc-color-picker-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 59.72222222222222%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="rc-color-picker-handler rc-color-picker-handler-sm"
+                style="background-color: rgb(0, 106, 255);"
+              />
+            </div>
+            <div
+              class="rc-color-picker-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+        <div
+          class="rc-color-picker-slider rc-color-picker-slider-alpha"
+        >
+          <div
+            class="rc-color-picker-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 100%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="rc-color-picker-handler rc-color-picker-handler-sm"
+                style="background-color: rgb(22, 119, 255);"
+              />
+            </div>
+            <div
+              class="rc-color-picker-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-color-picker-color-block"
+      >
+        <div
+          class="rc-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should custom panel work 1`] = `
+<div>
+  <div
+    class="rc-color-picker-panel"
+  >
+    <div
+      class="custom-panel"
+    >
+      <div
+        class="rc-color-picker-select"
+      >
+        <div
+          class="rc-color-picker-palette"
+          style="position: relative;"
+        >
+          <div
+            style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+          >
+            <div
+              class="rc-color-picker-handler"
+              style="background-color: rgb(22, 119, 255);"
+            />
+          </div>
+          <div
+            class="rc-color-picker-saturation"
+            style="background-color: rgb(0, 0, 0);"
+          />
+        </div>
+      </div>
+      <div
+        class="rc-color-picker-slider-container"
+      >
+        <div
+          class="rc-color-picker-slider-group"
+        >
+          <div
+            class="rc-color-picker-slider rc-color-picker-slider-hue"
+          >
+            <div
+              class="rc-color-picker-palette"
+              style="position: relative;"
+            >
+              <div
+                style="position: absolute; left: 59.72222222222222%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+              >
+                <div
+                  class="rc-color-picker-handler rc-color-picker-handler-sm"
+                  style="background-color: rgb(0, 106, 255);"
+                />
+              </div>
+              <div
+                class="rc-color-picker-gradient"
+                style="position: absolute; inset: 0;"
+              />
+            </div>
+          </div>
+          <div
+            class="rc-color-picker-slider rc-color-picker-slider-alpha"
+          >
+            <div
+              class="rc-color-picker-palette"
+              style="position: relative;"
+            >
+              <div
+                style="position: absolute; left: 100%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+              >
+                <div
+                  class="rc-color-picker-handler rc-color-picker-handler-sm"
+                  style="background-color: rgb(22, 119, 255);"
+                />
+              </div>
+              <div
+                class="rc-color-picker-gradient"
+                style="position: absolute; inset: 0;"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="rc-color-picker-color-block"
+        >
+          <div
+            class="rc-color-picker-color-block-inner"
+            style="background: rgb(22, 119, 255);"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should disabled alpha work 1`] = `
+<div>
+  <div
+    class="rc-color-picker-panel"
+  >
+    <div
+      class="rc-color-picker-select"
+    >
+      <div
+        class="rc-color-picker-palette"
+        style="position: relative;"
+      >
+        <div
+          style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+        >
+          <div
+            class="rc-color-picker-handler"
+            style="background-color: rgb(22, 119, 255);"
+          />
+        </div>
+        <div
+          class="rc-color-picker-saturation"
+          style="background-color: rgb(0, 0, 0);"
+        />
+      </div>
+    </div>
+    <div
+      class="rc-color-picker-slider-container"
+    >
+      <div
+        class="rc-color-picker-slider-group rc-color-picker-slider-group-disabled-alpha"
+      >
+        <div
+          class="rc-color-picker-slider rc-color-picker-slider-hue"
+        >
+          <div
+            class="rc-color-picker-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 59.72222222222222%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="rc-color-picker-handler rc-color-picker-handler-sm"
+                style="background-color: rgb(0, 106, 255);"
+              />
+            </div>
+            <div
+              class="rc-color-picker-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="rc-color-picker-color-block"
+      >
+        <div
+          class="rc-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorPicker > Should prefixCls work 1`] = `
+<div>
+  <div
+    class="test-prefixCls-panel"
+  >
+    <div
+      class="test-prefixCls-select"
+    >
+      <div
+        class="test-prefixCls-palette"
+        style="position: relative;"
+      >
+        <div
+          style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+        >
+          <div
+            class="test-prefixCls-handler"
+            style="background-color: rgb(22, 119, 255);"
+          />
+        </div>
+        <div
+          class="test-prefixCls-saturation"
+          style="background-color: rgb(0, 0, 0);"
+        />
+      </div>
+    </div>
+    <div
+      class="test-prefixCls-slider-container"
+    >
+      <div
+        class="test-prefixCls-slider-group"
+      >
+        <div
+          class="test-prefixCls-slider test-prefixCls-slider-hue"
+        >
+          <div
+            class="test-prefixCls-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 59.72222222222222%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="test-prefixCls-handler test-prefixCls-handler-sm"
+                style="background-color: rgb(0, 106, 255);"
+              />
+            </div>
+            <div
+              class="test-prefixCls-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+        <div
+          class="test-prefixCls-slider test-prefixCls-slider-alpha"
+        >
+          <div
+            class="test-prefixCls-palette"
+            style="position: relative;"
+          >
+            <div
+              style="position: absolute; left: 100%; top: 50%; z-index: 1; transform: translate(-50%, -50%);"
+            >
+              <div
+                class="test-prefixCls-handler test-prefixCls-handler-sm"
+                style="background-color: rgb(22, 119, 255);"
+              />
+            </div>
+            <div
+              class="test-prefixCls-gradient"
+              style="position: absolute; inset: 0;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="test-prefixCls-color-block"
+      >
+        <div
+          class="test-prefixCls-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

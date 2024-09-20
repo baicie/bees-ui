@@ -1,0 +1,77 @@
+{
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ant-design/cssinjs-util/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.23.2",
+    "@bees-ui/cssinjs": "workspace:^",
+    "@bees-ui/util": "workspace:^"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.1",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^22.0.2",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.11",
+    "@umijs/fabric": "^4.0.1",
+    "cross-env": "^7.0.1",
+    "dumi": "^2.1.0",
+    "eslint": "^8.51.0",
+    "father": "^4.0.0",
+    "less": "^4.2.0",
+    "np": "^10.0.5",
+    "prettier": "^3.3.3",
+    "rc-test": "^7.0.13",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "regenerator-runtime": "^0.14.0",
+    "typescript": "^5.1.6"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ant-design/cssinjs-util",
+  "keywords": [
+    "react",
+    "cssinjs",
+    "cssinjs-util",
+    "antd",
+    "ant-design"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/cssinjs-utils",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/cssinjs-util.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}

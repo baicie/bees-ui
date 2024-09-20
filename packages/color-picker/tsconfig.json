@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "jsx": "react",
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "types": ["vitest/globals"],
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "@rc-component/color-picker": ["src/index.tsx"]
+    }
+  }
+}

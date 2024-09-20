@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem overwrite default role should set extra to group option 1`] = `
+<li
+  class="rc-menu-item-group"
+  role="presentation"
+>
+  <div
+    class="rc-menu-item-group-title"
+    role="presentation"
+    title="Top Menu Group with children"
+  >
+    Top Menu Group with children
+  </div>
+  <ul
+    class="rc-menu-item-group-list"
+    role="group"
+  >
+    <li
+      class="rc-menu-item"
+      data-menu-id="rc-menu-uuid-test-top"
+      role="menuitem"
+      tabindex="-1"
+    >
+      Menu Item 1
+      <span
+        class="rc-menu-item-extra"
+      >
+        ⌘B
+      </span>
+    </li>
+  </ul>
+</li>
+`;
+
+exports[`MenuItem overwrite default role should set extra to option 1`] = `
+<li
+  class="rc-menu-item"
+  data-menu-id="rc-menu-uuid-test-top"
+  role="menuitem"
+  tabindex="-1"
+>
+  Top Menu Item
+  <span
+    class="rc-menu-item-extra"
+  >
+    ⌘B
+  </span>
+</li>
+`;
+
+exports[`MenuItem overwrite default role should set role to listitem 1`] = `
+<li
+  class="rc-menu-item"
+  data-menu-id="rc-menu-uuid-test-tmp_key-0"
+  role="listitem"
+  tabindex="-1"
+>
+  test
+</li>
+`;
+
+exports[`MenuItem overwrite default role should set role to none if none 1`] = `
+<li
+  class="rc-menu-item"
+  data-menu-id="rc-menu-uuid-test-tmp_key-0"
+  role="none"
+  tabindex="-1"
+>
+  test
+</li>
+`;
+
+exports[`MenuItem overwrite default role should set role to none if null 1`] = `
+<li
+  class="rc-menu-item"
+  data-menu-id="rc-menu-uuid-test-tmp_key-0"
+  role="none"
+  tabindex="-1"
+>
+  test
+</li>
+`;
+
+exports[`MenuItem overwrite default role should set role to option 1`] = `
+<li
+  aria-selected="false"
+  class="rc-menu-item"
+  data-menu-id="rc-menu-uuid-test-tmp_key-0"
+  role="option"
+  tabindex="-1"
+>
+  test
+</li>
+`;
+
+exports[`MenuItem rest props onClick event should only trigger 1 time along the component hierarchy 1`] = `
+HTMLCollection [
+  <ul
+    class="rc-menu rc-menu-root rc-menu-inline"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="rc-menu-item rc-menu-item-active className"
+      data-menu-id="rc-menu-uuid-test-1"
+      data-whatever="whatever"
+      role="menuitem"
+      style="padding-left: 24px; font-size: 20px;"
+      tabindex="-1"
+      title="title"
+    >
+      1
+    </li>
+    <li
+      class="rc-menu-submenu rc-menu-submenu-inline className rc-menu-submenu-open"
+      data-whatever="whatever"
+      role="none"
+      style="font-size: 20px;"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-bamboo-popup"
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="rc-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-bamboo"
+        role="menuitem"
+        style="padding-left: 24px;"
+        tabindex="-1"
+        title="title"
+      >
+        title
+        <i
+          class="rc-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="rc-menu rc-menu-sub rc-menu-inline"
+        data-menu-list="true"
+        id="rc-menu-uuid-test-bamboo-popup"
+        role="menu"
+      >
+        <li
+          class="rc-menu-item className"
+          data-menu-id="rc-menu-uuid-test-2"
+          data-whatever="whatever"
+          role="menuitem"
+          style="padding-left: 48px; font-size: 20px;"
+          tabindex="-1"
+          title="title"
+        >
+          3
+        </li>
+      </ul>
+    </li>
+    <li
+      class="rc-menu-item-group className"
+      data-whatever="whatever"
+      role="presentation"
+      style="font-size: 20px;"
+    >
+      <div
+        class="rc-menu-item-group-title"
+        role="presentation"
+        title="title"
+      >
+        title
+      </div>
+      <ul
+        class="rc-menu-item-group-list"
+        role="group"
+      >
+        <li
+          class="rc-menu-item className"
+          data-menu-id="rc-menu-uuid-test-3"
+          data-whatever="whatever"
+          role="menuitem"
+          style="padding-left: 24px; font-size: 20px;"
+          tabindex="-1"
+          title="title"
+        >
+          4
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />,
+]
+`;

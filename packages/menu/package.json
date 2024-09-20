@@ -1,0 +1,89 @@
+{
+  "bugs": {
+    "url": "http://github.com/react-component/menu/issues"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.1",
+    "@bees-ui/motion": "workspace:^",
+    "@bees-ui/overflow": "workspace:^",
+    "@bees-ui/trigger": "workspace:^",
+    "@bees-ui/util": "workspace:^",
+    "classnames": "2.x"
+  },
+  "description": "copy from antd",
+  "devDependencies": {
+    "@rc-component/father-plugin": "^1.0.0",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^15.0.7",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^22.3.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/warning": "^3.0.0",
+    "cross-env": "^7.0.0",
+    "dumi": "^2.1.17",
+    "eslint": "^8.55.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "eslint-plugin-unicorn": "^51.0.1",
+    "father": "^4.0.0",
+    "gh-pages": "^6.1.0",
+    "less": "^4.1.3",
+    "np": "^10.0.5",
+    "rc-test": "^7.0.14",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "regenerator-runtime": "^0.14.0",
+    "typescript": "^5.1.6"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/es/index.js",
+      "import": "./dist/es/index.js",
+      "require": "./dist/lib/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "http://github.com/react-component/menu",
+  "keywords": [
+    "react",
+    "react-component",
+    "menu",
+    "ui",
+    "react-menu"
+  ],
+  "license": "MIT",
+  "main": "./dist/lib/index.js",
+  "maintainers": [
+    "yiminghe@gmail.com",
+    "hualei5280@gmail.com"
+  ],
+  "module": "./dist/es/index.js",
+  "name": "@bees-ui/menu",
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:react-component/menu.git"
+  },
+  "scripts": {
+    "build": "pnpm bee build --minify --sourcemap",
+    "clean": "pnpm rimraf node_modules .turbo dist",
+    "compile": "father build && lessc assets/index.less assets/index.css",
+    "coverage": "rc-test --coverage",
+    "dev": "pnpm bee build --watch --sourcemap",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d .doc",
+    "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
+    "now-build": "npm run build",
+    "postpublish": "tnpm sync rc-menu",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
+    "start": "dumi dev",
+    "test": "rc-test"
+  },
+  "types": "./dist/types/index.d.ts",
+  "version": "0.0.0"
+}
