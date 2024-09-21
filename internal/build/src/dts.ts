@@ -7,7 +7,7 @@ import { DEFAULT, normalizePath, resolveInput, resolveTsConfig, target } from '.
 
 export async function dts(root: string, options: Options = {}) {
   const { input = DEFAULT, watch = false, tsconfig = resolveTsConfig(root, rootPath) } = options;
-  const outputPath = path.resolve(root, 'dist/types');
+  const outputPath = path.resolve(root, 'types');
   const inputPath = resolveInput(root, input);
 
   await build({

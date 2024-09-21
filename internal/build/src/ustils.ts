@@ -1,18 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
+import { globSync } from 'fast-glob';
 import type { ModuleFormat } from 'rollup';
 
-export const DEFAULT = [
-  'src/index.ts',
-  'src/index.tsx',
-  'index.ts',
-  'index.tsx',
-  'index.js',
-  'src/index.js',
-];
-
-const ignore = ['react', 'react-dom', 'classnames'];
+export const DEFAULT = 'src';
+const deps_default = ['preact/compat', '@ant-design/icon'];
+const ignore = ['react', 'react-dom'];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
   const { manifest } = packages[0];
@@ -22,7 +16,9 @@ export async function generateExternal(root: string) {
   ]
     .filter((item) => !item.startsWith('@types/'))
     .filter((item) => !ignore.includes(item));
-  return [/@ant-design\/icons\//, 'preact/compat', ...deps];
+  return [...deps_default, ...deps].map(
+    (s) => new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+  );
 }
 
 export const target = 'es2018';
@@ -50,7 +46,7 @@ export function resolveBuildConfig(root: string) {
       ext: 'mjs',
       output: {
         name: 'es',
-        path: path.resolve(root, 'dist/es'),
+        path: path.resolve(root, 'es'),
       },
       bundle: {
         path: `/es`,
@@ -62,7 +58,7 @@ export function resolveBuildConfig(root: string) {
       ext: 'js',
       output: {
         name: 'lib',
-        path: path.resolve(root, 'dist/lib'),
+        path: path.resolve(root, 'lib'),
       },
       bundle: {
         path: `/lib`,
@@ -73,16 +69,22 @@ export function resolveBuildConfig(root: string) {
   return Object.entries(buildConfig);
 }
 
-export function resolveInput(root: string, input: string | string[]): string[] {
-  const inputPath = Array.isArray(input) ? input : [input];
-  const resultPath: string[] = [];
-  inputPath.forEach((_path) => {
-    const _temp = path.resolve(root, _path);
-    if (fs.existsSync(_temp)) {
-      resultPath.push(_temp);
-    }
+export function resolveInput(root: string, input: string): string[] {
+  return globSync(`${path.resolve(root, input)}/*`, {
+    onlyFiles: true,
+    ignore: [
+      '__tests__/**/*',
+      '**/*.test.*',
+      '**/*.spec.*',
+      '**/*.stories.*',
+      '**/*.d.*',
+      '**/*.d.ts',
+      '**/*.d.tsx',
+      '**/*.mdx',
+      '**/*.md',
+    ],
+    absolute: true,
   });
-  return resultPath;
 }
 
 export function resolveTsConfig(root: string, rootPath: string, tsconfig = 'tsconfig.json') {

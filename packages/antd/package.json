@@ -75,7 +75,7 @@
     "@emotion/server": "^11.11.0",
     "@eslint-react/eslint-plugin": "^1.13.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
-    "@inquirer/prompts": "^5.5.0",
+    "@inquirer/prompts": "^6.0.1",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.1",
     "@npmcli/run-script": "^8.1.0",
@@ -227,16 +227,10 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "funding": {
     "type": "opencollective",
@@ -255,8 +249,8 @@
     "ui"
   ],
   "license": "MIT",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "name": "@bees-ui/antd",
   "peerDependencies": {
     "preact": "^10.24.0"
@@ -272,7 +266,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
     "biome": "biome check --write",
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "bun-install-react-16": "bun remove react react-dom @testing-library/react && bun add --no-save react@16 react-dom@16 @testing-library/react@12",
     "bun-install-react-17": "bun remove react react-dom @testing-library/react && bun add --no-save react@17 react-dom@17 @testing-library/react@12",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
@@ -345,7 +339,7 @@
   "tnpm": {
     "mode": "npm"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "typings": "es/index.d.ts",
   "unpkg": "dist/antd.min.js",
   "version": "0.0.0"

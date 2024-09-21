@@ -1,7 +1,7 @@
-import '@bees-ui/test';
+import Switch from 'rc-switch';
 
 function App() {
-  return <my-button name="primary">demo</my-button>;
+  return <Switch>demo</Switch>;
 }
 
 export default App;

@@ -38,16 +38,10 @@
   "engines": {
     "node": ">=8.x"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "https://github.com/react-component/qrcode",
   "keywords": [
@@ -57,8 +51,8 @@
     "qrcode"
   ],
   "license": "MIT",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "name": "@bees-ui/qrcode",
   "packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276",
   "peerDependencies": {
@@ -70,7 +64,7 @@
   },
   "scripts": {
     "bakpublishOnly": "npm run compile && np --yolo --no-publish",
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "rc-test --coverage",
@@ -81,6 +75,6 @@
     "start": "dumi dev",
     "test": "umi-test"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "version": "0.0.0"
 }

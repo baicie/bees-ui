@@ -28,16 +28,10 @@
     "react-dom": "^18.2.0",
     "typescript": "^4.0.5"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "http://github.com/react-component/tooltip",
   "keywords": [
@@ -47,11 +41,11 @@
     "tooltip"
   ],
   "license": "MIT",
-  "main": "./dist/lib/index.js",
+  "main": "./lib/index",
   "maintainers": [
     "yiminghe@gmail.com"
   ],
-  "module": "./dist/es/index.js",
+  "module": "./es/index",
   "name": "@bees-ui/tooltip",
   "peerDependencies": {
     "preact": "^10.24.0"
@@ -61,7 +55,7 @@
     "url": "git@github.com:react-component/tooltip.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/bootstrap.less assets/bootstrap.css && lessc assets/bootstrap_white.less assets/bootstrap_white.css",
     "dev": "pnpm bee build --watch --sourcemap",
@@ -75,6 +69,6 @@
     "start": "dumi dev",
     "test": "rc-test"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "version": "0.0.0"
 }

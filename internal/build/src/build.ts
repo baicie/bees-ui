@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import path from 'node:path';
 import alias from '@rollup/plugin-alias';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import { emptyDirSync } from 'fs-extra';
@@ -16,10 +17,11 @@ import type {
 import { rollup, watch as rollupWatch } from 'rollup';
 import esbuild from 'rollup-plugin-esbuild';
 import visualizer from 'rollup-plugin-visualizer';
+
 import deps from './deps';
-import { componentsPath, rootPath } from './path';
+import { rootPath } from './path';
+import { dynamicPathReplace } from './plugins/dynamicPathReplace';
 import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
-import babel from '@rollup/plugin-babel';
 
 export interface Options {
   /**
@@ -64,10 +66,12 @@ export async function resolveConfig(
     clearScreen: true,
   };
   const plugins = [
+    dynamicPathReplace(),
     babel({
       babelHelpers: 'runtime',
       presets: ['@babel/preset-react'],
       exclude: 'node_modules/**',
+      plugins: ['@babel/plugin-transform-runtime'],
     }),
     alias({
       entries: [
@@ -76,7 +80,7 @@ export async function resolveConfig(
         { find: 'react-dom', replacement: 'preact/compat' },
         { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
         // { find: 'classnames', replacement: 'clsx' },
-        ...deps
+        ...deps,
       ],
     }),
     nodeResolve({
@@ -94,7 +98,7 @@ export async function resolveConfig(
         '.jsx': 'jsx',
         '.ts': 'ts',
         '.tsx': 'tsx',
-      }
+      },
     }),
     options.visualizer ? visualizer({ open: true }) : null,
     ...plugin,
@@ -126,7 +130,7 @@ export async function build(root: string, options: Options = {}) {
         exports: 'named',
         sourcemap: options.sourcemap,
         preserveModules: true,
-        preserveModulesRoot: componentsPath,
+        preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
       }),
     ),
   );

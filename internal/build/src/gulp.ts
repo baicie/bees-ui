@@ -32,8 +32,6 @@ async function getTsConfig(tsconfigPath: string): Promise<any> {
 }
 
 export async function compile(root: string, options: Options = {}) {
-  console.log('compile...', root);
-
   const distPath = path.resolve(root, 'dist');
   const typesPath = path.resolve(distPath, 'types');
   const tsconfigPath = path.resolve(root, 'tsconfig.json');

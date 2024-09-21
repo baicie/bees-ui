@@ -9,6 +9,7 @@
     "url": "https://opencollective.com/react-slick"
   },
   "dependencies": {
+    "@babel/runtime": "^7.20.7",
     "classnames": "^2.2.5",
     "json2mq": "^0.2.0",
     "resize-observer-polyfill": "^1.5.1",
@@ -24,7 +25,6 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.25.6",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.5.2",
@@ -68,16 +68,10 @@
     "webpack-dev-server": "^3.1.9",
     "why-did-you-update": "^0.1.1"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "https://react-slick.neostack.com",
   "keywords": [
@@ -95,8 +89,8 @@
       "git add"
     ]
   },
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "name": "@bees-ui/react-slick",
   "npmFileMap": [
     {
@@ -118,7 +112,7 @@
     "url": "https://github.com/ant-design/react-slick"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "build-dev": "gulp clean && gulp copy && webpack",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "clear-jest": "jest --clearCache",
@@ -135,6 +129,6 @@
     "test": "jest",
     "test-watch": "jest --watch"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "version": "0.0.0"
 }

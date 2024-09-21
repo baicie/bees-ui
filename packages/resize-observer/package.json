@@ -38,16 +38,10 @@
     "react-dom": "^16.0.0",
     "regenerator-runtime": "^0.14.0"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "https://react-component.github.io/resize-observer",
   "keywords": [
@@ -57,8 +51,8 @@
     "resize-observer"
   ],
   "license": "MIT",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "name": "@bees-ui/resize-observer",
   "peerDependencies": {
     "preact": "^10.24.0"
@@ -68,7 +62,7 @@
     "url": "git@github.com:react-component/resize-observer.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "rc-test --coverage",
@@ -87,6 +81,6 @@
   "tnpm": {
     "mode": "npm"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "version": "0.0.0"
 }

@@ -143,7 +143,11 @@ async fn main() {
         });
         handle.await.unwrap();
     }
-
+    deps.lock().unwrap().values().for_each(|v| {
+        if !v.cloned || v.re_try > *RE_TRY {
+            eprintln!("{}", format!("Failed to process: {}", v.name).red());
+        }
+    });
     output_deps(&deps.lock().unwrap(), &build_dir);
 }
 
@@ -155,16 +159,21 @@ async fn iteration_deps(
     deps: &Arc<Mutex<HashMap<String, Deps>>>,
 ) -> Result<String, Error> {
     //get repo url
-    let repo_url = get_npm_package_clone_url(name).await.unwrap().unwrap();
     let clone_dir = swap_dir.join(name);
     // clone repo
-    match clone_repo(&repo_url, &clone_dir) {
-        Ok(_) => {
-            scan_deps(&clone_dir, deps);
-            replace_package_json(&name, &clone_dir, &packages_dir, ignore_folders, deps);
-            Ok(String::new())
+    match get_npm_package_clone_url(name).await {
+        Ok(repo_url) => match clone_repo(&repo_url, &clone_dir) {
+            Ok(_) => {
+                scan_deps(&clone_dir, deps);
+                replace_package_json(&name, &clone_dir, &packages_dir, ignore_folders, deps);
+                Ok(String::new())
+            }
+            Err(e) => Err(Error::new(std::io::ErrorKind::Other, e.to_string())),
+        },
+        Err(e) => {
+            eprintln!("Error getting repository URL: {:?}", e);
+            return Err(Error::new(std::io::ErrorKind::Other, e.to_string()));
         }
-        Err(e) => Err(Error::new(std::io::ErrorKind::Other, e.to_string())),
     }
 }
 
@@ -204,33 +213,27 @@ fn replace_package_json(
             "description".to_string(),
             Value::String("copy from antd".to_string()),
         );
-        obj.insert("files".to_string(), Value::Array(vec!["dist".into()]));
         obj.insert(
-            "exports".to_string(),
-            json!({
-                ".": {
-                    "default": "./dist/es/index.js",
-                    "require": "./dist/lib/index.js",
-                    "import": "./dist/es/index.js",
-                    "types": "./dist/types/index.d.ts"
-                }
-            }),
+            "files".to_string(),
+            Value::Array(vec!["es".into(), "lib".into(), "types".into()]),
         );
+        // obj.insert(
+        //     "exports".to_string(),
+        //     json!({
+        //         ".": {
+        //             "default": "./dist/es/index.js",
+        //             "require": "./dist/lib/index.js",
+        //             "import": "./dist/es/index.js",
+        //             "types": "./dist/types/index.d.ts"
+        //         }
+        //     }),
+        // );
     }
     // edit main module types
     if let Some(obj) = package_json.as_object_mut() {
-        obj.insert(
-            "main".to_string(),
-            Value::String(format!("./dist/lib/index.js")),
-        );
-        obj.insert(
-            "module".to_string(),
-            Value::String(format!("./dist/es/index.js")),
-        );
-        obj.insert(
-            "types".to_string(),
-            Value::String(format!("./dist/types/index.d.ts")),
-        );
+        obj.insert("main".to_string(), Value::String(format!("./lib/index")));
+        obj.insert("module".to_string(), Value::String(format!("./es/index")));
+        obj.insert("types".to_string(), Value::String(format!("./types/index")));
     }
     // edit script build
     if let Some(obj) = package_json.as_object_mut() {
@@ -240,7 +243,7 @@ fn replace_package_json(
         if let Some(scripts) = script.as_object_mut() {
             scripts.insert(
                 "build".to_string(),
-                Value::String("pnpm bee build --minify --sourcemap".to_string()),
+                Value::String("pnpm bee build --minify --sourcemap -d".to_string()),
             );
             scripts.insert(
                 "dev".to_string(),
@@ -250,6 +253,7 @@ fn replace_package_json(
                 "clean".to_string(),
                 Value::String("pnpm rimraf node_modules .turbo dist".to_string()),
             );
+            scripts.remove("prepare");
             // scripts.insert("test".to_string(), Value::String("pnpm vitest".to_string()));
         }
     }
@@ -405,7 +409,7 @@ fn clone_repo(url: &String, clone_dir: &PathBuf) -> Result<(), Box<dyn StdError>
     Ok(())
 }
 
-async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, String> {
+async fn get_npm_package_clone_url(name: &String) -> Result<String, String> {
     let url = format!("https://registry.npmjs.org/{}", name);
 
     // 使用 `Result` 的链式调用，避免 `unwrap` 导致 panic
@@ -419,16 +423,19 @@ async fn get_npm_package_clone_url(name: &String) -> Result<Option<String>, Stri
     // 解析 JSON
     let package_info: Value = serde_json::from_str(&response).map_err(|e| e.to_string())?;
 
-    // 获取仓库地址
-    if let Some(repository) = package_info["repository"]["url"].as_str() {
-        let url = repository
-            .replace("git+", "")
-            .replace("ssh://git@", "https://")
-            .replace("#master", "");
-        Ok(Some(url.trim().to_string()))
-    } else {
-        Ok(None) // 没有找到仓库地址
-    }
+    // 获取仓库地址，直接将 None 转换为错误
+    let repository_url = package_info["repository"]["url"]
+        .as_str()
+        .map(|url| {
+            url.replace("git+", "")
+                .replace("ssh://git@", "https://")
+                .replace("#master", "")
+                .trim()
+                .to_string()
+        })
+        .ok_or("Repository URL not found".to_string())?;
+
+    Ok(repository_url)
 }
 
 fn copy_with_ignore<P: AsRef<Path>>(

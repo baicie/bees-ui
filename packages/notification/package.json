@@ -38,16 +38,10 @@
   "engines": {
     "node": ">=8.x"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "http://github.com/react-component/notification",
   "keywords": [
@@ -63,13 +57,13 @@
       "git add"
     ]
   },
-  "main": "./dist/lib/index.js",
+  "main": "./lib/index",
   "maintainers": [
     "yiminghe@gmail.com",
     "skyking_H@hotmail.com",
     "hust2012jiangkai@gmail.com"
   ],
-  "module": "./dist/es/index.js",
+  "module": "./es/index",
   "name": "@bees-ui/notification",
   "peerDependencies": {
     "preact": "^10.24.0"
@@ -79,7 +73,7 @@
     "url": "git@github.com:react-component/notification.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "vitest run --coverage",
@@ -93,7 +87,7 @@
     "test": "vitest --watch=false",
     "test:watch": "vitest"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "typings": "es/index.d.ts",
   "version": "0.0.0"
 }

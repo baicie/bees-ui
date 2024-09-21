@@ -33,16 +33,10 @@
   "engines": {
     "node": ">=8.x"
   },
-  "exports": {
-    ".": {
-      "default": "./dist/es/index.js",
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
-    }
-  },
   "files": [
-    "dist"
+    "es",
+    "lib",
+    "types"
   ],
   "homepage": "https://github.com/react-component/tour",
   "keywords": [
@@ -51,8 +45,8 @@
     "react-tour"
   ],
   "license": "MIT",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "name": "@bees-ui/tour",
   "peerDependencies": {
     "preact": "^10.24.0"
@@ -62,7 +56,7 @@
     "url": "https://github.com/react-component/tour.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap",
+    "build": "pnpm bee build --minify --sourcemap -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
     "deploy": "npm run docs:build && npm run docs:deploy",
@@ -79,7 +73,7 @@
     "test": "umi-test",
     "watch": "father dev"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./types/index",
   "typings": "es/index.d.ts",
   "version": "0.0.0"
 }
