@@ -81,7 +81,6 @@
     "gh-pages": "npm run docs:build && npm run docs:deploy",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "now-build": "npm run docs:build",
-    "prepare": "husky install",
     "prepublishOnly": "npm run compile && np --yolo --no-publish && npm run gh-pages",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "dumi dev",

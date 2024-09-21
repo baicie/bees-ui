@@ -74,7 +74,6 @@
     "gh-pages": "npm run docs:build && npm run docs:deploy",
     "lint": "eslint src/ --ext .tsx,.ts",
     "postpublish": "npm run gh-pages",
-    "prepare": "husky install",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "rc-test"

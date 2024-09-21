@@ -69,7 +69,6 @@
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "now-build": "npm run docs:build",
     "postpublish": "npm run docs:build && npm run docs:deploy",
-    "prepare": "dumi setup",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "dumi dev",

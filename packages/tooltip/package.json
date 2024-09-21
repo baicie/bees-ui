@@ -64,7 +64,6 @@
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run docs:build",
     "postpublish": "npm run docs:build && npm run docs:deploy",
-    "prepare": "dumi setup",
     "prepublishOnly": "npm run compile && np --no-cleanup --yolo --no-publish",
     "start": "dumi dev",
     "test": "rc-test"

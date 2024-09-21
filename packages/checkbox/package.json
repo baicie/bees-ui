@@ -75,7 +75,6 @@
     "dev": "pnpm bee build --watch --sourcemap",
     "gh-pages": "npm run build && father doc deploy -d .docs",
     "lint": "eslint src/ --ext .tsx,.ts",
-    "prepare": "husky install && dumi setup",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "jest"

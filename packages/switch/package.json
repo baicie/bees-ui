@@ -72,7 +72,6 @@
     "lint": "eslint .",
     "lint-staged": "lint-staged",
     "postpublish": "npm run gh-pages",
-    "prepare": "husky install && dumi setup",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "umi-test"

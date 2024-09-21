@@ -77,7 +77,6 @@
     "docs:deploy": "gh-pages -d .doc",
     "gh-pages": "GH_PAGES=1 npm run docs:build && npm run docs:deploy",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
-    "prepare": "husky install",
     "prepublishOnly": "npm run compile && np --yolo --no-publish && npm run gh-pages",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "pretty-quick": "pretty-quick",

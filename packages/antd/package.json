@@ -293,7 +293,6 @@
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run test:site",
     "predist": "npm run version && npm run token:statistic && npm run token:meta",
     "prelint": "dumi setup",
-    "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "presite": "npm run prestart",
     "prestart": "npm run version && npm run token:statistic && npm run token:meta && npm run lint:changelog",

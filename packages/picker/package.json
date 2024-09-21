@@ -93,7 +93,6 @@
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "lint:tsc": "tsc -p tsconfig.json --noEmit",
     "now-build": "npm run build",
-    "prepare": "npx husky",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "dumi dev",

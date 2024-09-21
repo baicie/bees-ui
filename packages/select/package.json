@@ -75,7 +75,6 @@
     "dev": "pnpm bee build --watch --sourcemap",
     "lint": "eslint src/ docs/ tests/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
-    "prepare": "husky && dumi setup",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier --write --ignore-unknown .",
     "start": "dumi dev",

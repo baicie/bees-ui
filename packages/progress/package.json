@@ -70,7 +70,6 @@
     "gh-pages": "npm run now-build && father doc deploy",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js",
     "now-build": "npm run docs:build",
-    "prepare": "dumi setup",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "dumi dev",

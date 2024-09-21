@@ -46,7 +46,6 @@
     "coverage": "npm test -- --coverage",
     "dev": "pnpm bee build --watch --sourcemap",
     "lint": "eslint src --ext .ts",
-    "prepare": "tsx generate-presets",
     "prepublishOnly": "npm run compile && np --no-cleanup --no-publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "jest"
