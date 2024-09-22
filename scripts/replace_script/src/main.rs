@@ -253,7 +253,12 @@ fn replace_package_json(
                 "clean".to_string(),
                 Value::String("pnpm rimraf node_modules .turbo dist".to_string()),
             );
-            scripts.remove("prepare");
+            let perpare = scripts
+                .entry("prepare")
+                .or_insert_with(|| Value::String("".to_string()));
+            if perpare.to_string().contains("husky") || perpare.to_string().contains("dumi") {
+                scripts.remove("prepare");
+            }
             // scripts.insert("test".to_string(), Value::String("pnpm vitest".to_string()));
         }
     }

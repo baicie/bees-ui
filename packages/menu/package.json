@@ -74,6 +74,7 @@
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
     "postpublish": "tnpm sync rc-menu",
+    "prepare": "",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "rc-test"

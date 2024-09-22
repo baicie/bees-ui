@@ -71,6 +71,7 @@
     "dev": "pnpm bee build --watch --sourcemap",
     "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
+    "prepare": "",
     "prepublishOnly": "npm run compile",
     "start": "dumi dev",
     "test": "umi-test"

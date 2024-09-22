@@ -71,6 +71,7 @@
     "lint": "eslint src --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run docs:build",
     "postpublish": "npm run gh-pages",
+    "prepare": "",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier . --write",
     "start": "dumi dev",

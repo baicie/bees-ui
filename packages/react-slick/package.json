@@ -124,6 +124,7 @@
     "lib": "babel ./src --out-dir ./lib",
     "lint": "eslint src",
     "precommit": "lint-staged",
+    "prepare": "",
     "prepublishOnly": "npm run build && np --no-cleanup --no-publish",
     "start": "NODE_OPTIONS=--openssl-legacy-provider gulp server",
     "test": "jest",

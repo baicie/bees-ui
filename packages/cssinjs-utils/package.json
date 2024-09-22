@@ -62,6 +62,7 @@
     "coverage": "rc-test --coverage",
     "dev": "pnpm bee build --watch --sourcemap",
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
+    "prepare": "",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "rc-test"

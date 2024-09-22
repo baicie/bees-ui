@@ -28,6 +28,7 @@
     "icons:generate": "lerna run --scope @ant-design/icons-svg generate",
     "icons:test": "lerna run --scope @ant-design/icons-svg test",
     "lint": "lerna run lint",
+    "prepare": "",
     "react-native:ci": "lerna run --scope @ant-design/icons-react-native ci",
     "react:ci": "lerna run --scope @ant-design/icons ci",
     "rn:generate": "lerna run --scope @ant-design/icons-react-native generate",

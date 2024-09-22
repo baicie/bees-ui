@@ -83,6 +83,7 @@
     "docs:deploy": "gh-pages -d .doc",
     "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
+    "prepare": "",
     "prepublishOnly": "npm run lint && npm run test && npm run compile && np --yolo --no-publish",
     "start": "dumi dev",
     "test": "rc-test"

@@ -69,6 +69,7 @@
     "dev": "pnpm bee build --watch --sourcemap",
     "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
+    "prepare": "",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "prettier": "prettier --write .",
     "start": "dumi dev",

@@ -66,6 +66,7 @@
     "docs:deploy": "gh-pages -d docs-dist",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "now-build": "npm run docs:build",
+    "prepare": "",
     "prepublishOnly": "npm run compile && np --yolo --no-publish --any-branch",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "dumi dev",
