@@ -112,13 +112,13 @@
     "url": "https://github.com/ant-design/react-slick"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "build-dev": "gulp clean && gulp copy && webpack",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "clear-jest": "jest --clearCache",
     "compile": "NODE_OPTIONS=--openssl-legacy-provider npm run lib && NODE_OPTIONS=--openssl-legacy-provider npm run es && NODE_OPTIONS=--openssl-legacy-provider gulp dist",
     "demo": "SINGLE_DEMO=true DEV_PORT=8000 NODE_OPTIONS=--openssl-legacy-provider gulp server",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "es": "ESMODULES=true babel ./src --out-dir ./es",
     "gen": "node docs/scripts/generateExampleConfigs.js && node docs/scripts/generateExamples.js && xdg-open docs/jquery.html",
     "lib": "babel ./src --out-dir ./lib",

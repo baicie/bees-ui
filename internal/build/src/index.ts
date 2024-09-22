@@ -2,7 +2,6 @@
 import cac from 'cac';
 
 import { build, watchFuc } from './build';
-import { dts } from './dts';
 import { compile } from './gulp';
 
 const cli = cac('bee');
@@ -30,8 +29,6 @@ cli
     if (args.dts) {
       if (args.root) {
         await compile(root, args);
-      } else {
-        await dts(root, args);
       }
     }
   });

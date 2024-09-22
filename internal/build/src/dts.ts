@@ -3,7 +3,7 @@ import { build } from 'tsup';
 
 import type { Options } from './build';
 import { rootPath } from './path';
-import { DEFAULT, normalizePath, resolveInput, resolveTsConfig, target } from './ustils';
+import { DEFAULT, normalizePath, resolveInput, resolveTsConfig, target } from './utils';
 
 export async function dts(root: string, options: Options = {}) {
   const { input = DEFAULT, watch = false, tsconfig = resolveTsConfig(root, rootPath) } = options;

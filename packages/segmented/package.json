@@ -68,11 +68,11 @@
     "url": "git@github.com:react-component/segmented.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "jest --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d .doc",
     "gh-pages": "GH_PAGES=1 npm run docs:build && npm run docs:deploy",

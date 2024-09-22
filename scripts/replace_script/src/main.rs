@@ -243,11 +243,11 @@ fn replace_package_json(
         if let Some(scripts) = script.as_object_mut() {
             scripts.insert(
                 "build".to_string(),
-                Value::String("pnpm bee build --minify --sourcemap -d".to_string()),
+                Value::String("pnpm bee build -d".to_string()),
             );
             scripts.insert(
                 "dev".to_string(),
-                Value::String("pnpm bee build --watch --sourcemap".to_string()),
+                Value::String("pnpm bee build --watch -d".to_string()),
             );
             scripts.insert(
                 "clean".to_string(),

@@ -50,11 +50,11 @@
     "url": "git@github.com:react-component/context.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
     "coverage": "father test --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "lint": "eslint src/ docs/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",
     "prepare": "",

@@ -66,10 +66,10 @@
     "url": "git@github.com:react-component/motion.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d .doc",
     "lint": "eslint src/ --ext .tsx,.ts",

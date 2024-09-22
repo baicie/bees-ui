@@ -71,12 +71,12 @@
     "url": "https://github.com/react-component/cascader.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
     "coverage": "father test --coverage",
     "deploy": "UMI_ENV=gh npm run build && gh-pages -d dist",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "lint": "eslint src/ examples/ --ext .tsx,.ts,.jsx,.jsx",
     "lint:tsc": "tsc -p tsconfig.json --noEmit",
     "now-build": "npm run build",

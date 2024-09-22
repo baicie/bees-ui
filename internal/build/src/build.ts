@@ -4,7 +4,7 @@ import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import { emptyDirSync } from 'fs-extra';
+import typescript from '@rollup/plugin-typescript';
 import type {
   InputPluginOption,
   OutputOptions,
@@ -12,6 +12,7 @@ import type {
   RollupBuild,
   RollupOptions,
   RollupOutput,
+  RollupWatchOptions,
   WatcherOptions,
 } from 'rollup';
 import { rollup, watch as rollupWatch } from 'rollup';
@@ -20,8 +21,17 @@ import visualizer from 'rollup-plugin-visualizer';
 
 import deps from './deps';
 import { rootPath } from './path';
+import { cleanOutputPlugin } from './plugins/clean-output';
 import { dynamicPathReplace } from './plugins/dynamicPathReplace';
-import { DEFAULT, generateExternal, resolveBuildConfig, resolveInput, target } from './ustils';
+import type { Module } from './utils';
+import {
+  DEFAULT,
+  generateExternal,
+  resolveBuildConfig,
+  resolveInput,
+  resolveTsConfig,
+  target,
+} from './utils';
 
 export interface Options {
   /**
@@ -53,6 +63,7 @@ export async function resolveConfig(
   root: string,
   options: Options = {},
   plugin: Plugin[] = [],
+  module: Module,
 ): Promise<RollupOptions> {
   const {
     input = DEFAULT,
@@ -60,12 +71,16 @@ export async function resolveConfig(
     watch = false,
     minify = false,
     full = false,
+    tsconfig = resolveTsConfig(root, rootPath),
   } = options;
   const inputPath = resolveInput(root, input);
+  const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib');
+
   const watchOptions: WatcherOptions = {
     clearScreen: true,
   };
   const plugins = [
+    cleanOutputPlugin(outputPath),
     dynamicPathReplace(),
     babel({
       babelHelpers: 'runtime',
@@ -101,10 +116,20 @@ export async function resolveConfig(
       },
     }),
     options.visualizer ? visualizer({ open: true }) : null,
+    options.dts
+      ? typescript({
+          tsconfig,
+          compilerOptions: {
+            declaration: true,
+            outDir: outputPath,
+          },
+          emitDeclarationOnly: true,
+          include: inputPath,
+        })
+      : null,
     ...plugin,
   ] as unknown as InputPluginOption[];
   const external = full ? [] : await generateExternal(root);
-  console.log('external', external);
 
   return {
     input: inputPath,
@@ -116,40 +141,41 @@ export async function resolveConfig(
 }
 
 export async function build(root: string, options: Options = {}) {
-  const distPath = path.resolve(root, 'dist');
-  emptyDirSync(distPath);
-  const bundleConfig = await resolveConfig(root, options);
-  const bundle = await rollup(bundleConfig);
-
-  await writeBundles(
-    bundle,
-    resolveBuildConfig(root).map(
-      ([_, _config]): OutputOptions => ({
-        format: _config.format,
-        dir: _config.output.path,
-        exports: 'named',
-        sourcemap: options.sourcemap,
-        preserveModules: true,
-        preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
-      }),
-    ),
+  await Promise.all(
+    resolveBuildConfig(root).map(async ([module, config]) => {
+      const bundleConfig = await resolveConfig(root, options, [], module as Module);
+      const bundle = await rollup(bundleConfig);
+      return writeBundles(bundle, [
+        {
+          format: config.format,
+          dir: config.output.path,
+          exports: module === 'cjs' ? 'named' : undefined,
+          sourcemap: options.sourcemap,
+          preserveModules: true,
+          preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
+        },
+      ]);
+    }),
   );
 }
 
 export async function watchFuc(root: string, options: Options = {}) {
-  const _config = await resolveConfig(root, options);
-
-  const watcher = rollupWatch(
-    resolveBuildConfig(root).map(([module, config]) => ({
+  const bundles = resolveBuildConfig(root).map(async ([module, config]) => {
+    const _config = await resolveConfig(root, options, [], module as Module);
+    return {
       ..._config,
       output: {
         format: config.format,
         dir: config.output.path,
         exports: module === 'cjs' ? 'named' : undefined,
         sourcemap: options.sourcemap,
+        preserveModules: true,
+        preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
       },
-    })),
-  );
+    } as RollupWatchOptions;
+  });
+  const resolvedBundles = await Promise.all(bundles);
+  const watcher = rollupWatch(resolvedBundles);
 
   watcher.on('event', (event) => {
     // 事件处理逻辑

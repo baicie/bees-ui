@@ -62,12 +62,12 @@
     "url": "git@github.com:react-component/resize-observer.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "rc-test --coverage",
     "deploy": "UMI_ENV=gh npm run build && gh-pages -d .doc",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "gh-pages": "npm run deploy",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "now-build": "npm run build",

@@ -78,12 +78,12 @@
     "url": "git@github.com:react-component/dialog.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css && lessc assets/bootstrap.less assets/bootstrap.css",
     "coverage": "rc-test --coverage",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d dist",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",

@@ -73,11 +73,11 @@
     "url": "git@github.com:react-component/notification.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "vitest run --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "docs:deploy": "gh-pages -d .doc",
     "lint": "eslint src/ docs/examples/ --ext .tsx,.ts,.jsx,.js",
     "now-build": "npm run build",

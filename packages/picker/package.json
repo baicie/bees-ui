@@ -84,11 +84,11 @@
     "url": "git@github.com:react-component/picker.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "coverage": "father test --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "gh-pages": "npm run build && father doc deploy",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "lint:tsc": "tsc -p tsconfig.json --noEmit",

@@ -63,11 +63,11 @@
     "url": "git@github.com:react-component/util.git"
   },
   "scripts": {
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
     "coverage": "npm test -- --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "lint": "eslint src/ --ext .tsx,.ts & eslint tests/ --ext .js",
     "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "start": "dumi dev",

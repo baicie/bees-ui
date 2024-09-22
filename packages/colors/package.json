@@ -40,11 +40,11 @@
   },
   "scripts": {
     "bench": "vitest bench",
-    "build": "pnpm bee build --minify --sourcemap -d",
+    "build": "pnpm bee build -d",
     "clean": "pnpm rimraf node_modules .turbo dist",
     "compile": "father build",
     "coverage": "npm test -- --coverage",
-    "dev": "pnpm bee build --watch --sourcemap",
+    "dev": "pnpm bee build --watch -d",
     "lint": "eslint src --ext .ts",
     "prepare": "tsx generate-presets",
     "prepublishOnly": "npm run compile && np --no-cleanup --no-publish",
