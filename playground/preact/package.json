@@ -9,8 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@bees-ui/switch": "workspace:^",
-    "preact": "10.24.0"
+    "@bees-ui/switch": "workspace:^"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.9.0",

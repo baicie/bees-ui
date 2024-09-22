@@ -1,15 +1,12 @@
-import type { ModuleFormat, Plugin } from 'rollup';
+import type { Plugin } from 'rollup';
 
-export function dynamicPathReplace(): Plugin {
-  let format: ModuleFormat | undefined;
+import { Module } from '../utils';
 
+export function dynamicPathReplace(module: Module): Plugin {
   return {
     name: 'dynamic-path-replace',
-    outputOptions(outputOptions) {
-      format = outputOptions.format;
-    },
     resolveId(source) {
-      const isCjs = format === 'cjs';
+      const isCjs = module === 'cjs';
       const libDir = isCjs ? 'lib' : 'es';
 
       // 自动匹配和替换路径

@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import path from 'node:path';
-import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
@@ -21,8 +20,9 @@ import visualizer from 'rollup-plugin-visualizer';
 
 import deps from './deps';
 import { rootPath } from './path';
+import alias from './plugins/alias';
 import { cleanOutputPlugin } from './plugins/clean-output';
-import { dynamicPathReplace } from './plugins/dynamicPathReplace';
+// import { dynamicPathReplace } from './plugins/dynamicPathReplace';
 import type { Module } from './utils';
 import {
   DEFAULT,
@@ -81,13 +81,6 @@ export async function resolveConfig(
   };
   const plugins = [
     cleanOutputPlugin(outputPath),
-    dynamicPathReplace(),
-    babel({
-      babelHelpers: 'runtime',
-      presets: ['@babel/preset-react'],
-      exclude: 'node_modules/**',
-      plugins: ['@babel/plugin-transform-runtime'],
-    }),
     alias({
       entries: [
         { find: 'react', replacement: 'preact/compat' },
@@ -97,6 +90,15 @@ export async function resolveConfig(
         // { find: 'classnames', replacement: 'clsx' },
         ...deps,
       ],
+      module,
+    }),
+    // dynamicPathReplace(module),
+    babel({
+      babelHelpers: 'runtime',
+      presets: ['@babel/preset-react', '@babel/preset-typescript'],
+      exclude: 'node_modules/**',
+      plugins: ['@babel/plugin-transform-runtime'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     nodeResolve({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -178,13 +180,17 @@ export async function watchFuc(root: string, options: Options = {}) {
   const watcher = rollupWatch(resolvedBundles);
 
   watcher.on('event', (event) => {
-    // 事件处理逻辑
     if (event.code === 'START') {
       console.log('Rollup build started...');
     } else if (event.code === 'END') {
       console.log('Rollup build completed.');
     } else if (event.code === 'ERROR') {
       console.error('Error during Rollup build:', event.error);
+      process.exit(1); // 根据情况决定是否退出
+    } else if (event.code === 'BUNDLE_END') {
+      console.log(`Bundle completed in ${event.duration}ms`);
+    } else if (event.code === 'BUNDLE_START') {
+      console.log(`Bundling ${event.input}...`);
     }
   });
 }
