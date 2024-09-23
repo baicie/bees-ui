@@ -6,6 +6,7 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
     "@babel/runtime": "^7.25.6",
     "@bees-ui/cascader": "workspace:^",
     "@bees-ui/checkbox": "workspace:^",
@@ -18,7 +19,6 @@
     "@bees-ui/drawer": "workspace:^",
     "@bees-ui/dropdown": "workspace:^",
     "@bees-ui/field-form": "workspace:^",
-    "@bees-ui/icons": "workspace:^",
     "@bees-ui/image": "workspace:^",
     "@bees-ui/input": "workspace:^",
     "@bees-ui/input-number": "workspace:^",

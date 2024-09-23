@@ -70,6 +70,8 @@ export function resolveBuildConfig(root: string) {
 }
 
 export function resolveInput(root: string, input: string): string[] {
+  console.log('resolveInput', input);
+
   return globSync(`${path.resolve(root, input)}/*`, {
     onlyFiles: true,
     ignore: [

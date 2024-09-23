@@ -18,7 +18,7 @@ lazy_static::lazy_static! {
   static ref RE_REACT: Regex = Regex::new(r"^(?:react|react-dom|@react.*|@.*react.*|@react-dom.*|@.*react-dom.*)$").unwrap();
   static ref RE_TRY: u32 = 10;
   static ref version: String = "^10.24.0".to_string();
-  static ref ignore_packages:Vec<String> = vec!["@ant-design/icon".to_string()];
+//   static ref ignore_packages:Vec<String> = vec!["@ant-design/icon".to_string(),"icons".to_string()];
 }
 
 #[derive(Debug, Clone)]
@@ -167,6 +167,12 @@ async fn iteration_deps(
             Ok(_) => {
                 scan_deps(&clone_dir, deps);
                 replace_package_json(&name, &clone_dir, &packages_dir, ignore_folders, deps);
+                if name == "antd" {
+                    let antd_dir = packages_dir.join("antd");
+                    let version_path = antd_dir.join("components/version/version.ts");
+                    fs::write(version_path, "export default '0.0.0';").unwrap();
+                }
+
                 Ok(String::new())
             }
             Err(e) => Err(Error::new(std::io::ErrorKind::Other, e.to_string())),
@@ -340,8 +346,9 @@ fn scan_deps(path: &PathBuf, deps: &Arc<Mutex<HashMap<String, Deps>>>) {
     let mut deps_lock = deps.lock().unwrap();
     if let Some(deps_map) = dependencies.as_object() {
         for (key, _) in deps_map {
-            if ignore_packages.contains(key) {
-                return;
+            if ["@ant-design/icons".to_string()].contains(key) {
+                println!("ignore package: {}", key);
+                continue;
             }
             if RE.is_match(key) && !deps_lock.contains_key(key) {
                 if let Some(caps) = RE.captures(key) {
