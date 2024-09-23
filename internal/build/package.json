@@ -19,13 +19,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/minimist": "^1.2.5",
     "@types/object-assign": "^4.0.33",
     "cac": "^6.7.14",
-    "gulp": "^5.0.0",
     "gulp-typescript": "6.0.0-alpha.1",
     "minimist": "^1.2.8",
     "object-assign": "^4.1.1",
@@ -43,6 +41,7 @@
     "@babel/plugin-transform-runtime": "^7.25.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.24.7",
+    "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -52,6 +51,9 @@
     "@types/through2": "^2.0.41",
     "autoprefixer": "^7.1.2",
     "fast-glob": "^3.3.2",
+    "gulp": "^5.0.0",
+    "gulp-rollup": "^2.17.0",
+    "gulp-ts-alias": "^2.0.0",
     "postcss": "^8.4.47",
     "rollup-plugin-postcss": "^4.0.2"
   }

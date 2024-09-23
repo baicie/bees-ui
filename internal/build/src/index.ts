@@ -26,11 +26,12 @@ cli
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
     else {
-      if (args.ant) {
-        await compile(root, args);
-      } else {
-        await build(root, args);
-      }
+      await build(root, args);
+      // if (args.ant) {
+      //   await compile(root, args);
+      // } else {
+      //   await build(root, args);
+      // }
     }
   });
 

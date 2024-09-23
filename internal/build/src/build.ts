@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import path from 'node:path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
@@ -79,6 +78,7 @@ export async function resolveConfig(
     tsconfig = resolveTsConfig(root, rootPath),
   } = options;
   const inputPath = resolveInput(root, input);
+  // fs.writeFileSync(path.resolve(rootPath, 'input.ts'), JSON.stringify(inputPath), { encoding: 'utf-8' })
   const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib');
 
   const watchOptions: WatcherOptions = {
@@ -125,16 +125,17 @@ export async function resolveConfig(
       },
     }),
     options.visualizer ? visualizer({ open: true }) : null,
-    options.dts && !options.ant
+    options.dts
       ? typescript({
-          tsconfig,
-          compilerOptions: {
-            declaration: true,
-            outDir: outputPath,
-          },
-          emitDeclarationOnly: true,
-          include: inputPath,
-        })
+        tsconfig,
+        compilerOptions: {
+          declaration: true,
+          outDir: outputPath,
+          module: 'esnext'
+        },
+        emitDeclarationOnly: true,
+        include: inputPath,
+      })
       : null,
     ...plugin,
   ] as unknown as InputPluginOption[];

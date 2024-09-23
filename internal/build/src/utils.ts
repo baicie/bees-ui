@@ -82,7 +82,8 @@ export function resolveInput(root: string, input: string): string[] {
       '**/*.d.tsx',
       '**/*.mdx',
       '**/*.md',
-      '**/demo/**/*'
+      '**/demo/**',
+      '**/design/**',
     ],
     absolute: true,
     caseSensitiveMatch: false,
