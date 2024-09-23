@@ -70,7 +70,7 @@ export function resolveBuildConfig(root: string) {
 }
 
 export function resolveInput(root: string, input: string): string[] {
-  return globSync(`${path.resolve(root, input)}/**/*`, {
+  return globSync(`${normalizePath(path.resolve(root, input))}/*`, {
     onlyFiles: true,
     ignore: [
       '**/__tests__/**/*',
@@ -86,7 +86,6 @@ export function resolveInput(root: string, input: string): string[] {
       '**/design/**',
     ],
     absolute: true,
-    caseSensitiveMatch: false,
   });
 }
 

@@ -18,7 +18,7 @@
     "postcompile": "npm run clean && TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/generate.ts --target=entry",
     "generate": "pnpm rimraf src/icons && TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/generate.ts --target=icon",
     "lint": "eslint src/ --ext .tsx,.ts",
-    "build": "pnpm run generate && pnpm bee build -d",
+    "build": "pnpm bee build -d",
     "prepublishOnly": "npm run generate && npm run compile && npm run lint && npm run test",
     "start": "dumi dev",
     "test": "rc-test",

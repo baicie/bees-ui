@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import path from 'node:path';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
