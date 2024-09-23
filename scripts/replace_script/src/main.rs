@@ -18,6 +18,7 @@ lazy_static::lazy_static! {
   static ref RE_REACT: Regex = Regex::new(r"^(?:react|react-dom|@react.*|@.*react.*|@react-dom.*|@.*react-dom.*)$").unwrap();
   static ref RE_TRY: u32 = 10;
   static ref version: String = "^10.24.0".to_string();
+  static ref ignore_packages:Vec<String> = vec!["@ant-design/icon".to_string()];
 }
 
 #[derive(Debug, Clone)]
@@ -217,17 +218,6 @@ fn replace_package_json(
             "files".to_string(),
             Value::Array(vec!["es".into(), "lib".into(), "types".into()]),
         );
-        // obj.insert(
-        //     "exports".to_string(),
-        //     json!({
-        //         ".": {
-        //             "default": "./dist/es/index.js",
-        //             "require": "./dist/lib/index.js",
-        //             "import": "./dist/es/index.js",
-        //             "types": "./dist/types/index.d.ts"
-        //         }
-        //     }),
-        // );
     }
     // edit main module types
     if let Some(obj) = package_json.as_object_mut() {
@@ -350,6 +340,9 @@ fn scan_deps(path: &PathBuf, deps: &Arc<Mutex<HashMap<String, Deps>>>) {
     let mut deps_lock = deps.lock().unwrap();
     if let Some(deps_map) = dependencies.as_object() {
         for (key, _) in deps_map {
+            if ignore_packages.contains(key) {
+                return;
+            }
             if RE.is_match(key) && !deps_lock.contains_key(key) {
                 if let Some(caps) = RE.captures(key) {
                     let extracted_part = caps.get(2).map(|m| m.as_str().to_string());

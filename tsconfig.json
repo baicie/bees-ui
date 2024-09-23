@@ -20,5 +20,5 @@
     "stripInternal": true,
     "resolvePackageJsonExports": true
   },
-  "exclude": ["components", "node_modules"]
+  "exclude": ["components", "node_modules", "packages"]
 }
