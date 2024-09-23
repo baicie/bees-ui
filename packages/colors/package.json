@@ -51,7 +51,7 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "jest"
   },
-  "types": "./types/index",
+  "types": "./es/index.d.ts",
   "typings": "es/index.d.ts",
   "version": "0.0.0"
 }

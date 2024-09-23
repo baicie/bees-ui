@@ -111,6 +111,6 @@
     "test": "vitest --watch false",
     "tsc": "tsc -p tsconfig.json --noEmit"
   },
-  "types": "./types/index",
+  "types": "./es/index.d.ts",
   "version": "0.0.0"
 }

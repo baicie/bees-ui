@@ -130,6 +130,6 @@
     "test": "jest",
     "test-watch": "jest --watch"
   },
-  "types": "./types/index",
+  "types": "./es/index.d.ts",
   "version": "0.0.0"
 }

@@ -6,7 +6,6 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.5.1",
     "@babel/runtime": "^7.25.6",
     "@bees-ui/cascader": "workspace:^",
     "@bees-ui/checkbox": "workspace:^",
@@ -19,6 +18,7 @@
     "@bees-ui/drawer": "workspace:^",
     "@bees-ui/dropdown": "workspace:^",
     "@bees-ui/field-form": "workspace:^",
+    "@bees-ui/icons": "workspace:^",
     "@bees-ui/image": "workspace:^",
     "@bees-ui/input": "workspace:^",
     "@bees-ui/input-number": "workspace:^",
@@ -266,7 +266,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
     "biome": "biome check --write",
-    "build": "pnpm bee build -d",
+    "build": "pnpm bee build -a --input components",
     "bun-install-react-16": "bun remove react react-dom @testing-library/react && bun add --no-save react@16 react-dom@16 @testing-library/react@12",
     "bun-install-react-17": "bun remove react react-dom @testing-library/react && bun add --no-save react@17 react-dom@17 @testing-library/react@12",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
@@ -338,7 +338,7 @@
   "tnpm": {
     "mode": "npm"
   },
-  "types": "./types/index",
+  "types": "./es/index.d.ts",
   "typings": "es/index.d.ts",
   "unpkg": "dist/antd.min.js",
   "version": "0.0.0"

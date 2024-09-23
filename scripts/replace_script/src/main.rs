@@ -191,6 +191,11 @@ fn replace_package_json(
     ignore_folders: &[&str],
     deps: &Arc<Mutex<HashMap<String, Deps>>>,
 ) {
+    if ["@ant-design/icons".to_string()].contains(name) {
+        println!("ignore package: {}", name);
+        return;
+    }
+
     println!("{}", format!("Scanning dependencies in: {:?}", path).blue());
     let package_json_path = path.join("package.json");
     if !package_json_path.exists() {
@@ -210,8 +215,6 @@ fn replace_package_json(
             return;
         }
     };
-    // edit name
-    // let new_name = format!("@bees-ui/{}", name);
 
     if let Some(obj) = package_json.as_object_mut() {
         // obj.insert("name".to_string(), Value::String(new_name.to_string()));
@@ -229,7 +232,10 @@ fn replace_package_json(
     if let Some(obj) = package_json.as_object_mut() {
         obj.insert("main".to_string(), Value::String(format!("./lib/index")));
         obj.insert("module".to_string(), Value::String(format!("./es/index")));
-        obj.insert("types".to_string(), Value::String(format!("./types/index")));
+        obj.insert(
+            "types".to_string(),
+            Value::String(format!("./es/index.d.ts")),
+        );
     }
     // edit script build
     if let Some(obj) = package_json.as_object_mut() {
@@ -237,10 +243,17 @@ fn replace_package_json(
             .entry("scripts".to_string())
             .or_insert_with(|| Value::Object(serde_json::Map::new()));
         if let Some(scripts) = script.as_object_mut() {
-            scripts.insert(
-                "build".to_string(),
-                Value::String("pnpm bee build -d".to_string()),
-            );
+            if name == "antd" {
+                scripts.insert(
+                    "build".to_string(),
+                    Value::String("pnpm bee build -a --input components".to_string()),
+                );
+            } else {
+                scripts.insert(
+                    "build".to_string(),
+                    Value::String("pnpm bee build -d".to_string()),
+                );
+            }
             scripts.insert(
                 "dev".to_string(),
                 Value::String("pnpm bee build --watch -d".to_string()),
@@ -346,10 +359,6 @@ fn scan_deps(path: &PathBuf, deps: &Arc<Mutex<HashMap<String, Deps>>>) {
     let mut deps_lock = deps.lock().unwrap();
     if let Some(deps_map) = dependencies.as_object() {
         for (key, _) in deps_map {
-            if ["@ant-design/icons".to_string()].contains(key) {
-                println!("ignore package: {}", key);
-                continue;
-            }
             if RE.is_match(key) && !deps_lock.contains_key(key) {
                 if let Some(caps) = RE.captures(key) {
                     let extracted_part = caps.get(2).map(|m| m.as_str().to_string());

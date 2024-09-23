@@ -81,7 +81,7 @@
     "test": "rc-test",
     "test:coverage": "umi-test --coverage"
   },
-  "types": "./types/index",
+  "types": "./es/index.d.ts",
   "typings": "es/index.d.ts",
   "version": "0.0.0"
 }
