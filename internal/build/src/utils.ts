@@ -70,10 +70,10 @@ export function resolveBuildConfig(root: string) {
 }
 
 export function resolveInput(root: string, input: string): string[] {
-  return globSync(`${path.resolve(root, input)}/*`, {
+  return globSync(`${path.resolve(root, input)}/**/*`, {
     onlyFiles: true,
     ignore: [
-      '__tests__/**/*',
+      '**/__tests__/**/*',
       '**/*.test.*',
       '**/*.spec.*',
       '**/*.stories.*',
@@ -82,8 +82,10 @@ export function resolveInput(root: string, input: string): string[] {
       '**/*.d.tsx',
       '**/*.mdx',
       '**/*.md',
+      '**/demo/**/*'
     ],
     absolute: true,
+    caseSensitiveMatch: false,
   });
 }
 

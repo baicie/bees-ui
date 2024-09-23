@@ -30,6 +30,7 @@
     "less": "^4.1.1",
     "lint-staged": "^13.2.1",
     "np": "^6.0.0",
+    "preact": "^10.24.0",
     "prettier": "^2.8.7",
     "rc-menu": "^9.5.2",
     "rc-resize-observer": "^1.4.0",

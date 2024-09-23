@@ -22,6 +22,7 @@
     "eslint-plugin-unicorn": "^52.0.0",
     "father": "^4.0.0",
     "np": "^10.0.4",
+    "preact": "^10.24.0",
     "rc-test": "^7.0.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

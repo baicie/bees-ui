@@ -1,0 +1,39 @@
+{
+  "name": "@bees-ui/register",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./es/index.js",
+      "require": "./lib/index.js",
+      "import": "./es/index.js",
+      "types": "./es/index.d.ts"
+    }
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "build": "pnpm microbundle",
+    "dev": "pnpm bee build --watch -d",
+    "clean": "pnpm rimraf node_modules .turbo es lib",
+    "test": "pnpm vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.25.6"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "preact": "^10.24.0"
+  },
+  "peerDependencies": {
+    "preact": "^10.24.0"
+  }
+}

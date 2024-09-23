@@ -1,0 +1,30 @@
+{
+  "name": "@bees-ui/core",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./es/index.js",
+      "require": "./lib/index.js",
+      "import": "./es/index.js",
+      "types": "./es/index.d.ts"
+    }
+  },
+  "files": ["es","lib"],
+  "scripts": {
+    "build": "pnpm bee build -d",
+    "dev": "pnpm bee build --watch -d",
+    "clean": "pnpm rimraf node_modules .turbo es lib",
+    "test": "pnpm vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@bees-ui/antd": "workspace:^",
+    "@bees-ui/register": "workspace:^"
+  }
+}

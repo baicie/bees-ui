@@ -2,6 +2,7 @@
 import cac from 'cac';
 
 import { build, watchFuc } from './build';
+import { compile } from './gulp';
 
 const cli = cac('bee');
 cli.command('[root]', 'Build the project').action(() => {
@@ -25,7 +26,11 @@ cli
     const root = process.cwd();
     if (args.watch) await watchFuc(root, args);
     else {
-      await build(root, args);
+      if (args.ant) {
+        await compile(root, args);
+      } else {
+        await build(root, args);
+      }
     }
   });
 

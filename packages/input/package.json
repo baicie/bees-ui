@@ -30,6 +30,7 @@
     "less": "^3.10.3",
     "lint-staged": "^13.0.3",
     "np": "^7.0.0",
+    "preact": "^10.24.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^3.0.0",
     "rc-test": "^7.0.15",

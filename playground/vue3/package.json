@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build-pg": "vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bees-ui/core": "workspace:^",
     "ant-design-vue": "^4.2.3",
     "preact": "^10.22.1",
     "rollup-plugin-visualizer": "^5.12.0",

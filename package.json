@@ -35,7 +35,6 @@
     "node": "^18.0.0 || >=20.0.0"
   },
   "devDependencies": {
-    "@bees-ui/antd": "workspace:^",
     "@bees-ui/internal-build": "workspace:^",
     "@biomejs/biome": "^1.9.2",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
@@ -50,8 +49,6 @@
     "@typescript-eslint/parser": "^8.6.0",
     "@umijs/fabric": "^4.0.1",
     "adm-zip": "^0.5.16",
-    "antd": "^5.21.0",
-    "antd-style": "^3.6.3",
     "chalk": "^5.3.0",
     "clsx": "^2.1.1",
     "consola": "^3.2.3",

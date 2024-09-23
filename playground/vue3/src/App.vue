@@ -1,12 +1,13 @@
 <script setup lang="ts">
-
+import { Button } from '@bees-ui/core'
+Button()
 const handleClick = () => {
   console.log('handleClick');
 };
 </script>
 
 <template>
-  <ant-button type="primary" @click="handleClick"> Let's have some different text! </ant-button>
+  <bees-button type="primary" @click="handleClick"> Let's have some different text! </bees-button>
 </template>
 
 <style scoped>

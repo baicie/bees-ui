@@ -280,6 +280,11 @@ fn replace_package_json(
             }),
         );
     }
+    if let Some(obj) = package_json.get_mut("devDependencies") {
+        if let Some(deps_map) = obj.as_object_mut() {
+            deps_map.insert("preact".to_string(), Value::String(version.clone()));
+        }
+    }
     //edit dependencies
     if let Some(obj) = package_json.get_mut("dependencies") {
         if let Some(deps_map) = obj.as_object_mut() {

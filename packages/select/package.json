@@ -31,6 +31,7 @@
     "less": "^4.2.0",
     "lint-staged": "^15.2.9",
     "np": "^10.0.7",
+    "preact": "^10.24.0",
     "prettier": "^3.1.1",
     "querystring": "^0.2.1",
     "rc-dialog": "^9.0.0",
