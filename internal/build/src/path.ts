@@ -1,7 +1,7 @@
 import path from 'node:path';
 
 export const rootPath = path.resolve(__dirname, '..', '..', '..');
-export const antdPath = path.resolve(rootPath, 'antd');
+export const antdPath = path.resolve(rootPath, 'packages', 'antd');
 export const componentsPath = path.resolve(antdPath, 'components');
 export const distPath = path.resolve(rootPath, 'dist');
 export const esPath = path.resolve(distPath, 'es');

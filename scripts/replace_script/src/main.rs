@@ -246,7 +246,7 @@ fn replace_package_json(
             if name == "antd" {
                 scripts.insert(
                     "build".to_string(),
-                    Value::String("pnpm bee build -a --input components".to_string()),
+                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=10240 pnpm bee build -d --input components".to_string()),
                 );
             } else {
                 scripts.insert(

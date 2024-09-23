@@ -266,7 +266,7 @@
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
     "biome": "biome check --write",
-    "build": "pnpm bee build -a --input components",
+    "build": "pnpm cross-env NODE_OPTIONS=--max_old_space_size=10240 pnpm bee build -d --input components",
     "bun-install-react-16": "bun remove react react-dom @testing-library/react && bun add --no-save react@16 react-dom@16 @testing-library/react@12",
     "bun-install-react-17": "bun remove react react-dom @testing-library/react && bun add --no-save react@17 react-dom@17 @testing-library/react@12",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
