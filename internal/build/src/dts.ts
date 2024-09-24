@@ -2,7 +2,7 @@ import path from 'node:path';
 import { build } from 'tsup';
 
 import type { Options } from './build';
-import { rootPath } from './path';
+import { rootPath } from '@bees-ui/internal-path';
 import { DEFAULT, normalizePath, resolveInput, resolveTsConfig, target } from './utils';
 
 export async function dts(root: string, options: Options = {}) {

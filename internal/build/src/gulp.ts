@@ -6,7 +6,7 @@ import assign from 'object-assign';
 import * as rimraf from 'rimraf';
 
 import { Options } from './build';
-import { antdPath } from './path';
+import { antdPath } from '@bees-ui/internal-path';
 
 const tsDefaultReporter = ts.reporter.defaultReporter();
 async function getTsConfig(tsconfigPath: string): Promise<any> {

@@ -256,7 +256,7 @@ fn replace_package_json(
             }
             scripts.insert(
                 "dev".to_string(),
-                Value::String("pnpm bee build --watch -d".to_string()),
+                Value::String("pnpm bee build --watch".to_string()),
             );
             scripts.insert(
                 "clean".to_string(),

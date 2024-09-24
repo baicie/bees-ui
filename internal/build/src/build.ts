@@ -21,7 +21,7 @@ import json from '@rollup/plugin-json';
 import visualizer from 'rollup-plugin-visualizer';
 
 import deps from './deps';
-import { rootPath } from './path';
+import { rootPath } from '@bees-ui/internal-path';
 import alias from './plugins/alias';
 import { cleanOutputPlugin } from './plugins/clean-output';
 // import { dynamicPathReplace } from './plugins/dynamicPathReplace';

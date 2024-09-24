@@ -1,24 +1,26 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {},
-    "strict": true,
-    "strictNullChecks": true,
+    "jsx": "preserve",
+    "jsxImportSource": "preact",
     "module": "esnext",
     "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es6",
-    "lib": ["dom", "es2017"],
+    "target": "ES2018",
+    "lib": ["dom", "es2017", "es2022"],
     "skipLibCheck": true,
     "stripInternal": true,
-    "resolvePackageJsonExports": true
+    "resolvePackageJsonExports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@bees-ui/*": ["packages/*", "internal/*", "components/*"]
+    },
+    "types": ["node", "@testing-library/jest-dom", "vitest/globals"]
   },
-  "exclude": ["components", "node_modules", "packages"]
+  "include": ["packages", "components"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

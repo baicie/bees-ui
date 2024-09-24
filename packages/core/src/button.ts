@@ -1,21 +1,30 @@
 import { Button } from '@bees-ui/antd';
+import type { ButtonProps } from '@bees-ui/antd';
 import register from '@bees-ui/register';
 import type { FunctionComponent } from 'preact';
 
-export { ButtonProps } from '@bees-ui/antd';
+export type { ButtonProps }
+
+export const beesButtonProps: ButtonProps = {
+  loading: false,
+  prefixCls: undefined,
+  type: 'default',
+  danger: undefined,
+  shape: 'default',
+  size: undefined,
+  styles: undefined,
+  disabled: undefined,
+  className: undefined,
+  rootClassName: undefined,
+  icon: undefined,
+  ghost: false,
+  block: false,
+  htmlType: 'button',
+  classNames: undefined,
+  style: {},
+};
+
 
 export default function registerButton() {
-  register(Button as FunctionComponent, 'bees-button', [
-    'type',
-    'size',
-    'disabled',
-    'loading',
-    'icon',
-    'shape',
-    'block',
-    'href',
-    'target',
-    'htmlType',
-    'onClick',
-  ]);
+  register('bees-button', Button, beesButtonProps);
 }

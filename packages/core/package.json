@@ -13,7 +13,10 @@
       "types": "./es/index.d.ts"
     }
   },
-  "files": ["es","lib"],
+  "files": [
+    "es",
+    "lib"
+  ],
   "scripts": {
     "build": "pnpm bee build -d",
     "dev": "pnpm bee build --watch -d",
@@ -25,6 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "@bees-ui/antd": "workspace:^",
-    "@bees-ui/register": "workspace:^"
+    "@bees-ui/register": "workspace:^",
+    "preact": "^10.24.0"
   }
 }

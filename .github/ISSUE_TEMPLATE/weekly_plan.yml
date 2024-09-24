@@ -1,0 +1,41 @@
+name: "\U0001F4DD Weekly Plan"
+description: Track tasks and goals for the week
+labels: [pending triage]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Weekly Plan
+        Please fill out the following template to track your tasks and goals for the week.
+
+  - type: textarea
+    id: week-of
+    attributes:
+      label: Week of
+      description: The week you are planning for
+      placeholder: YYYY-MM-DD
+    validations:
+      required: false
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+      description: List your goals for the week
+    validations:
+      required: false
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: List your tasks for the week
+    validations:
+      required: true
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers
+      description: List any blockers you have
