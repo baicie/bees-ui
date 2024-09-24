@@ -1,0 +1,21 @@
+{
+  "name": "props-keys",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gen": "pnpm tsx generate.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@bees-ui/antd": "workspace:^"
+  },
+  "devDependencies": {
+    "@bees-ui/antd": "workspace:^",
+    "ts-json-schema-generator": "^2.3.0",
+    "ts-morph": "^23.0.0",
+    "typescript-json-schema": "^0.65.1"
+  }
+}

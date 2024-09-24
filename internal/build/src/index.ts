@@ -2,7 +2,6 @@
 import cac from 'cac';
 
 import { build, watchFuc } from './build';
-import { compile } from './gulp';
 
 const cli = cac('bee');
 cli.command('[root]', 'Build the project').action(() => {
@@ -38,4 +37,4 @@ cli
 cli.help();
 cli.parse();
 
-export { rootPath } from './path';
+export { resolveInput } from './utils'

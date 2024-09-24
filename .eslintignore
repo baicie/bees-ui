@@ -19,5 +19,5 @@ scripts/previewEditor/**/*
 jest-stare
 .eslintrc.js
 .eslintcache
-packages
+components
 icons

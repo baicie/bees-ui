@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@bees-ui/*": ["node_modules/@bees-ui/*"],
+      "antd/*": ["node_modules/antd/*"]
+    }
+  },
+  "include": ["node_modules/@bees-ui/**/*.d.ts"]
+}

@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "pnpm microbundle",
-    "dev": "pnpm bee build --watch -d",
+    "dev": "pnpm microbundle --watch",
     "clean": "pnpm rimraf node_modules .turbo es lib",
     "test": "pnpm vitest"
   },
