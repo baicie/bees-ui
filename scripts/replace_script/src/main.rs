@@ -63,7 +63,7 @@ async fn main() {
     };
 
     let swap_dir = current_dir.join("swap");
-    let packages_dir = current_dir.join("packages");
+    let packages_dir = current_dir.join("components");
     let build_dir = current_dir.join("internal/build/src");
     let ignore_folders = [
         ".git",

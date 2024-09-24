@@ -118,6 +118,7 @@ export async function resolveConfig(
       minify,
       target,
       tsconfig: path.resolve(rootPath, 'tsconfig.json'),
+      treeShaking: false,
       loaders: {
         '.js': 'jsx',
         '.jsx': 'jsx',
@@ -146,6 +147,7 @@ export async function resolveConfig(
     input: inputPath,
     plugins,
     external,
+    treeshake: false,
     watch: watch ? watchOptions : false,
     cache,
   };

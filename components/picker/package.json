@@ -37,6 +37,7 @@
     "luxon": "3.x",
     "mockdate": "^3.0.2",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.45",
     "np": "^10.0.2",
     "preact": "^10.24.0",
     "prettier": "^3.1.0",
