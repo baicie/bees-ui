@@ -64,7 +64,7 @@ export function createElementType<T>(
         this._slot = this.getLightSlots();
 
         this.__initialized = true;
-        this._vdom = h(this.Component, { ...props, ...this._slot });
+        this._vdom = h(this.Component, { ...props, ...this._slot }, this._slot.children);
         render(this._vdom, this);
       } finally {
         currentElement = outerElement;
@@ -76,6 +76,7 @@ export function createElementType<T>(
       await Promise.resolve();
       if (this.isConnected) return;
       this.__propertyChangedCallbacks.length = 0;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
       let callback: Function | null = null;
       while ((callback = this.__releaseCallbacks.pop())) callback(this);
       delete this.__initialized;
@@ -122,7 +123,22 @@ export function createElementType<T>(
         this.removeChild(candidate);
       }
 
-      slots['children'] = Array.from(this.childNodes) as HTMLElement[];
+      // 将 childNodes 转换为可以渲染的内容，并从 DOM 中移除
+      slots['children'] = Array.from(this.childNodes).map((child) => {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const textContent = child.textContent;
+          this.removeChild(child);
+          return textContent;
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          const outerHTML = child.outerHTML;
+          this.removeChild(child);
+          return outerHTML;
+        }
+        return null;
+      }).filter(Boolean);
+
       return slots;
     }
 

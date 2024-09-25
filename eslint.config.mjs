@@ -69,7 +69,6 @@ export default tseslint.config(
           'playground/*/tsconfig.json',
           'components/*/tsconfig.json',
           'internal/*/tsconfig.json',
-          'docs/tsconfig.json',
           'tsconfig.json',
           'tsconfig.node.json',
         ],

@@ -5,7 +5,7 @@ import { globSync } from 'fast-glob';
 import type { ModuleFormat } from 'rollup';
 
 export const DEFAULT = 'src';
-const deps_default = ['preact/compat', '@ant-design/icon'];
+const deps_default = ['preact/compat'];
 const ignore = ['react', 'react-dom'];
 export async function generateExternal(root: string) {
   const packages = await findWorkspacePackages(root);
@@ -70,7 +70,7 @@ export function resolveBuildConfig(root: string) {
 }
 
 export function resolveInput(root: string, input: string): string[] {
-  return globSync(`${normalizePath(path.resolve(root, input))}/**`, {
+  return globSync(`${normalizePath(path.resolve(root, input))}/**/*`, {
     onlyFiles: true,
     ignore: [
       '**/__tests__/**/*',

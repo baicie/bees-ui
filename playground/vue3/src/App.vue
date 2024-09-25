@@ -1,13 +1,17 @@
 <script setup lang="ts">
-import { Button } from '@bees-ui/core'
+import { Button, FloatButton } from '@bees-ui/core'
 Button()
+FloatButton()
 const handleClick = () => {
   console.log('handleClick');
 };
 </script>
 
 <template>
-  <bees-button type="primary" @click="handleClick"> Let's have some different text! </bees-button>
+  <div>
+    <bees-button type="primary" @click="handleClick">Primary Button</bees-button>
+    <bees-float-button @click="handleClick" />
+  </div>
 </template>
 
 <style scoped>

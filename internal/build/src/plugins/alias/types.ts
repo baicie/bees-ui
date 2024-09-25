@@ -1,6 +1,6 @@
 import type { PluginHooks } from 'rollup';
 
-import { Module } from '../../utils';
+import type { Module } from '../../utils';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 type MapToFunction<T> = T extends Function ? T : never;

@@ -1,7 +1,6 @@
 import { Button } from '@bees-ui/antd';
 import type { ButtonProps } from '@bees-ui/antd';
 import register from '@bees-ui/register';
-import type { FunctionComponent } from 'preact';
 
 export type { ButtonProps }
 
@@ -19,9 +18,11 @@ export const beesButtonProps: ButtonProps = {
   icon: undefined,
   ghost: false,
   block: false,
-  htmlType: 'button',
+  htmlType: undefined,
   classNames: undefined,
   style: {},
+  href: undefined,
+  autoInsertSpace: false,
 };
 
 

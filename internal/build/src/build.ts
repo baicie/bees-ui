@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import path from 'node:path';
+import fs from 'node:fs';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve';
@@ -20,8 +21,8 @@ import postcss from 'rollup-plugin-postcss';
 import json from '@rollup/plugin-json';
 import visualizer from 'rollup-plugin-visualizer';
 
-import deps from './deps';
 import { rootPath } from '@bees-ui/internal-path';
+import deps from './deps';
 import alias from './plugins/alias';
 import { cleanOutputPlugin } from './plugins/clean-output';
 // import { dynamicPathReplace } from './plugins/dynamicPathReplace';
@@ -79,7 +80,7 @@ export async function resolveConfig(
     tsconfig = resolveTsConfig(root, rootPath),
   } = options;
   const inputPath = resolveInput(root, input);
-  // fs.writeFileSync(path.resolve(rootPath, 'input.ts'), JSON.stringify(inputPath), { encoding: 'utf-8' })
+  fs.writeFileSync(path.resolve(rootPath, 'input.ts'), JSON.stringify(inputPath), { encoding: 'utf-8' })
   const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib');
 
   const watchOptions: WatcherOptions = {
@@ -93,7 +94,10 @@ export async function resolveConfig(
         { find: 'react-dom/test-utils', replacement: 'preact/test-utils' },
         { find: 'react-dom', replacement: 'preact/compat' },
         { find: 'react/jsx-runtime', replacement: 'preact/jsx-runtime' },
-        // { find: 'classnames', replacement: 'clsx' },
+        {
+          find: /^@ant-design\/icons\/([A-Za-z][A-Za-z0-9]*)$/,
+          replacement: `@bees-ui/icons/${module === 'cjs' ? 'lib' : 'es'}/icons/$1`,
+        },
         ...deps,
       ],
       module,

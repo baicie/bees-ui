@@ -16,7 +16,7 @@ export interface PCustomElement {
   __propertyChangedCallbacks: any[];
   __updating: Record<string, any>;
   _slot: {
-    children: PCustomElementSlot;
+    children: PCustomElementSlot | any;
     [key: string]: PCustomElementSlot;
   };
   props: Record<string, any>;
@@ -165,6 +165,7 @@ export function isConstructor(f: Function) {
 }
 
 export function reloadElement(node: PCustomElement) {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   let callback: Function | null = null;
   while ((callback = node.__releaseCallbacks.pop())) callback(node);
   delete node.__initialized;

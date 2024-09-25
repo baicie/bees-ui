@@ -63,14 +63,19 @@ function resolveCustomResolver(
   return null;
 }
 
-function moduleReplace(source: string, module?: string): string {
+export function moduleReplace(source: string, module?: string): string {
   const isCjs = module === 'cjs';
   const libDir = isCjs ? 'lib' : 'es';
 
   // 自动匹配和替换路径
   const match = source?.match(/^(.*\/lib\/)(.*)$/);
+  const regex = /^@ant-design\/icons\/([A-Za-z][A-Za-z0-9]*)$/;
   if (match) {
     return `${match[1].replace('/lib/', `/${libDir}/`)}${match[2]}`;
+  }
+  if (regex.test(source)) {
+    console.log(source);
+    return source.replace(regex, `@bees-ui/icons/${libDir}/$1`);
   }
   return source;
 }
@@ -88,7 +93,6 @@ export default function alias(
       resolveId: () => null,
     };
   }
-
   return {
     name: 'alias',
     async buildStart(inputOptions) {
@@ -122,8 +126,8 @@ export default function alias(
         if (!path.isAbsolute(updatedId)) {
           this.warn(
             `rewrote ${importee} to ${updatedId} but was not an abolute path and was not handled by other plugins. ` +
-              `This will lead to duplicated modules for the same path. ` +
-              `To avoid duplicating modules, you should resolve to an absolute path.`,
+            `This will lead to duplicated modules for the same path. ` +
+            `To avoid duplicating modules, you should resolve to an absolute path.`,
           );
         }
         return { id: moduleReplace(updatedId, options.module) };
