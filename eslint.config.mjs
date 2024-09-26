@@ -44,7 +44,7 @@ export default tseslint.config(
       'coverage',
       'docs',
       'playground',
-      'internal/solid-testing-library',
+      'components',
       '.turbo',
     ],
   },
@@ -96,9 +96,9 @@ export default tseslint.config(
     },
   },
 
-  // website
+  // packages
   {
-    files: ['{components,packages,playground}/**/*.{ts,tsx,mts,cts,js,jsx}'],
+    files: ['{packages}/**/*.{ts,tsx,mts,cts,js,jsx}'],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -120,7 +120,7 @@ export default tseslint.config(
     settings: {},
   },
 
-  // node
+  // internal
   {
     files: ['internal/**/*.{ts,mts,cts,js}'],
     languageOptions: {

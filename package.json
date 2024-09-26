@@ -7,6 +7,9 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks && pnpm run stub-root",
     "biome": "biome migrate eslint --write --include-inspired",
+    "format": "biome format --write .",
+    "format-check": "biome format .",
+    "fix": "biome lint --write .",
     "lint": "biome lint .",
     "typecheck": "echo typecheck",
     "clean": "turbo run clean && rimraf node_modules .turbo",
@@ -24,8 +27,8 @@
     "update-version": "tsx scripts/update-version.ts",
     "publish-script": "tsx scripts/publish-script.ts",
     "update-deps": "ncu -uws -x [eslint,] && ncu -u -x eslint",
-    "check-deps": "depcheck",
-    "sync": "tsx ./scripts/sync.ts"
+    "sync-antd": "pnpm exec cargo run -p replace-script",
+    "generate-api": "pnpm exec cargo run -p generate-api"
   },
   "keywords": [],
   "author": "baicie",

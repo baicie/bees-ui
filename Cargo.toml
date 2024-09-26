@@ -1,4 +1,5 @@
 [workspace]
 members = [
+    "scripts/generate-api",
     "scripts/replace_script",
 ]

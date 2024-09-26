@@ -80,7 +80,7 @@ export async function resolveConfig(
     tsconfig = resolveTsConfig(root, rootPath),
   } = options;
   const inputPath = resolveInput(root, input);
-  fs.writeFileSync(path.resolve(rootPath, 'input.ts'), JSON.stringify(inputPath), { encoding: 'utf-8' })
+
   const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib');
 
   const watchOptions: WatcherOptions = {
