@@ -33,3 +33,5 @@ components/**/*
 icons/**/*
 packages/**/es/**/*
 packages/**/lib/**/*
+swap/**/*
+target/**/*

@@ -1,19 +1,19 @@
 // @ts-check
-import { builtinModules } from 'node:module';
-import { fileURLToPath, URL } from 'node:url';
-import { FlatCompat } from '@eslint/eslintrc';
-import eslint from '@eslint/js';
-import pluginImportX from 'eslint-plugin-import-x';
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import pluginN from 'eslint-plugin-n';
-import pluginRegExp from 'eslint-plugin-regexp';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { builtinModules } from 'node:module'
+import { fileURLToPath, URL } from 'node:url'
+import { FlatCompat } from '@eslint/eslintrc'
+import eslint from '@eslint/js'
+import pluginImportX from 'eslint-plugin-import-x'
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
+import pluginN from 'eslint-plugin-n'
+import pluginRegExp from 'eslint-plugin-regexp'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-});
+})
 
 export default tseslint.config(
   {
@@ -47,6 +47,8 @@ export default tseslint.config(
       'components',
       'icons',
       '.turbo',
+      'swap',
+      'target',
     ],
   },
 
@@ -65,14 +67,7 @@ export default tseslint.config(
         cacheLifetime: {
           glob: 'Infinity',
         },
-        project: [
-          'packages/*/tsconfig.json',
-          'playground/*/tsconfig.json',
-          'components/*/tsconfig.json',
-          'internal/*/tsconfig.json',
-          'tsconfig.json',
-          'tsconfig.node.json',
-        ],
+        project: ['playground/*/tsconfig.json', 'tsconfig.json', 'tsconfig.node.json'],
         tsconfigRootDir: __dirname,
         warnOnUnsupportedTypeScriptVersion: false,
       },
@@ -117,6 +112,7 @@ export default tseslint.config(
       '@typescript-eslint/no-empty-object-type': 'off',
       'jsx-a11y/click-events-have-key-events': 'off',
       'no-console': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
     settings: {},
   },
@@ -144,6 +140,7 @@ export default tseslint.config(
       'no-debugger': ['error'],
       'no-empty': ['warn', { allowEmptyCatch: true }],
       'no-process-exit': 'off',
+      'no-console': 'off',
       'no-useless-escape': 'off',
       'prefer-const': [
         'warn',
@@ -193,6 +190,8 @@ export default tseslint.config(
       ],
       'regexp/no-contradiction-with-assertion': 'error',
       'regexp/use-ignore-case': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
     },
   },
 
@@ -252,4 +251,4 @@ export default tseslint.config(
     files: ['components/**/demo/*.{ts,tsx,mts,cts,js,jsx}'],
     rules: {},
   },
-);
+)

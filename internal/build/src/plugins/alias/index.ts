@@ -74,7 +74,6 @@ export function moduleReplace(source: string, module?: string): string {
     return `${match[1].replace('/lib/', `/${libDir}/`)}${match[2]}`
   }
   if (regex.test(source)) {
-    console.log(source)
     return source.replace(regex, `@bees-ui/icons/${libDir}/$1`)
   }
   return source
