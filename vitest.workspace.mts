@@ -1,7 +1,7 @@
-import path from 'node:path';
-import { testPath } from '@bees-ui/internal-path';
-import solidPlugin from 'vite-plugin-solid';
-import { defineConfig, defineWorkspace } from 'vitest/config';
+import path from 'node:path'
+import { testPath } from '@bees-ui/internal-path'
+import solidPlugin from 'vite-plugin-solid'
+import { defineConfig, defineWorkspace } from 'vitest/config'
 
 export const vitestCommonConfig = defineConfig({
   test: {
@@ -20,6 +20,6 @@ export const vitestCommonConfig = defineConfig({
     conditions: ['development', 'browser'],
   },
   plugins: [solidPlugin()],
-});
+})
 
-export default defineWorkspace(['packages/*']);
+export default defineWorkspace(['packages/*'])

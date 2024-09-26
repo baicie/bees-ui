@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
 try {
-  import('./dist/index.cjs');
+  import('./dist/index.cjs')
 } catch (error) {
-  console.log(error);
+  console.log(error)
 }

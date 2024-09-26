@@ -1,6 +1,6 @@
-import { FloatButton } from '@bees-ui/antd';
-import type { FloatButtonProps } from '@bees-ui/antd';
-import register from '@bees-ui/register';
+import { FloatButton } from '@bees-ui/antd'
+import type { FloatButtonProps } from '@bees-ui/antd'
+import register from '@bees-ui/register'
 
 export type { FloatButtonProps }
 
@@ -19,8 +19,8 @@ export const beesFloatButtonProps: FloatButtonProps = {
   target: undefined,
   badge: undefined,
   'aria-label': undefined,
-};
+}
 
 export default function registerFloatButton() {
-  register('bees-float-button', FloatButton, beesFloatButtonProps);
+  register('bees-float-button', FloatButton, beesFloatButtonProps)
 }

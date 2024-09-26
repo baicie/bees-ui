@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks && pnpm run stub-root",
-    "biome": "biome migrate eslint --write --include-inspired",
+    "biome": "biome migrate eslint --write --include-inspired && biome migrate prettier --write",
     "format": "biome format --write .",
     "format-check": "biome format .",
     "fix": "biome lint --write .",
@@ -105,17 +105,12 @@
     "pre-commit": "pnpm exec lint-staged --concurrent false"
   },
   "lint-staged": {
-    "*": [
-      "biome format --write .",
-      "biome lint ."
-    ]
+    "*": ["biome format --write .", "biome lint ."]
   },
   "pnpm": {
     "patchedDependencies": {}
   },
   "ncu": {
-    "reject": [
-      "eslint"
-    ]
+    "reject": ["eslint"]
   }
 }

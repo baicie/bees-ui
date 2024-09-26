@@ -21,8 +21,6 @@ netlify.toml
 yarn-error.log
 *.sh
 *.snap
-components/*/*.js
-components/*/*.jsx
 .gitignore
 .npmignore
 .prettierignore
@@ -31,4 +29,5 @@ components/*/*.jsx
 .eslintignore
 .history
 **/*.yml
-antd
+components/**/*
+icons

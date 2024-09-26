@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
-import cac from 'cac';
+import cac from 'cac'
 
-import { build, watchFuc } from './build';
-import { compile } from './gulp';
+import { build, watchFuc } from './build'
+import { compile } from './gulp'
 
-const cli = cac('bee');
+const cli = cac('bee')
 cli.command('[root]', 'Build the project').action(() => {
-  console.log('hello bee...');
-});
+  console.log('hello bee...')
+})
 
 cli
   .command('build', 'build mode')
@@ -24,23 +24,23 @@ cli
   .option('-a, --ant', 'output path')
   .action(async (args) => {
     try {
-      const root = process.cwd();
-      if (args.watch) await watchFuc(root, args);
+      const root = process.cwd()
+      if (args.watch) await watchFuc(root, args)
       else {
         if (args.ant) {
-          await build(root, args);
-          await compile(args, 'esm');
-          await compile(args, 'cjs');
+          await build(root, args)
+          await compile(args, 'esm')
+          await compile(args, 'cjs')
         } else {
-          await build(root, args);
+          await build(root, args)
         }
       }
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  });
+  })
 
-cli.help();
-cli.parse();
+cli.help()
+cli.parse()
 
 export { resolveInput } from './utils'

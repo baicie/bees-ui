@@ -1,7 +1,7 @@
-import Switch from 'rc-switch';
+import Switch from 'rc-switch'
 
 function App() {
-  return <Switch>demo</Switch>;
+  return <Switch>demo</Switch>
 }
 
-export default App;
+export default App

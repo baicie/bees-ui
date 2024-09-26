@@ -1,1 +1,1 @@
-export declare const common: import("vite").UserConfig;
+export declare const common: import('vite').UserConfig

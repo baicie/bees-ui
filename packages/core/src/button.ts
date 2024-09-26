@@ -1,6 +1,6 @@
-import { Button } from '@bees-ui/antd';
-import type { ButtonProps } from '@bees-ui/antd';
-import register from '@bees-ui/register';
+import { Button } from '@bees-ui/antd'
+import type { ButtonProps } from '@bees-ui/antd'
+import register from '@bees-ui/register'
 
 export type { ButtonProps }
 
@@ -23,9 +23,8 @@ export const beesButtonProps: ButtonProps = {
   style: {},
   href: undefined,
   autoInsertSpace: false,
-};
-
+}
 
 export default function registerButton() {
-  register('bees-button', Button, beesButtonProps);
+  register('bees-button', Button, beesButtonProps)
 }

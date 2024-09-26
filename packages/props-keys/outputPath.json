@@ -91,15 +91,7 @@
         },
         "enterKeyHint": {
           "type": "string",
-          "enum": [
-            "enter",
-            "done",
-            "go",
-            "next",
-            "previous",
-            "search",
-            "send"
-          ]
+          "enum": ["enter", "done", "go", "next", "previous", "search", "send"]
         },
         "hidden": {
           "type": "boolean"
@@ -143,10 +135,7 @@
         },
         "translate": {
           "type": "string",
-          "enum": [
-            "yes",
-            "no"
-          ]
+          "enum": ["yes", "no"]
         },
         "radioGroup": {
           "type": "string"
@@ -217,23 +206,11 @@
         },
         "unselectable": {
           "type": "string",
-          "enum": [
-            "on",
-            "off"
-          ]
+          "enum": ["on", "off"]
         },
         "inputMode": {
           "type": "string",
-          "enum": [
-            "none",
-            "text",
-            "tel",
-            "url",
-            "email",
-            "numeric",
-            "decimal",
-            "search"
-          ],
+          "enum": ["none", "text", "tel", "url", "email", "numeric", "decimal", "search"],
           "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
         },
         "is": {
@@ -262,12 +239,7 @@
         },
         "aria-autocomplete": {
           "type": "string",
-          "enum": [
-            "none",
-            "inline",
-            "list",
-            "both"
-          ],
+          "enum": ["none", "inline", "list", "both"],
           "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made."
         },
         "aria-braillelabel": {
@@ -400,14 +372,7 @@
         },
         "aria-dropeffect": {
           "type": "string",
-          "enum": [
-            "none",
-            "copy",
-            "execute",
-            "link",
-            "move",
-            "popup"
-          ],
+          "enum": ["none", "copy", "execute", "link", "move", "popup"],
           "description": "Indicates what functions can be performed when a dragged object is released on the drop target.",
           "deprecated": "in ARIA 1.1"
         },
@@ -546,11 +511,7 @@
         },
         "aria-live": {
           "type": "string",
-          "enum": [
-            "off",
-            "assertive",
-            "polite"
-          ],
+          "enum": ["off", "assertive", "polite"],
           "description": "Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region."
         },
         "aria-modal": {
@@ -603,10 +564,7 @@
         },
         "aria-orientation": {
           "type": "string",
-          "enum": [
-            "horizontal",
-            "vertical"
-          ],
+          "enum": ["horizontal", "vertical"],
           "description": "Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous."
         },
         "aria-owns": {
@@ -731,12 +689,7 @@
         },
         "aria-sort": {
           "type": "string",
-          "enum": [
-            "none",
-            "ascending",
-            "descending",
-            "other"
-          ],
+          "enum": ["none", "ascending", "descending", "other"],
           "description": "Indicates if items in a table or grid are sorted in ascending or descending order."
         },
         "aria-valuemax": {
@@ -796,9 +749,7 @@
               ]
             }
           },
-          "required": [
-            "__html"
-          ],
+          "required": ["__html"],
           "additionalProperties": false
         },
         "onCopy": {
@@ -1379,21 +1330,14 @@
         },
         "iconPosition": {
           "type": "string",
-          "enum": [
-            "start",
-            "end"
-          ]
+          "enum": ["start", "end"]
         },
         "shape": {
           "$ref": "#/definitions/ButtonShape"
         },
         "size": {
           "type": "string",
-          "enum": [
-            "small",
-            "middle",
-            "large"
-          ]
+          "enum": ["small", "middle", "large"]
         },
         "loading": {
           "anyOf": [
@@ -1433,9 +1377,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "icon"
-          ],
+          "required": ["icon"],
           "additionalProperties": false
         },
         "styles": {
@@ -1445,9 +1387,7 @@
               "$ref": "#/definitions/React.CSSProperties"
             }
           },
-          "required": [
-            "icon"
-          ],
+          "required": ["icon"],
           "additionalProperties": false
         },
         "htmlType": {
@@ -4901,14 +4841,7 @@
     },
     "Globals": {
       "type": "string",
-      "enum": [
-        "-moz-initial",
-        "inherit",
-        "initial",
-        "revert",
-        "revert-layer",
-        "unset"
-      ]
+      "enum": ["-moz-initial", "inherit", "initial", "revert", "revert-layer", "unset"]
     },
     "Property.BaselineShift<(string|number)>": {
       "anyOf": [
@@ -4991,11 +4924,7 @@
     },
     "DataType.Box": {
       "type": "string",
-      "enum": [
-        "border-box",
-        "content-box",
-        "padding-box"
-      ]
+      "enum": ["border-box", "content-box", "padding-box"]
     },
     "Property.ClipRule": {
       "anyOf": [
@@ -5477,11 +5406,7 @@
     },
     "DataType.DisplayOutside": {
       "type": "string",
-      "enum": [
-        "block",
-        "inline",
-        "run-in"
-      ]
+      "enum": ["block", "inline", "run-in"]
     },
     "DataType.DisplayInside": {
       "type": "string",
@@ -5736,13 +5661,7 @@
     },
     "DataType.GenericFamily": {
       "type": "string",
-      "enum": [
-        "cursive",
-        "fantasy",
-        "monospace",
-        "sans-serif",
-        "serif"
-      ]
+      "enum": ["cursive", "fantasy", "monospace", "sans-serif", "serif"]
     },
     "Property.FontSize<(string|number)>": {
       "anyOf": [
@@ -5982,14 +5901,7 @@
     },
     "DataType.EastAsianVariantValues": {
       "type": "string",
-      "enum": [
-        "jis04",
-        "jis78",
-        "jis83",
-        "jis90",
-        "simplified",
-        "traditional"
-      ]
+      "enum": ["jis04", "jis78", "jis83", "jis90", "simplified", "traditional"]
     },
     "Property.FontWeight": {
       "anyOf": [
@@ -6255,33 +6167,17 @@
         },
         {
           "type": "string",
-          "enum": [
-            "no-repeat",
-            "repeat",
-            "repeat-x",
-            "repeat-y",
-            "round",
-            "space"
-          ]
+          "enum": ["no-repeat", "repeat", "repeat-x", "repeat-y", "round", "space"]
         }
       ]
     },
     "DataType.CompositingOperator": {
       "type": "string",
-      "enum": [
-        "add",
-        "exclude",
-        "intersect",
-        "subtract"
-      ]
+      "enum": ["add", "exclude", "intersect", "subtract"]
     },
     "DataType.MaskingMode": {
       "type": "string",
-      "enum": [
-        "alpha",
-        "luminance",
-        "match-source"
-      ]
+      "enum": ["alpha", "luminance", "match-source"]
     },
     "Property.Opacity": {
       "anyOf": [
@@ -6482,10 +6378,7 @@
       ]
     },
     "DataType.Dasharray<(string|number)>": {
-      "type": [
-        "string",
-        "number"
-      ]
+      "type": ["string", "number"]
     },
     "Property.StrokeDashoffset<(string|number)>": {
       "anyOf": [
@@ -8020,12 +7913,7 @@
         },
         {
           "type": "string",
-          "enum": [
-            "ease",
-            "ease-in",
-            "ease-in-out",
-            "ease-out"
-          ]
+          "enum": ["ease", "ease-in", "ease-in-out", "ease-out"]
         }
       ]
     },
@@ -8036,10 +7924,7 @@
         },
         {
           "type": "string",
-          "enum": [
-            "step-end",
-            "step-start"
-          ]
+          "enum": ["step-end", "step-start"]
         }
       ]
     },
@@ -8170,21 +8055,11 @@
     },
     "DataType.SingleAnimationDirection": {
       "type": "string",
-      "enum": [
-        "alternate",
-        "alternate-reverse",
-        "normal",
-        "reverse"
-      ]
+      "enum": ["alternate", "alternate-reverse", "normal", "reverse"]
     },
     "DataType.SingleAnimationFillMode": {
       "type": "string",
-      "enum": [
-        "backwards",
-        "both",
-        "forwards",
-        "none"
-      ]
+      "enum": ["backwards", "both", "forwards", "none"]
     },
     "DataType.SingleAnimationTimeline": {
       "anyOf": [
@@ -8193,10 +8068,7 @@
         },
         {
           "type": "string",
-          "enum": [
-            "auto",
-            "none"
-          ]
+          "enum": ["auto", "none"]
         }
       ]
     },
@@ -10735,22 +10607,11 @@
     },
     "DataType.ContentDistribution": {
       "type": "string",
-      "enum": [
-        "space-around",
-        "space-between",
-        "space-evenly",
-        "stretch"
-      ]
+      "enum": ["space-around", "space-between", "space-evenly", "stretch"]
     },
     "DataType.ContentPosition": {
       "type": "string",
-      "enum": [
-        "center",
-        "end",
-        "flex-end",
-        "flex-start",
-        "start"
-      ]
+      "enum": ["center", "end", "flex-end", "flex-start", "start"]
     },
     "Property.AlignItems": {
       "anyOf": [
@@ -10779,15 +10640,7 @@
     },
     "DataType.SelfPosition": {
       "type": "string",
-      "enum": [
-        "center",
-        "end",
-        "flex-end",
-        "flex-start",
-        "self-end",
-        "self-start",
-        "start"
-      ]
+      "enum": ["center", "end", "flex-end", "flex-start", "self-end", "self-start", "start"]
     },
     "Property.AlignSelf": {
       "anyOf": [
@@ -11369,11 +11222,7 @@
     },
     "DataType.Attachment": {
       "type": "string",
-      "enum": [
-        "fixed",
-        "local",
-        "scroll"
-      ]
+      "enum": ["fixed", "local", "scroll"]
     },
     "Property.MaskBorderOutset<(string|number)>": {
       "anyOf": [
@@ -12089,14 +11938,7 @@
     },
     "DataType.TimelineRangeName": {
       "type": "string",
-      "enum": [
-        "contain",
-        "cover",
-        "entry",
-        "entry-crossing",
-        "exit",
-        "exit-crossing"
-      ]
+      "enum": ["contain", "cover", "entry", "entry-crossing", "exit", "exit-crossing"]
     },
     "Property.Background<(string|number)>": {
       "anyOf": [
@@ -13028,11 +12870,7 @@
     },
     "DataType.SingleAnimationComposition": {
       "type": "string",
-      "enum": [
-        "accumulate",
-        "add",
-        "replace"
-      ]
+      "enum": ["accumulate", "add", "replace"]
     },
     "Property.AnimationRangeEnd<(string|number)>": {
       "anyOf": [
@@ -14250,12 +14088,7 @@
     },
     "DataType.Quote": {
       "type": "string",
-      "enum": [
-        "close-quote",
-        "no-close-quote",
-        "no-open-quote",
-        "open-quote"
-      ]
+      "enum": ["close-quote", "no-close-quote", "no-open-quote", "open-quote"]
     },
     "Property.ContentVisibility": {
       "anyOf": [
@@ -16105,11 +15938,7 @@
     },
     "DataType.VisualBox": {
       "type": "string",
-      "enum": [
-        "border-box",
-        "content-box",
-        "padding-box"
-      ]
+      "enum": ["border-box", "content-box", "padding-box"]
     },
     "Property.OverflowInline": {
       "anyOf": [
@@ -17612,10 +17441,7 @@
         },
         {
           "type": "string",
-          "enum": [
-            "contents",
-            "scroll-position"
-          ]
+          "enum": ["contents", "scroll-position"]
         }
       ]
     },
@@ -17768,17 +17594,10 @@
         },
         "props": {},
         "key": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": ["string", "null"]
         }
       },
-      "required": [
-        "type",
-        "props",
-        "key"
-      ],
+      "required": ["type", "props", "key"],
       "additionalProperties": false,
       "description": "Represents a JSX element.\n\nWhere  {@link  ReactNode }  represents everything that can be rendered, `ReactElement` only represents JSX."
     },
@@ -17796,9 +17615,7 @@
                   "deprecated": true
                 }
               },
-              "required": [
-                "props"
-              ],
+              "required": ["props"],
               "additionalProperties": false
             }
           }
@@ -17815,9 +17632,7 @@
                   "deprecated": true
                 }
               },
-              "required": [
-                "props"
-              ],
+              "required": ["props"],
               "additionalProperties": false
             }
           }
@@ -17840,10 +17655,7 @@
         },
         "props": {},
         "key": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": ["string", "null"]
         },
         "children": {
           "anyOf": [
@@ -17873,11 +17685,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "key",
-        "props",
-        "type"
-      ]
+      "required": ["key", "props", "type"]
     },
     "React.ClipboardEventHandler<interface-979946974-422904-426786-979946974-0-1306061>": {
       "$ref": "#/definitions/React.EventHandler%3CReact.ClipboardEvent%3Cinterface-979946974-422904-426786-979946974-0-1306061%3E%3E"
@@ -17970,12 +17778,7 @@
         },
         {
           "type": "string",
-          "enum": [
-            "_self",
-            "_blank",
-            "_parent",
-            "_top"
-          ]
+          "enum": ["_self", "_blank", "_parent", "_top"]
         }
       ]
     },
@@ -17995,48 +17798,23 @@
     },
     "ButtonType": {
       "type": "string",
-      "enum": [
-        "default",
-        "primary",
-        "dashed",
-        "link",
-        "text"
-      ]
+      "enum": ["default", "primary", "dashed", "link", "text"]
     },
     "ButtonColorType": {
       "type": "string",
-      "enum": [
-        "default",
-        "primary",
-        "danger"
-      ]
+      "enum": ["default", "primary", "danger"]
     },
     "ButtonVariantType": {
       "type": "string",
-      "enum": [
-        "outlined",
-        "dashed",
-        "solid",
-        "filled",
-        "text",
-        "link"
-      ]
+      "enum": ["outlined", "dashed", "solid", "filled", "text", "link"]
     },
     "ButtonShape": {
       "type": "string",
-      "enum": [
-        "default",
-        "circle",
-        "round"
-      ]
+      "enum": ["default", "circle", "round"]
     },
     "ButtonHTMLType": {
       "type": "string",
-      "enum": [
-        "submit",
-        "button",
-        "reset"
-      ]
+      "enum": ["submit", "button", "reset"]
     }
   }
 }

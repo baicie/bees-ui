@@ -1,41 +1,39 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { findWorkspacePackages } from '@pnpm/find-workspace-packages';
-import { globSync } from 'fast-glob';
-import type { ModuleFormat } from 'rollup';
+import fs from 'node:fs'
+import path from 'node:path'
+import { findWorkspacePackages } from '@pnpm/find-workspace-packages'
+import { globSync } from 'fast-glob'
+import type { ModuleFormat } from 'rollup'
 
-export const DEFAULT = 'src';
-const deps_default = ['preact/compat'];
-const ignore = ['react', 'react-dom'];
+export const DEFAULT = 'src'
+const deps_default = ['preact/compat']
+const ignore = ['react', 'react-dom']
 export async function generateExternal(root: string) {
-  const packages = await findWorkspacePackages(root);
-  const { manifest } = packages[0];
+  const packages = await findWorkspacePackages(root)
+  const { manifest } = packages[0]
   const deps = [
     ...Object.keys(manifest.dependencies ?? []),
     ...Object.keys(manifest.peerDependencies ?? []),
   ]
     .filter((item) => !item.startsWith('@types/'))
-    .filter((item) => !ignore.includes(item));
-  return [...deps_default, ...deps].map(
-    (s) => new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
-  );
+    .filter((item) => !ignore.includes(item))
+  return [...deps_default, ...deps].map((s) => new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
 }
 
-export const target = 'es2018';
+export const target = 'es2018'
 
-export const modules = ['esm', 'cjs'] as const;
-export type Module = (typeof modules)[number];
+export const modules = ['esm', 'cjs'] as const
+export type Module = (typeof modules)[number]
 export interface BuildInfo {
-  module: 'ESNext' | 'CommonJS' | 'UMD';
-  format: ModuleFormat;
-  ext: 'mjs' | 'cjs' | 'js';
+  module: 'ESNext' | 'CommonJS' | 'UMD'
+  format: ModuleFormat
+  ext: 'mjs' | 'cjs' | 'js'
   output: {
-    name: string;
-    path: string;
-  };
+    name: string
+    path: string
+  }
   bundle: {
-    path: string;
-  };
+    path: string
+  }
 }
 
 export function resolveBuildConfig(root: string) {
@@ -64,9 +62,9 @@ export function resolveBuildConfig(root: string) {
         path: `/lib`,
       },
     },
-  };
+  }
 
-  return Object.entries(buildConfig);
+  return Object.entries(buildConfig)
 }
 
 export function resolveInput(root: string, input: string): string[] {
@@ -87,23 +85,23 @@ export function resolveInput(root: string, input: string): string[] {
     ],
     absolute: true,
     caseSensitiveMatch: false,
-  });
+  })
 }
 
 export function resolveTsConfig(root: string, rootPath: string, tsconfig = 'tsconfig.json') {
-  let tsconfigPath = path.resolve(root, tsconfig);
+  let tsconfigPath = path.resolve(root, tsconfig)
   if (!fs.existsSync(tsconfigPath)) {
-    tsconfigPath = path.resolve(rootPath, tsconfig);
+    tsconfigPath = path.resolve(rootPath, tsconfig)
   }
-  return tsconfigPath;
+  return tsconfigPath
 }
 
-export const isWindows = typeof process !== 'undefined' && process.platform === 'win32';
-const windowsSlashRE = /\\/g;
+export const isWindows = typeof process !== 'undefined' && process.platform === 'win32'
+const windowsSlashRE = /\\/g
 export function slash(p: string): string {
-  return p.replace(windowsSlashRE, '/');
+  return p.replace(windowsSlashRE, '/')
 }
 
 export function normalizePath(id: string): string {
-  return path.posix.normalize(isWindows ? slash(id) : id);
+  return path.posix.normalize(isWindows ? slash(id) : id)
 }

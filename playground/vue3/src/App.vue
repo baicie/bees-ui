@@ -4,8 +4,8 @@ Button()
 FloatButton()
 Space()
 const handleClick = () => {
-  console.log('handleClick');
-};
+  console.log('handleClick')
+}
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 class MyElement extends HTMLElement {
   constructor() {
-    super();
+    super()
     this.innerHTML = `
       <style>
         /* 样式定义 */
@@ -10,8 +10,8 @@ class MyElement extends HTMLElement {
         <slot></slot> <!-- 默认插槽 -->
         <slot name="footer"></slot>
       </div>
-    `;
+    `
   }
 }
 
-customElements.define('my-element', MyElement);
+customElements.define('my-element', MyElement)

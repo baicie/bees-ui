@@ -5,6 +5,6 @@ const config = {
     ['remark-lint-no-literal-urls', false],
     ['remark-lint-no-undefined-references', false],
   ],
-};
+}
 
-module.exports = config;
+module.exports = config

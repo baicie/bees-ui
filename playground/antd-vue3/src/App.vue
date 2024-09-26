@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { Button, Space, FloatButton } from 'ant-design-vue';
+import { Button, Space, FloatButton } from 'ant-design-vue'
 
 const handleClick = () => {
-  console.log('handleClick');
-};
-
+  console.log('handleClick')
+}
 </script>
 
 <template>
