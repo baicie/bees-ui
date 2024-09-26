@@ -1,6 +1,6 @@
 import type { Plugin } from 'rollup'
 
-import { Module } from '../utils'
+import type { Module } from '../utils'
 
 export function dynamicPathReplace(module: Module): Plugin {
   return {

@@ -1,19 +1,19 @@
 // @ts-check
-import { builtinModules } from 'node:module'
-import { fileURLToPath, URL } from 'node:url'
-import { FlatCompat } from '@eslint/eslintrc'
-import eslint from '@eslint/js'
-import pluginImportX from 'eslint-plugin-import-x'
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
-import pluginN from 'eslint-plugin-n'
-import pluginRegExp from 'eslint-plugin-regexp'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import { builtinModules } from 'node:module';
+import { fileURLToPath, URL } from 'node:url';
+import { FlatCompat } from '@eslint/eslintrc';
+import eslint from '@eslint/js';
+import pluginImportX from 'eslint-plugin-import-x';
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import pluginN from 'eslint-plugin-n';
+import pluginRegExp from 'eslint-plugin-regexp';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url))
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const compat = new FlatCompat({
   baseDirectory: __dirname,
-})
+});
 
 export default tseslint.config(
   {
@@ -45,6 +45,7 @@ export default tseslint.config(
       'docs',
       'playground',
       'components',
+      'icons',
       '.turbo',
     ],
   },
@@ -251,4 +252,4 @@ export default tseslint.config(
     files: ['components/**/demo/*.{ts,tsx,mts,cts,js,jsx}'],
     rules: {},
   },
-)
+);

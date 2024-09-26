@@ -30,4 +30,6 @@ yarn-error.log
 .history
 **/*.yml
 components/**/*
-icons
+icons/**/*
+packages/**/es/**/*
+packages/**/lib/**/*
