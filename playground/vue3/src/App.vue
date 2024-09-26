@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { Button, FloatButton } from '@bees-ui/core'
+import { Button, FloatButton, Space } from '@bees-ui/core'
 Button()
 FloatButton()
+Space()
 const handleClick = () => {
   console.log('handleClick');
 };
 </script>
 
 <template>
-  <div>
+  <bees-space direction="vertical">
     <bees-button type="primary" @click="handleClick">Primary Button</bees-button>
+    <bees-button type="text" @click="handleClick">text Button</bees-button>
+    <bees-button type="dashed" @click="handleClick">dashed Button</bees-button>
     <bees-float-button @click="handleClick" />
-  </div>
+  </bees-space>
 </template>
 
 <style scoped>

@@ -123,7 +123,7 @@ export function createElementType<T>(
         this.removeChild(candidate);
       }
 
-      // 将 childNodes 转换为可以渲染的内容，并从 DOM 中移除
+      // 将 childNodes 转换为可以渲染的虚拟 DOM 元素，并从 DOM 中移除
       slots['children'] = Array.from(this.childNodes).map((child) => {
         if (child.nodeType === Node.TEXT_NODE) {
           const textContent = child.textContent;
@@ -132,9 +132,21 @@ export function createElementType<T>(
         } else if (child.nodeType === Node.ELEMENT_NODE) {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          const outerHTML = child.outerHTML;
+          const tagName = child.tagName.toLowerCase();
+          const attributes = Array.from(child.attributes).reduce((attrs, attr) => {
+            attrs[attr.name] = attr.value;
+            return attrs;
+          }, {});
+          const children = Array.from(child.childNodes).map((node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              return node.textContent;
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+              return h(node.tagName.toLowerCase(), {}, node.innerHTML);
+            }
+            return null;
+          }).filter(Boolean);
           this.removeChild(child);
-          return outerHTML;
+          return h(tagName, attributes, children);
         }
         return null;
       }).filter(Boolean);

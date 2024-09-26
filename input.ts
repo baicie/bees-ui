@@ -1,1 +1,1 @@
-["/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/core/src/button.ts","/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/core/src/float-button.ts","/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/core/src/index.ts"]
+["/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/register/src/element.ts","/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/register/src/index.ts","/Users/liuzhiwei/Desktop/workspeace/git-code/bees-ui/packages/register/src/utils.ts"]

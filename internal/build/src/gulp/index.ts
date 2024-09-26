@@ -5,10 +5,8 @@ import gulp from 'gulp';
 import ts from 'gulp-typescript';
 import typescript from 'typescript';
 import assign from 'object-assign';
-import * as rimraf from 'rimraf';
 import stripCode from 'gulp-strip-code';
 import through2 from 'through2';
-import merge2 from 'merge2';
 import { antdPath } from '@bees-ui/internal-path';
 import babel from 'gulp-babel';
 
@@ -93,32 +91,29 @@ export async function babelify(js: Readable, modules: Module) {
 }
 
 export async function compile(options: Options = {}, modules: Module) {
-  const { compile: { transformTSFile, transformFile } = {} } = await getConfig();
+  const { compile: { transformTSFile } = {} } = await getConfig();
   const tsConfig = await getTsConfig();
-
-  rimraf.sync(path.resolve(antdPath, modules === 'cjs' ? libDir : esDir));
-
   // const assets = gulp
   //   .src(['components/**/*.@(png|svg)'])
   //   .pipe(gulp.dest(modules === 'cjs' ? libDir : esDir));
   let error = 0;
 
   // =============================== FILE ===============================
-  let transformFileStream;
+  // let transformFileStream;
 
-  if (transformFile) {
-    transformFileStream = gulp
-      .src(['components/**/*.tsx'])
-      .pipe(
-        through2.obj(function (file, _encoding, next) {
-          let nextFile = transformFile(file) || file;
-          nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
-          nextFile.forEach((f: any) => this.push(f));
-          next();
-        })
-      )
-      .pipe(gulp.dest(modules === 'esm' ? esDir : libDir));
-  }
+  // if (transformFile) {
+  //   transformFileStream = gulp
+  //     .src(['components/**/*.tsx'])
+  //     .pipe(
+  //       through2.obj(function (file, _encoding, next) {
+  //         let nextFile = transformFile(file) || file;
+  //         nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
+  //         nextFile.forEach((f: any) => this.push(f));
+  //         next();
+  //       })
+  //     )
+  //     .pipe(gulp.dest(modules === 'esm' ? esDir : libDir));
+  // }
 
   // ================================ TS ================================
   const source = [
@@ -178,5 +173,5 @@ export async function compile(options: Options = {}, modules: Module) {
 
   // const tsFilesStream = await babelify(tsResult.js, modules);
   const tsd = tsResult.dts.pipe(gulp.dest(modules === 'esm' ? esDir : libDir));
-  return merge2([transformFileStream, tsd]).filter(s => s);
+  return tsd
 }
