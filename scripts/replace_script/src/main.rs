@@ -246,18 +246,22 @@ fn replace_package_json(
             if name == "antd" {
                 scripts.insert(
                     "build".to_string(),
-                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=10240 pnpm bee build -d --input components".to_string()),
+                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=4096 pnpm bee build -a -d --input components".to_string()),
+                );
+                scripts.insert(
+                    "dev".to_string(),
+                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=4096 pnpm bee build --watch -d --input components".to_string()),
                 );
             } else {
                 scripts.insert(
                     "build".to_string(),
                     Value::String("pnpm bee build -d".to_string()),
                 );
+                scripts.insert(
+                    "dev".to_string(),
+                    Value::String("pnpm bee build --watch -d".to_string()),
+                );
             }
-            scripts.insert(
-                "dev".to_string(),
-                Value::String("pnpm bee build --watch".to_string()),
-            );
             scripts.insert(
                 "clean".to_string(),
                 Value::String("pnpm rimraf node_modules .turbo dist".to_string()),

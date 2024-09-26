@@ -131,7 +131,7 @@ export async function resolveConfig(
       },
     }),
     options.visualizer ? visualizer({ open: true }) : null,
-    options.dts
+    options.dts && !options.ant
       ? typescript({
         tsconfig,
         compilerOptions: {
