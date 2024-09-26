@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+pulldown-cmark = "0.12.1"
+regex = "1.10.6"
+globwalk = "0.9.1"
+serde_json = "1.0.128"
+serde = { version = "1.0.210", features = ["derive"] }
