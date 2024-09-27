@@ -22,6 +22,6 @@ export const common = defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@bees-ui/antd', '@bees-ui/core', '@bees-ui/icons'],
+    include: ['@bees-ui/antd', '@bees-ui/icons'],
   },
 });

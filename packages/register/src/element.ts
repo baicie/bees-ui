@@ -22,6 +22,8 @@ export function createElementType<T>(
     __updating: Record<string, any>;
     _slot: PCustomElement['_slot'];
     props: Record<string, any>;
+    __updateQueue: Record<string, any>;
+    __updateScheduled: boolean;
 
     static get observedAttributes() {
       return propKeys.map((k) => propDefinition[k].attribute);
@@ -38,6 +40,8 @@ export function createElementType<T>(
         children: [],
       };
       this.props = {};
+      this.__updateQueue = {};
+      this.__updateScheduled = false;
     }
 
     connectedCallback() {
@@ -65,7 +69,10 @@ export function createElementType<T>(
         // @ts-expect-error
         const context = event.detail.context;
         this.__initialized = true;
-        this._vdom = h(this.Component, { ...props, ...this._slot }, this._slot.children);
+        this._vdom = h(this.ContextProvider, {
+          context,
+          children: h(this.Component, { ...props, ...this._slot }, this._slot.children),
+        });
         (this.hasAttribute('hydrate') ? hydrate : render)(this._vdom, this);
       } finally {
         currentElement = outerElement;
@@ -86,7 +93,6 @@ export function createElementType<T>(
     }
 
     attributeChangedCallback(name: string, _oldVal: string, newVal: string) {
-      console.log('attributeChangedCallback', name, newVal);
       if (!this.__initialized) return;
       if (this.__updating[name]) return;
       name = this.lookupProp(name)!;
@@ -94,6 +100,18 @@ export function createElementType<T>(
         if (newVal == null && !this[name]) return;
         this[name] = propDefinition[name as keyof T].parse ? parseAttributeValue(newVal) : newVal;
       }
+      this.queueUpdateProps();
+    }
+
+    queueUpdateProps() {
+      if (!this.__updateScheduled) {
+        this.__updateScheduled = true;
+        Promise.resolve().then(() => this.batchUpdateProps());
+      }
+    }
+
+    batchUpdateProps() {
+      this.__updateScheduled = false;
       this._vdom = cloneElement(this._vdom, { ...this.props, ...this._slot });
       render(this._vdom, this);
     }
@@ -113,51 +131,55 @@ export function createElementType<T>(
       this.__propertyChangedCallbacks.push(fn);
     }
 
+    // ToFix do current element children
     getLightSlots() {
       const slots: Record<string, any> = {
         children: [],
       };
 
       const queryNamedSlots = this.querySelectorAll('[slot]') as NodeListOf<HTMLSlotElement>;
+      const nodesToRemove: Node[] = [];
+
       for (const candidate of Array.from(queryNamedSlots)) {
         if (!this.isOwnSlot(candidate)) continue;
         if (!candidate.slot) continue;
         slots[candidate.slot] = candidate;
-        this.removeChild(candidate);
+        nodesToRemove.push(candidate);
       }
 
+      // 递归处理节点及其子节点
+      const processNode = (node: Node): any => {
+        console.log('processNode', this.registeredTag, node);
+
+        if (node.nodeType === Node.TEXT_NODE) {
+          const textContent = node.textContent;
+          nodesToRemove.push(node);
+          return textContent;
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const tagName = (node as HTMLElement).tagName.toLowerCase();
+          const attributes = Array.from((node as HTMLElement).attributes).reduce(
+            (attrs, attr) => {
+              attrs[attr.name] = attr.value;
+              return attrs;
+            },
+            {} as Record<string, string>,
+          );
+          const children = Array.from(node.childNodes).map(processNode).filter(Boolean);
+          nodesToRemove.push(node);
+          return h(tagName, attributes, children);
+        }
+        return null;
+      };
+
       // 将 childNodes 转换为可以渲染的虚拟 DOM 元素，并从 DOM 中移除
-      slots['children'] = Array.from(this.childNodes)
-        .map((child) => {
-          if (child.nodeType === Node.TEXT_NODE) {
-            const textContent = child.textContent;
-            this.removeChild(child);
-            return textContent;
-          } else if (child.nodeType === Node.ELEMENT_NODE) {
-            const tagName = child.tagName.toLowerCase();
-            const attributes = Array.from(child.attributes).reduce(
-              (attrs, attr) => {
-                attrs[attr.name] = attr.value;
-                return attrs;
-              },
-              {} as Record<string, string>,
-            );
-            const children = Array.from(child.childNodes)
-              .map((node) => {
-                if (node.nodeType === Node.TEXT_NODE) {
-                  return node.textContent;
-                } else if (node.nodeType === Node.ELEMENT_NODE) {
-                  return h(node.tagName.toLowerCase(), {}, node.innerHTML);
-                }
-                return null;
-              })
-              .filter(Boolean);
-            this.removeChild(child);
-            return h(tagName, attributes, children);
-          }
-          return null;
-        })
-        .filter(Boolean);
+      slots['children'] = Array.from(this.childNodes).map(processNode).filter(Boolean);
+
+      // 一次性移除所有需要移除的节点
+      nodesToRemove.forEach((node) => {
+        if (node.parentNode === this) {
+          this.removeChild(node);
+        }
+      });
 
       return slots;
     }
