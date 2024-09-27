@@ -1,20 +1,24 @@
 <script setup lang="ts">
-import { Button, FloatButton, Space } from '@bees-ui/core'
+import { Button, FloatButton, Space, ConfigProvider } from '@bees-ui/core'
 Button()
 FloatButton()
 Space()
+ConfigProvider()
+
 const handleClick = () => {
   console.log('handleClick')
 }
 </script>
 
 <template>
-  <bees-space direction="vertical">
-    <bees-button type="primary" @click="handleClick">Primary Button</bees-button>
-    <bees-button type="text" @click="handleClick">text Button</bees-button>
-    <bees-button type="dashed" @click="handleClick">dashed Button</bees-button>
-    <bees-float-button @click="handleClick" />
-  </bees-space>
+  <bees-config-provider :button="JSON.stringify({ className: 'lzw-buton', autoInsertSpace: true })">
+    <bees-space direction="vertical">
+      <bees-button type="primary" @click="handleClick">Primary Button</bees-button>
+      <bees-button type="text" @click="handleClick">text Button</bees-button>
+      <bees-button type="dashed" @click="handleClick">dashed Button</bees-button>
+      <bees-float-button @click="handleClick" />
+    </bees-space>
+  </bees-config-provider>
 </template>
 
 <style scoped>

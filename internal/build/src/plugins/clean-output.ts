@@ -1,12 +1,21 @@
-import { emptyDirSync } from 'fs-extra'
-import type { Plugin } from 'rollup'
+import { rimraf } from 'rimraf';
+import type { Plugin } from 'rollup';
 
-export function cleanOutputPlugin(outputPath: string): Plugin {
+import { Options } from '../build';
+
+export function cleanOutputPlugin(outputPath: string, options: Options): Plugin {
   const plugin: Plugin = {
     name: 'clean-output',
     buildStart() {
-      emptyDirSync(outputPath)
+      rimraf(
+        outputPath,
+        options.ant
+          ? {
+              filter: (path) => path.endsWith('.js'),
+            }
+          : undefined,
+      );
     },
-  }
-  return plugin
+  };
+  return plugin;
 }

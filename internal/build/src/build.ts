@@ -1,9 +1,10 @@
-/* eslint-disable no-console */
-import path from 'node:path'
-import babel from '@rollup/plugin-babel'
-import commonjs from '@rollup/plugin-commonjs'
-import nodeResolve from '@rollup/plugin-node-resolve'
-import typescript from '@rollup/plugin-typescript'
+import path from 'node:path';
+import { rootPath } from '@bees-ui/internal-path';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import type {
   InputPluginOption,
   OutputOptions,
@@ -13,19 +14,17 @@ import type {
   RollupOutput,
   RollupWatchOptions,
   WatcherOptions,
-} from 'rollup'
-import { rollup, watch as rollupWatch } from 'rollup'
-import esbuild from 'rollup-plugin-esbuild'
-import postcss from 'rollup-plugin-postcss'
-import json from '@rollup/plugin-json'
-import visualizer from 'rollup-plugin-visualizer'
+} from 'rollup';
+import { rollup, watch as rollupWatch } from 'rollup';
+import esbuild from 'rollup-plugin-esbuild';
+import postcss from 'rollup-plugin-postcss';
+import visualizer from 'rollup-plugin-visualizer';
 
-import { rootPath } from '@bees-ui/internal-path'
-import deps from './deps'
-import alias from './plugins/alias'
-import { cleanOutputPlugin } from './plugins/clean-output'
+import deps from './deps';
+import alias from './plugins/alias';
+import { cleanOutputPlugin } from './plugins/clean-output';
 // import { dynamicPathReplace } from './plugins/dynamicPathReplace';
-import type { Module } from './utils'
+import type { Module } from './utils';
 import {
   DEFAULT,
   generateExternal,
@@ -33,35 +32,35 @@ import {
   resolveInput,
   resolveTsConfig,
   target,
-} from './utils'
+} from './utils';
 
 export interface Options {
   /**
    * @description
    */
-  input?: string
-  sourcemap?: boolean
-  dts?: boolean
-  ant?: boolean
-  dtsDir?: string
-  tsconfig?: string
-  watch?: boolean
-  minify?: boolean
-  full?: boolean
-  name?: string
-  visualizer?: boolean
-  root?: string
-  'ignore-error'?: boolean
+  input?: string;
+  sourcemap?: boolean;
+  dts?: boolean;
+  ant?: boolean;
+  dtsDir?: string;
+  tsconfig?: string;
+  watch?: boolean;
+  minify?: boolean;
+  full?: boolean;
+  name?: string;
+  visualizer?: boolean;
+  root?: string;
+  'ignore-error'?: boolean;
 }
 
-let cache: RollupOptions['cache']
+let cache: RollupOptions['cache'];
 
 async function writeBundles(
   bundle: RollupBuild,
   options: OutputOptions[],
   extra: RollupOutput[] = [],
 ) {
-  return Promise.all([...options.map((option) => bundle.write(option)), ...extra])
+  return Promise.all([...options.map((option) => bundle.write(option)), ...extra]);
 }
 
 export async function resolveConfig(
@@ -77,16 +76,16 @@ export async function resolveConfig(
     minify = false,
     full = false,
     tsconfig = resolveTsConfig(root, rootPath),
-  } = options
-  const inputPath = resolveInput(root, input)
+  } = options;
+  const inputPath = resolveInput(root, input);
 
-  const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib')
+  const outputPath = path.resolve(root, module === 'esm' ? 'es' : 'lib');
 
   const watchOptions: WatcherOptions = {
     clearScreen: true,
-  }
+  };
   const plugins = [
-    cleanOutputPlugin(outputPath),
+    cleanOutputPlugin(outputPath, options),
     alias({
       entries: [
         { find: 'react', replacement: 'preact/compat' },
@@ -143,8 +142,8 @@ export async function resolveConfig(
         })
       : null,
     ...plugin,
-  ] as unknown as InputPluginOption[]
-  const external = full ? [] : await generateExternal(root)
+  ] as unknown as InputPluginOption[];
+  const external = full ? [] : await generateExternal(root);
 
   return {
     input: inputPath,
@@ -153,15 +152,15 @@ export async function resolveConfig(
     treeshake: false,
     watch: watch ? watchOptions : false,
     cache,
-  }
+  };
 }
 
 export async function build(root: string, options: Options = {}) {
   await Promise.all(
     resolveBuildConfig(root).map(async ([module, config]) => {
-      const bundleConfig = await resolveConfig(root, options, [], module as Module)
-      const bundle = await rollup(bundleConfig)
-      cache = bundle.cache
+      const bundleConfig = await resolveConfig(root, options, [], module as Module);
+      const bundle = await rollup(bundleConfig);
+      cache = bundle.cache;
       return writeBundles(bundle, [
         {
           format: config.format,
@@ -171,14 +170,14 @@ export async function build(root: string, options: Options = {}) {
           preserveModules: true,
           preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
         },
-      ])
+      ]);
     }),
-  )
+  );
 }
 
 export async function watchFuc(root: string, options: Options = {}) {
   const bundles = resolveBuildConfig(root).map(async ([module, config]) => {
-    const _config = await resolveConfig(root, options, [], module as Module)
+    const _config = await resolveConfig(root, options, [], module as Module);
     return {
       ..._config,
       output: {
@@ -189,23 +188,28 @@ export async function watchFuc(root: string, options: Options = {}) {
         preserveModules: true,
         preserveModulesRoot: path.resolve(root, options.input || DEFAULT),
       },
-    } as RollupWatchOptions
-  })
-  const resolvedBundles = await Promise.all(bundles)
-  const watcher = rollupWatch(resolvedBundles)
+    } as RollupWatchOptions;
+  });
+  const resolvedBundles = await Promise.all(bundles);
+  const watcher = rollupWatch(resolvedBundles);
 
   watcher.on('event', (event) => {
     if (event.code === 'START') {
-      console.log('Rollup build started...')
+      console.log('Rollup build started...');
     } else if (event.code === 'END') {
-      console.log('Rollup build completed.')
+      console.log('Rollup build completed.');
     } else if (event.code === 'ERROR') {
-      console.error('Error during Rollup build:', event.error)
-      process.exit(1) // 根据情况决定是否退出
+      console.error('Error during Rollup build:', event.error);
+      process.exit(1); // 根据情况决定是否退出
     } else if (event.code === 'BUNDLE_END') {
-      console.log(`Bundle completed in ${event.duration}ms`)
+      console.log(`Bundle completed in ${event.duration}ms`);
     } else if (event.code === 'BUNDLE_START') {
-      console.log(`Bundling ${event.input}...`)
+      const input =
+        (event.input as string[]).length > 5 ? (event.input as string[]).slice(0, 5) : event.input;
+      console.log('Bundling:');
+      (input as string[]).forEach((file) => {
+        console.log(`  ${file}`);
+      });
     }
-  })
+  });
 }

@@ -250,7 +250,7 @@ fn replace_package_json(
                 );
                 scripts.insert(
                     "dev".to_string(),
-                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=4096 pnpm bee build --watch -d --input components".to_string()),
+                    Value::String("pnpm cross-env NODE_OPTIONS=--max_old_space_size=4096 pnpm bee build --watch -a -d --input components".to_string()),
                 );
             } else {
                 scripts.insert(

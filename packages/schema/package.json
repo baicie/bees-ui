@@ -1,5 +1,5 @@
 {
-  "name": "schema",
+  "name": "@bees-ui/schema",
   "version": "0.0.0",
   "description": "",
   "main": "./lib/index.js",
