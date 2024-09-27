@@ -2,20 +2,25 @@
   "name": "schema",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./es/index.js",
+      "require": "./lib/index.js",
+      "import": "./es/index.js",
+      "types": "./es/index.d.ts"
+    }
+  },
+  "files": ["es", "lib"],
   "scripts": {
-    "gen": "pnpm tsx generate.ts"
+    "build": "pnpm bee build -d",
+    "dev": "pnpm bee build --watch -d",
+    "clean": "pnpm rimraf node_modules .turbo es lib",
+    "test": "pnpm vitest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "peerDependencies": {
-    "@bees-ui/antd": "workspace:^"
-  },
-  "devDependencies": {
-    "@bees-ui/antd": "workspace:^",
-    "ts-json-schema-generator": "^2.3.0",
-    "ts-morph": "^23.0.0",
-    "typescript-json-schema": "^0.65.1"
-  }
+  "license": "MIT"
 }

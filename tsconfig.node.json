@@ -15,6 +15,7 @@
     "internal",
     "eslint.config.mjs",
     "tests/**/*.ts",
-    "typings/**/*.d.ts"
+    "typings/**/*.d.ts",
+    "scripts/**/*.ts",
   ]
 }
