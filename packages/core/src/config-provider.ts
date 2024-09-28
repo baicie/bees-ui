@@ -1,6 +1,6 @@
 import { ConfigProvider } from '@bees-ui/antd';
 import type { ConfigProviderProps } from '@bees-ui/antd';
-import register from '@bees-ui/register';
+import { pregister } from '@bees-ui/register';
 
 export type { ConfigProviderProps };
 
@@ -39,5 +39,5 @@ export const configProviderProps: ConfigProviderProps = {
 };
 
 export default function registerConfigProvider() {
-  register('bees-config-provider', ConfigProvider, configProviderProps);
+  pregister('bees-config-provider', ConfigProvider, Object.keys(configProviderProps));
 }

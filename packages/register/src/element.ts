@@ -52,13 +52,13 @@ export function createElementType<T>(
       this._slot = {
         children: [],
       };
+      this._slot = this.getLightSlots();
       this.props = initializeProps(this as any, propDefinition);
       const props = propValues<T>(this.props as PropsDefinition<T>),
         outerElement = currentElement;
       try {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         currentElement = this;
-        this._slot = this.getLightSlots();
         const event = new CustomEvent('_preact', {
           detail: {},
           bubbles: true,
@@ -95,12 +95,12 @@ export function createElementType<T>(
     attributeChangedCallback(name: string, _oldVal: string, newVal: string) {
       if (!this.__initialized) return;
       if (this.__updating[name]) return;
-      name = this.lookupProp(name)!;
-      if (name in propDefinition) {
-        if (newVal == null && !this[name]) return;
-        this[name] = propDefinition[name as keyof T].parse ? parseAttributeValue(newVal) : newVal;
+
+      const propName = this.lookupProp(name);
+      if (propName && propDefinition[propName]) {
+        this.queueUpdateProps(); // 批量更新
+        this.__updateQueue[propName] = newVal; // 将更新放入队列中
       }
-      this.queueUpdateProps();
     }
 
     queueUpdateProps() {
@@ -112,8 +112,13 @@ export function createElementType<T>(
 
     batchUpdateProps() {
       this.__updateScheduled = false;
-      this._vdom = cloneElement(this._vdom, { ...this.props, ...this._slot });
+      this._vdom = cloneElement(this._vdom, {
+        ...this.props,
+        ...this._slot,
+        ...this.__updateQueue,
+      });
       render(this._vdom, this);
+      this.__updateQueue = {}; // 清空更新队列
     }
 
     lookupProp(attrName: string) {
@@ -138,48 +143,22 @@ export function createElementType<T>(
       };
 
       const queryNamedSlots = this.querySelectorAll('[slot]') as NodeListOf<HTMLSlotElement>;
-      const nodesToRemove: Node[] = [];
 
       for (const candidate of Array.from(queryNamedSlots)) {
         if (!this.isOwnSlot(candidate)) continue;
-        if (!candidate.slot) continue;
         slots[candidate.slot] = candidate;
-        nodesToRemove.push(candidate);
       }
 
-      // 递归处理节点及其子节点
-      const processNode = (node: Node): any => {
-        console.log('processNode', this.registeredTag, node);
-
-        if (node.nodeType === Node.TEXT_NODE) {
-          const textContent = node.textContent;
-          nodesToRemove.push(node);
-          return textContent;
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-          const tagName = (node as HTMLElement).tagName.toLowerCase();
-          const attributes = Array.from((node as HTMLElement).attributes).reduce(
-            (attrs, attr) => {
-              attrs[attr.name] = attr.value;
-              return attrs;
-            },
-            {} as Record<string, string>,
-          );
-          const children = Array.from(node.childNodes).map(processNode).filter(Boolean);
-          nodesToRemove.push(node);
-          return h(tagName, attributes, children);
-        }
-        return null;
-      };
-
-      // 将 childNodes 转换为可以渲染的虚拟 DOM 元素，并从 DOM 中移除
-      slots['children'] = Array.from(this.childNodes).map(processNode).filter(Boolean);
-
-      // 一次性移除所有需要移除的节点
-      nodesToRemove.forEach((node) => {
-        if (node.parentNode === this) {
-          this.removeChild(node);
-        }
-      });
+      // 父组件不再直接递归处理子节点，而是简单收集节点并交给子组件处理
+      slots['children'] = Array.from(this.childNodes)
+        .map((child) => {
+          if (child.nodeType === Node.ELEMENT_NODE && (child as any).processChildNodes) {
+            return (child as any).processChildNodes();
+          } else {
+            return child.nodeType === Node.TEXT_NODE ? child.textContent : null;
+          }
+        })
+        .filter(Boolean);
 
       return slots;
     }
